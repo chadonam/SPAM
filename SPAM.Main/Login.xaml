@@ -1,0 +1,10 @@
+﻿<Window x:Class="SPAM.Main.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Width="1294" Height="794" WindowStartupLocation="CenterScreen" ShowInTaskbar="True" WindowStyle="None" Loaded="Window_Loaded"  ResizeMode="NoResize" Icon="icon.ico" BorderThickness="7" BorderBrush="Navy">
+    <Canvas>
+        <Image Name="imgBack" Width="1280" Height="780" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" MouseUp="imgBack_MouseUp" MouseLeftButtonDown="imgBack_MouseLeftButtonDown" />
+        <TextBox Name="txtID" Width="170" Text="" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="866" Canvas.Top="328" KeyUp="txtID_KeyUp" />
+        <PasswordBox Name="txtPassword" Width="170" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Password="" Canvas.Top="365" Canvas.Left="866" KeyUp="txtPassword_KeyUp" />
+    </Canvas>
+</Window>
