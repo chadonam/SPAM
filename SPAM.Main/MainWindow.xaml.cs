@@ -107,6 +107,7 @@ namespace SPAM.Main
             Dictionary<string, string> menus = new Dictionary<string, string>();
             menus.Add("사용자등록", "SPAM.MainWork.ucUserAdd");
             menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
+            menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");
             //if (ClientGlobal.QCYn == "1")
