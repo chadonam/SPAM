@@ -200,6 +200,37 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region 품목 코드헬프
+        public DataSet GetItemCodeHelp(string itemNm, string itemNo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SItemCodeHelp";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@ItemNm", itemNm);
+                param[1] = new SqlParameter("@ItemNo", itemNo);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        #endregion
 
     }
 }

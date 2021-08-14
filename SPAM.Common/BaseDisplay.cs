@@ -136,7 +136,94 @@ namespace SPAM.Common
             }
         }
 
+        //검색 부분의 판넬 구성
+        public static void AdminSearchPanel(Panel pnl)
+        {
+            AdminSearchPanel(pnl, 1);
+        }
+        //검색 부분의 판넬 구성
+        public static void AdminSearchPanel(Panel pnl, int rowCnt)
+        {
+            int cnt = pnl.Controls.Count;
+            pnl.Tag = rowCnt.ToString();
 
+
+            int pnlHt = pnl.Height;
+
+            if (pnlHt > 60)
+                pnlHt = 60;
+
+            if (pnlHt < 30)
+                pnlHt = 30;
+
+            if (rowCnt > 1)
+            {
+                pnlHt = pnlHt + 20 * (rowCnt - 1);
+
+                if (pnlHt < 40)
+                    pnlHt = 40;
+            }
+
+            for (int i = 0; i < cnt; i++)
+            {
+                string getTp = pnl.Controls[i].GetType().ToString();
+
+                if (getTp.Equals("System.Windows.Forms.Label"))
+                {
+                    Label lab = (Label)pnl.Controls[i];
+                    AdminSearchLabel(lab);
+                }
+
+                int HalfHeight = pnl.Controls[i].Height;
+                HalfHeight = HalfHeight / 2;
+                int locX = pnl.Controls[i].Location.X;
+
+
+
+                if (rowCnt == 1 || getTp.Equals("System.Windows.Forms.Button"))
+                {
+                    pnl.Controls[i].Location = new System.Drawing.Point(locX, (pnlHt / 2 - HalfHeight));
+                }
+                else
+                {
+                    string tag = "1";
+                    if (pnl.Controls[i].Tag != null)
+                        tag = pnl.Controls[i].Tag.ToString();
+
+                    if (tag == "2")
+                    {
+                        double locY = (pnlHt * 3) / 4;
+                        pnl.Controls[i].Location = new System.Drawing.Point(locX, (int.Parse(locY.ToString()) - HalfHeight));
+                    }
+                    else
+                    {
+                        pnl.Controls[i].Location = new System.Drawing.Point(locX, (pnlHt / 4 - HalfHeight));
+                    }
+
+                }
+            }
+            pnl.BackColor = System.Drawing.Color.White;
+            pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnl.Dock = System.Windows.Forms.DockStyle.Top;
+            pnl.Location = new System.Drawing.Point(0, 40);
+            if (rowCnt > 1)
+            {
+                pnl.Size = new System.Drawing.Size(1000, pnlHt);
+            }
+            else
+            {
+                pnl.Size = new System.Drawing.Size(1000, pnlHt);
+            }
+        }
+
+        //검색 부분의 검색콘트롤러 레이블 디자인 구성
+        public static void AdminSearchLabel(Label lab)
+        {
+            lab.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            lab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(88)))), ((int)(((byte)(92)))));
+            lab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lab.Height = 26;
+        }
 
     }
 }
