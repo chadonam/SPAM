@@ -80,11 +80,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ucAuthAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBOMSync.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBOMSync.Designer.cs">
+      <DependentUpon>ucBOMSync.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucGroupAdd.Designer.cs">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucItemProc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucItemSync.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMachAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMatIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMatOutAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProcAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProcAdd.Designer.cs">
+      <DependentUpon>ucProcAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="ucProgramAdd.cs">
       <SubType>UserControl</SubType>
@@ -109,8 +139,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucBOMSync.resx">
+      <DependentUpon>ucBOMSync.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProcAdd.resx">
+      <DependentUpon>ucProcAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>

@@ -8,9 +8,9 @@ using System.Collections;
 
 namespace SPAM.MainWork
 {
-    public partial class ucProgramAdd : UserControl
+    public partial class ucMachAdd : UserControl
     {
-        public ucProgramAdd()
+        public ucMachAdd()
         {
             InitializeComponent();
             InitControl();
@@ -27,28 +27,69 @@ namespace SPAM.MainWork
             BaseDisplay.AdminBtn(btnDel, BaseDisplay.BtnType.Delete);
             BaseDisplay.AdminBtn(btnNew, BaseDisplay.BtnType.New);
 
-            BaseDisplay.SetLabelStyle(lblPgmIDQ, BaseDisplay.LabelType.Menu);
-            BaseDisplay.SetLabelStyle(lblPgmNameQ, BaseDisplay.LabelType.Menu);
-            BaseDisplay.SetLabelStyle(lblPgmSeq, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblPgmID, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblPgmName, BaseDisplay.LabelType.Item);
-
+            BaseDisplay.SetLabelStyle(lblMachIDQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblMachNameQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblMachSeq, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblMachID, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblMachName, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);
 
 
 
         }
 
+        #region Proc Combo 처리
+        private void SetCombo_Proc()
+        {
+
+            DataSet ds = null;
+            try
+            {
+
+
+                using (CommonService svc = new CommonService())
+                {
+                    ds = svc.GetProcCombo();
+                }
+
+                if (ds != null)
+                {
+                    Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                    cmbProc.SelectedIndex = 0;
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
+        }
+
+        #endregion
 
         #region FpSpread 설정
         private void SetFpSpread()
         {
+            ParamPack Proc = new ParamPack();
+
+            using (CommonService svc = new CommonService())
+            {
+                DataTable dt1 = svc.GetProcCombo().Tables[0];
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    Proc.Add(dt1.Rows[i]["ItemNm"].ToString(), dt1.Rows[i]["ItemCd"].ToString());
+                }
+            }
+
             ParamPack param = new ParamPack();
 
-
-            param.Add(FpSpread.SetSheetColumns("프로그램코드", "PgmSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("프로그램ID", "PgmID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("프로그램명", "PgmName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-
+            
+            param.Add(FpSpread.SetSheetColumns("설비내부코드", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("설비ID", "MachID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("설비명", "MachName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, Proc));
 
 
 
@@ -68,6 +109,7 @@ namespace SPAM.MainWork
         private void btnNew_Click(object sender, EventArgs e)
         {
             DefaultControl();
+
 
         }
         #endregion
@@ -105,16 +147,17 @@ namespace SPAM.MainWork
         #region Sheet Cell 클릭
         private void fpSpread1_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {
-            if (e.Row < 0)
+            if(e.Row < 0)
             {
                 return;
             }
             //SetSpreadRowColor(fpSpread1);
             //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
-            txtPgmSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
-            txtPgmID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtPgmName.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
-            txtPgmID.ReadOnly = true;
+            txtMachSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
+            txtMachID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
+            txtMachName.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            cmbProc.SelectedValue = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
+            txtMachID.ReadOnly = true;
         }
         #endregion
 
@@ -133,20 +176,20 @@ namespace SPAM.MainWork
 
             try
             {
-                string pgmID;
-                string pgmSeq;
-                string pgmName;
+                string MachSeq;
+                string MachID;
+                string MachName;
+                string ProcSeq;
 
-
-                pgmSeq = txtPgmSeq.Text;
-                pgmName = txtPgmName.Text;
-                pgmID = txtPgmID.Text;
-
+                MachSeq = txtMachSeq.Text;
+                MachID = txtMachID.Text;
+                MachName = txtMachName.Text;
+                ProcSeq = cmbProc.SelectedValue.ToString();
 
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetPgm(WorkingTag, pgmSeq, pgmID, pgmName);
+                    ds = svc.SetMach(WorkingTag,MachSeq,MachID,MachName,ProcSeq);
                 }
 
 
@@ -183,8 +226,8 @@ namespace SPAM.MainWork
         {
 
             DataSet ds = null;
-            string pgmId = txtPgmIDQ.Text;
-            string pgmName = txtPgmNameQ.Text;
+            string MachID = txtMachIDQ.Text;
+            string MachName = txtMachNameQ.Text;
 
             fpSpread1.Sheets[0].Rows.Count = 0;
             try
@@ -194,7 +237,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetPgm(pgmId, pgmName);
+                    ds = svc.GetMach(MachID, MachName);
                 }
 
                 if (ds != null)
@@ -221,11 +264,12 @@ namespace SPAM.MainWork
         #region 기타 메소드
         private void DefaultControl()
         {
-            txtPgmSeq.Text = "0";
-            txtPgmSeq.ReadOnly = true;
-            txtPgmID.Text = string.Empty;
-            txtPgmID.ReadOnly = false;
-            txtPgmName.Text = string.Empty;
+            txtMachSeq.Text = "0";
+            txtMachSeq.ReadOnly = true;
+            txtMachID.Text = string.Empty;
+            txtMachID.ReadOnly = false;
+            txtMachName.Text = string.Empty;
+            SetCombo_Proc();
             //SetSpreadRowColor(fpSpread1);
         }
 

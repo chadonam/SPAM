@@ -8,9 +8,9 @@ using System.Collections;
 
 namespace SPAM.MainWork
 {
-    public partial class ucProgramAdd : UserControl
+    public partial class ucMatOutAdd : UserControl
     {
-        public ucProgramAdd()
+        public ucMatOutAdd()
         {
             InitializeComponent();
             InitControl();
@@ -27,28 +27,70 @@ namespace SPAM.MainWork
             BaseDisplay.AdminBtn(btnDel, BaseDisplay.BtnType.Delete);
             BaseDisplay.AdminBtn(btnNew, BaseDisplay.BtnType.New);
 
-            BaseDisplay.SetLabelStyle(lblPgmIDQ, BaseDisplay.LabelType.Menu);
-            BaseDisplay.SetLabelStyle(lblPgmNameQ, BaseDisplay.LabelType.Menu);
-            BaseDisplay.SetLabelStyle(lblPgmSeq, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblPgmID, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblPgmName, BaseDisplay.LabelType.Item);
-
+            BaseDisplay.SetLabelStyle(lblOutDateQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblItemSeqQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblLOTIDQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblOutDate, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblOutClss, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblItemSeq, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);
 
 
 
         }
 
+        #region OutClss Combo 처리
+        private void SetCombo_OutClss()
+        {
+
+            DataSet ds = null;
+            try
+            {
+
+
+                using (CommonService svc = new CommonService())
+                {
+                    ds = svc.GetProcCombo();
+                }
+
+                if (ds != null)
+                {
+                    Utils.SetComboBox(cmbOutClss, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                    cmbOutClss.SelectedIndex = 0;
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
+        }
+
+        #endregion
 
         #region FpSpread 설정
         private void SetFpSpread()
         {
+            ParamPack Proc = new ParamPack();
+
+            using (CommonService svc = new CommonService())
+            {
+                DataTable dt1 = svc.GetProcCombo().Tables[0];
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    Proc.Add(dt1.Rows[i]["ItemNm"].ToString(), dt1.Rows[i]["ItemCd"].ToString());
+                }
+            }
+
             ParamPack param = new ParamPack();
 
-
-            param.Add(FpSpread.SetSheetColumns("프로그램코드", "PgmSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("프로그램ID", "PgmID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("프로그램명", "PgmName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-
+            
+            param.Add(FpSpread.SetSheetColumns("설비내부코드", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("설비ID", "MachID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("설비명", "MachName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, Proc));
 
 
 
@@ -68,6 +110,7 @@ namespace SPAM.MainWork
         private void btnNew_Click(object sender, EventArgs e)
         {
             DefaultControl();
+
 
         }
         #endregion
@@ -105,16 +148,17 @@ namespace SPAM.MainWork
         #region Sheet Cell 클릭
         private void fpSpread1_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {
-            if (e.Row < 0)
+            if(e.Row < 0)
             {
                 return;
             }
             //SetSpreadRowColor(fpSpread1);
             //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
-            txtPgmSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
-            txtPgmID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtPgmName.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
-            txtPgmID.ReadOnly = true;
+            txtOutDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
+            txtMachID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
+            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            cmbOutClss.SelectedValue = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
+            txtMachID.ReadOnly = true;
         }
         #endregion
 
@@ -133,20 +177,24 @@ namespace SPAM.MainWork
 
             try
             {
-                string pgmID;
-                string pgmSeq;
-                string pgmName;
+                string OutSeq;
+                string ItemSeq;
+                string LOTID;
+                string Qty;
+                string OutDate;
+                string OutClss;
 
-
-                pgmSeq = txtPgmSeq.Text;
-                pgmName = txtPgmName.Text;
-                pgmID = txtPgmID.Text;
-
+                OutSeq = txtOutDate.Text;
+                ItemSeq = txtItemSeq.Text;
+                LOTID = txtLOTID.Text;
+                Qty = txtQty.Text;
+                OutDate = txtOutDate.Text;
+                OutClss = cmbOutClss.SelectedValue.ToString();
 
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetPgm(WorkingTag, pgmSeq, pgmID, pgmName);
+                    ds = svc.SetMatOut(WorkingTag,OutSeq,ItemSeq,LOTID,Qty,OutDate,OutClss);
                 }
 
 
@@ -183,8 +231,8 @@ namespace SPAM.MainWork
         {
 
             DataSet ds = null;
-            string pgmId = txtPgmIDQ.Text;
-            string pgmName = txtPgmNameQ.Text;
+            string MachID = txtMachIDQ.Text;
+            string MachName = txtItemSeqQ.Text;
 
             fpSpread1.Sheets[0].Rows.Count = 0;
             try
@@ -194,7 +242,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetPgm(pgmId, pgmName);
+                    ds = svc.GetMach(MachID, MachName);
                 }
 
                 if (ds != null)
@@ -221,11 +269,12 @@ namespace SPAM.MainWork
         #region 기타 메소드
         private void DefaultControl()
         {
-            txtPgmSeq.Text = "0";
-            txtPgmSeq.ReadOnly = true;
-            txtPgmID.Text = string.Empty;
-            txtPgmID.ReadOnly = false;
-            txtPgmName.Text = string.Empty;
+            txtOutSeq.Text = "0";
+            txtOutSeq.ReadOnly = true;
+            txtMachID.Text = string.Empty;
+            txtMachID.ReadOnly = false;
+            txtItemSeq.Text = string.Empty;
+            SetCombo_OutClss();
             //SetSpreadRowColor(fpSpread1);
         }
 
@@ -247,5 +296,20 @@ namespace SPAM.MainWork
 
         #endregion
 
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                string bar = txtBarcode.Text;
+                //String[] barcode = bar.Split(@"$");
+                //search2()
+            }
+        }
+
+        //private void search2()
+        //{
+        // string itemName = ds.table[0][0]
+        // txtitemName = itemNAme
+        //}
     }
 }

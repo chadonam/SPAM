@@ -104,7 +104,7 @@ namespace SPAM.Common
                     break;
                 case LabelType.Menu:
                     lbl.AutoSize = false;
-                    lbl.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
+                    lbl.Font = new System.Drawing.Font("맑은 고딕", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
                     lbl.TextAlign = System.Drawing.ContentAlignment.TopLeft;
                     lbl.Height = 35;
 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.txtPgmNameQ = new System.Windows.Forms.TextBox();
+            this.lblPgmNameQ = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtPgmIDQ = new System.Windows.Forms.TextBox();
             this.lblPgmIDQ = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.groupbox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.txtPgmNameQ = new System.Windows.Forms.TextBox();
-            this.lblPgmNameQ = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupbox2.SuspendLayout();
@@ -68,6 +68,27 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(2000, 74);
             this.pnlHeader.TabIndex = 12;
+            // 
+            // txtPgmNameQ
+            // 
+            this.txtPgmNameQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPgmNameQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPgmNameQ.Location = new System.Drawing.Point(629, 20);
+            this.txtPgmNameQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPgmNameQ.Name = "txtPgmNameQ";
+            this.txtPgmNameQ.Size = new System.Drawing.Size(239, 35);
+            this.txtPgmNameQ.TabIndex = 13;
+            this.txtPgmNameQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblPgmNameQ
+            // 
+            this.lblPgmNameQ.AutoSize = true;
+            this.lblPgmNameQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblPgmNameQ.Location = new System.Drawing.Point(455, 20);
+            this.lblPgmNameQ.Name = "lblPgmNameQ";
+            this.lblPgmNameQ.Size = new System.Drawing.Size(135, 32);
+            this.lblPgmNameQ.TabIndex = 12;
+            this.lblPgmNameQ.Text = "프로그램명";
             // 
             // btnSearch
             // 
@@ -91,7 +112,7 @@
             this.txtPgmIDQ.Location = new System.Drawing.Point(188, 19);
             this.txtPgmIDQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPgmIDQ.Name = "txtPgmIDQ";
-            this.txtPgmIDQ.Size = new System.Drawing.Size(239, 42);
+            this.txtPgmIDQ.Size = new System.Drawing.Size(239, 35);
             this.txtPgmIDQ.TabIndex = 2;
             this.txtPgmIDQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -101,7 +122,7 @@
             this.lblPgmIDQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblPgmIDQ.Location = new System.Drawing.Point(26, 20);
             this.lblPgmIDQ.Name = "lblPgmIDQ";
-            this.lblPgmIDQ.Size = new System.Drawing.Size(168, 41);
+            this.lblPgmIDQ.Size = new System.Drawing.Size(134, 32);
             this.lblPgmIDQ.TabIndex = 0;
             this.lblPgmIDQ.Text = "프로그램ID";
             // 
@@ -132,8 +153,7 @@
             this.txtPgmName.Location = new System.Drawing.Point(192, 190);
             this.txtPgmName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPgmName.Name = "txtPgmName";
-            this.txtPgmName.PasswordChar = '*';
-            this.txtPgmName.Size = new System.Drawing.Size(394, 42);
+            this.txtPgmName.Size = new System.Drawing.Size(394, 35);
             this.txtPgmName.TabIndex = 16;
             this.txtPgmName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -144,7 +164,7 @@
             this.txtPgmID.Location = new System.Drawing.Point(192, 126);
             this.txtPgmID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPgmID.Name = "txtPgmID";
-            this.txtPgmID.Size = new System.Drawing.Size(394, 42);
+            this.txtPgmID.Size = new System.Drawing.Size(394, 35);
             this.txtPgmID.TabIndex = 14;
             this.txtPgmID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -155,7 +175,7 @@
             this.txtPgmSeq.Location = new System.Drawing.Point(192, 61);
             this.txtPgmSeq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPgmSeq.Name = "txtPgmSeq";
-            this.txtPgmSeq.Size = new System.Drawing.Size(394, 42);
+            this.txtPgmSeq.Size = new System.Drawing.Size(394, 35);
             this.txtPgmSeq.TabIndex = 13;
             this.txtPgmSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -269,27 +289,6 @@
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
-            // 
-            // txtPgmNameQ
-            // 
-            this.txtPgmNameQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPgmNameQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPgmNameQ.Location = new System.Drawing.Point(629, 20);
-            this.txtPgmNameQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPgmNameQ.Name = "txtPgmNameQ";
-            this.txtPgmNameQ.Size = new System.Drawing.Size(239, 42);
-            this.txtPgmNameQ.TabIndex = 13;
-            this.txtPgmNameQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblPgmNameQ
-            // 
-            this.lblPgmNameQ.AutoSize = true;
-            this.lblPgmNameQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblPgmNameQ.Location = new System.Drawing.Point(455, 20);
-            this.lblPgmNameQ.Name = "lblPgmNameQ";
-            this.lblPgmNameQ.Size = new System.Drawing.Size(168, 41);
-            this.lblPgmNameQ.TabIndex = 12;
-            this.lblPgmNameQ.Text = "프로그램명";
             // 
             // ucProgramAdd
             // 

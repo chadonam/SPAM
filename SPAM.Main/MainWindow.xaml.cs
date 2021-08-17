@@ -108,6 +108,12 @@ namespace SPAM.Main
             menus.Add("사용자등록", "SPAM.MainWork.ucUserAdd");
             menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
             menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
+            menus.Add("권한등록", "SPAM.MainWork.ucAuthAdd");
+            menus.Add("품목마스터 연동", "SPAM.MainWork.ucItemSync");
+            menus.Add("품목별 공정순서", "SPAM.MainWork.ucItemProc");
+            menus.Add("공정등록", "SPAM.MainWork.ucProcAdd");
+            menus.Add("BOM연동", "SPAM.MainWork.ucBOMSync");
+            menus.Add("설비등록", "SPAM.MainWork.ucMachAdd");
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");
             //if (ClientGlobal.QCYn == "1")
