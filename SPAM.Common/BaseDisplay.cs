@@ -48,6 +48,39 @@ namespace SPAM.Common
 
         }
 
+        public static void AdminTxt(TextBox txt, TxtType txtTp)
+        {
+            if (txtTp == TxtType.Nomal)
+            {
+                
+                txt.BackColor = Color.LightPink;
+                txt.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            }
+            else if (txtTp == TxtType.Dis)
+            {
+                //txt.BackColor = Color.LightPink;
+                txt.ReadOnly = true;
+            }
+            else if (txtTp == TxtType.CodeHelp)
+            {
+                txt.BackColor = Color.Turquoise;
+                
+            }
+
+        }
+
+
+        /// <summary>
+        /// txtbox의 타입 enum
+        /// </summary>
+        public enum TxtType
+        {
+            Nomal = 0,
+            Dis = 1,
+            CodeHelp = 2
+        }
+
         /// <summary>
         /// 버튼의 타입 enum
         /// </summary>

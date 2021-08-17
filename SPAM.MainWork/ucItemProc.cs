@@ -29,6 +29,8 @@ namespace SPAM.MainWork
 
             BaseDisplay.SetLabelStyle(lblItemProcNoQ, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.AdminTxt(txtItemNoQ, BaseDisplay.TxtType.CodeHelp);
+
         }
 
         #region FpSpread 설정
