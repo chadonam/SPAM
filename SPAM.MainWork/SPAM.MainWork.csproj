@@ -83,6 +83,9 @@
     <Compile Include="ucAuthAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ucAuthAdd.Designer.cs">
+      <DependentUpon>ucAuthAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucBOMSync.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,17 +101,32 @@
     <Compile Include="ucItemProc.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ucItemProc.Designer.cs">
+      <DependentUpon>ucItemProc.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucItemSync.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucItemSync.Designer.cs">
+      <DependentUpon>ucItemSync.cs</DependentUpon>
     </Compile>
     <Compile Include="ucMachAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ucMachAdd.Designer.cs">
+      <DependentUpon>ucMachAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucMatIn.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ucMatIn.Designer.cs">
+      <DependentUpon>ucMatIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucMatOutAdd.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMatOutAdd.Designer.cs">
+      <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="ucProcAdd.cs">
       <SubType>UserControl</SubType>
@@ -139,11 +157,29 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucAuthAdd.resx">
+      <DependentUpon>ucAuthAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucBOMSync.resx">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucItemProc.resx">
+      <DependentUpon>ucItemProc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucItemSync.resx">
+      <DependentUpon>ucItemSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMachAdd.resx">
+      <DependentUpon>ucMachAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMatIn.resx">
+      <DependentUpon>ucMatIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMatOutAdd.resx">
+      <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>

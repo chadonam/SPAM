@@ -575,6 +575,157 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region ItemProc 조회        
+        public DataSet GetItemProc(string itemNo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SItemProcQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@ItemNo", itemNo);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Item 조회        
+        public DataSet GetItem(string itemNo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SItemQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@ItemNo", itemNo);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Item 연동        
+        public DataSet GetItemLink()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SItemSync";
+
+
+                dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
+        #region Mach 조회        
+        public DataSet GetMach(string MachID, string MachName)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMachQry";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@MachID", MachID);
+                param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Mach 저장     
+        public DataSet SetMach(string workingTag, string MachSeq, string MachID, string MachName, string ProcSeq)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMachSave";
+
+                param = new SqlParameter[5];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@MachSeq", MachSeq);
+                param[2] = new SqlParameter("@MachID", MachID);
+                param[3] = new SqlParameter("@MachName", MachName);
+                param[4] = new SqlParameter("@ProcSeq", ProcSeq);
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
 
     }
 }

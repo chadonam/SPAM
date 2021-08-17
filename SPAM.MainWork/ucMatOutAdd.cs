@@ -231,7 +231,7 @@ namespace SPAM.MainWork
         {
 
             DataSet ds = null;
-            string MachID = txtMachIDQ.Text;
+            //string MachID = txtMachIDQ.Text;
             string MachName = txtItemSeqQ.Text;
 
             fpSpread1.Sheets[0].Rows.Count = 0;
@@ -242,7 +242,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetMach(MachID, MachName);
+                   // ds = svc.GetMach(MachID, MachName);
                 }
 
                 if (ds != null)
