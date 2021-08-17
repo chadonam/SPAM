@@ -38,6 +38,7 @@ namespace SPAM.MainWork
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEtc = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtItemSeqQ = new System.Windows.Forms.TextBox();
             this.groupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
@@ -49,10 +50,9 @@ namespace SPAM.MainWork
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(1848, 22);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(1617, 18);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 44);
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
             this.btnSearch.TabIndex = 27;
             this.btnSearch.Text = "조회";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -62,18 +62,18 @@ namespace SPAM.MainWork
             // 
             this.txtItemNoQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemNoQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemNoQ.Location = new System.Drawing.Point(186, 25);
-            this.txtItemNoQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtItemNoQ.Location = new System.Drawing.Point(163, 20);
             this.txtItemNoQ.Name = "txtItemNoQ";
-            this.txtItemNoQ.Size = new System.Drawing.Size(239, 35);
+            this.txtItemNoQ.Size = new System.Drawing.Size(295, 35);
             this.txtItemNoQ.TabIndex = 25;
             this.txtItemNoQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItemNoQ.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemNoQ_KeyDown);
             // 
             // lblItemProcNoQ
             // 
             this.lblItemProcNoQ.AutoSize = true;
             this.lblItemProcNoQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblItemProcNoQ.Location = new System.Drawing.Point(24, 26);
+            this.lblItemProcNoQ.Location = new System.Drawing.Point(21, 21);
             this.lblItemProcNoQ.Name = "lblItemProcNoQ";
             this.lblItemProcNoQ.Size = new System.Drawing.Size(111, 32);
             this.lblItemProcNoQ.TabIndex = 24;
@@ -82,11 +82,9 @@ namespace SPAM.MainWork
             // groupbox2
             // 
             this.groupbox2.Controls.Add(this.fpSpread1);
-            this.groupbox2.Location = new System.Drawing.Point(22, 103);
-            this.groupbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupbox2.Location = new System.Drawing.Point(19, 82);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupbox2.Size = new System.Drawing.Size(1957, 641);
+            this.groupbox2.Size = new System.Drawing.Size(1712, 513);
             this.groupbox2.TabIndex = 26;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "품목정보";
@@ -96,12 +94,11 @@ namespace SPAM.MainWork
             this.fpSpread1.AccessibleDescription = "";
             this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpSpread1.Location = new System.Drawing.Point(3, 22);
-            this.fpSpread1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fpSpread1.Location = new System.Drawing.Point(3, 17);
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1951, 615);
+            this.fpSpread1.Size = new System.Drawing.Size(1706, 493);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             // 
@@ -115,10 +112,9 @@ namespace SPAM.MainWork
             this.btnDel.BackColor = System.Drawing.Color.LightPink;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDel.Location = new System.Drawing.Point(1848, 776);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDel.Location = new System.Drawing.Point(1617, 621);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(114, 44);
+            this.btnDel.Size = new System.Drawing.Size(100, 35);
             this.btnDel.TabIndex = 29;
             this.btnDel.Text = "삭제";
             this.btnDel.UseVisualStyleBackColor = false;
@@ -129,10 +125,9 @@ namespace SPAM.MainWork
             this.btnEtc.BackColor = System.Drawing.Color.LightPink;
             this.btnEtc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEtc.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnEtc.Location = new System.Drawing.Point(1584, 776);
-            this.btnEtc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEtc.Location = new System.Drawing.Point(1386, 621);
             this.btnEtc.Name = "btnEtc";
-            this.btnEtc.Size = new System.Drawing.Size(114, 44);
+            this.btnEtc.Size = new System.Drawing.Size(100, 35);
             this.btnEtc.TabIndex = 28;
             this.btnEtc.Text = "행추가";
             this.btnEtc.UseVisualStyleBackColor = false;
@@ -143,19 +138,30 @@ namespace SPAM.MainWork
             this.btnSave.BackColor = System.Drawing.Color.LightPink;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSave.Location = new System.Drawing.Point(1718, 775);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Location = new System.Drawing.Point(1503, 620);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(114, 44);
+            this.btnSave.Size = new System.Drawing.Size(100, 35);
             this.btnSave.TabIndex = 30;
             this.btnSave.Text = "추가";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtItemSeqQ
+            // 
+            this.txtItemSeqQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemSeqQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtItemSeqQ.Location = new System.Drawing.Point(464, 20);
+            this.txtItemSeqQ.Name = "txtItemSeqQ";
+            this.txtItemSeqQ.ReadOnly = true;
+            this.txtItemSeqQ.Size = new System.Drawing.Size(109, 35);
+            this.txtItemSeqQ.TabIndex = 31;
+            this.txtItemSeqQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // ucItemProc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtItemSeqQ);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEtc);
@@ -163,8 +169,9 @@ namespace SPAM.MainWork
             this.Controls.Add(this.txtItemNoQ);
             this.Controls.Add(this.lblItemProcNoQ);
             this.Controls.Add(this.groupbox2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucItemProc";
-            this.Size = new System.Drawing.Size(2000, 875);
+            this.Size = new System.Drawing.Size(1750, 700);
             this.groupbox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
@@ -184,5 +191,6 @@ namespace SPAM.MainWork
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnEtc;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtItemSeqQ;
     }
 }

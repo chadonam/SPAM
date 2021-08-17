@@ -145,6 +145,25 @@ namespace SPAM.MainWork
             
         }
 
+        private void ItemNameSearch()
+        {
+            SPAM.CommonUI.Popup.frmItemCdQry frm = new CommonUI.Popup.frmItemCdQry(txtItemNoQ.Text);
+            frm.StartPosition = FormStartPosition.CenterScreen;
 
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                txtItemNoQ.Text = frm.ItemNo;
+                txtItemSeqQ.Text = frm.ItemSeq;
+            }
+
+        }
+
+        private void txtItemNoQ_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ItemNameSearch();
+            }
+        }
     }
 }

@@ -16,6 +16,11 @@ namespace SPAM.CommonUI.Popup
     {
 
         #region 생성자
+        #region  전역변수
+        public string ItemSeq = string.Empty;
+        public string ItemNo = string.Empty;
+
+        #endregion
 
 
 
@@ -24,30 +29,18 @@ namespace SPAM.CommonUI.Popup
             InitializeComponent();
         }
 
-        public frmItemCdQry(string[] arrParams)
+        public frmItemCdQry(string itemNo)
         {
             InitializeComponent();
 
-            if (arrParams.Length > 0)
+            if (itemNo.Length > 0)
             {
-                txtItemNo.Text = arrParams[0].ToString();
+                txtItemNo.Text = itemNo;
             }
         }
 
 
         #endregion
-
-        #region 멤버변수
-
-
-
-        private string[] m_returnCode = {string.Empty, string.Empty, string.Empty }; //품목정보
-
-        private enum m_index { itemSeq, ItemNo, itemName }; //품목정보
-
-        #endregion //멤버변수
-
-
 
         private void frmItemCdQry_Load(object sender, EventArgs e)
         {
@@ -147,10 +140,10 @@ namespace SPAM.CommonUI.Popup
                 int celItemNo = FpSpread.GetSheetColumnByTag(this.fpSpread1.Sheets[0], "ItemNo");
                 int celItemNm = FpSpread.GetSheetColumnByTag(this.fpSpread1.Sheets[0], "ItemNm");
 
-                string itemSeq = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemSeq).Value.ToString();
-                string itemNo = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemNo).Value.ToString();
-                string itemNm = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemNm).Value.ToString();
-                SetReturn(itemSeq,itemNo, itemNm);
+                ItemSeq = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemSeq).Value.ToString();
+                ItemNo = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemNo).Value.ToString();
+                this.DialogResult = DialogResult.Yes;
+
             }
         }
         //키다운 이벤트 엔터키 처리
@@ -161,20 +154,6 @@ namespace SPAM.CommonUI.Popup
                 if (fpSpread1.ActiveSheet.ActiveRow == null)
                 {
                     Search();
-                }
-                else
-                {
-                    int rowIndex = fpSpread1.ActiveSheet.ActiveRowIndex;
-
-                    int celItemSeq = FpSpread.GetSheetColumnByTag(this.fpSpread1.Sheets[0], "ItemSeq");
-                    int celItemNo = FpSpread.GetSheetColumnByTag(this.fpSpread1.Sheets[0], "ItemNo");
-                    int celItemNm = FpSpread.GetSheetColumnByTag(this.fpSpread1.Sheets[0], "ItemNm");
-
-                    string itemSeq = this.fpSpread1.Sheets[0].Cells.Get(rowIndex, celItemSeq).Value.ToString();
-                    string itemNo = this.fpSpread1.Sheets[0].Cells.Get(rowIndex, celItemNo).Value.ToString();
-                    string itemNm = this.fpSpread1.Sheets[0].Cells.Get(rowIndex, celItemNm).Value.ToString();
-
-                    SetReturn(itemSeq,itemNo, itemNm);
                 }
             }
         }
@@ -195,16 +174,12 @@ namespace SPAM.CommonUI.Popup
         #endregion
 
         #region DataBind 메소드
-
-
-
         #region 조회
         /// <summary>
         /// 조회
         /// </summary>
         private void Search()
         {
-            string shItemNm = this.txtItemNm.Text.Trim();
             string shItemNo = this.txtItemNo.Text.Trim();
 
             //if (shItemNm.Equals(string.Empty) && shItemNo.Equals(string.Empty))
@@ -220,7 +195,7 @@ namespace SPAM.CommonUI.Popup
             {
                 using (CommonService svc = new CommonService())
                 {
-                   ds = svc.GetItemCodeHelp(shItemNm, shItemNo);
+                   ds = svc.GetItemCodeHelp("", shItemNo);
                 }
 
                 if (ds.Tables[0].Rows.Count < 1)
@@ -247,39 +222,6 @@ namespace SPAM.CommonUI.Popup
 
         #endregion
 
-        #region 사용자 정의 메소드
-
-
-
-        /// <summary>
-		/// 팝업
-		/// </summary>
-		/// <returns>object</returns>
-		public object ShowDlg()
-        {
-            DialogResult dlgResult = this.ShowDialog();
-
-            if (dlgResult == DialogResult.OK)
-            {
-                // retVal이 object형 이므로 어떠한 형태로든 return이 가능하다.
-                return m_returnCode;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        /// <summary>
-		/// 조회된 결과 반환
-		/// </summary>
-		private void SetReturn(string itemSeq, string itemNo, string itemNm)
-        {
-            m_returnCode[0] = itemSeq;
-            m_returnCode[1] = itemNo;
-            m_returnCode[2] = itemNm;
-            this.DialogResult = DialogResult.OK;
-        }
-
-        #endregion
+        
     }
 }
