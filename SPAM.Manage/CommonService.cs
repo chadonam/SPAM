@@ -727,5 +727,42 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region ItemProc 저장     
+        public DataSet SetItemProc(string workingTag, string itemSeq, string procSeq, string seq, string preSeq, string isLast)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SItemProcSave";
+
+                param = new SqlParameter[6];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@ItemSeq", itemSeq);
+                param[2] = new SqlParameter("@ProcSeq", procSeq);
+                param[3] = new SqlParameter("@Seq", seq);
+                param[4] = new SqlParameter("@PreSeq", preSeq);
+                param[5] = new SqlParameter("@IsLast", isLast);
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
     }
 }
