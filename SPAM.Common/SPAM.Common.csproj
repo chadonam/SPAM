@@ -112,6 +112,12 @@
     <Compile Include="Controls\ucProgressBar.Designer.cs">
       <DependentUpon>ucProgressBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\WorkHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WorkHeader.Designer.cs">
+      <DependentUpon>WorkHeader.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataTableUtil.cs" />
     <Compile Include="EncryptUtil.cs" />
     <Compile Include="FpSpread.cs" />
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucProgressBar.resx">
       <DependentUpon>ucProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WorkHeader.resx">
+      <DependentUpon>WorkHeader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

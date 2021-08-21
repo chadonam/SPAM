@@ -140,6 +140,12 @@
     <Compile Include="ucProgramAdd.Designer.cs">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucScriber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucScriber.Designer.cs">
+      <DependentUpon>ucScriber.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUserAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucScriber.resx">
+      <DependentUpon>ucScriber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUserAdd.resx">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
