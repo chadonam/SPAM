@@ -64,7 +64,7 @@ namespace SPAM.Common
             }
             else if (txtTp == TxtType.CodeHelp)
             {
-                txt.BackColor = Color.Pink;
+                txt.BackColor = Color.Turquoise;
                 
             }
 
