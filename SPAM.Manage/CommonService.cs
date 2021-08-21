@@ -424,6 +424,77 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region MatIn 조회        
+        public DataSet GetMatIn (string ItemNo, string LOTID, string From, string To)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMatInQry";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@ItemNo", ItemNo);
+                param[1] = new SqlParameter("@LOTID", LOTID);
+                param[2] = new SqlParameter("@From", From);
+                param[3] = new SqlParameter("@To", To);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        //WorkingTag, MatinNum, MatinName, MatinNameNum, Date, LOTid, MatinAmount
+
+        #region MatIn 저장   
+        public DataSet SetMatIn(string workingTag, string InSeq, string ItemSeq, string LOTID, string InDate, string Qty)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMatinSave";
+
+                param = new SqlParameter[6];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@InSeq", InSeq);
+                param[2] = new SqlParameter("@ItemSeq", ItemSeq);
+                param[3] = new SqlParameter("@LOTID", LOTID);
+                param[4] = new SqlParameter("@InDate", InDate);
+                param[5] = new SqlParameter("@Qty", Qty);
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
         #region MatOut 저장     
         public DataSet SetMatOut(string workingTag, string OutSeq, string ItemSeq, string LOTID, string Qty, string OutDate, string OutClss)
         {
