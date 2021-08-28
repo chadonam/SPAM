@@ -19,6 +19,7 @@ namespace SPAM.CommonUI.Popup
         #region  전역변수
         public string ItemSeq = string.Empty;
         public string ItemNo = string.Empty;
+        public string ItemName = string.Empty;
 
         #endregion
 
@@ -142,6 +143,7 @@ namespace SPAM.CommonUI.Popup
 
                 ItemSeq = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemSeq).Value.ToString();
                 ItemNo = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemNo).Value.ToString();
+                ItemName = this.fpSpread1.Sheets[0].Cells.Get(rowNum, celItemNm).Value.ToString();
                 this.DialogResult = DialogResult.Yes;
 
             }
