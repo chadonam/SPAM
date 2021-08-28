@@ -48,17 +48,17 @@ namespace SPAM.MainWork
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPlanSeq = new System.Windows.Forms.TextBox();
             this.txtItemSeq = new System.Windows.Forms.TextBox();
-            this.txtStartD = new System.Windows.Forms.TextBox();
             this.lblStartD = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuan = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEndD = new System.Windows.Forms.TextBox();
             this.lblEndD = new System.Windows.Forms.Label();
             this.txtProcSeq = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPlanSeq = new System.Windows.Forms.Label();
+            this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
@@ -142,8 +142,8 @@ namespace SPAM.MainWork
             this.date.Size = new System.Drawing.Size(240, 25);
             this.date.StartMonthDistinction = 0;
             this.date.TabIndex = 14;
-            this.date.ValueEndDate = "20210827";
-            this.date.ValueStartDate = "20210827";
+            this.date.ValueEndDate = "20210828";
+            this.date.ValueStartDate = "20210828";
             // 
             // lblDateQ
             // 
@@ -250,15 +250,15 @@ namespace SPAM.MainWork
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtp_EndDate);
+            this.groupBox1.Controls.Add(this.dtp_StartDate);
             this.groupBox1.Controls.Add(this.txtPlanSeq);
             this.groupBox1.Controls.Add(this.txtItemSeq);
-            this.groupBox1.Controls.Add(this.txtStartD);
             this.groupBox1.Controls.Add(this.lblStartD);
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtQuan);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtEndD);
             this.groupBox1.Controls.Add(this.lblEndD);
             this.groupBox1.Controls.Add(this.txtProcSeq);
             this.groupBox1.Controls.Add(this.label2);
@@ -296,16 +296,6 @@ namespace SPAM.MainWork
             this.txtItemSeq.Size = new System.Drawing.Size(104, 35);
             this.txtItemSeq.TabIndex = 27;
             this.txtItemSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtStartD
-            // 
-            this.txtStartD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStartD.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtStartD.Location = new System.Drawing.Point(168, 248);
-            this.txtStartD.Name = "txtStartD";
-            this.txtStartD.Size = new System.Drawing.Size(345, 35);
-            this.txtStartD.TabIndex = 26;
-            this.txtStartD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblStartD
             // 
@@ -363,16 +353,6 @@ namespace SPAM.MainWork
             this.label4.Text = "수량";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtEndD
-            // 
-            this.txtEndD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEndD.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtEndD.Location = new System.Drawing.Point(168, 288);
-            this.txtEndD.Name = "txtEndD";
-            this.txtEndD.Size = new System.Drawing.Size(345, 35);
-            this.txtEndD.TabIndex = 20;
-            this.txtEndD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // lblEndD
             // 
             this.lblEndD.BackColor = System.Drawing.Color.MidnightBlue;
@@ -419,6 +399,22 @@ namespace SPAM.MainWork
             this.lblPlanSeq.Text = "계획내부코드";
             this.lblPlanSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dtp_StartDate
+            // 
+            this.dtp_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_StartDate.Location = new System.Drawing.Point(168, 256);
+            this.dtp_StartDate.Name = "dtp_StartDate";
+            this.dtp_StartDate.Size = new System.Drawing.Size(344, 21);
+            this.dtp_StartDate.TabIndex = 29;
+            // 
+            // dtp_EndDate
+            // 
+            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_EndDate.Location = new System.Drawing.Point(168, 296);
+            this.dtp_EndDate.Name = "dtp_EndDate";
+            this.dtp_EndDate.Size = new System.Drawing.Size(344, 21);
+            this.dtp_EndDate.TabIndex = 30;
+            // 
             // ucMonthlyPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -461,15 +457,15 @@ namespace SPAM.MainWork
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtQuan;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEndD;
         private System.Windows.Forms.Label lblEndD;
         private System.Windows.Forms.TextBox txtProcSeq;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblPlanSeq;
         private Common.Controls.CalendarDouble date;
-        private System.Windows.Forms.TextBox txtStartD;
         private System.Windows.Forms.Label lblStartD;
         private System.Windows.Forms.TextBox txtItemSeq;
         private System.Windows.Forms.TextBox txtPlanSeq;
+        private System.Windows.Forms.DateTimePicker dtp_EndDate;
+        private System.Windows.Forms.DateTimePicker dtp_StartDate;
     }
 }
