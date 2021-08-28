@@ -86,7 +86,28 @@ namespace SPAM.MainWork
         }
         private void Sync()
         {
-            
+            DataSet ds = null;
+            fpSpread1.Sheets[0].Rows.Count = 0;
+            try
+            {
+                using (CommonService svc = new CommonService())
+                {
+                    ds = svc.GetSync();
+                }
+
+                if (ds != null)
+                {
+                    //fpSpread1.Sheets[0].DataSource = ds;
+                    //FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
+                    Search();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {

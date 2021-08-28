@@ -30,13 +30,13 @@ namespace SPAM.MainWork
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.btnSync = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtBomQ = new System.Windows.Forms.TextBox();
             this.lblBomNameQ = new System.Windows.Forms.Label();
             this.groupbox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.btnSync = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.groupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
@@ -52,10 +52,23 @@ namespace SPAM.MainWork
             this.pnlHeader.Controls.Add(this.lblBomNameQ);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(2000, 74);
+            this.pnlHeader.Size = new System.Drawing.Size(1750, 60);
             this.pnlHeader.TabIndex = 14;
+            // 
+            // btnSync
+            // 
+            this.btnSync.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSync.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSync.ForeColor = System.Drawing.Color.Black;
+            this.btnSync.Location = new System.Drawing.Point(1498, 13);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(100, 35);
+            this.btnSync.TabIndex = 12;
+            this.btnSync.Text = "연동";
+            this.btnSync.UseVisualStyleBackColor = false;
+            this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
             // 
             // btnSearch
             // 
@@ -63,10 +76,9 @@ namespace SPAM.MainWork
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(1850, 16);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(1619, 13);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 44);
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "조회";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -76,10 +88,9 @@ namespace SPAM.MainWork
             // 
             this.txtBomQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBomQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtBomQ.Location = new System.Drawing.Point(159, 16);
-            this.txtBomQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBomQ.Location = new System.Drawing.Point(139, 13);
             this.txtBomQ.Name = "txtBomQ";
-            this.txtBomQ.Size = new System.Drawing.Size(239, 35);
+            this.txtBomQ.Size = new System.Drawing.Size(209, 35);
             this.txtBomQ.TabIndex = 2;
             this.txtBomQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -87,7 +98,7 @@ namespace SPAM.MainWork
             // 
             this.lblBomNameQ.AutoSize = true;
             this.lblBomNameQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblBomNameQ.Location = new System.Drawing.Point(26, 20);
+            this.lblBomNameQ.Location = new System.Drawing.Point(23, 16);
             this.lblBomNameQ.Name = "lblBomNameQ";
             this.lblBomNameQ.Size = new System.Drawing.Size(87, 32);
             this.lblBomNameQ.TabIndex = 0;
@@ -97,11 +108,9 @@ namespace SPAM.MainWork
             // groupbox2
             // 
             this.groupbox2.Controls.Add(this.fpSpread1);
-            this.groupbox2.Location = new System.Drawing.Point(25, 81);
-            this.groupbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupbox2.Location = new System.Drawing.Point(22, 65);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupbox2.Size = new System.Drawing.Size(1314, 750);
+            this.groupbox2.Size = new System.Drawing.Size(1698, 623);
             this.groupbox2.TabIndex = 18;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "제품정보";
@@ -111,12 +120,11 @@ namespace SPAM.MainWork
             this.fpSpread1.AccessibleDescription = "";
             this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpSpread1.Location = new System.Drawing.Point(3, 22);
-            this.fpSpread1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fpSpread1.Location = new System.Drawing.Point(3, 17);
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1308, 724);
+            this.fpSpread1.Size = new System.Drawing.Size(1692, 603);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             // 
@@ -124,34 +132,16 @@ namespace SPAM.MainWork
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
-            // Formulas and custom names must be loaded with R1C1 reference style
-            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
-            this.fpSpread1_Sheet1.ColumnFooterSheetCornerStyle.NoteIndicatorColor = System.Drawing.Color.Red;
-            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
-            // 
-            // btnSync
-            // 
-            this.btnSync.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSync.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSync.ForeColor = System.Drawing.Color.Black;
-            this.btnSync.Location = new System.Drawing.Point(1712, 16);
-            this.btnSync.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(114, 44);
-            this.btnSync.TabIndex = 12;
-            this.btnSync.Text = "연동";
-            this.btnSync.UseVisualStyleBackColor = false;
-            this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
             // 
             // ucBOMSync
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupbox2);
             this.Controls.Add(this.pnlHeader);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucBOMSync";
-            this.Size = new System.Drawing.Size(2000, 875);
+            this.Size = new System.Drawing.Size(1750, 700);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.groupbox2.ResumeLayout(false);
