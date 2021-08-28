@@ -59,12 +59,11 @@ namespace SPAM.MainWork
 
             param.Add(FpSpread.SetSheetColumns("번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null)); 
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("제품내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
-            param.Add(FpSpread.SetSheetColumns("시작일자", "StartDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("종료일자", "EndDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("시작일자", "StartDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("종료일자", "EndDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정순서", "ProcList", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("비고", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
@@ -77,6 +76,8 @@ namespace SPAM.MainWork
 
         }
         #endregion
+
+ 
 
         #region 조회
         private void Search()
@@ -151,6 +152,11 @@ namespace SPAM.MainWork
         }
         #endregion
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
         #region 신규
         private void DefaultControl()
         {
@@ -163,16 +169,20 @@ namespace SPAM.MainWork
             txtProcSeq.Text = string.Empty;
             txtProcSeq.ReadOnly = true;
 
-            dtp_StartDate.Text = string.Empty;
-            dtp_EndDate.Text = string.Empty;
+            txtStartD.Text = string.Empty;
+            txtEndD.Text = string.Empty;
             txtQuan.Text = string.Empty;
             txtNote.Text = string.Empty;
 
             //SetSpreadRowColor(fpSpread1);
         }
-        #endregion      
+        #endregion
 
-        #region KeyDown이벤트
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            DefaultControl();
+        }
+
         private void txtItemNo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -181,9 +191,6 @@ namespace SPAM.MainWork
                 Search2(txtItemSeq.Text);
             }
         }
-        #endregion
-
-        #region ItemNameSearch
         private void ItemNameSearch()
         {
             SPAM.CommonUI.Popup.frmItemCdQry frm = new CommonUI.Popup.frmItemCdQry("");
@@ -196,7 +203,6 @@ namespace SPAM.MainWork
             }
 
         }
-        #endregion
 
         #region 저장
         private void Save(string WorkingTag)
@@ -220,8 +226,8 @@ namespace SPAM.MainWork
                 planSeq = txtPlanSeq.Text;
                 planNo = txtPlanID.Text;
                 itemSeq = txtItemSeq.Text;
-                startDate = dtp_StartDate.Text.Trim().Replace("-",string.Empty);
-                endDate = dtp_EndDate.Text.Trim().Replace("-", string.Empty);
+                startDate = txtStartD.Text;
+                endDate = txtEndD.Text;
                 procSeq = txtProcSeq.Text;
                 remark = txtNote.Text;
                 qty = txtQuan.Text;
@@ -257,46 +263,6 @@ namespace SPAM.MainWork
             }
 
         }
-        #endregion        
-
-        #region fpSpread 클릭
-        private void fpSpread1_CellClick_1(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
-        {
-            if (e.Row < 0)
-            {
-                return;
-            }
-            //SetSpreadRowColor(fpSpread1);
-            //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
- 
-
-            txtPlanSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
-            txtPlanID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
-            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
-            txtQuan.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
-            dtp_StartDate.Text= fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
-            dtp_EndDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 6].Value.ToString();
-            txtProcSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
-            txtNote.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();
-
-            txtPlanSeq.ReadOnly = true;
-            txtProcSeq.ReadOnly = true;
-        }
-        #endregion
-
-        #region 조회 클릭
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            Search();
-        }
-        #endregion
-
-        #region 신규 클릭
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            DefaultControl();
-        }
         #endregion
 
         #region 저장버튼 클릭
@@ -322,5 +288,25 @@ namespace SPAM.MainWork
         #endregion
 
 
+        private void fpSpread1_CellClick_1(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
+        {
+            if (e.Row < 0)
+            {
+                return;
+            }
+            //SetSpreadRowColor(fpSpread1);
+            //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
+            txtPlanSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
+            txtPlanID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
+            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            txtQuan.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
+            txtStartD.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
+            txtEndD.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
+            txtProcSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 6].Value.ToString();
+            txtNote.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
+
+            txtPlanSeq.ReadOnly = true;
+            txtProcSeq.ReadOnly = true;
+        }
     }
 }
