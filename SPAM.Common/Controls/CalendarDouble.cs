@@ -120,7 +120,7 @@ namespace SPAM.Common.Controls
             SetChangeCondition(args);
             try
             {
-                //ValueChangedEvent(this, args);
+                ValueChangedEvent(this, args);
             }
             catch {
             }
