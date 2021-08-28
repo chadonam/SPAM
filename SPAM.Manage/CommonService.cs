@@ -764,5 +764,126 @@ namespace SPAM.Manage
         }
         #endregion
 
+
+        #region BOM 연동
+        public DataSet GetSync()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+
+            try
+            {
+                spName = "SBOMSync";
+
+                dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        public DataSet GetPlan(string planno, string startDate, string endDate)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SPlanListQry";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@ItemNo", planno);
+                param[1] = new SqlParameter("@StartDate", startDate);
+                param[2] = new SqlParameter("@EndDate", endDate);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        public DataSet GetProcList(string itemSeq)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SProcIdQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@ItemSeq", itemSeq);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        public DataSet SetPlan(string workingTag, string planSeq, string planNo, string itemSeq, string qty, string startDate, string endDate, string procSeq, string remark)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SPlanSave";
+
+                param = new SqlParameter[8];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@PlanSeq", planSeq);
+                param[2] = new SqlParameter("@PlanNo", planNo);
+                param[3] = new SqlParameter("@ItemSeq", itemSeq);
+                param[4] = new SqlParameter("@Qty", qty);
+                param[5] = new SqlParameter("@StartDate", startDate);
+                param[6] = new SqlParameter("@EndDate", endDate);
+                param[7] = new SqlParameter("@Remark", remark);
+
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
     }
 }
