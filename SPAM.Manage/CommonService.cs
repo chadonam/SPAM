@@ -232,6 +232,39 @@ namespace SPAM.Manage
 
         #endregion
 
+        #region 계획 코드헬프
+        public DataSet GetPlanCodeHelp( string PlanNo, string StartDate, string EndDate)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SPlanCodeHelp";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@PlanNo", PlanNo);
+                param[1] = new SqlParameter("@StartDate", StartDate);
+                param[2] = new SqlParameter("@EndDate", EndDate);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        #endregion
+
         #region 프로그램 저장
         public DataSet SetPgm(string workingTag, string pgmSeq, string pgmID, string pgmName)
         {
