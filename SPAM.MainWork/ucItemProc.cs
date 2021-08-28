@@ -275,13 +275,16 @@ namespace SPAM.MainWork
             {
                 txtItemNoQ.Text = frm.ItemNo;
                 txtItemSeqQ.Text = frm.ItemSeq;
-                txtItemNameQ.Text = frm.ItemName;   
+                txtItemNameQ.Text = frm.ItemName;
             }
 
-            if (!string.Empty.Equals(txtItemNoQ.Text))
-            {
-                
-            }
+
+
+
+            //if (!string.Empty.Equals(txtItemNoQ.Text))
+            //{
+
+            //}
         }
 
         private void txtItemNoQ_KeyDown(object sender, KeyEventArgs e)
