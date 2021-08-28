@@ -232,6 +232,39 @@ namespace SPAM.Manage
 
         #endregion
 
+        #region 계획 코드헬프
+        public DataSet GetPlanCodeHelp( string PlanNo, string StartDate, string EndDate)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SPlanCodeHelp";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@PlanNo", PlanNo);
+                param[1] = new SqlParameter("@StartDate", StartDate);
+                param[2] = new SqlParameter("@EndDate", EndDate);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        #endregion
+
         #region 프로그램 저장
         public DataSet SetPgm(string workingTag, string pgmSeq, string pgmID, string pgmName)
         {
@@ -758,6 +791,198 @@ namespace SPAM.Manage
             }
         }
         #endregion
+
+        #region ItemProc 저장     
+        public DataSet SetItemProc(string workingTag, string itemSeq, string procSeq, string seq, string preSeq, string isLast)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SItemProcSave";
+
+                param = new SqlParameter[6];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@ItemSeq", itemSeq);
+                param[2] = new SqlParameter("@ProcSeq", procSeq);
+                param[3] = new SqlParameter("@Seq", seq);
+                param[4] = new SqlParameter("@PreSeq", preSeq);
+                param[5] = new SqlParameter("@IsLast", isLast);
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
+        #region BOM 연동
+        public DataSet GetSync()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+
+            try
+            {
+                spName = "SBOMSync";
+
+                dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
+        public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWoOrder2";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@From", startDate);
+                param[1] = new SqlParameter("@To", endDate);
+                param[2] = new SqlParameter("@ItemNo", itemNo);
+                param[3] = new SqlParameter("@ProSeq", proSeq);
+                param[4] = new SqlParameter("Wo", wo);
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        public DataSet GetPlan(string planno, string startDate, string endDate)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SPlanListQry";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@ItemNo", planno);
+                param[1] = new SqlParameter("@StartDate", startDate);
+                param[2] = new SqlParameter("@EndDate", endDate);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        public DataSet GetProcList(string itemSeq)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SProcIdQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@ItemSeq", itemSeq);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+        public DataSet SetPlan(string workingTag, string planSeq, string planNo, string itemSeq, string qty, string startDate, string endDate, string procSeq, string remark)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SPlanSave";
+
+                param = new SqlParameter[8];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@PlanSeq", planSeq);
+                param[2] = new SqlParameter("@PlanNo", planNo);
+                param[3] = new SqlParameter("@ItemSeq", itemSeq);
+                param[4] = new SqlParameter("@Qty", qty);
+                param[5] = new SqlParameter("@StartDate", startDate);
+                param[6] = new SqlParameter("@EndDate", endDate);
+                param[7] = new SqlParameter("@Remark", remark);
+
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
 
     }
 }

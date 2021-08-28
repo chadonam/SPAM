@@ -92,6 +92,12 @@
     <Compile Include="ucBOMSync.Designer.cs">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucEQPWOAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEQPWOAssign.Designer.cs">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     <Compile Include="ucMatOutAdd.Designer.cs">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMonthlyPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMonthlyPlan.Designer.cs">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucProcAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +151,12 @@
     </Compile>
     <Compile Include="ucProgramAdd.Designer.cs">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucScriber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucScriber.Designer.cs">
+      <DependentUpon>ucScriber.cs</DependentUpon>
     </Compile>
     <Compile Include="ucUserAdd.cs">
       <SubType>UserControl</SubType>
@@ -163,6 +181,9 @@
     <EmbeddedResource Include="ucBOMSync.resx">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucEQPWOAssign.resx">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucScriber.resx">
+      <DependentUpon>ucScriber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUserAdd.resx">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
