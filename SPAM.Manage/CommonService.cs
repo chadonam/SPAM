@@ -791,6 +791,39 @@ namespace SPAM.Manage
         }
         #endregion
 
+
+        public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWoOrder2";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@From", startDate);
+                param[1] = new SqlParameter("@To", endDate);
+                param[2] = new SqlParameter("@ItemNo", itemNo);
+                param[3] = new SqlParameter("@ProSeq", proSeq);
+                param[4] = new SqlParameter("Wo", wo);
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
         public DataSet GetPlan(string planno, string startDate, string endDate)
         {
             DataSet dsResult = null;
@@ -884,6 +917,7 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+
 
     }
 }

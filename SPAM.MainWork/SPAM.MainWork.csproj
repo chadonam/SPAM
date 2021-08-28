@@ -92,6 +92,12 @@
     <Compile Include="ucBOMSync.Designer.cs">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucEQPWOAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEQPWOAssign.Designer.cs">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucBOMSync.resx">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEQPWOAssign.resx">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
