@@ -39,6 +39,7 @@ namespace SPAM.MainWork
             this.btnEtc = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtItemSeqQ = new System.Windows.Forms.TextBox();
+            this.txtItemNameQ = new System.Windows.Forms.TextBox();
             this.groupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
@@ -62,9 +63,9 @@ namespace SPAM.MainWork
             // 
             this.txtItemNoQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemNoQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemNoQ.Location = new System.Drawing.Point(163, 20);
+            this.txtItemNoQ.Location = new System.Drawing.Point(133, 20);
             this.txtItemNoQ.Name = "txtItemNoQ";
-            this.txtItemNoQ.Size = new System.Drawing.Size(295, 35);
+            this.txtItemNoQ.Size = new System.Drawing.Size(245, 35);
             this.txtItemNoQ.TabIndex = 25;
             this.txtItemNoQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtItemNoQ.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemNoQ_KeyDown);
@@ -73,11 +74,11 @@ namespace SPAM.MainWork
             // 
             this.lblItemProcNoQ.AutoSize = true;
             this.lblItemProcNoQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblItemProcNoQ.Location = new System.Drawing.Point(21, 21);
+            this.lblItemProcNoQ.Location = new System.Drawing.Point(35, 21);
             this.lblItemProcNoQ.Name = "lblItemProcNoQ";
-            this.lblItemProcNoQ.Size = new System.Drawing.Size(111, 32);
+            this.lblItemProcNoQ.Size = new System.Drawing.Size(63, 32);
             this.lblItemProcNoQ.TabIndex = 24;
-            this.lblItemProcNoQ.Text = "품목번호";
+            this.lblItemProcNoQ.Text = "품목";
             // 
             // groupbox2
             // 
@@ -150,17 +151,29 @@ namespace SPAM.MainWork
             // 
             this.txtItemSeqQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemSeqQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemSeqQ.Location = new System.Drawing.Point(464, 20);
+            this.txtItemSeqQ.Location = new System.Drawing.Point(399, 20);
             this.txtItemSeqQ.Name = "txtItemSeqQ";
             this.txtItemSeqQ.ReadOnly = true;
-            this.txtItemSeqQ.Size = new System.Drawing.Size(109, 35);
+            this.txtItemSeqQ.Size = new System.Drawing.Size(166, 35);
             this.txtItemSeqQ.TabIndex = 31;
             this.txtItemSeqQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtItemNameQ
+            // 
+            this.txtItemNameQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemNameQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtItemNameQ.Location = new System.Drawing.Point(586, 19);
+            this.txtItemNameQ.Name = "txtItemNameQ";
+            this.txtItemNameQ.ReadOnly = true;
+            this.txtItemNameQ.Size = new System.Drawing.Size(366, 35);
+            this.txtItemNameQ.TabIndex = 32;
+            this.txtItemNameQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ucItemProc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtItemNameQ);
             this.Controls.Add(this.txtItemSeqQ);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDel);
@@ -192,5 +205,6 @@ namespace SPAM.MainWork
         private System.Windows.Forms.Button btnEtc;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtItemSeqQ;
+        private System.Windows.Forms.TextBox txtItemNameQ;
     }
 }

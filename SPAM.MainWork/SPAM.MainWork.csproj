@@ -128,6 +128,12 @@
     <Compile Include="ucMatOutAdd.Designer.cs">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMonthlyPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMonthlyPlan.Designer.cs">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucProcAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="ucProgramAdd.Designer.cs">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucScriber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucScriber.Designer.cs">
+      <DependentUpon>ucScriber.cs</DependentUpon>
     </Compile>
     <Compile Include="ucUserAdd.cs">
       <SubType>UserControl</SubType>
@@ -187,11 +199,17 @@
     <EmbeddedResource Include="ucMatOutAdd.resx">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucMonthlyPlan.resx">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucScriber.resx">
+      <DependentUpon>ucScriber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUserAdd.resx">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
