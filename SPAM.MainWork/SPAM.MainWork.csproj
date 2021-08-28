@@ -146,6 +146,12 @@
     <Compile Include="ucUserAdd.Designer.cs">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucWorkOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucWorkOrder.Designer.cs">
+      <DependentUpon>ucWorkOrder.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWork1.resx">
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucUserAdd.resx">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucWorkOrder.resx">
+      <DependentUpon>ucWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
