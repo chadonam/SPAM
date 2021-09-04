@@ -50,10 +50,22 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Web.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Web.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -67,6 +79,7 @@
     <Reference Include="SPAM.Manage">
       <HintPath>..\SPAM.Manage\bin\Debug\SPAM.Manage.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWork1.cs">
@@ -117,11 +130,23 @@
     <Compile Include="ucItemSync.Designer.cs">
       <DependentUpon>ucItemSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucLotHistoryQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLotHistoryQry.Designer.cs">
+      <DependentUpon>ucLotHistoryQry.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucMachAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucMachAdd.Designer.cs">
       <DependentUpon>ucMachAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMachReportQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMachReportQry.Designer.cs">
+      <DependentUpon>ucMachReportQry.cs</DependentUpon>
     </Compile>
     <Compile Include="ucMatIn.cs">
       <SubType>UserControl</SubType>
@@ -153,6 +178,12 @@
     <Compile Include="ucProcAdd.Designer.cs">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucProcStockQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProcStockQry.Designer.cs">
+      <DependentUpon>ucProcStockQry.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucProgramAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +201,12 @@
     </Compile>
     <Compile Include="ucUserAdd.Designer.cs">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucWorkOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucWorkOrder.Designer.cs">
+      <DependentUpon>ucWorkOrder.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -200,8 +237,14 @@
     <EmbeddedResource Include="ucItemSync.resx">
       <DependentUpon>ucItemSync.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucLotHistoryQry.resx">
+      <DependentUpon>ucLotHistoryQry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucMachAdd.resx">
       <DependentUpon>ucMachAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMachReportQry.resx">
+      <DependentUpon>ucMachReportQry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucMatIn.resx">
       <DependentUpon>ucMatIn.cs</DependentUpon>
@@ -212,8 +255,14 @@
     <EmbeddedResource Include="ucMatOutAdd.resx">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucMonthlyPlan.resx">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProcStockQry.resx">
+      <DependentUpon>ucProcStockQry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
@@ -224,8 +273,12 @@
     <EmbeddedResource Include="ucUserAdd.resx">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucWorkOrder.resx">
+      <DependentUpon>ucWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\LedOn.ico" />
   </ItemGroup>
   <ItemGroup>

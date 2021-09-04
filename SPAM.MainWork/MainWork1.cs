@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Data;
 using System;
-
 using SPAM.Common;
 using SPAM.Manage;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SPAM.MainWork
 {
@@ -32,92 +32,39 @@ namespace SPAM.MainWork
 
         private void Init_Proc()
         {
-            try
-            {
-                Search();
-				lblDate.Text = "현재시간: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-				grid.CurrentCell = null;
-                timer1.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
-            }
-        }
-
-        #endregion 
-
-        #region DataBind 메소드
-
-        #region 조회
-
-        private void Search()
-        {
+            Random r = new Random();   // 차트를 랜덤으로 출력할 랜덤객체 생성
+            chart1.Titles.Add("설비별 가동율");
+            chart1.Series["Series1"].LegendText = "가동율";   // 차트 이름을 "수학"으로 설정
+            chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력
 
             DataSet ds = null;
+            using (CommonService svc = new CommonService())
+            {
+                ds = svc.GetTest();
+            }
 
-            grid.Rows.Clear();
-            try
+            if (ds != null)
             {
 
-
-
-               
-
+                chart1.DataSource = ds;
+                chart1.Series["Series1"].XValueMember = "MachID";
+                chart1.Series["Series1"].YValueMembers = "RunRate";
 
             }
-            catch (Exception ex)
-            {
-                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
-            }
+            /*
+            chart1.Series["Series1"].Points.AddXY("설비1",r.Next(100)); // 차트 한줄 출력해주는 코드
+            chart1.Series["Series1"].Points.AddXY("설비2", r.Next(100)); // 차트 한줄 출력해주는 코드
+            chart1.Series["Series1"].Points.AddXY("설비3", r.Next(100)); // 차트 한줄 출력해주는 코드
+            chart1.Series["Series1"].Points.AddXY("설비4", r.Next(100)); // 차트 한줄 출력해주는 코드
+            chart1.Series["Series1"].Points.AddXY("설비5", r.Next(100)); // 차트 한줄 출력해주는 코드
+            */
+
+
+
 
         }
 
         #endregion
 
-        #endregion
-
-        #region timer 처리
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
-            try
-            {
-				lblDate.Text = "현재시간: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-				Search(); 
-                grid.CurrentCell = null;
-                timer1.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
-            }
-            finally
-            {
-                timer1.Enabled = true;
-            }
-
-
-        }
-        #endregion
-
-        #region grid Header 번호부여
-        private void grid_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var grids = sender as DataGridView;            
-            var rowIdx = (e.RowIndex + 1).ToString();
-            var centerFormat = new StringFormat();
-
-            centerFormat.Alignment = StringAlignment.Center;
-            centerFormat.LineAlignment = StringAlignment.Center;
-                        
-            Font ft = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            
-
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grids.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, ft, SystemBrushes.ControlText, headerBounds, centerFormat);            
-
-        }
-        #endregion
     }
 }
