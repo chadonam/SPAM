@@ -27,8 +27,10 @@ namespace SPAM.MainWork
             BaseDisplay.AdminBtn(btnDel, BaseDisplay.BtnType.Delete);
             BaseDisplay.AdminBtn(btnNew, BaseDisplay.BtnType.New);
 
+            BaseDisplay.AdminTxt(txtItemNo, BaseDisplay.TxtType.CodeHelp);
+
             BaseDisplay.SetLabelStyle(lblOutDateQ, BaseDisplay.LabelType.Menu);
-            BaseDisplay.SetLabelStyle(lblItemSeqQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblItemNoQ, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblLOTIDQ, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblOutDate, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblOutClss, BaseDisplay.LabelType.Item);
@@ -50,12 +52,12 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetProcCombo();
+                    ds = svc.GetOutClssCombo();
                 }
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbOutClss, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                    Utils.SetComboBox(cmbOutClss, ds.Tables[0], "ItemNm", "ItemCd", "출고구분");
                     cmbOutClss.SelectedIndex = 0;
 
 
@@ -77,7 +79,7 @@ namespace SPAM.MainWork
 
             using (CommonService svc = new CommonService())
             {
-                DataTable dt1 = svc.GetProcCombo().Tables[0];
+                DataTable dt1 = svc.GetOutClssCombo().Tables[0];
                 for (int i = 0; i < dt1.Rows.Count; i++)
                 {
                     Proc.Add(dt1.Rows[i]["ItemNm"].ToString(), dt1.Rows[i]["ItemCd"].ToString());
@@ -86,11 +88,13 @@ namespace SPAM.MainWork
 
             ParamPack param = new ParamPack();
 
-            
-            param.Add(FpSpread.SetSheetColumns("설비내부코드", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("설비ID", "MachID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("설비명", "MachName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, Proc));
+            param.Add(FpSpread.SetSheetColumns("출고내부코드", "OutSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("자재품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("자재내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("LOTID", "LOTID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("출고일자", "OutDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("출고구분", "OutClss", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, Proc));
 
 
 
@@ -148,23 +152,33 @@ namespace SPAM.MainWork
         #region Sheet Cell 클릭
         private void fpSpread1_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {
-            if(e.Row < 0)
+            try
+            {
+                if (e.Row < 0)
+                {
+                    return;
+                }
+                //SetSpreadRowColor(fpSpread1);
+                //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
+                txtOutSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
+                txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
+                txtOutDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
+                txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+                txtLOTID.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
+                txtQty.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
+                cmbOutClss.SelectedValue = fpSpread1.Sheets[0].Cells[e.Row, 6].Value.ToString();
+            }
+            catch(Exception ex)
             {
                 return;
             }
-            //SetSpreadRowColor(fpSpread1);
-            //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
-            txtOutDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
-            txtMachID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
-            cmbOutClss.SelectedValue = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
-            txtMachID.ReadOnly = true;
+            //txtReq.ReadOnly = true;
         }
         #endregion
 
         #endregion
 
-        #region Data처리 
+        #region Data처리
 
         #region 저장
 
@@ -184,11 +198,11 @@ namespace SPAM.MainWork
                 string OutDate;
                 string OutClss;
 
-                OutSeq = txtOutDate.Text;
+                OutSeq = txtOutSeq.Text;
                 ItemSeq = txtItemSeq.Text;
                 LOTID = txtLOTID.Text;
                 Qty = txtQty.Text;
-                OutDate = txtOutDate.Text;
+                OutDate = txtOutDate.Text.Trim().Replace("-",string.Empty);
                 OutClss = cmbOutClss.SelectedValue.ToString();
 
 
@@ -231,8 +245,10 @@ namespace SPAM.MainWork
         {
 
             DataSet ds = null;
-            //string MachID = txtMachIDQ.Text;
-            string MachName = txtItemSeqQ.Text;
+            string ItemNo = txtItemNoQ.Text;
+            string LOTID = txtLOTIDQ.Text;
+            string From = calendarDouble2.ValueStartDate.ToString();
+            string To = calendarDouble2.ValueEndDate.ToString();
 
             fpSpread1.Sheets[0].Rows.Count = 0;
             try
@@ -242,13 +258,51 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                   // ds = svc.GetMach(MachID, MachName);
+                    ds = svc.GetMatOut(From, To, ItemNo, LOTID);
                 }
 
                 if (ds != null)
                 {
                     //fpSpread1.Sheets[0].DataSource = ds;
                     FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
+
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
+
+        }
+
+        private void Search2(string ItemNo)
+        {
+
+            DataSet ds = null;
+            //ItemSeq = txtItemSeqQ.Text;
+ 
+
+            fpSpread1.Sheets[0].Rows.Count = 0;
+            try
+            {
+
+
+
+                using (CommonService svc = new CommonService())
+                {
+                     ds = svc.GetItem(ItemNo);
+                }
+
+                if (ds != null)
+                {
+                    txtItemSeq.Text = ds.Tables[0].Rows[0]["ItemSeq"].ToString();
+                    txtItemNo.Text = ds.Tables[0].Rows[0]["ItemName"].ToString();
+                    //txtItemName.Text = ds.Tables[0].Columns["ItemName"].ToString();
+                    //fpSpread1.Sheets[0].DataSource = ds;
+                    //FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
 
 
                 }
@@ -271,9 +325,9 @@ namespace SPAM.MainWork
         {
             txtOutSeq.Text = "0";
             txtOutSeq.ReadOnly = true;
-            txtMachID.Text = string.Empty;
-            txtMachID.ReadOnly = false;
-            txtItemSeq.Text = string.Empty;
+            txtReq.Text = string.Empty;
+            txtReq.ReadOnly = false;
+            txtItemNo.Text = string.Empty;
             SetCombo_OutClss();
             //SetSpreadRowColor(fpSpread1);
         }
@@ -305,6 +359,44 @@ namespace SPAM.MainWork
                 //search2()
             }
         }
+
+        private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string barCode = txtBarcode.Text;
+                String[] bar = barCode.Split('$');
+                txtLOTID.Text = bar[2].ToString();
+                txtQty.Text = bar[3].ToString();
+                string reqDate = "";
+                reqDate = bar[1].Substring(0, 4) + "-" + bar[1].Substring(4, 2) + "-" + bar[1].Substring(6, 2);
+                txtReq.Text = reqDate;
+                txtItemNo.Text = bar[0].ToString();
+                Search2(bar[0]);
+            }
+
+        }
+        private void ItemNameSearch()
+        {
+            SPAM.CommonUI.Popup.frmItemCdQry frm = new CommonUI.Popup.frmItemCdQry(txtItemNoQ.Text);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                txtItemNo.Text = frm.ItemNo;
+                txtItemSeq.Text = frm.ItemSeq;
+            }
+
+        }
+        private void txtItemNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ItemNameSearch();
+            }
+
+        }
+
 
         //private void search2()
         //{

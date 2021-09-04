@@ -57,7 +57,7 @@ namespace SPAM.MainWork
             ParamPack param = new ParamPack();
 
 
-            param.Add(FpSpread.SetSheetColumns("번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null)); 
+            param.Add(FpSpread.SetSheetColumns("번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, false, true, FpSpread.FpSort.False, 1, null));
@@ -101,7 +101,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetPlan(itemNo,startDate,endDate);
+                    ds = svc.GetPlan(itemNo, startDate, endDate);
                 }
 
                 if (ds != null)
@@ -220,7 +220,7 @@ namespace SPAM.MainWork
                 planSeq = txtPlanSeq.Text;
                 planNo = txtPlanID.Text;
                 itemSeq = txtItemSeq.Text;
-                startDate = dtp_StartDate.Text.Trim().Replace("-",string.Empty);
+                startDate = dtp_StartDate.Text.Trim().Replace("-", string.Empty);
                 endDate = dtp_EndDate.Text.Trim().Replace("-", string.Empty);
                 procSeq = txtProcSeq.Text;
                 remark = txtNote.Text;
@@ -229,7 +229,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetPlan(WorkingTag, planSeq, planNo, itemSeq,qty,startDate,endDate,procSeq,remark);
+                    ds = svc.SetPlan(WorkingTag, planSeq, planNo, itemSeq, qty, startDate, endDate, procSeq, remark);
                 }
 
 
@@ -268,14 +268,14 @@ namespace SPAM.MainWork
             }
             //SetSpreadRowColor(fpSpread1);
             //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
- 
+
 
             txtPlanSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
             txtPlanID.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
             txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
             txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
             txtQuan.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
-            dtp_StartDate.Text= fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
+            dtp_StartDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
             dtp_EndDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 6].Value.ToString();
             txtProcSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
             txtNote.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();

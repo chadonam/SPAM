@@ -92,6 +92,12 @@
     <Compile Include="ucBOMSync.Designer.cs">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucEQPWOAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEQPWOAssign.Designer.cs">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <EmbeddedResource Include="ucBOMSync.resx">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucEQPWOAssign.resx">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,9 +201,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucMatOutAdd.resx">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ucMonthlyPlan.resx">
-      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
