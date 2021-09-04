@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.calendarDouble2 = new SPAM.Common.Controls.CalendarDouble();
             this.lblOutDateQ = new System.Windows.Forms.Label();
-            this.calendarDouble1 = new SPAM.Common.Controls.CalendarDouble();
             this.txtLOTIDQ = new System.Windows.Forms.TextBox();
             this.lblLOTIDQ = new System.Windows.Forms.Label();
-            this.txtItemSeqQ = new System.Windows.Forms.TextBox();
-            this.lblItemSeqQ = new System.Windows.Forms.Label();
+            this.txtItemNoQ = new System.Windows.Forms.TextBox();
+            this.lblItemNoQ = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtOutDate = new System.Windows.Forms.DateTimePicker();
             this.txtOutSeq = new System.Windows.Forms.TextBox();
             this.lblOutSeq = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtItemSeq = new System.Windows.Forms.TextBox();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.lblQty = new System.Windows.Forms.Label();
             this.txtLOTID = new System.Windows.Forms.TextBox();
             this.lblLOTID = new System.Windows.Forms.Label();
             this.cmbOutClss = new System.Windows.Forms.ComboBox();
-            this.txtItemSeq = new System.Windows.Forms.TextBox();
-            this.txtMachID = new System.Windows.Forms.TextBox();
-            this.txtOutDate = new System.Windows.Forms.TextBox();
+            this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.txtReq = new System.Windows.Forms.TextBox();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             this.lblOutDate = new System.Windows.Forms.Label();
             this.groupbox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
-            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.sheetView1 = new FarPoint.Win.Spread.SheetView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,57 +65,54 @@
             this.groupBox1.SuspendLayout();
             this.groupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sheetView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHeader.Controls.Add(this.calendarDouble2);
             this.pnlHeader.Controls.Add(this.lblOutDateQ);
-            this.pnlHeader.Controls.Add(this.calendarDouble1);
             this.pnlHeader.Controls.Add(this.txtLOTIDQ);
             this.pnlHeader.Controls.Add(this.lblLOTIDQ);
-            this.pnlHeader.Controls.Add(this.txtItemSeqQ);
-            this.pnlHeader.Controls.Add(this.lblItemSeqQ);
+            this.pnlHeader.Controls.Add(this.txtItemNoQ);
+            this.pnlHeader.Controls.Add(this.lblItemNoQ);
             this.pnlHeader.Controls.Add(this.btnSearch);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(2000, 74);
+            this.pnlHeader.Size = new System.Drawing.Size(1750, 60);
             this.pnlHeader.TabIndex = 12;
+            // 
+            // calendarDouble2
+            // 
+            this.calendarDouble2.Location = new System.Drawing.Point(152, 16);
+            this.calendarDouble2.Name = "calendarDouble2";
+            this.calendarDouble2.Size = new System.Drawing.Size(240, 25);
+            this.calendarDouble2.StartMonthDistinction = 0;
+            this.calendarDouble2.TabIndex = 18;
+            this.calendarDouble2.ValueEndDate = "20210828";
+            this.calendarDouble2.ValueStartDate = "20210828";
             // 
             // lblOutDateQ
             // 
             this.lblOutDateQ.AutoSize = true;
             this.lblOutDateQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblOutDateQ.Location = new System.Drawing.Point(32, 16);
+            this.lblOutDateQ.Location = new System.Drawing.Point(28, 13);
             this.lblOutDateQ.Name = "lblOutDateQ";
             this.lblOutDateQ.Size = new System.Drawing.Size(111, 32);
             this.lblOutDateQ.TabIndex = 17;
             this.lblOutDateQ.Text = "출고일자";
             this.lblOutDateQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // calendarDouble1
-            // 
-            this.calendarDouble1.Location = new System.Drawing.Point(168, 16);
-            this.calendarDouble1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.calendarDouble1.Name = "calendarDouble1";
-            this.calendarDouble1.Size = new System.Drawing.Size(274, 31);
-            this.calendarDouble1.StartMonthDistinction = 0;
-            this.calendarDouble1.TabIndex = 16;
-            this.calendarDouble1.ValueEndDate = "20210814";
-            this.calendarDouble1.ValueStartDate = "20210814";
-            // 
             // txtLOTIDQ
             // 
             this.txtLOTIDQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLOTIDQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtLOTIDQ.Location = new System.Drawing.Point(992, 16);
-            this.txtLOTIDQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtLOTIDQ.Location = new System.Drawing.Point(868, 15);
             this.txtLOTIDQ.Name = "txtLOTIDQ";
-            this.txtLOTIDQ.Size = new System.Drawing.Size(239, 35);
+            this.txtLOTIDQ.Size = new System.Drawing.Size(209, 35);
             this.txtLOTIDQ.TabIndex = 15;
             this.txtLOTIDQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -123,34 +120,33 @@
             // 
             this.lblLOTIDQ.AutoSize = true;
             this.lblLOTIDQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblLOTIDQ.Location = new System.Drawing.Point(880, 16);
+            this.lblLOTIDQ.Location = new System.Drawing.Point(770, 13);
             this.lblLOTIDQ.Name = "lblLOTIDQ";
             this.lblLOTIDQ.Size = new System.Drawing.Size(82, 32);
             this.lblLOTIDQ.TabIndex = 14;
             this.lblLOTIDQ.Text = "LOTID";
             this.lblLOTIDQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtItemSeqQ
+            // txtItemNoQ
             // 
-            this.txtItemSeqQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItemSeqQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemSeqQ.Location = new System.Drawing.Point(600, 16);
-            this.txtItemSeqQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtItemSeqQ.Name = "txtItemSeqQ";
-            this.txtItemSeqQ.Size = new System.Drawing.Size(239, 35);
-            this.txtItemSeqQ.TabIndex = 13;
-            this.txtItemSeqQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItemNoQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemNoQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtItemNoQ.Location = new System.Drawing.Point(536, 15);
+            this.txtItemNoQ.Name = "txtItemNoQ";
+            this.txtItemNoQ.Size = new System.Drawing.Size(209, 35);
+            this.txtItemNoQ.TabIndex = 13;
+            this.txtItemNoQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // lblItemSeqQ
+            // lblItemNoQ
             // 
-            this.lblItemSeqQ.AutoSize = true;
-            this.lblItemSeqQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblItemSeqQ.Location = new System.Drawing.Point(488, 16);
-            this.lblItemSeqQ.Name = "lblItemSeqQ";
-            this.lblItemSeqQ.Size = new System.Drawing.Size(87, 32);
-            this.lblItemSeqQ.TabIndex = 12;
-            this.lblItemSeqQ.Text = "자재명";
-            this.lblItemSeqQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblItemNoQ.AutoSize = true;
+            this.lblItemNoQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblItemNoQ.Location = new System.Drawing.Point(427, 13);
+            this.lblItemNoQ.Name = "lblItemNoQ";
+            this.lblItemNoQ.Size = new System.Drawing.Size(111, 32);
+            this.lblItemNoQ.TabIndex = 12;
+            this.lblItemNoQ.Text = "자재품번";
+            this.lblItemNoQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSearch
             // 
@@ -158,10 +154,9 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(1850, 16);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(1619, 13);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 44);
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "조회";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -169,17 +164,17 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtOutDate);
             this.groupBox1.Controls.Add(this.txtOutSeq);
             this.groupBox1.Controls.Add(this.lblOutSeq);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtItemSeq);
             this.groupBox1.Controls.Add(this.txtQty);
             this.groupBox1.Controls.Add(this.lblQty);
             this.groupBox1.Controls.Add(this.txtLOTID);
             this.groupBox1.Controls.Add(this.lblLOTID);
             this.groupBox1.Controls.Add(this.cmbOutClss);
-            this.groupBox1.Controls.Add(this.txtItemSeq);
-            this.groupBox1.Controls.Add(this.txtMachID);
-            this.groupBox1.Controls.Add(this.txtOutDate);
+            this.groupBox1.Controls.Add(this.txtItemNo);
+            this.groupBox1.Controls.Add(this.txtReq);
             this.groupBox1.Controls.Add(this.btnDel);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnNew);
@@ -187,23 +182,28 @@
             this.groupBox1.Controls.Add(this.lblItemSeq);
             this.groupBox1.Controls.Add(this.lblOutClss);
             this.groupBox1.Controls.Add(this.lblOutDate);
-            this.groupBox1.Location = new System.Drawing.Point(8, 248);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(7, 198);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(640, 591);
+            this.groupBox1.Size = new System.Drawing.Size(560, 473);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "입력 정보";
+            // 
+            // txtOutDate
+            // 
+            this.txtOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtOutDate.Location = new System.Drawing.Point(168, 96);
+            this.txtOutDate.Name = "txtOutDate";
+            this.txtOutDate.Size = new System.Drawing.Size(352, 21);
+            this.txtOutDate.TabIndex = 25;
             // 
             // txtOutSeq
             // 
             this.txtOutSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtOutSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtOutSeq.Location = new System.Drawing.Point(195, 51);
-            this.txtOutSeq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOutSeq.Location = new System.Drawing.Point(171, 41);
             this.txtOutSeq.Name = "txtOutSeq";
-            this.txtOutSeq.Size = new System.Drawing.Size(394, 35);
+            this.txtOutSeq.Size = new System.Drawing.Size(345, 35);
             this.txtOutSeq.TabIndex = 24;
             this.txtOutSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -212,32 +212,30 @@
             this.lblOutSeq.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblOutSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblOutSeq.ForeColor = System.Drawing.Color.White;
-            this.lblOutSeq.Location = new System.Drawing.Point(32, 48);
+            this.lblOutSeq.Location = new System.Drawing.Point(28, 38);
             this.lblOutSeq.Name = "lblOutSeq";
-            this.lblOutSeq.Size = new System.Drawing.Size(133, 44);
+            this.lblOutSeq.Size = new System.Drawing.Size(116, 35);
             this.lblOutSeq.TabIndex = 23;
             this.lblOutSeq.Text = "출고내부코드";
             this.lblOutSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // txtItemSeq
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(483, 242);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(104, 35);
-            this.textBox5.TabIndex = 22;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItemSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtItemSeq.Location = new System.Drawing.Point(423, 194);
+            this.txtItemSeq.Name = "txtItemSeq";
+            this.txtItemSeq.Size = new System.Drawing.Size(91, 35);
+            this.txtItemSeq.TabIndex = 22;
+            this.txtItemSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtQty
             // 
             this.txtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQty.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtQty.Location = new System.Drawing.Point(195, 433);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtQty.Location = new System.Drawing.Point(171, 346);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(394, 35);
+            this.txtQty.Size = new System.Drawing.Size(345, 35);
             this.txtQty.TabIndex = 21;
             this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -246,9 +244,9 @@
             this.lblQty.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblQty.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblQty.ForeColor = System.Drawing.Color.White;
-            this.lblQty.Location = new System.Drawing.Point(32, 432);
+            this.lblQty.Location = new System.Drawing.Point(28, 346);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(133, 44);
+            this.lblQty.Size = new System.Drawing.Size(116, 35);
             this.lblQty.TabIndex = 20;
             this.lblQty.Text = "수량";
             this.lblQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,10 +255,9 @@
             // 
             this.txtLOTID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLOTID.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtLOTID.Location = new System.Drawing.Point(195, 369);
-            this.txtLOTID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtLOTID.Location = new System.Drawing.Point(171, 295);
             this.txtLOTID.Name = "txtLOTID";
-            this.txtLOTID.Size = new System.Drawing.Size(394, 35);
+            this.txtLOTID.Size = new System.Drawing.Size(345, 35);
             this.txtLOTID.TabIndex = 19;
             this.txtLOTID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -269,9 +266,9 @@
             this.lblLOTID.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblLOTID.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblLOTID.ForeColor = System.Drawing.Color.White;
-            this.lblLOTID.Location = new System.Drawing.Point(32, 368);
+            this.lblLOTID.Location = new System.Drawing.Point(28, 294);
             this.lblLOTID.Name = "lblLOTID";
-            this.lblLOTID.Size = new System.Drawing.Size(133, 44);
+            this.lblLOTID.Size = new System.Drawing.Size(116, 35);
             this.lblLOTID.TabIndex = 18;
             this.lblLOTID.Text = "LOTID";
             this.lblLOTID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -280,54 +277,40 @@
             // 
             this.cmbOutClss.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbOutClss.FormattingEnabled = true;
-            this.cmbOutClss.Location = new System.Drawing.Point(195, 178);
-            this.cmbOutClss.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbOutClss.Location = new System.Drawing.Point(171, 142);
             this.cmbOutClss.Name = "cmbOutClss";
-            this.cmbOutClss.Size = new System.Drawing.Size(394, 32);
+            this.cmbOutClss.Size = new System.Drawing.Size(345, 32);
             this.cmbOutClss.TabIndex = 17;
             // 
-            // txtItemSeq
+            // txtItemNo
             // 
-            this.txtItemSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItemSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemSeq.Location = new System.Drawing.Point(195, 242);
-            this.txtItemSeq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtItemSeq.Name = "txtItemSeq";
-            this.txtItemSeq.Size = new System.Drawing.Size(280, 35);
-            this.txtItemSeq.TabIndex = 16;
-            this.txtItemSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItemNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtItemNo.Location = new System.Drawing.Point(171, 194);
+            this.txtItemNo.Name = "txtItemNo";
+            this.txtItemNo.Size = new System.Drawing.Size(245, 35);
+            this.txtItemNo.TabIndex = 16;
+            this.txtItemNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItemNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemNo_KeyDown);
             // 
-            // txtMachID
+            // txtReq
             // 
-            this.txtMachID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMachID.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtMachID.Location = new System.Drawing.Point(195, 305);
-            this.txtMachID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMachID.Name = "txtMachID";
-            this.txtMachID.Size = new System.Drawing.Size(394, 35);
-            this.txtMachID.TabIndex = 14;
-            this.txtMachID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtOutDate
-            // 
-            this.txtOutDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOutDate.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtOutDate.Location = new System.Drawing.Point(195, 115);
-            this.txtOutDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtOutDate.Name = "txtOutDate";
-            this.txtOutDate.Size = new System.Drawing.Size(394, 35);
-            this.txtOutDate.TabIndex = 13;
-            this.txtOutDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtReq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtReq.Location = new System.Drawing.Point(171, 244);
+            this.txtReq.Name = "txtReq";
+            this.txtReq.Size = new System.Drawing.Size(345, 35);
+            this.txtReq.TabIndex = 14;
+            this.txtReq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnDel
             // 
             this.btnDel.BackColor = System.Drawing.Color.LightPink;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDel.Location = new System.Drawing.Point(519, 528);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDel.Location = new System.Drawing.Point(454, 422);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(114, 44);
+            this.btnDel.Size = new System.Drawing.Size(100, 35);
             this.btnDel.TabIndex = 12;
             this.btnDel.Text = "삭제";
             this.btnDel.UseVisualStyleBackColor = false;
@@ -338,10 +321,9 @@
             this.btnSave.BackColor = System.Drawing.Color.LightPink;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSave.Location = new System.Drawing.Point(398, 528);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Location = new System.Drawing.Point(348, 422);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(114, 44);
+            this.btnSave.Size = new System.Drawing.Size(100, 35);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "저장";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -353,10 +335,9 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(277, 528);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNew.Location = new System.Drawing.Point(242, 422);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(114, 44);
+            this.btnNew.Size = new System.Drawing.Size(100, 35);
             this.btnNew.TabIndex = 10;
             this.btnNew.Text = "신규";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -367,9 +348,9 @@
             this.lblProcSeq.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblProcSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblProcSeq.ForeColor = System.Drawing.Color.White;
-            this.lblProcSeq.Location = new System.Drawing.Point(32, 304);
+            this.lblProcSeq.Location = new System.Drawing.Point(28, 243);
             this.lblProcSeq.Name = "lblProcSeq";
-            this.lblProcSeq.Size = new System.Drawing.Size(133, 44);
+            this.lblProcSeq.Size = new System.Drawing.Size(116, 35);
             this.lblProcSeq.TabIndex = 5;
             this.lblProcSeq.Text = "의뢰일자";
             this.lblProcSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -379,9 +360,9 @@
             this.lblItemSeq.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblItemSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblItemSeq.ForeColor = System.Drawing.Color.White;
-            this.lblItemSeq.Location = new System.Drawing.Point(32, 240);
+            this.lblItemSeq.Location = new System.Drawing.Point(28, 192);
             this.lblItemSeq.Name = "lblItemSeq";
-            this.lblItemSeq.Size = new System.Drawing.Size(133, 44);
+            this.lblItemSeq.Size = new System.Drawing.Size(116, 35);
             this.lblItemSeq.TabIndex = 4;
             this.lblItemSeq.Text = "자재명";
             this.lblItemSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -391,9 +372,9 @@
             this.lblOutClss.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblOutClss.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblOutClss.ForeColor = System.Drawing.Color.White;
-            this.lblOutClss.Location = new System.Drawing.Point(32, 176);
+            this.lblOutClss.Location = new System.Drawing.Point(28, 141);
             this.lblOutClss.Name = "lblOutClss";
-            this.lblOutClss.Size = new System.Drawing.Size(133, 44);
+            this.lblOutClss.Size = new System.Drawing.Size(116, 35);
             this.lblOutClss.TabIndex = 2;
             this.lblOutClss.Text = "출고구분";
             this.lblOutClss.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -403,9 +384,9 @@
             this.lblOutDate.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblOutDate.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblOutDate.ForeColor = System.Drawing.Color.White;
-            this.lblOutDate.Location = new System.Drawing.Point(32, 112);
+            this.lblOutDate.Location = new System.Drawing.Point(28, 90);
             this.lblOutDate.Name = "lblOutDate";
-            this.lblOutDate.Size = new System.Drawing.Size(133, 44);
+            this.lblOutDate.Size = new System.Drawing.Size(116, 35);
             this.lblOutDate.TabIndex = 0;
             this.lblOutDate.Text = "출고일자";
             this.lblOutDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -413,11 +394,9 @@
             // groupbox2
             // 
             this.groupbox2.Controls.Add(this.fpSpread1);
-            this.groupbox2.Location = new System.Drawing.Point(655, 89);
-            this.groupbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupbox2.Location = new System.Drawing.Point(573, 71);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupbox2.Size = new System.Drawing.Size(1314, 750);
+            this.groupbox2.Size = new System.Drawing.Size(1150, 600);
             this.groupbox2.TabIndex = 16;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "출고 정보";
@@ -427,30 +406,27 @@
             this.fpSpread1.AccessibleDescription = "";
             this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpSpread1.Location = new System.Drawing.Point(3, 22);
-            this.fpSpread1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fpSpread1.Location = new System.Drawing.Point(3, 17);
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1308, 724);
+            this.sheetView1});
+            this.fpSpread1.Size = new System.Drawing.Size(1144, 580);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick);
             // 
-            // fpSpread1_Sheet1
+            // sheetView1
             // 
-            this.fpSpread1_Sheet1.Reset();
-            this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            this.sheetView1.Reset();
+            this.sheetView1.SheetName = "Sheet1";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtBarcode);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(8, 104);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Location = new System.Drawing.Point(7, 83);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(640, 128);
+            this.groupBox3.Size = new System.Drawing.Size(560, 102);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "바코드 정보";
@@ -459,44 +435,42 @@
             // 
             this.txtBarcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBarcode.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtBarcode.Location = new System.Drawing.Point(192, 56);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBarcode.Location = new System.Drawing.Point(168, 45);
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(394, 35);
+            this.txtBarcode.Size = new System.Drawing.Size(345, 35);
             this.txtBarcode.TabIndex = 13;
             this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
+            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.MidnightBlue;
             this.label6.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(32, 56);
+            this.label6.Location = new System.Drawing.Point(28, 45);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 44);
+            this.label6.Size = new System.Drawing.Size(116, 35);
             this.label6.TabIndex = 0;
             this.label6.Text = "바코드입력";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucMatOutAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupbox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ucMatOutAdd";
-            this.Size = new System.Drawing.Size(2000, 875);
+            this.Size = new System.Drawing.Size(1750, 700);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupbox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sheetView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -512,22 +486,21 @@
         private System.Windows.Forms.Label lblOutClss;
         private System.Windows.Forms.Label lblOutDate;
         private FarPoint.Win.Spread.FpSpread fpSpread1;
-        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
+        private FarPoint.Win.Spread.SheetView sheetView1;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.ComboBox cmbOutClss;
-        private System.Windows.Forms.TextBox txtItemSeq;
-        private System.Windows.Forms.TextBox txtMachID;
-        private System.Windows.Forms.TextBox txtOutDate;
+        private System.Windows.Forms.TextBox txtItemNo;
+        private System.Windows.Forms.TextBox txtReq;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtItemSeqQ;
-        private System.Windows.Forms.Label lblItemSeqQ;
+        private System.Windows.Forms.TextBox txtItemNoQ;
+        private System.Windows.Forms.Label lblItemNoQ;
         private Common.Controls.CalendarDouble calendarDouble1;
         private System.Windows.Forms.TextBox txtLOTIDQ;
         private System.Windows.Forms.Label lblLOTIDQ;
         private System.Windows.Forms.Label lblOutDateQ;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtItemSeq;
         private System.Windows.Forms.TextBox txtQty;
         private System.Windows.Forms.Label lblQty;
         private System.Windows.Forms.TextBox txtLOTID;
@@ -537,5 +510,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtOutSeq;
         private System.Windows.Forms.Label lblOutSeq;
+        private Common.Controls.CalendarDouble calendarDouble2;
+        private System.Windows.Forms.DateTimePicker txtOutDate;
     }
 }
