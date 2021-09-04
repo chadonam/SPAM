@@ -824,7 +824,7 @@ namespace SPAM.Manage
         }
         #endregion
 
-
+        #region Wo Order
         public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
         {
             DataSet dsResult = null;
@@ -835,12 +835,12 @@ namespace SPAM.Manage
             {
                 spName = "SWoOrder2";
 
-                param = new SqlParameter[4];
+                param = new SqlParameter[5];
                 param[0] = new SqlParameter("@From", startDate);
                 param[1] = new SqlParameter("@To", endDate);
                 param[2] = new SqlParameter("@ItemNo", itemNo);
-                param[3] = new SqlParameter("@ProSeq", proSeq);
-                param[4] = new SqlParameter("Wo", wo);
+                param[3] = new SqlParameter("@ProcSeq", proSeq);
+                param[4] = new SqlParameter("@Wo", wo);
 
 
                 dsResult = SqlHelper.Fill(spName, param);
@@ -856,7 +856,38 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        public DataSet GetOrder2(string procSeq)
+        {
+            DataSet dsResult = null;
 
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+
+                spName = "SWoOrder3";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@ProcSeq", procSeq);
+                
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region 월간계획 검색
         public DataSet GetPlan(string planno, string startDate, string endDate)
         {
             DataSet dsResult = null;
@@ -886,6 +917,9 @@ namespace SPAM.Manage
             }
         }
 
+        #endregion
+
+        #region 공정검색
         public DataSet GetProcList(string itemSeq)
         {
             DataSet dsResult = null;
@@ -912,7 +946,9 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        #endregion
 
+        #region 월간계획 수정
         public DataSet SetPlan(string workingTag, string planSeq, string planNo, string itemSeq, string qty, string startDate, string endDate, string procSeq, string remark)
         {
             DataSet dsResult = null;
@@ -950,7 +986,99 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        #endregion
 
+        public DataSet SetWo(string orderSeq, string machSeq)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWoSaveQry";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@OrderSeq", orderSeq);
+                param[1] = new SqlParameter("@MachSeq", machSeq);
+          
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+
+
+        }
+        public DataSet DelMach(string orderSeq, string machSeq)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWoNoDel";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@OrderSeq", orderSeq);
+                param[1] = new SqlParameter("@MachSeq", machSeq);
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+
+
+      
+        public DataSet GetHistory(string lotId)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+
+                spName = "SHistoryListQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@LOTID", lotId);
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
 
     }
 }

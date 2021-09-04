@@ -118,6 +118,7 @@ namespace SPAM.Main
             menus.Add("자재출고", "SPAM.MainWork.ucMatOutAdd");
             menus.Add("월생산 계획등록", "SPAM.MainWork.ucMonthlyPlan");
             menus.Add("설비WO배정", "SPAM.MainWork.ucEQPWOAssign");
+            menus.Add("LOT이력조회", "SPAM.MainWork.ucLotHistoryQry");
 
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");

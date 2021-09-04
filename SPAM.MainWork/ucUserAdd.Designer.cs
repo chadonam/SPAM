@@ -277,7 +277,6 @@
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
-
             // 
             // ucUserAdd
             // 

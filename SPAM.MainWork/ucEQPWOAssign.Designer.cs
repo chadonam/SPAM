@@ -35,23 +35,23 @@ namespace SPAM.MainWork
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDateQ = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblWo = new System.Windows.Forms.Label();
-            this.txtWo = new System.Windows.Forms.TextBox();
-            this.lblProc = new System.Windows.Forms.Label();
             this.cmbProc = new System.Windows.Forms.ComboBox();
+            this.lblProc = new System.Windows.Forms.Label();
+            this.txtWo = new System.Windows.Forms.TextBox();
+            this.lblWo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread2 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread2_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2_Sheet1)).BeginInit();
             this.SuspendLayout();
@@ -63,8 +63,8 @@ namespace SPAM.MainWork
             this.date.Size = new System.Drawing.Size(240, 25);
             this.date.StartMonthDistinction = 0;
             this.date.TabIndex = 14;
-            this.date.ValueEndDate = "20210828";
-            this.date.ValueStartDate = "20210828";
+            this.date.ValueEndDate = "20210904";
+            this.date.ValueStartDate = "20210904";
             // 
             // txtItemNo
             // 
@@ -128,25 +128,13 @@ namespace SPAM.MainWork
             this.pnlHeader.Size = new System.Drawing.Size(1750, 60);
             this.pnlHeader.TabIndex = 18;
             // 
-            // lblWo
+            // cmbProc
             // 
-            this.lblWo.AutoSize = true;
-            this.lblWo.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblWo.Location = new System.Drawing.Point(1152, 16);
-            this.lblWo.Name = "lblWo";
-            this.lblWo.Size = new System.Drawing.Size(57, 32);
-            this.lblWo.TabIndex = 15;
-            this.lblWo.Text = "WO";
-            // 
-            // txtWo
-            // 
-            this.txtWo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtWo.Location = new System.Drawing.Point(1288, 16);
-            this.txtWo.Name = "txtWo";
-            this.txtWo.Size = new System.Drawing.Size(209, 35);
-            this.txtWo.TabIndex = 16;
-            this.txtWo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cmbProc.FormattingEnabled = true;
+            this.cmbProc.Location = new System.Drawing.Point(984, 24);
+            this.cmbProc.Name = "cmbProc";
+            this.cmbProc.Size = new System.Drawing.Size(121, 20);
+            this.cmbProc.TabIndex = 18;
             // 
             // lblProc
             // 
@@ -158,13 +146,25 @@ namespace SPAM.MainWork
             this.lblProc.TabIndex = 17;
             this.lblProc.Text = "공정";
             // 
-            // cmbProc
+            // txtWo
             // 
-            this.cmbProc.FormattingEnabled = true;
-            this.cmbProc.Location = new System.Drawing.Point(984, 24);
-            this.cmbProc.Name = "cmbProc";
-            this.cmbProc.Size = new System.Drawing.Size(121, 20);
-            this.cmbProc.TabIndex = 18;
+            this.txtWo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtWo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtWo.Location = new System.Drawing.Point(1288, 16);
+            this.txtWo.Name = "txtWo";
+            this.txtWo.Size = new System.Drawing.Size(209, 35);
+            this.txtWo.TabIndex = 16;
+            this.txtWo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblWo
+            // 
+            this.lblWo.AutoSize = true;
+            this.lblWo.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblWo.Location = new System.Drawing.Point(1152, 16);
+            this.lblWo.Name = "lblWo";
+            this.lblWo.Size = new System.Drawing.Size(57, 32);
+            this.lblWo.TabIndex = 15;
+            this.lblWo.Text = "WO";
             // 
             // groupBox1
             // 
@@ -176,16 +176,6 @@ namespace SPAM.MainWork
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "WO목록";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.fpSpread2);
-            this.groupBox2.Location = new System.Drawing.Point(1208, 80);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(520, 528);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "설비목록";
-            // 
             // fpSpread1
             // 
             this.fpSpread1.AccessibleDescription = "";
@@ -196,11 +186,22 @@ namespace SPAM.MainWork
             this.fpSpread1_Sheet1});
             this.fpSpread1.Size = new System.Drawing.Size(1146, 500);
             this.fpSpread1.TabIndex = 0;
+            this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick);
             // 
             // fpSpread1_Sheet1
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.fpSpread2);
+            this.groupBox2.Location = new System.Drawing.Point(1208, 80);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(520, 528);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "설비목록";
             // 
             // fpSpread2
             // 
@@ -226,6 +227,7 @@ namespace SPAM.MainWork
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "배정";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDel
             // 
@@ -235,6 +237,7 @@ namespace SPAM.MainWork
             this.btnDel.TabIndex = 21;
             this.btnDel.Text = "배정취소";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // ucEQPWOAssign
             // 
@@ -250,9 +253,9 @@ namespace SPAM.MainWork
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2_Sheet1)).EndInit();
             this.ResumeLayout(false);

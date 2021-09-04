@@ -116,6 +116,12 @@
     <Compile Include="ucItemSync.Designer.cs">
       <DependentUpon>ucItemSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucLotHistoryQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLotHistoryQry.Designer.cs">
+      <DependentUpon>ucLotHistoryQry.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucMachAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     <EmbeddedResource Include="ucItemSync.resx">
       <DependentUpon>ucItemSync.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucLotHistoryQry.resx">
+      <DependentUpon>ucLotHistoryQry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucMachAdd.resx">
       <DependentUpon>ucMachAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucMatOutAdd.resx">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMonthlyPlan.resx">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
