@@ -856,6 +856,38 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region WorkReportQry 조회        
+        public DataSet GetWorkReportQry(string From, string To, string ProcSeq, string ItemNo, string OrderNo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkReportQry";
+
+                param = new SqlParameter[5];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                param[2] = new SqlParameter("@ProcSeq", ProcSeq);
+                param[3] = new SqlParameter("@ItemNo", ItemNo);
+                param[4] = new SqlParameter("@OrderNo", OrderNo);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
 
         public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
         {
@@ -983,6 +1015,34 @@ namespace SPAM.Manage
             }
         }
 
+        #region ProcChart 조회        
+        public DataSet GetProcChart(string From, string To)
+        {
+            DataSet dsResult = null;
 
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "ProcChart";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
     }
 }
