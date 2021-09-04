@@ -742,6 +742,39 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region MatOut 조회        
+        public DataSet GetMatOut(string From, string To, string ItemNo, string LOTID)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMatOutQry";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                param[2] = new SqlParameter("@ItemNo", ItemNo);
+                param[3] = new SqlParameter("@LOTID", LOTID);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
         #region OutClss Combo 조회        
         public DataSet GetOutClssCombo()
         {
