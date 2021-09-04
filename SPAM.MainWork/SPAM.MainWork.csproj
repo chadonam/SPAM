@@ -56,6 +56,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Web.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Web.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -96,6 +106,12 @@
     </Compile>
     <Compile Include="ucBOMSync.Designer.cs">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEQPWOAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEQPWOAssign.Designer.cs">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
     </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
@@ -139,6 +155,12 @@
     <Compile Include="ucMatOutAdd.Designer.cs">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMonthlyPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMonthlyPlan.Designer.cs">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucProcAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +172,12 @@
     </Compile>
     <Compile Include="ucProgramAdd.Designer.cs">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucScriber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucScriber.Designer.cs">
+      <DependentUpon>ucScriber.cs</DependentUpon>
     </Compile>
     <Compile Include="ucUserAdd.cs">
       <SubType>UserControl</SubType>
@@ -173,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucBOMSync.resx">
       <DependentUpon>ucBOMSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEQPWOAssign.resx">
+      <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
@@ -201,11 +232,15 @@
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucScriber.resx">
+      <DependentUpon>ucScriber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucUserAdd.resx">
       <DependentUpon>ucUserAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\LedOn.ico" />
   </ItemGroup>
   <ItemGroup>
