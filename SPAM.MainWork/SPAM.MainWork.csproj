@@ -68,7 +68,6 @@
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -131,6 +130,12 @@
     <Compile Include="ucItemSync.Designer.cs">
       <DependentUpon>ucItemSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucLotHistoryQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLotHistoryQry.Designer.cs">
+      <DependentUpon>ucLotHistoryQry.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucMachAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +153,12 @@
     </Compile>
     <Compile Include="ucMatIn.Designer.cs">
       <DependentUpon>ucMatIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucWorkReportQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucWorkReportQry.Designer.cs">
+      <DependentUpon>ucWorkReportQry.cs</DependentUpon>
     </Compile>
     <Compile Include="ucMatOutAdd.cs">
       <SubType>UserControl</SubType>
@@ -226,6 +237,9 @@
     <EmbeddedResource Include="ucItemSync.resx">
       <DependentUpon>ucItemSync.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucLotHistoryQry.resx">
+      <DependentUpon>ucLotHistoryQry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucMachAdd.resx">
       <DependentUpon>ucMachAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,8 +249,14 @@
     <EmbeddedResource Include="ucMatIn.resx">
       <DependentUpon>ucMatIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucWorkReportQry.resx">
+      <DependentUpon>ucWorkReportQry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucMatOutAdd.resx">
       <DependentUpon>ucMatOutAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMonthlyPlan.resx">
+      <DependentUpon>ucMonthlyPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>

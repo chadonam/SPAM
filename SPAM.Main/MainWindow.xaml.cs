@@ -114,9 +114,8 @@ namespace SPAM.Main
             menus.Add("공정등록", "SPAM.MainWork.ucProcAdd");
             menus.Add("BOM연동", "SPAM.MainWork.ucBOMSync");
             menus.Add("설비등록", "SPAM.MainWork.ucMachAdd");
-            menus.Add("자재입고처리", "SPAM.MainWork.ucMatIn");
-            menus.Add("WorkOrder등록", "SPAM.MainWork.ucWorkOrder");
-            menus.Add("공정별재공조회", "SPAM.MainWork.ucProcStockQry");
+            menus.Add("자재출고처리", "SPAM.MainWork.ucMatOutAdd");
+            menus.Add("일자별생산실적조회", "SPAM.MainWork.ucWorkReportQry");
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");
             //if (ClientGlobal.QCYn == "1")
