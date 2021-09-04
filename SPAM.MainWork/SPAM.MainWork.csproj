@@ -146,6 +146,12 @@
     <Compile Include="ucProcAdd.Designer.cs">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucProcStockQry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProcStockQry.Designer.cs">
+      <DependentUpon>ucProcStockQry.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucProgramAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucProcAdd.resx">
       <DependentUpon>ucProcAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProcStockQry.resx">
+      <DependentUpon>ucProcStockQry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProgramAdd.resx">
       <DependentUpon>ucProgramAdd.cs</DependentUpon>

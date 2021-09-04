@@ -33,35 +33,35 @@ namespace SPAM.MainWork
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbItemProc = new System.Windows.Forms.ComboBox();
-            this.txtRemark = new System.Windows.Forms.TextBox();
-            this.txtQty = new System.Windows.Forms.TextBox();
-            this.txtWorkDate = new System.Windows.Forms.TextBox();
-            this.txtOrderNo = new System.Windows.Forms.TextBox();
-            this.txtItemSeq = new System.Windows.Forms.TextBox();
-            this.txtPlanSeq = new System.Windows.Forms.TextBox();
-            this.txtOrderSeq = new System.Windows.Forms.TextBox();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.lblProcSeq = new System.Windows.Forms.Label();
-            this.lblRemark = new System.Windows.Forms.Label();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.lblQty = new System.Windows.Forms.Label();
-            this.lbOrderNo = new System.Windows.Forms.Label();
-            this.lblWorkDate = new System.Windows.Forms.Label();
-            this.lbItemSeq = new System.Windows.Forms.Label();
-            this.lblPlanSeq = new System.Windows.Forms.Label();
-            this.lblOrderSeq = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbProc = new System.Windows.Forms.ComboBox();
-            this.calendarDouble1 = new SPAM.Common.Controls.CalendarDouble();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblWOName = new System.Windows.Forms.Label();
             this.txtItemNoQ = new System.Windows.Forms.TextBox();
             this.lblWOID = new System.Windows.Forms.Label();
             this.lblWOLength = new System.Windows.Forms.Label();
-            this.txtPlanNo = new System.Windows.Forms.TextBox();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.lblRemark = new System.Windows.Forms.Label();
+            this.lblQty = new System.Windows.Forms.Label();
+            this.txtQty = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblWorkDate = new System.Windows.Forms.Label();
+            this.lblProcSeq = new System.Windows.Forms.Label();
+            this.cmbItemProc = new System.Windows.Forms.ComboBox();
+            this.txtOrderNo = new System.Windows.Forms.TextBox();
+            this.lbOrderNo = new System.Windows.Forms.Label();
+            this.lbItemSeq = new System.Windows.Forms.Label();
             this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.txtItemSeq = new System.Windows.Forms.TextBox();
+            this.txtPlanSeq = new System.Windows.Forms.TextBox();
+            this.txtPlanNo = new System.Windows.Forms.TextBox();
+            this.lblPlanSeq = new System.Windows.Forms.Label();
+            this.lblOrderSeq = new System.Windows.Forms.Label();
+            this.txtOrderSeq = new System.Windows.Forms.TextBox();
+            this.calendarDouble1 = new SPAM.Common.Controls.CalendarDouble();
             this.groupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
@@ -91,6 +91,7 @@ namespace SPAM.MainWork
             this.fpSpread1.Size = new System.Drawing.Size(1144, 580);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick_1);
             // 
             // fpSpread1_Sheet1
             // 
@@ -99,15 +100,15 @@ namespace SPAM.MainWork
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.cmbItemProc);
             this.groupBox1.Controls.Add(this.txtRemark);
             this.groupBox1.Controls.Add(this.txtQty);
-            this.groupBox1.Controls.Add(this.txtWorkDate);
             this.groupBox1.Controls.Add(this.txtOrderNo);
-            this.groupBox1.Controls.Add(this.txtItemSeq);
             this.groupBox1.Controls.Add(this.txtItemNo);
-            this.groupBox1.Controls.Add(this.txtPlanNo);
+            this.groupBox1.Controls.Add(this.txtItemSeq);
             this.groupBox1.Controls.Add(this.txtPlanSeq);
+            this.groupBox1.Controls.Add(this.txtPlanNo);
             this.groupBox1.Controls.Add(this.txtOrderSeq);
             this.groupBox1.Controls.Add(this.btnDel);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -126,221 +127,6 @@ namespace SPAM.MainWork
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "입력정보";
-            // 
-            // cmbItemProc
-            // 
-            this.cmbItemProc.Font = new System.Drawing.Font("굴림", 18F);
-            this.cmbItemProc.FormattingEnabled = true;
-            this.cmbItemProc.Location = new System.Drawing.Point(168, 280);
-            this.cmbItemProc.Name = "cmbItemProc";
-            this.cmbItemProc.Size = new System.Drawing.Size(344, 32);
-            this.cmbItemProc.TabIndex = 17;
-            // 
-            // txtRemark
-            // 
-            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemark.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtRemark.Location = new System.Drawing.Point(168, 431);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(345, 35);
-            this.txtRemark.TabIndex = 14;
-            this.txtRemark.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtQty
-            // 
-            this.txtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQty.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtQty.Location = new System.Drawing.Point(168, 376);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(345, 35);
-            this.txtQty.TabIndex = 16;
-            this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtWorkDate
-            // 
-            this.txtWorkDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWorkDate.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtWorkDate.Location = new System.Drawing.Point(168, 327);
-            this.txtWorkDate.Name = "txtWorkDate";
-            this.txtWorkDate.Size = new System.Drawing.Size(345, 35);
-            this.txtWorkDate.TabIndex = 14;
-            this.txtWorkDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtOrderNo
-            // 
-            this.txtOrderNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOrderNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtOrderNo.Location = new System.Drawing.Point(168, 228);
-            this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(345, 35);
-            this.txtOrderNo.TabIndex = 14;
-            this.txtOrderNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtItemSeq
-            // 
-            this.txtItemSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItemSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemSeq.Location = new System.Drawing.Point(168, 176);
-            this.txtItemSeq.Name = "txtItemSeq";
-            this.txtItemSeq.Size = new System.Drawing.Size(224, 35);
-            this.txtItemSeq.TabIndex = 16;
-            this.txtItemSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtPlanSeq
-            // 
-            this.txtPlanSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPlanSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPlanSeq.Location = new System.Drawing.Point(168, 125);
-            this.txtPlanSeq.Name = "txtPlanSeq";
-            this.txtPlanSeq.Size = new System.Drawing.Size(224, 35);
-            this.txtPlanSeq.TabIndex = 13;
-            this.txtPlanSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtOrderSeq
-            // 
-            this.txtOrderSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOrderSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtOrderSeq.Location = new System.Drawing.Point(168, 73);
-            this.txtOrderSeq.Name = "txtOrderSeq";
-            this.txtOrderSeq.Size = new System.Drawing.Size(345, 35);
-            this.txtOrderSeq.TabIndex = 13;
-            this.txtOrderSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnDel
-            // 
-            this.btnDel.BackColor = System.Drawing.Color.LightPink;
-            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDel.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDel.Location = new System.Drawing.Point(448, 544);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(100, 35);
-            this.btnDel.TabIndex = 12;
-            this.btnDel.Text = "삭제";
-            this.btnDel.UseVisualStyleBackColor = false;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightPink;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSave.Location = new System.Drawing.Point(342, 544);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 35);
-            this.btnSave.TabIndex = 11;
-            this.btnSave.Text = "저장";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // lblProcSeq
-            // 
-            this.lblProcSeq.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblProcSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblProcSeq.ForeColor = System.Drawing.Color.White;
-            this.lblProcSeq.Location = new System.Drawing.Point(25, 277);
-            this.lblProcSeq.Name = "lblProcSeq";
-            this.lblProcSeq.Size = new System.Drawing.Size(116, 35);
-            this.lblProcSeq.TabIndex = 5;
-            this.lblProcSeq.Text = "공정";
-            this.lblProcSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblRemark
-            // 
-            this.lblRemark.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblRemark.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblRemark.ForeColor = System.Drawing.Color.White;
-            this.lblRemark.Location = new System.Drawing.Point(24, 431);
-            this.lblRemark.Name = "lblRemark";
-            this.lblRemark.Size = new System.Drawing.Size(116, 35);
-            this.lblRemark.TabIndex = 5;
-            this.lblRemark.Text = "지시사항";
-            this.lblRemark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.LightPink;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(236, 544);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(100, 35);
-            this.btnNew.TabIndex = 10;
-            this.btnNew.Text = "신규";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // lblQty
-            // 
-            this.lblQty.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblQty.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblQty.ForeColor = System.Drawing.Color.White;
-            this.lblQty.Location = new System.Drawing.Point(24, 379);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(116, 35);
-            this.lblQty.TabIndex = 4;
-            this.lblQty.Text = "수량";
-            this.lblQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbOrderNo
-            // 
-            this.lbOrderNo.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lbOrderNo.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbOrderNo.ForeColor = System.Drawing.Color.White;
-            this.lbOrderNo.Location = new System.Drawing.Point(25, 228);
-            this.lbOrderNo.Name = "lbOrderNo";
-            this.lbOrderNo.Size = new System.Drawing.Size(116, 35);
-            this.lbOrderNo.TabIndex = 5;
-            this.lbOrderNo.Text = "WO번호";
-            this.lbOrderNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblWorkDate
-            // 
-            this.lblWorkDate.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblWorkDate.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblWorkDate.ForeColor = System.Drawing.Color.White;
-            this.lblWorkDate.Location = new System.Drawing.Point(24, 328);
-            this.lblWorkDate.Name = "lblWorkDate";
-            this.lblWorkDate.Size = new System.Drawing.Size(116, 35);
-            this.lblWorkDate.TabIndex = 2;
-            this.lblWorkDate.Text = "작업일자";
-            this.lblWorkDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbItemSeq
-            // 
-            this.lbItemSeq.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lbItemSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbItemSeq.ForeColor = System.Drawing.Color.White;
-            this.lbItemSeq.Location = new System.Drawing.Point(25, 176);
-            this.lbItemSeq.Name = "lbItemSeq";
-            this.lbItemSeq.Size = new System.Drawing.Size(116, 35);
-            this.lbItemSeq.TabIndex = 4;
-            this.lbItemSeq.Text = "제품품번";
-            this.lbItemSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPlanSeq
-            // 
-            this.lblPlanSeq.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblPlanSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblPlanSeq.ForeColor = System.Drawing.Color.White;
-            this.lblPlanSeq.Location = new System.Drawing.Point(25, 125);
-            this.lblPlanSeq.Name = "lblPlanSeq";
-            this.lblPlanSeq.Size = new System.Drawing.Size(116, 35);
-            this.lblPlanSeq.TabIndex = 2;
-            this.lblPlanSeq.Text = "계획번호";
-            this.lblPlanSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblOrderSeq
-            // 
-            this.lblOrderSeq.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblOrderSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblOrderSeq.ForeColor = System.Drawing.Color.White;
-            this.lblOrderSeq.Location = new System.Drawing.Point(25, 73);
-            this.lblOrderSeq.Name = "lblOrderSeq";
-            this.lblOrderSeq.Size = new System.Drawing.Size(116, 35);
-            this.lblOrderSeq.TabIndex = 0;
-            this.lblOrderSeq.Text = "WO내부코드";
-            this.lblOrderSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -366,16 +152,6 @@ namespace SPAM.MainWork
             this.cmbProc.Name = "cmbProc";
             this.cmbProc.Size = new System.Drawing.Size(209, 32);
             this.cmbProc.TabIndex = 2;
-            // 
-            // calendarDouble1
-            // 
-            this.calendarDouble1.Location = new System.Drawing.Point(184, 16);
-            this.calendarDouble1.Name = "calendarDouble1";
-            this.calendarDouble1.Size = new System.Drawing.Size(240, 25);
-            this.calendarDouble1.StartMonthDistinction = 0;
-            this.calendarDouble1.TabIndex = 12;
-            this.calendarDouble1.ValueEndDate = "20210828";
-            this.calendarDouble1.ValueStartDate = "20210828";
             // 
             // btnSearch
             // 
@@ -435,25 +211,250 @@ namespace SPAM.MainWork
             this.lblWOLength.Text = "기간";
             this.lblWOLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtPlanNo
+            // btnDel
             // 
-            this.txtPlanNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPlanNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPlanNo.Location = new System.Drawing.Point(400, 125);
-            this.txtPlanNo.Name = "txtPlanNo";
-            this.txtPlanNo.Size = new System.Drawing.Size(112, 35);
-            this.txtPlanNo.TabIndex = 13;
-            this.txtPlanNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnDel.BackColor = System.Drawing.Color.LightPink;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDel.Location = new System.Drawing.Point(448, 544);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(100, 35);
+            this.btnDel.TabIndex = 12;
+            this.btnDel.Text = "삭제";
+            this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightPink;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSave.Location = new System.Drawing.Point(342, 544);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 35);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "저장";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.LightPink;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNew.ForeColor = System.Drawing.Color.Black;
+            this.btnNew.Location = new System.Drawing.Point(236, 544);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(100, 35);
+            this.btnNew.TabIndex = 10;
+            this.btnNew.Text = "신규";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtRemark.Location = new System.Drawing.Point(168, 431);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(345, 35);
+            this.txtRemark.TabIndex = 14;
+            this.txtRemark.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblRemark
+            // 
+            this.lblRemark.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblRemark.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblRemark.ForeColor = System.Drawing.Color.White;
+            this.lblRemark.Location = new System.Drawing.Point(24, 431);
+            this.lblRemark.Name = "lblRemark";
+            this.lblRemark.Size = new System.Drawing.Size(116, 35);
+            this.lblRemark.TabIndex = 5;
+            this.lblRemark.Text = "지시사항";
+            this.lblRemark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblQty
+            // 
+            this.lblQty.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblQty.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblQty.ForeColor = System.Drawing.Color.White;
+            this.lblQty.Location = new System.Drawing.Point(24, 379);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(116, 35);
+            this.lblQty.TabIndex = 4;
+            this.lblQty.Text = "수량";
+            this.lblQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtQty
+            // 
+            this.txtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQty.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtQty.Location = new System.Drawing.Point(168, 376);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(345, 35);
+            this.txtQty.TabIndex = 16;
+            this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(168, 336);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 18;
+            // 
+            // lblWorkDate
+            // 
+            this.lblWorkDate.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblWorkDate.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblWorkDate.ForeColor = System.Drawing.Color.White;
+            this.lblWorkDate.Location = new System.Drawing.Point(24, 328);
+            this.lblWorkDate.Name = "lblWorkDate";
+            this.lblWorkDate.Size = new System.Drawing.Size(116, 35);
+            this.lblWorkDate.TabIndex = 2;
+            this.lblWorkDate.Text = "작업일자";
+            this.lblWorkDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProcSeq
+            // 
+            this.lblProcSeq.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblProcSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblProcSeq.ForeColor = System.Drawing.Color.White;
+            this.lblProcSeq.Location = new System.Drawing.Point(25, 277);
+            this.lblProcSeq.Name = "lblProcSeq";
+            this.lblProcSeq.Size = new System.Drawing.Size(116, 35);
+            this.lblProcSeq.TabIndex = 5;
+            this.lblProcSeq.Text = "공정";
+            this.lblProcSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmbItemProc
+            // 
+            this.cmbItemProc.Font = new System.Drawing.Font("굴림", 18F);
+            this.cmbItemProc.FormattingEnabled = true;
+            this.cmbItemProc.Location = new System.Drawing.Point(168, 280);
+            this.cmbItemProc.Name = "cmbItemProc";
+            this.cmbItemProc.Size = new System.Drawing.Size(344, 32);
+            this.cmbItemProc.TabIndex = 17;
+            // 
+            // txtOrderNo
+            // 
+            this.txtOrderNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOrderNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtOrderNo.Location = new System.Drawing.Point(168, 228);
+            this.txtOrderNo.Name = "txtOrderNo";
+            this.txtOrderNo.Size = new System.Drawing.Size(345, 35);
+            this.txtOrderNo.TabIndex = 14;
+            this.txtOrderNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbOrderNo
+            // 
+            this.lbOrderNo.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lbOrderNo.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOrderNo.ForeColor = System.Drawing.Color.White;
+            this.lbOrderNo.Location = new System.Drawing.Point(25, 228);
+            this.lbOrderNo.Name = "lbOrderNo";
+            this.lbOrderNo.Size = new System.Drawing.Size(116, 35);
+            this.lbOrderNo.TabIndex = 5;
+            this.lbOrderNo.Text = "WO번호";
+            this.lbOrderNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbItemSeq
+            // 
+            this.lbItemSeq.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lbItemSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbItemSeq.ForeColor = System.Drawing.Color.White;
+            this.lbItemSeq.Location = new System.Drawing.Point(25, 176);
+            this.lbItemSeq.Name = "lbItemSeq";
+            this.lbItemSeq.Size = new System.Drawing.Size(116, 35);
+            this.lbItemSeq.TabIndex = 4;
+            this.lbItemSeq.Text = "제품품번";
+            this.lbItemSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtItemNo
             // 
             this.txtItemNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemNo.Location = new System.Drawing.Point(400, 176);
+            this.txtItemNo.Location = new System.Drawing.Point(168, 176);
             this.txtItemNo.Name = "txtItemNo";
-            this.txtItemNo.Size = new System.Drawing.Size(112, 35);
-            this.txtItemNo.TabIndex = 13;
+            this.txtItemNo.Size = new System.Drawing.Size(224, 35);
+            this.txtItemNo.TabIndex = 16;
             this.txtItemNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtItemNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemSeq_KeyDown);
+            // 
+            // txtItemSeq
+            // 
+            this.txtItemSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtItemSeq.Location = new System.Drawing.Point(400, 176);
+            this.txtItemSeq.Name = "txtItemSeq";
+            this.txtItemSeq.Size = new System.Drawing.Size(112, 35);
+            this.txtItemSeq.TabIndex = 13;
+            this.txtItemSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlanSeq
+            // 
+            this.txtPlanSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPlanSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlanSeq.Location = new System.Drawing.Point(400, 125);
+            this.txtPlanSeq.Name = "txtPlanSeq";
+            this.txtPlanSeq.Size = new System.Drawing.Size(112, 35);
+            this.txtPlanSeq.TabIndex = 13;
+            this.txtPlanSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlanNo
+            // 
+            this.txtPlanNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPlanNo.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlanNo.Location = new System.Drawing.Point(168, 125);
+            this.txtPlanNo.Name = "txtPlanNo";
+            this.txtPlanNo.Size = new System.Drawing.Size(224, 35);
+            this.txtPlanNo.TabIndex = 13;
+            this.txtPlanNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPlanNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlanSeq_KeyDown);
+            // 
+            // lblPlanSeq
+            // 
+            this.lblPlanSeq.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblPlanSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblPlanSeq.ForeColor = System.Drawing.Color.White;
+            this.lblPlanSeq.Location = new System.Drawing.Point(25, 125);
+            this.lblPlanSeq.Name = "lblPlanSeq";
+            this.lblPlanSeq.Size = new System.Drawing.Size(116, 35);
+            this.lblPlanSeq.TabIndex = 2;
+            this.lblPlanSeq.Text = "계획번호";
+            this.lblPlanSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOrderSeq
+            // 
+            this.lblOrderSeq.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblOrderSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblOrderSeq.ForeColor = System.Drawing.Color.White;
+            this.lblOrderSeq.Location = new System.Drawing.Point(25, 73);
+            this.lblOrderSeq.Name = "lblOrderSeq";
+            this.lblOrderSeq.Size = new System.Drawing.Size(116, 35);
+            this.lblOrderSeq.TabIndex = 0;
+            this.lblOrderSeq.Text = "WO내부코드";
+            this.lblOrderSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtOrderSeq
+            // 
+            this.txtOrderSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOrderSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtOrderSeq.Location = new System.Drawing.Point(168, 73);
+            this.txtOrderSeq.Name = "txtOrderSeq";
+            this.txtOrderSeq.Size = new System.Drawing.Size(345, 35);
+            this.txtOrderSeq.TabIndex = 13;
+            this.txtOrderSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // calendarDouble1
+            // 
+            this.calendarDouble1.Location = new System.Drawing.Point(184, 16);
+            this.calendarDouble1.Name = "calendarDouble1";
+            this.calendarDouble1.Size = new System.Drawing.Size(240, 25);
+            this.calendarDouble1.StartMonthDistinction = 0;
+            this.calendarDouble1.TabIndex = 12;
+            this.calendarDouble1.ValueEndDate = "20210904";
+            this.calendarDouble1.ValueStartDate = "20210904";
             // 
             // ucWorkOrder
             // 
@@ -481,13 +482,22 @@ namespace SPAM.MainWork
         private FarPoint.Win.Spread.FpSpread fpSpread1;
         private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cmbProc;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblWOName;
+        private System.Windows.Forms.TextBox txtItemNoQ;
+        private System.Windows.Forms.Label lblWOID;
+        private System.Windows.Forms.Label lblWOLength;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cmbItemProc;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.TextBox txtQty;
-        private System.Windows.Forms.TextBox txtWorkDate;
         private System.Windows.Forms.TextBox txtOrderNo;
+        private System.Windows.Forms.TextBox txtItemNo;
         private System.Windows.Forms.TextBox txtItemSeq;
         private System.Windows.Forms.TextBox txtPlanSeq;
+        private System.Windows.Forms.TextBox txtPlanNo;
         private System.Windows.Forms.TextBox txtOrderSeq;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnSave;
@@ -500,15 +510,6 @@ namespace SPAM.MainWork
         private System.Windows.Forms.Label lbItemSeq;
         private System.Windows.Forms.Label lblPlanSeq;
         private System.Windows.Forms.Label lblOrderSeq;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cmbProc;
         private Common.Controls.CalendarDouble calendarDouble1;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label lblWOName;
-        private System.Windows.Forms.TextBox txtItemNoQ;
-        private System.Windows.Forms.Label lblWOID;
-        private System.Windows.Forms.Label lblWOLength;
-        private System.Windows.Forms.TextBox txtItemNo;
-        private System.Windows.Forms.TextBox txtPlanNo;
     }
 }

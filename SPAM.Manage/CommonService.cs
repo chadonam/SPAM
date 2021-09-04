@@ -572,11 +572,13 @@ namespace SPAM.Manage
                 spName = "SWoOrder";
 
                 param = new SqlParameter[4];
+
                 param[0] = new SqlParameter("@From", From);
                 param[1] = new SqlParameter("@To", To);
                 param[2] = new SqlParameter("@ItemNo", ItemNo);
                 param[3] = new SqlParameter("@ProcSeq", ProcSeq);
-                
+
+
 
                 dsResult = SqlHelper.Fill(spName, param);
 
@@ -602,7 +604,7 @@ namespace SPAM.Manage
             SqlParameter[] param = null;
             try
             {
-                spName = "SMatinSave";
+                spName = "SWorkOrderSave";
 
                 param = new SqlParameter[9];
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
@@ -629,6 +631,78 @@ namespace SPAM.Manage
             }
         }
         #endregion
+
+        #region ProcStockQry 조회        
+        public DataSet GetProcStockQry(string ItemNo, string PlanNo, string Proc)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SProcStockQry";
+
+                param = new SqlParameter[3];
+
+                param[0] = new SqlParameter("@ItemNo", ItemNo);
+                param[1] = new SqlParameter("@PlanNo", PlanNo);
+                param[2] = new SqlParameter("@ProcSeq", Proc);
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region LOTHISTORY 조회   
+        
+        public DataSet GetLOTHISTORY(string ItemSeq, string PlanSeq,  string ProcSeq, string WorkDate)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SLOTHISTORY";
+
+                param = new SqlParameter[4];
+
+                param[0] = new SqlParameter("@ItemSeq", ItemSeq);
+                param[1] = new SqlParameter("@PlanSeq", PlanSeq);
+                param[2] = new SqlParameter("@ProcSeq", ProcSeq);
+                param[3] = new SqlParameter("@WorkDate", WorkDate);
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
 
         #region MatOut 저장     
         public DataSet SetMatOut(string workingTag, string OutSeq, string ItemSeq, string LOTID, string Qty, string OutDate, string OutClss)
