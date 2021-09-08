@@ -521,8 +521,6 @@ namespace SPAM.Manage
         }
         #endregion
 
-        //WorkingTag, MatinNum, MatinName, MatinNameNum, Date, LOTid, MatinAmount
-
         #region MatIn 저장   
         public DataSet SetMatIn(string workingTag, string InSeq, string ItemSeq, string LOTID, string InDate, string Qty)
         {
@@ -1137,6 +1135,7 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region GetOrder
         public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
         {
             DataSet dsResult = null;
@@ -1198,6 +1197,7 @@ namespace SPAM.Manage
             }
         }
 
+        #endregion
 
         #region 월간계획 검색
         public DataSet GetPlan(string planno, string startDate, string endDate)
@@ -1300,6 +1300,7 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region SetWo
         public DataSet SetWo(string orderSeq, string machSeq)
         {
             DataSet dsResult = null;
@@ -1330,6 +1331,9 @@ namespace SPAM.Manage
 
 
         }
+        #endregion
+
+        #region DelMach
         public DataSet DelMach(string orderSeq, string machSeq)
         {
             DataSet dsResult = null;
@@ -1359,8 +1363,9 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        #endregion
 
-
+        #region GetHistory
 
         public DataSet GetHistory(string lotId)
         {
@@ -1391,6 +1396,7 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        #endregion
 
         #region 차트 테스트       
         public DataSet GetTest()
@@ -1468,6 +1474,40 @@ namespace SPAM.Manage
                 param[0] = new SqlParameter("@ProcSeq", procSeq);
                 param[1] = new SqlParameter("@From", from);
                 param[2] = new SqlParameter("@To", to);
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region ProcChart
+        public DataSet GetProcChart(string from, string to)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "ProcChart";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@From", from);
+                param[1] = new SqlParameter("@To", to);
 
                 //param = new SqlParameter[2];
                 // param[0] = new SqlParameter("@MachID", MachID);

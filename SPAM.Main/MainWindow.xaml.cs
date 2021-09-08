@@ -46,10 +46,14 @@ namespace SPAM.Main
         private void InitImage()
         {
             SetImage(imgMenu1, "ad_menu01");
-            if (ClientGlobal.UserID == "Admin")
-            {
-                SetImage(imgMenu2, "ad_menu02");
-            }
+            SetImage(imgMenu2, "ad_menu02");
+            SetImage(imgMenu3, "ad_menu03");
+            SetImage(imgMenu4, "ad_menu04");
+            SetImage(imgMenu5, "ad_menu05");            
+            //if (ClientGlobal.UserID == "Admin")
+            //{
+            //    SetImage(imgMenu2, "ad_menu02");
+            //}
             //SetImage(imgMenu3, "ad_menu03");
             //SetImage(imgMenu4, "ad_menu04");
             //SetImage(imgMenu5, "ad_menu05");            
@@ -152,52 +156,52 @@ namespace SPAM.Main
             btnArrow.Content = "◀";
         }
 
-        //private void imgMenu3_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    InitImage();
-        //    Login.SetImage(imgMenu3, "ad_menu03_on");
+        private void imgMenu3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            InitImage();
+            Login.SetImage(imgMenu3, "ad_menu03_on");
 
-        //    Dictionary<string, string> menus = new Dictionary<string, string>();
-        //    menus.Add("시스템관리", "SPAM.MainWork.ucSystemManage");
+            Dictionary<string, string> menus = new Dictionary<string, string>();
+            //menus.Add("시스템관리", "SPAM.MainWork.ucSystemManage");
 
 
 
-        //    SetLeftMeun(menus);
+            SetLeftMeun(menus);
 
-        //    gdBody.ColumnDefinitions[0].Width = new GridLength(150);
-        //    btnArrow.Content = "◀";
-        //}
+            gdBody.ColumnDefinitions[0].Width = new GridLength(150);
+            btnArrow.Content = "◀";
+        }
 
-        //private void imgMenu4_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    InitImage();
-        //    Login.SetImage(imgMenu4, "ad_menu04_on");
+        private void imgMenu4_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            InitImage();
+            Login.SetImage(imgMenu4, "ad_menu04_on");
 
-        //    Dictionary<string, string> menus = new Dictionary<string, string>();
-        //    menus.Add("거래명세서등록", "SPAM.MainWork.ucInvoiceAdd");
-        //    menus.Add("거래명세서조회", "SPAM.MainWork.ucInvoiceQry");
+            Dictionary<string, string> menus = new Dictionary<string, string>();
+            //menus.Add("거래명세서등록", "SPAM.MainWork.ucInvoiceAdd");
+            //menus.Add("거래명세서조회", "SPAM.MainWork.ucInvoiceQry");
 
-        //    SetLeftMeun(menus);
+            SetLeftMeun(menus);
 
-        //    gdBody.ColumnDefinitions[0].Width = new GridLength(150);
-        //    btnArrow.Content = "◀";
-        //}
+            gdBody.ColumnDefinitions[0].Width = new GridLength(150);
+            btnArrow.Content = "◀";
+        }
 
-        //private void imgMenu5_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    InitImage();
-        //    Login.SetImage(imgMenu5, "ad_menu05_on");
+        private void imgMenu5_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            InitImage();
+            Login.SetImage(imgMenu5, "ad_menu05_on");
 
-        //    Dictionary<string, string> menus = new Dictionary<string, string>();
-        //    menus.Add("시스템관리", "SPAM.MainWork.ucSystemManage");
+            Dictionary<string, string> menus = new Dictionary<string, string>();
+            menus.Add("시스템관리", "SPAM.MainWork.ucSystemManage");
 
-        //    SetLeftMeun(menus);
+            SetLeftMeun(menus);
 
-        //    gdBody.ColumnDefinitions[0].Width = new GridLength(150);
-        //    btnArrow.Content = "◀";
-        //}
+            gdBody.ColumnDefinitions[0].Width = new GridLength(150);
+            btnArrow.Content = "◀";
+        }
 
-       
+
 
         private void SetLeftMeun(Dictionary<string, string> menus)
         {
