@@ -984,5 +984,36 @@ namespace SPAM.Manage
         }
 
 
+        #region 차트 테스트       
+        public DataSet GetTest()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+           // SqlParameter[] param = null;
+            try
+            {
+                spName = "TESTChart";
+
+                //param = new SqlParameter[2];
+               // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
     }
 }
