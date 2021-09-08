@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.txtMachNameQ = new System.Windows.Forms.TextBox();
+            this.lblMachNameQ = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtMachIDQ = new System.Windows.Forms.TextBox();
             this.lblMachIDQ = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.groupbox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.txtMachNameQ = new System.Windows.Forms.TextBox();
-            this.lblMachNameQ = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupbox2.SuspendLayout();
@@ -66,10 +66,30 @@
             this.pnlHeader.Controls.Add(this.lblMachIDQ);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(2000, 74);
+            this.pnlHeader.Size = new System.Drawing.Size(1750, 60);
             this.pnlHeader.TabIndex = 12;
+            // 
+            // txtMachNameQ
+            // 
+            this.txtMachNameQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMachNameQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtMachNameQ.Location = new System.Drawing.Point(483, 13);
+            this.txtMachNameQ.Name = "txtMachNameQ";
+            this.txtMachNameQ.Size = new System.Drawing.Size(209, 35);
+            this.txtMachNameQ.TabIndex = 13;
+            this.txtMachNameQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblMachNameQ
+            // 
+            this.lblMachNameQ.AutoSize = true;
+            this.lblMachNameQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblMachNameQ.Location = new System.Drawing.Point(367, 16);
+            this.lblMachNameQ.Name = "lblMachNameQ";
+            this.lblMachNameQ.Size = new System.Drawing.Size(87, 32);
+            this.lblMachNameQ.TabIndex = 12;
+            this.lblMachNameQ.Text = "설비명";
+            this.lblMachNameQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSearch
             // 
@@ -77,10 +97,9 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(1850, 16);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(1619, 13);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 44);
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "조회";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -90,10 +109,9 @@
             // 
             this.txtMachIDQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMachIDQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtMachIDQ.Location = new System.Drawing.Point(159, 16);
-            this.txtMachIDQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMachIDQ.Location = new System.Drawing.Point(139, 13);
             this.txtMachIDQ.Name = "txtMachIDQ";
-            this.txtMachIDQ.Size = new System.Drawing.Size(239, 35);
+            this.txtMachIDQ.Size = new System.Drawing.Size(209, 35);
             this.txtMachIDQ.TabIndex = 2;
             this.txtMachIDQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -101,7 +119,7 @@
             // 
             this.lblMachIDQ.AutoSize = true;
             this.lblMachIDQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblMachIDQ.Location = new System.Drawing.Point(26, 20);
+            this.lblMachIDQ.Location = new System.Drawing.Point(23, 16);
             this.lblMachIDQ.Name = "lblMachIDQ";
             this.lblMachIDQ.Size = new System.Drawing.Size(86, 32);
             this.lblMachIDQ.TabIndex = 0;
@@ -121,11 +139,9 @@
             this.groupBox1.Controls.Add(this.lblMachName);
             this.groupBox1.Controls.Add(this.lblMachID);
             this.groupBox1.Controls.Add(this.lblMachSeq);
-            this.groupBox1.Location = new System.Drawing.Point(8, 89);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(7, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(640, 750);
+            this.groupBox1.Size = new System.Drawing.Size(560, 600);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "입력 정보";
@@ -134,20 +150,18 @@
             // 
             this.cmbProc.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbProc.FormattingEnabled = true;
-            this.cmbProc.Location = new System.Drawing.Point(192, 259);
-            this.cmbProc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbProc.Location = new System.Drawing.Point(168, 207);
             this.cmbProc.Name = "cmbProc";
-            this.cmbProc.Size = new System.Drawing.Size(394, 32);
+            this.cmbProc.Size = new System.Drawing.Size(345, 32);
             this.cmbProc.TabIndex = 17;
             // 
             // txtMachName
             // 
             this.txtMachName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMachName.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtMachName.Location = new System.Drawing.Point(192, 190);
-            this.txtMachName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMachName.Location = new System.Drawing.Point(168, 152);
             this.txtMachName.Name = "txtMachName";
-            this.txtMachName.Size = new System.Drawing.Size(394, 35);
+            this.txtMachName.Size = new System.Drawing.Size(345, 35);
             this.txtMachName.TabIndex = 16;
             this.txtMachName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -155,10 +169,9 @@
             // 
             this.txtMachID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMachID.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtMachID.Location = new System.Drawing.Point(192, 126);
-            this.txtMachID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMachID.Location = new System.Drawing.Point(168, 101);
             this.txtMachID.Name = "txtMachID";
-            this.txtMachID.Size = new System.Drawing.Size(394, 35);
+            this.txtMachID.Size = new System.Drawing.Size(345, 35);
             this.txtMachID.TabIndex = 14;
             this.txtMachID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -166,10 +179,9 @@
             // 
             this.txtMachSeq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMachSeq.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtMachSeq.Location = new System.Drawing.Point(192, 61);
-            this.txtMachSeq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMachSeq.Location = new System.Drawing.Point(168, 49);
             this.txtMachSeq.Name = "txtMachSeq";
-            this.txtMachSeq.Size = new System.Drawing.Size(394, 35);
+            this.txtMachSeq.Size = new System.Drawing.Size(345, 35);
             this.txtMachSeq.TabIndex = 13;
             this.txtMachSeq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -178,10 +190,9 @@
             this.btnDel.BackColor = System.Drawing.Color.LightPink;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDel.Location = new System.Drawing.Point(519, 640);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDel.Location = new System.Drawing.Point(454, 512);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(114, 44);
+            this.btnDel.Size = new System.Drawing.Size(100, 35);
             this.btnDel.TabIndex = 12;
             this.btnDel.Text = "삭제";
             this.btnDel.UseVisualStyleBackColor = false;
@@ -192,10 +203,9 @@
             this.btnSave.BackColor = System.Drawing.Color.LightPink;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSave.Location = new System.Drawing.Point(398, 640);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave.Location = new System.Drawing.Point(348, 512);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(114, 44);
+            this.btnSave.Size = new System.Drawing.Size(100, 35);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "저장";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -207,10 +217,9 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNew.ForeColor = System.Drawing.Color.Black;
-            this.btnNew.Location = new System.Drawing.Point(277, 640);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNew.Location = new System.Drawing.Point(242, 512);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(114, 44);
+            this.btnNew.Size = new System.Drawing.Size(100, 35);
             this.btnNew.TabIndex = 10;
             this.btnNew.Text = "신규";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -221,9 +230,9 @@
             this.lblProcSeq.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblProcSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblProcSeq.ForeColor = System.Drawing.Color.White;
-            this.lblProcSeq.Location = new System.Drawing.Point(29, 255);
+            this.lblProcSeq.Location = new System.Drawing.Point(25, 204);
             this.lblProcSeq.Name = "lblProcSeq";
-            this.lblProcSeq.Size = new System.Drawing.Size(133, 44);
+            this.lblProcSeq.Size = new System.Drawing.Size(116, 35);
             this.lblProcSeq.TabIndex = 5;
             this.lblProcSeq.Text = "공정";
             this.lblProcSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,9 +242,9 @@
             this.lblMachName.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblMachName.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblMachName.ForeColor = System.Drawing.Color.White;
-            this.lblMachName.Location = new System.Drawing.Point(29, 190);
+            this.lblMachName.Location = new System.Drawing.Point(25, 152);
             this.lblMachName.Name = "lblMachName";
-            this.lblMachName.Size = new System.Drawing.Size(133, 44);
+            this.lblMachName.Size = new System.Drawing.Size(116, 35);
             this.lblMachName.TabIndex = 4;
             this.lblMachName.Text = "설비명";
             this.lblMachName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,9 +254,9 @@
             this.lblMachID.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblMachID.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblMachID.ForeColor = System.Drawing.Color.White;
-            this.lblMachID.Location = new System.Drawing.Point(29, 126);
+            this.lblMachID.Location = new System.Drawing.Point(25, 101);
             this.lblMachID.Name = "lblMachID";
-            this.lblMachID.Size = new System.Drawing.Size(133, 44);
+            this.lblMachID.Size = new System.Drawing.Size(116, 35);
             this.lblMachID.TabIndex = 2;
             this.lblMachID.Text = "설비ID";
             this.lblMachID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,9 +266,9 @@
             this.lblMachSeq.BackColor = System.Drawing.Color.MidnightBlue;
             this.lblMachSeq.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblMachSeq.ForeColor = System.Drawing.Color.White;
-            this.lblMachSeq.Location = new System.Drawing.Point(29, 61);
+            this.lblMachSeq.Location = new System.Drawing.Point(25, 49);
             this.lblMachSeq.Name = "lblMachSeq";
-            this.lblMachSeq.Size = new System.Drawing.Size(133, 44);
+            this.lblMachSeq.Size = new System.Drawing.Size(116, 35);
             this.lblMachSeq.TabIndex = 0;
             this.lblMachSeq.Text = "설비내부코드";
             this.lblMachSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,11 +276,9 @@
             // groupbox2
             // 
             this.groupbox2.Controls.Add(this.fpSpread1);
-            this.groupbox2.Location = new System.Drawing.Point(655, 89);
-            this.groupbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupbox2.Location = new System.Drawing.Point(573, 71);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupbox2.Size = new System.Drawing.Size(1314, 750);
+            this.groupbox2.Size = new System.Drawing.Size(1150, 600);
             this.groupbox2.TabIndex = 16;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "공정 정보";
@@ -281,12 +288,11 @@
             this.fpSpread1.AccessibleDescription = "";
             this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpSpread1.Location = new System.Drawing.Point(3, 22);
-            this.fpSpread1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fpSpread1.Location = new System.Drawing.Point(3, 17);
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1308, 724);
+            this.fpSpread1.Size = new System.Drawing.Size(1144, 580);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick);
@@ -296,38 +302,15 @@
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
             // 
-            // txtMachNameQ
-            // 
-            this.txtMachNameQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMachNameQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtMachNameQ.Location = new System.Drawing.Point(552, 16);
-            this.txtMachNameQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMachNameQ.Name = "txtMachNameQ";
-            this.txtMachNameQ.Size = new System.Drawing.Size(239, 35);
-            this.txtMachNameQ.TabIndex = 13;
-            this.txtMachNameQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblMachNameQ
-            // 
-            this.lblMachNameQ.AutoSize = true;
-            this.lblMachNameQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblMachNameQ.Location = new System.Drawing.Point(419, 20);
-            this.lblMachNameQ.Name = "lblMachNameQ";
-            this.lblMachNameQ.Size = new System.Drawing.Size(87, 32);
-            this.lblMachNameQ.TabIndex = 12;
-            this.lblMachNameQ.Text = "설비명";
-            this.lblMachNameQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ucMachAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupbox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ucMachAdd";
-            this.Size = new System.Drawing.Size(2000, 875);
+            this.Size = new System.Drawing.Size(1750, 700);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.groupBox1.ResumeLayout(false);
