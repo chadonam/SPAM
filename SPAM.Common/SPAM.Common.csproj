@@ -209,15 +209,6 @@
     <None Include="Resources\top_bg.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menu01_on.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\login.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ad_menu01_on.png" />
   </ItemGroup>
   <ItemGroup>

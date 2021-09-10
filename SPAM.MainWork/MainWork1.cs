@@ -38,20 +38,20 @@ namespace SPAM.MainWork
             chart1.Series["Series1"].LegendText = "가동율";   // 차트 이름을 "수학"으로 설정
             chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력
 
-            DataSet ds = null;
-            using (CommonService svc = new CommonService())
-            {
-                ds = svc.GetTest();
-            }
+            //DataSet ds = null;
+            //using (CommonService svc = new CommonService())
+            //{
+            //    ds = svc.GetTest();
+            //}
 
-            if (ds != null)
-            {
+            //if (ds != null)
+            //{
 
-                chart1.DataSource = ds;
-                chart1.Series["Series1"].XValueMember = "MachID";
-                chart1.Series["Series1"].YValueMembers = "RunRate";
+            //    chart1.DataSource = ds;
+            //    chart1.Series["Series1"].XValueMember = "MachID";
+            //    chart1.Series["Series1"].YValueMembers = "RunRate";
 
-            }
+            //}
             /*
             chart1.Series["Series1"].Points.AddXY("설비1",r.Next(100)); // 차트 한줄 출력해주는 코드
             chart1.Series["Series1"].Points.AddXY("설비2", r.Next(100)); // 차트 한줄 출력해주는 코드

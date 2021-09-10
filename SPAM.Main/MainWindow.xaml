@@ -24,10 +24,10 @@
         <Image Name="imgLogo" Width="140" Height="83" Grid.Row="1" Grid.Column="0" MouseUp="imgLogo_MouseUp" />
         <Image Name="imgMenu1" Width="74" Height="50" Grid.Row="1" Grid.Column="1" MouseUp="imgMenu1_MouseUp" />
         <Image Name="imgMenu2" Width="74" Height="50" Grid.Row="1" Grid.Column="2" MouseUp="imgMenu2_MouseUp" />
-        <!--<Image Name="imgMenu3" Width="74" Height="50" Grid.Row="1" Grid.Column="3" MouseUp="imgMenu3_MouseUp" />-->
-        <!--<Image Name="imgMenu4" Width="74" Height="50" Grid.Row="1" Grid.Column="4" MouseUp="imgMenu4_MouseUp" />-->
-        <!--<Image Name="imgMenu5" Width="74" Height="50" Grid.Row="1" Grid.Column="5" MouseUp="imgMenu5_MouseUp" />-->
-        
+        <Image Name="imgMenu3" Width="74" Height="50" Grid.Row="1" Grid.Column="3" MouseUp="imgMenu3_MouseUp" />
+        <Image Name="imgMenu4" Width="74" Height="50" Grid.Row="1" Grid.Column="4" MouseUp="imgMenu4_MouseUp" />
+        <Image Name="imgMenu5" Width="74" Height="50" Grid.Row="1" Grid.Column="5" MouseUp="imgMenu5_MouseUp" />
+
 
         <Grid Name="gdBody" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="11" >
             <Grid.RowDefinitions>

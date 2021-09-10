@@ -46,10 +46,14 @@ namespace SPAM.Main
         private void InitImage()
         {
             SetImage(imgMenu1, "ad_menu01");
-            if (ClientGlobal.UserID == "Admin")
-            {
-                SetImage(imgMenu2, "ad_menu02");
-            }
+            SetImage(imgMenu2, "ad_menu02");
+            SetImage(imgMenu3, "ad_menu03");
+            SetImage(imgMenu4, "ad_menu04");
+            SetImage(imgMenu5, "ad_menu05");            
+            //if (ClientGlobal.UserID == "Admin")
+            //{
+            //    SetImage(imgMenu2, "ad_menu02");
+            //}
             //SetImage(imgMenu3, "ad_menu03");
             //SetImage(imgMenu4, "ad_menu04");
             //SetImage(imgMenu5, "ad_menu05");            
@@ -105,16 +109,15 @@ namespace SPAM.Main
             Login.SetImage(imgMenu1, "ad_menu01_on");
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
-            menus.Add("사용자등록", "SPAM.MainWork.ucUserAdd");
-            menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
-            menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
-            menus.Add("권한등록", "SPAM.MainWork.ucAuthAdd");
+            
             menus.Add("품목마스터 연동", "SPAM.MainWork.ucItemSync");
             menus.Add("품목별 공정순서", "SPAM.MainWork.ucItemProc");
             menus.Add("공정등록", "SPAM.MainWork.ucProcAdd");
             menus.Add("BOM연동", "SPAM.MainWork.ucBOMSync");
             menus.Add("설비등록", "SPAM.MainWork.ucMachAdd");
+            menus.Add("자재입고처리", "SPAM.MainWork.ucMatIn");
             menus.Add("자재출고처리", "SPAM.MainWork.ucMatOutAdd");
+            
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");
             //if (ClientGlobal.QCYn == "1")
@@ -151,52 +154,60 @@ namespace SPAM.Main
             btnArrow.Content = "◀";
         }
 
-        //private void imgMenu3_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    InitImage();
-        //    Login.SetImage(imgMenu3, "ad_menu03_on");
+        private void imgMenu3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            InitImage();
+            Login.SetImage(imgMenu3, "ad_menu03_on");
 
-        //    Dictionary<string, string> menus = new Dictionary<string, string>();
-        //    menus.Add("시스템관리", "SPAM.MainWork.ucSystemManage");
+            Dictionary<string, string> menus = new Dictionary<string, string>();
+            menus.Add("월생산계획등록", "SPAM.MainWork.ucMonthlyPlan");
+            menus.Add("WorkOrder등록", "SPAM.MainWork.ucWorkOrder");
+            menus.Add("설비WO배정", "SPAM.MainWork.ucEQPWOAssign");
 
 
 
-        //    SetLeftMeun(menus);
+            SetLeftMeun(menus);
 
-        //    gdBody.ColumnDefinitions[0].Width = new GridLength(150);
-        //    btnArrow.Content = "◀";
-        //}
+            gdBody.ColumnDefinitions[0].Width = new GridLength(150);
+            btnArrow.Content = "◀";
+        }
 
-        //private void imgMenu4_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    InitImage();
-        //    Login.SetImage(imgMenu4, "ad_menu04_on");
+        private void imgMenu4_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            InitImage();
+            Login.SetImage(imgMenu4, "ad_menu04_on");
 
-        //    Dictionary<string, string> menus = new Dictionary<string, string>();
-        //    menus.Add("거래명세서등록", "SPAM.MainWork.ucInvoiceAdd");
-        //    menus.Add("거래명세서조회", "SPAM.MainWork.ucInvoiceQry");
+            Dictionary<string, string> menus = new Dictionary<string, string>();
+            menus.Add("일자별생산실적조회", "SPAM.MainWork.ucWorkReportQry");
+            menus.Add("공정별재공조회", "SPAM.MainWork.ucProcStockQry");
+            menus.Add("설비별가동률조회", "SPAM.MainWork.ucMachReportQry");
+            menus.Add("LOT이력조회", "SPAM.MainWork.ucLotHistoryQry");
+            
+            
+            SetLeftMeun(menus);
 
-        //    SetLeftMeun(menus);
+            gdBody.ColumnDefinitions[0].Width = new GridLength(150);
+            btnArrow.Content = "◀";
+        }
 
-        //    gdBody.ColumnDefinitions[0].Width = new GridLength(150);
-        //    btnArrow.Content = "◀";
-        //}
+        private void imgMenu5_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            InitImage();
+            Login.SetImage(imgMenu5, "ad_menu05_on");
 
-        //private void imgMenu5_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    InitImage();
-        //    Login.SetImage(imgMenu5, "ad_menu05_on");
+            Dictionary<string, string> menus = new Dictionary<string, string>();
+            menus.Add("사용자등록", "SPAM.MainWork.ucUserAdd");
+            menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
+            menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
+            menus.Add("권한등록", "SPAM.MainWork.ucAuthAdd");
 
-        //    Dictionary<string, string> menus = new Dictionary<string, string>();
-        //    menus.Add("시스템관리", "SPAM.MainWork.ucSystemManage");
+            SetLeftMeun(menus);
 
-        //    SetLeftMeun(menus);
+            gdBody.ColumnDefinitions[0].Width = new GridLength(150);
+            btnArrow.Content = "◀";
+        }
 
-        //    gdBody.ColumnDefinitions[0].Width = new GridLength(150);
-        //    btnArrow.Content = "◀";
-        //}
 
-       
 
         private void SetLeftMeun(Dictionary<string, string> menus)
         {
@@ -258,48 +269,7 @@ namespace SPAM.Main
 
             object obj = asmPlant.CreateInstance(ucName);
 
-            host.Child = obj as System.Windows.Forms.Control;
-
-            
-            //switch(ucName)
-            //{
-            //    case "SPAM.MainWork.ucMenu1":
-            //        (obj as SPAM.MainWork.ucMenu1).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-            //        break;
-            //    case "SPAM.MainWork.ucMenu2":
-            //        (obj as SPAM.MainWork.ucMenu2).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-            //        break;
-            //    case "SPAM.MainWork.ucMenu3":
-            //        (obj as SPAM.MainWork.ucMenu3).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-            //        break;
-            //    case "SPAM.MainWork.ucMenu4":
-            //        (obj as SPAM.MainWork.ucMenu4).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-            //        break;
-            //    case "SPAM.MainWork.ucSystemManage":
-            //        (obj as SPAM.MainWork.ucSystemManage).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-            //        break;
-                    //case "SPAM.MainWork.ucItemQry":
-                    //    (obj as SPAM.MainWork.ucItemQry).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-                    //case "SPAM.MainWork.ucMatQry":
-                    //    (obj as SPAM.MainWork.ucMatQry).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-                    //case "SPAM.MainWork.ucAfterTreatQry":
-                    //    (obj as SPAM.MainWork.ucAfterTreatQry).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-                    //case "SPAM.MainWork.ucOptionQry":
-                    //    (obj as SPAM.MainWork.ucOptionQry).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-                    //case "SPAM.MainWork.ucECAdd":
-                    //    (obj as SPAM.MainWork.ucECAdd).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-                    //case "SPAM.MainWork.ucECQry":
-                    //    (obj as SPAM.MainWork.ucECQry).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-                    //case "SPAM.MainWork.ucSOQry":
-                    //    (obj as SPAM.MainWork.ucSOQry).TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-                    //    break;
-            //}
+            host.Child = obj as System.Windows.Forms.Control;           
 
 
             theTabItem.grd.Children.Add(host);
