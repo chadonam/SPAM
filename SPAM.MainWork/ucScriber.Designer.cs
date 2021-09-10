@@ -33,9 +33,9 @@
             // 
             // workHeader1
             // 
-            this.workHeader1.Location = new System.Drawing.Point(3, 3);
+            this.workHeader1.Location = new System.Drawing.Point(0, 0);
             this.workHeader1.Name = "workHeader1";
-            this.workHeader1.Size = new System.Drawing.Size(1730, 120);
+            this.workHeader1.Size = new System.Drawing.Size(1750, 100);
             this.workHeader1.TabIndex = 0;
             // 
             // ucScriber
