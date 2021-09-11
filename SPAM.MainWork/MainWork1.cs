@@ -40,7 +40,7 @@ namespace SPAM.MainWork
             DataSet ds = null;
             using (CommonService svc = new CommonService())
             {
-                ds = svc.GetTest();
+                //ds = svc.GetTest();
             }
 
             if (ds != null)
