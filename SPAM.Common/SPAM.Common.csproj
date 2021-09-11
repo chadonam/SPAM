@@ -254,6 +254,7 @@
     <None Include="Resources\deco02.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\cancel.jpg" />
     <Content Include="Resources\NG.jpg" />
     <Content Include="Resources\OK.jpg" />
     <None Include="Resources\st_back2_red.png" />
