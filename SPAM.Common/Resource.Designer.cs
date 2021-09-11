@@ -123,6 +123,26 @@ namespace SPAM.Common {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap ad_menu03_on1 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu03_on1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu031 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu031", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap ad_menu04 {
             get {
                 object obj = ResourceManager.GetObject("ad_menu04", resourceCulture);
@@ -143,6 +163,26 @@ namespace SPAM.Common {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap ad_menu04_on1 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu04_on1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu041 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu041", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap ad_menu05 {
             get {
                 object obj = ResourceManager.GetObject("ad_menu05", resourceCulture);
@@ -156,6 +196,26 @@ namespace SPAM.Common {
         internal static System.Drawing.Bitmap ad_menu05_on {
             get {
                 object obj = ResourceManager.GetObject("ad_menu05_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu05_on1 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu05_on1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu051 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu051", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +276,16 @@ namespace SPAM.Common {
         internal static System.Drawing.Bitmap ag_menu02_on {
             get {
                 object obj = ResourceManager.GetObject("ag_menu02_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel {
+            get {
+                object obj = ResourceManager.GetObject("cancel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -130,15 +130,23 @@ namespace SPAM.MainWork
                 preSeq = fpSpread1.Sheets[0].Cells[lngRow, 6].Value.ToString();
                 isLast = fpSpread1.Sheets[0].Cells[lngRow, 7].Text.ToString();
 
-                if (fpSpread1.Sheets[0].Cells[lngRow, 7].Value.ToString().Equals("True"))
+
+                try
                 {
-                    isLast = "1";
+
+                    if (fpSpread1.Sheets[0].Cells[lngRow, 7].Value.ToString().Equals("True"))
+                    {
+                        isLast = "1";
+                    }
+                    else
+                    {
+                        isLast = "0";
+                    }
                 }
-                else
+                catch(Exception eex)
                 {
                     isLast = "0";
                 }
-                
 
 
                 using (CommonService svc = new CommonService())

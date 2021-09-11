@@ -40,9 +40,24 @@ namespace SPAM.Common
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btn.Text = "신규";
             }
+            else if (btnTp == BtnType.OK)
+            {
+                btn.BackColor = Color.Blue;
+                btn.Font = new System.Drawing.Font("맑은 고딕", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btn.ForeColor = Color.White;
+                btn.Text = "OK";
+            }
+            else if (btnTp == BtnType.NG)
+            {
+                btn.BackColor = Color.Red;
+                btn.Font = new System.Drawing.Font("맑은 고딕", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btn.ForeColor = Color.White;
+                btn.Text = "NG";
+            }
             else if (btnTp == BtnType.Etc)
             {
                 //btn.BackColor = Color.MediumSeaGreen;
+                btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
 
@@ -111,6 +126,14 @@ namespace SPAM.Common
             New = 4,
             //
             // 요약:
+            //     OK버튼
+            OK = 5,
+            //
+            // 요약:
+            //     NG버튼
+            NG = 6,
+            //
+            // 요약:
             //     기타버튼
             Etc = 9
         }
@@ -132,13 +155,13 @@ namespace SPAM.Common
                     lbl.Image = ResourceImage.GetImage("deco01");
                     lbl.Font = new System.Drawing.Font("굴림", 11.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                     lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(66)))), ((int)(((byte)(75)))));
-                    lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                    lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     lbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
                     break;
                 case LabelType.Menu:
                     lbl.AutoSize = false;
                     lbl.Font = new System.Drawing.Font("맑은 고딕", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
-                    lbl.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+                    lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     lbl.Height = 35;
 
                     break;
