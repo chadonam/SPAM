@@ -2432,4 +2432,16 @@
   <data name="OK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\ok.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ad_menu03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ad_menu03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ad_menu03_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ad_menu03_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ad_menu05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ad_menu05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ad_menu05_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ad_menu05_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

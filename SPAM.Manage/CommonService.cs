@@ -527,6 +527,39 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region MatOut 조회        
+        public DataSet GetMatOut(string From, string To, string ItemNo, string LOTID)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMatOutQry";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                param[2] = new SqlParameter("@ItemNo", ItemNo);
+                param[3] = new SqlParameter("@LOTID", LOTID);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
         #region OutClss Combo 조회        
         public DataSet GetOutClssCombo()
         {
@@ -856,7 +889,39 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region Wo Order
+        #region WorkReportQry 조회        
+        public DataSet GetWorkReportQry(string From, string To, string ProcSeq, string ItemNo, string OrderNo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkReportQry";
+
+                param = new SqlParameter[5];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                param[2] = new SqlParameter("@ProcSeq", ProcSeq);
+                param[3] = new SqlParameter("@ItemNo", ItemNo);
+                param[4] = new SqlParameter("@OrderNo", OrderNo);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
         public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
         {
             DataSet dsResult = null;
@@ -889,6 +954,34 @@ namespace SPAM.Manage
             }
         }
 
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+
+                spName = "SWoOrder3";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@ProcSeq", procSeq);
+                
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region 월간계획 검색
         public DataSet GetPlan(string planno, string startDate, string endDate)
         {
             DataSet dsResult = null;
@@ -983,9 +1076,7 @@ namespace SPAM.Manage
             }
         }
 
-
-        #region 차트 테스트       
-        public DataSet GetTest()
+        public DataSet SetWo(string orderSeq, string machSeq)
         {
             DataSet dsResult = null;
 
@@ -1014,8 +1105,8 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region MachReport 조회        
-        public DataSet GetMachReport(string procSeq, string from, string to)
+        }
+        public DataSet DelMach(string orderSeq, string machSeq)
         {
             DataSet dsResult = null;
 
@@ -1064,6 +1155,8 @@ namespace SPAM.Manage
 
 
                 dsResult = SqlHelper.Fill(spName, param);
+
+                dsResult = SqlHelper.Fill(spName);
 
                 return dsResult;
             }
