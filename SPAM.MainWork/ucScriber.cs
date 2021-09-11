@@ -268,11 +268,15 @@ namespace SPAM.MainWork
             else
             {
                 txtID.Text = barcode;
-                ChangePic(picWorkStatus, "yellow");
+                ChangePic(picWorkStatus, "green");
+                txtBarcode.ReadOnly = true;
                 //애니메이션 시작
 
                 SetWorkLot(barcode);
                 Search2("OK");
+
+                ChangePic(picWorkStatus, "yellow");
+                txtBarcode.ReadOnly = false;
 
 
 
@@ -285,7 +289,7 @@ namespace SPAM.MainWork
         #region 원자재 투입 처리
         private void SetConsumableLot(string barcode)
         {
-            barcode = "MAT$ALBL123269010$CONA1234567$100";
+            barcode = "MAT$ALBL123269010$CONA1234568$100";
 
             string[] s = barcode.Split('$'); // # 기준으로 자른다.
 
