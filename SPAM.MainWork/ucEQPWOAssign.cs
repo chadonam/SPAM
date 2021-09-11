@@ -79,9 +79,9 @@ namespace SPAM.MainWork
             ParamPack param2 = new ParamPack();
 
             param.Add(FpSpread.SetSheetColumns("Wo내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정내부코드", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, false, true, FpSpread.FpSort.False, 1, null));
@@ -261,14 +261,17 @@ namespace SPAM.MainWork
         {
             string orderSeq = fpSpread1.Sheets[0].Cells[fpSpread1.Sheets[0].ActiveRow.Index, 0].Value.ToString();
             string machSeq = fpSpread2.Sheets[0].Cells[fpSpread2.Sheets[0].ActiveRow.Index, 3].Value.ToString();
+            string procSeq = fpSpread1.Sheets[0].Cells[fpSpread1.Sheets[0].ActiveRow.Index, 6].Value.ToString();
+
 
             Save(orderSeq, machSeq);
-            Search();
+            Search2(procSeq);
         }
 
         private void MachDel(string orderSeq, string machSeq)
         {
             int status;
+
             string result;
             DataSet ds = null;
 
@@ -309,9 +312,11 @@ namespace SPAM.MainWork
         private void btnDel_Click(object sender, EventArgs e)
         {
             string orderSeq = fpSpread1.Sheets[0].Cells[fpSpread1.Sheets[0].ActiveRow.Index, 0].Value.ToString();
-            string machSeq = fpSpread1.Sheets[0].Cells[fpSpread2.Sheets[0].ActiveRow.Index, 3].Value.ToString();
+            string machSeq = fpSpread2.Sheets[0].Cells[fpSpread2.Sheets[0].ActiveRow.Index, 3].Value.ToString();
+            string procSeq = fpSpread1.Sheets[0].Cells[fpSpread1.Sheets[0].ActiveRow.Index, 6].Value.ToString();
 
             MachDel(orderSeq, machSeq);
+            Search2(procSeq);
         }
     }
 }
