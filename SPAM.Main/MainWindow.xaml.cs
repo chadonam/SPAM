@@ -142,6 +142,8 @@ namespace SPAM.Main
             Login.SetImage(imgMenu2, "ad_menu02_on");
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
+
+            menus.Add("Scriber", "SPAM.MainWork.ucScriber");
             //menus.Add("라인관리", "SPAM.MainWork.ucMenu6");
             //menus.Add("공정관리", "SPAM.MainWork.ucMenu3");
             //menus.Add("공정순번관리", "SPAM.MainWork.ucMenu4");

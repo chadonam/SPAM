@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.btnStart = new System.Windows.Forms.Button();
             this.lblItemNo = new System.Windows.Forms.Label();
             this.lblProcID = new System.Windows.Forms.Label();
             this.txtNG = new System.Windows.Forms.TextBox();
@@ -45,12 +46,15 @@
             this.txtWO = new System.Windows.Forms.TextBox();
             this.lblMach = new System.Windows.Forms.Label();
             this.cmbMach = new System.Windows.Forms.ComboBox();
+            this.btnEnd = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHeader.Controls.Add(this.btnEnd);
+            this.pnlHeader.Controls.Add(this.btnStart);
             this.pnlHeader.Controls.Add(this.lblItemNo);
             this.pnlHeader.Controls.Add(this.lblProcID);
             this.pnlHeader.Controls.Add(this.txtNG);
@@ -72,6 +76,16 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1750, 100);
             this.pnlHeader.TabIndex = 0;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(1593, 5);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(93, 62);
+            this.btnStart.TabIndex = 50;
+            this.btnStart.Text = "작업시작";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblItemNo
             // 
@@ -100,10 +114,10 @@
             this.txtNG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNG.Enabled = false;
             this.txtNG.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtNG.Location = new System.Drawing.Point(1487, 49);
+            this.txtNG.Location = new System.Drawing.Point(1498, 44);
             this.txtNG.Name = "txtNG";
             this.txtNG.ReadOnly = true;
-            this.txtNG.Size = new System.Drawing.Size(85, 35);
+            this.txtNG.Size = new System.Drawing.Size(75, 35);
             this.txtNG.TabIndex = 47;
             this.txtNG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -112,7 +126,7 @@
             this.lblNG.AutoSize = true;
             this.lblNG.Font = new System.Drawing.Font("휴먼둥근헤드라인", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblNG.ForeColor = System.Drawing.Color.Red;
-            this.lblNG.Location = new System.Drawing.Point(1417, 51);
+            this.lblNG.Location = new System.Drawing.Point(1428, 46);
             this.lblNG.Name = "lblNG";
             this.lblNG.Size = new System.Drawing.Size(64, 30);
             this.lblNG.TabIndex = 46;
@@ -124,10 +138,10 @@
             this.txtOK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtOK.Enabled = false;
             this.txtOK.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtOK.Location = new System.Drawing.Point(1327, 48);
+            this.txtOK.Location = new System.Drawing.Point(1347, 44);
             this.txtOK.Name = "txtOK";
             this.txtOK.ReadOnly = true;
-            this.txtOK.Size = new System.Drawing.Size(85, 35);
+            this.txtOK.Size = new System.Drawing.Size(75, 35);
             this.txtOK.TabIndex = 45;
             this.txtOK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -136,7 +150,7 @@
             this.lblOK.AutoSize = true;
             this.lblOK.Font = new System.Drawing.Font("휴먼둥근헤드라인", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblOK.ForeColor = System.Drawing.Color.Blue;
-            this.lblOK.Location = new System.Drawing.Point(1261, 51);
+            this.lblOK.Location = new System.Drawing.Point(1281, 46);
             this.lblOK.Name = "lblOK";
             this.lblOK.Size = new System.Drawing.Size(60, 30);
             this.lblOK.TabIndex = 44;
@@ -255,6 +269,17 @@
             this.cmbMach.Name = "cmbMach";
             this.cmbMach.Size = new System.Drawing.Size(199, 32);
             this.cmbMach.TabIndex = 34;
+            this.cmbMach.SelectedIndexChanged += new System.EventHandler(this.cmbMach_SelectedIndexChanged);
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.Location = new System.Drawing.Point(1593, 5);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(93, 62);
+            this.btnEnd.TabIndex = 51;
+            this.btnEnd.Text = "작업종료";
+            this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // WorkHeader
             // 
@@ -288,5 +313,7 @@
         private System.Windows.Forms.TextBox txtWO;
         private System.Windows.Forms.Label lblMach;
         private System.Windows.Forms.ComboBox cmbMach;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnEnd;
     }
 }

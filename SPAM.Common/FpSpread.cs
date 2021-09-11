@@ -17,6 +17,8 @@ namespace SPAM.Common
         {
 
             FpSpreadFrame(fs, true);
+            fs.VerticalScrollBarPolicy = ScrollBarPolicy.AsNeeded;
+            fs.HorizontalScrollBarPolicy = ScrollBarPolicy.AsNeeded;
         }
 
         //파포인트 스프레드 크기와 색상 설정

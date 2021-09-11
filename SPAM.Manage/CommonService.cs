@@ -1528,6 +1528,184 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region 작업시작종료
+        public DataSet SetMachRun(string machSeq, string workDate, string gubun)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkMachRunSave";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@WorkDate", workDate);
+                param[1] = new SqlParameter("@MachSeq", machSeq);
+                param[2] = new SqlParameter("@Gubun", gubun);
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region LOT생산조회
+        public DataSet GetWorkLot(string itemSeq, string workDate, string procSeq, string gubun)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkLotQry";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@WorkDate", workDate);
+                param[1] = new SqlParameter("@ItemSeq", itemSeq);
+                param[2] = new SqlParameter("@ProcSeq", procSeq);
+                param[3] = new SqlParameter("@Gubun", gubun);
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region 원자재투입
+        public DataSet SetConsumableLot(string workingTag, string workDate,string orderSeq,string machSeq,string procSeq,string ItemNo,string consumalbeLotId,
+            string qty)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkConsumableLot";
+
+                param = new SqlParameter[8];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@WorkDate", workDate);
+                param[2] = new SqlParameter("@OrderSeq", orderSeq);
+                param[3] = new SqlParameter("@MachSeq", machSeq);
+                param[4] = new SqlParameter("@ProcSeq", procSeq);
+                param[5] = new SqlParameter("@ItemNo", ItemNo);
+                param[6] = new SqlParameter("@ConsumableLotID", consumalbeLotId);
+                param[7] = new SqlParameter("@Qty", qty);
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region 원자재투입조회
+        public DataSet GetWorkConsumableLot(string machSeq, string workDate, string procSeq)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkConsumableLotQry";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@WorkDate", workDate);
+                param[1] = new SqlParameter("@MachSeq", machSeq);
+                param[2] = new SqlParameter("@ProcSeq", procSeq);
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region LOT투입
+        public DataSet SetWorkLot(string workingTag, string workDate, string orderSeq, string machSeq, string procSeq, string ItemSeq, string lotID,
+            string qty, string judge, int userSeq, string timeKey)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkLOTSave";
+
+                param = new SqlParameter[11];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@LotID", lotID);
+                param[2] = new SqlParameter("@OrderSeq", orderSeq);
+                param[3] = new SqlParameter("@ItemSeq", ItemSeq);
+                param[4] = new SqlParameter("@ProcSeq", procSeq);
+                param[5] = new SqlParameter("@MachSeq", machSeq);
+                param[6] = new SqlParameter("@Judge", judge);
+                param[7] = new SqlParameter("@Qty", qty);
+                param[8] = new SqlParameter("@WorkDate", workDate);
+                param[9] = new SqlParameter("@UserSeq", userSeq);
+                param[10] = new SqlParameter("@TimeKey", timeKey);
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
 
 
 

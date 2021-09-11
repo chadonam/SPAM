@@ -168,7 +168,7 @@ namespace SPAM.MainWork
                 string Remark;
 
                 OrderSeq = txtOrderSeq.Text;
-                PlanSeq = txtPlanNo.Text;
+                PlanSeq = txtPlanSeq.Text;
                 ItemSeq = txtItemSeq.Text;
                 OrderNo = txtOrderNo.Text;
                 ProcSeq = cmbItemProc.SelectedValue.ToString();
