@@ -268,24 +268,24 @@ namespace SPAM.MainWork
 
         private void ItemNameSearch()
         {
-            //SPAM.CommonUI.Popup.frmItemCdQry frm = new CommonUI.Popup.frmItemCdQry(txtItemNoQ.Text);
-            //frm.StartPosition = FormStartPosition.CenterScreen;
-
-            //if (frm.ShowDialog() == DialogResult.Yes)
-            //{
-            //    txtItemNoQ.Text = frm.ItemNo;
-            //    txtItemSeqQ.Text = frm.ItemSeq;
-            //    txtItemNameQ.Text = frm.ItemName;
-            //}
-            SPAM.CommonUI.Popup.frmMonthlyPlan frm = new CommonUI.Popup.frmMonthlyPlan(txtItemNoQ.Text);
+            SPAM.CommonUI.Popup.frmItemCdQry frm = new CommonUI.Popup.frmItemCdQry(txtItemNoQ.Text);
             frm.StartPosition = FormStartPosition.CenterScreen;
 
             if (frm.ShowDialog() == DialogResult.Yes)
             {
-                txtItemNoQ.Text = frm.PlanSeq;
-                //txtItemSeqQ.Text = frm.ItemSeq;
-                txtItemNameQ.Text = frm.PlanNo;
+                txtItemNoQ.Text = frm.ItemNo;
+                txtItemSeqQ.Text = frm.ItemSeq;
+                txtItemNameQ.Text = frm.ItemName;
             }
+            //SPAM.CommonUI.Popup.frmMonthlyPlan frm = new CommonUI.Popup.frmMonthlyPlan(txtItemNoQ.Text);
+            //frm.StartPosition = FormStartPosition.CenterScreen;
+
+            //if (frm.ShowDialog() == DialogResult.Yes)
+            //{
+            //    txtItemNoQ.Text = frm.PlanSeq;
+            //    //txtItemSeqQ.Text = frm.ItemSeq;
+            //    txtItemNameQ.Text = frm.PlanNo;
+            //}
 
 
 
