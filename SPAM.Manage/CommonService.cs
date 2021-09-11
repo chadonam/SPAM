@@ -521,8 +521,6 @@ namespace SPAM.Manage
         }
         #endregion
 
-        //WorkingTag, MatinNum, MatinName, MatinNameNum, Date, LOTid, MatinAmount
-
         #region MatIn 저장   
         public DataSet SetMatIn(string workingTag, string InSeq, string ItemSeq, string LOTID, string InDate, string Qty)
         {
@@ -741,6 +739,39 @@ namespace SPAM.Manage
             }
         }
         #endregion
+
+        #region MatOut 조회        
+        public DataSet GetMatOut(string From, string To, string ItemNo, string LOTID)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMatOutQry";
+
+                param = new SqlParameter[4];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                param[2] = new SqlParameter("@ItemNo", ItemNo);
+                param[3] = new SqlParameter("@LOTID", LOTID);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
 
         #region OutClss Combo 조회        
         public DataSet GetOutClssCombo()
@@ -1071,7 +1102,40 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region Wo Order
+        #region WorkReportQry 조회        
+        public DataSet GetWorkReportQry(string From, string To, string ProcSeq, string ItemNo, string OrderNo)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWorkReportQry";
+
+                param = new SqlParameter[5];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                param[2] = new SqlParameter("@ProcSeq", ProcSeq);
+                param[3] = new SqlParameter("@ItemNo", ItemNo);
+                param[4] = new SqlParameter("@OrderNo", OrderNo);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region GetOrder
         public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
         {
             DataSet dsResult = null;
@@ -1132,6 +1196,7 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+
         #endregion
 
         #region 월간계획 검색
@@ -1235,6 +1300,7 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region SetWo
         public DataSet SetWo(string orderSeq, string machSeq)
         {
             DataSet dsResult = null;
@@ -1265,6 +1331,9 @@ namespace SPAM.Manage
 
 
         }
+        #endregion
+
+        #region DelMach
         public DataSet DelMach(string orderSeq, string machSeq)
         {
             DataSet dsResult = null;
@@ -1294,9 +1363,10 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        #endregion
 
+        #region GetHistory
 
-      
         public DataSet GetHistory(string lotId)
         {
             DataSet dsResult = null;
@@ -1326,6 +1396,140 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+        #endregion
+
+        #region 차트 테스트       
+        public DataSet GetTest()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            // SqlParameter[] param = null;
+            try
+            {
+                spName = "TESTChart";
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region MachReport 조회        
+        public DataSet GetMachReport(string procSeq, string from, string to)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMachReportQry";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@ProcSeq", procSeq);
+                param[1] = new SqlParameter("@From", from);
+                param[2] = new SqlParameter("@To", to);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region MachReprotChart 조회       
+        public DataSet GetMachReprotChart(string procSeq, string from, string to)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "MachReportChart";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@ProcSeq", procSeq);
+                param[1] = new SqlParameter("@From", from);
+                param[2] = new SqlParameter("@To", to);
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region ProcChart
+        public DataSet GetProcChart(string from, string to)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "ProcChart";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@From", from);
+                param[1] = new SqlParameter("@To", to);
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+
+
 
     }
 }

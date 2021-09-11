@@ -28,43 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
+            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
             this.SuspendLayout();
+
             // 
-            // chart1
+            // tableLayoutPanel1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(112, 100);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1119, 611);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 798F));
+            this.tableLayoutPanel1.Controls.Add(this.fpSpread1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1500, 900);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // fpSpread1
+            // 
+            this.fpSpread1.AccessibleDescription = "";
+            this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.fpSpread1.Location = new System.Drawing.Point(3, 3);
+            this.fpSpread1.Name = "fpSpread1";
+            this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
+            this.fpSpread1_Sheet1});
+            this.fpSpread1.Size = new System.Drawing.Size(696, 894);
+            this.fpSpread1.TabIndex = 1;
+            this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            // 
+            // fpSpread1_Sheet1
+            // 
+            this.fpSpread1_Sheet1.Reset();
+            this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            // Formulas and custom names must be loaded with R1C1 reference style
+            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
+            this.fpSpread1_Sheet1.ColumnFooterSheetCornerStyle.NoteIndicatorColor = System.Drawing.Color.Red;
+            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
             // MainWork1
             // 
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainWork1";
             this.Size = new System.Drawing.Size(1500, 900);
             this.Load += new System.EventHandler(this.MainWork1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private FarPoint.Win.Spread.FpSpread fpSpread1;
+        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
     }
 }

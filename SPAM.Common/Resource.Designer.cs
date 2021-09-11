@@ -103,6 +103,26 @@ namespace SPAM.Common {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap ad_menu03 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu03_on {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu03_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap ad_menu04 {
             get {
                 object obj = ResourceManager.GetObject("ad_menu04", resourceCulture);
@@ -116,6 +136,26 @@ namespace SPAM.Common {
         internal static System.Drawing.Bitmap ad_menu04_on {
             get {
                 object obj = ResourceManager.GetObject("ad_menu04_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu05 {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap ad_menu05_on {
+            get {
+                object obj = ResourceManager.GetObject("ad_menu05_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
