@@ -148,9 +148,9 @@ namespace SPAM.MainWork
                 p.Image = ResourceImage.GetImage("st_back_red");
             }
 
-            if (type.Equals("yello"))
+            if (type.Equals("yellow"))
             {
-                p.Image = ResourceImage.GetImage("st_back_yello");
+                p.Image = ResourceImage.GetImage("st_back_yellow");
             }
         }
 
@@ -248,9 +248,10 @@ namespace SPAM.MainWork
             if (e.KeyCode == Keys.Enter)
             {
                 InputBarcode(txtBarcode.Text);
+                txtBarcode.Text = "";
             }
 
-            txtBarcode.Text = "";
+            
         }
 
         
@@ -259,7 +260,7 @@ namespace SPAM.MainWork
         private void InputBarcode(string barcode)
         {
             //ConsumableLot 입력됨
-            if (barcode.IndexOf("MAT") != 0)
+            if (barcode.IndexOf("MAT") > 0)
             {
                 SetConsumableLot(barcode);
             }
@@ -267,11 +268,17 @@ namespace SPAM.MainWork
             else
             {
                 txtID.Text = barcode;
-                ChangePic(picWorkStatus, "yello");
+                ChangePic(picWorkStatus, "green");
+                txtBarcode.ReadOnly = true;
                 //애니메이션 시작
 
+                SetWorkLot(barcode);
+                Search2("OK");
 
-                
+                ChangePic(picWorkStatus, "yellow");
+                txtBarcode.ReadOnly = false;
+
+
 
             }
 
@@ -282,7 +289,7 @@ namespace SPAM.MainWork
         #region 원자재 투입 처리
         private void SetConsumableLot(string barcode)
         {
-            barcode = "MAT$ALBL123269010$CONA1234567$100";
+            barcode = "MAT$ALBL123269010$CONA1234568$100";
 
             string[] s = barcode.Split('$'); // # 기준으로 자른다.
 
