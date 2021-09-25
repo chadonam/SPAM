@@ -1707,7 +1707,5 @@ namespace SPAM.Manage
         #endregion
 
 
-
-
     }
 }

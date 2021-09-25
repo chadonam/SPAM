@@ -208,6 +208,7 @@
             // 
             // workHeader1
             // 
+            this.workHeader1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.workHeader1.ItemSeq = null;
             this.workHeader1.Location = new System.Drawing.Point(0, 0);
             this.workHeader1.Name = "workHeader1";

@@ -208,6 +208,12 @@
     <Compile Include="ucWorkOrder.Designer.cs">
       <DependentUpon>ucWorkOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucBLU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBLU.Designer.cs">
+      <DependentUpon>ucBLU.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWork1.resx">
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucWorkOrder.resx">
       <DependentUpon>ucWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBLU.resx">
+      <DependentUpon>ucBLU.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
