@@ -337,6 +337,12 @@ namespace SPAM.Main
             ClosableTab theTabItem = new ClosableTab();
             theTabItem.nIdx = nIdx;
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
+            
+            if (title.Length > 19) //베트남어로 너무 길면 줄여줌
+            {
+                title = title.Substring(0, 19);
+            }
+
             theTabItem.Title = title;
 
             string ucName = (sender as Label).Tag.ToString();
@@ -450,49 +456,6 @@ namespace SPAM.Main
             theTabItem.nIdx = nIdx;
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
 
-            //switch (ctlCode)
-            //{
-            //case "ucCustAdd":
-            //    SPAM.MainWork.ucCustAdd ctlCustAdd = new MainWork.ucCustAdd(nIdx, param1);
-            //    host.Child = ctlCustAdd;
-            //    break;
-            //case "ucItemAdd":
-            //    SPAM.MainWork.ucItemAdd ctlItemAdd = new MainWork.ucItemAdd(nIdx, param1);
-            //    host.Child = ctlItemAdd;
-            //    break;
-            //case "ucMatAdd":
-            //    SPAM.MainWork.ucMatAdd ctlMatAdd = new MainWork.ucMatAdd(nIdx, param1);
-            //    host.Child = ctlMatAdd;
-            //    break;
-            //case "ucAfterTreatAdd":
-            //    SPAM.MainWork.ucAfterTreatAdd ctlAfterTreatAdd = new MainWork.ucAfterTreatAdd(nIdx, param1);
-            //    host.Child = ctlAfterTreatAdd;
-            //    break;
-            //case "ucOptionAdd":
-            //    SPAM.MainWork.ucOptionAdd ctlOptionAdd = new MainWork.ucOptionAdd(nIdx, param1);
-            //    host.Child = ctlOptionAdd;
-            //    break;
-            //case "ucECAdd":                    
-            //    SPAM.MainWork.ucECAdd ctlECAdd = new MainWork.ucECAdd(nIdx, param1);
-
-            //    string ucName = "SPAM.MainWork.ucECAdd";
-            //    int idxAssembly = ucName.LastIndexOf(".");
-            //    string dllName = ucName.Substring(0, idxAssembly) + ".dll";
-
-            //    Assembly asmPlant = Assembly.LoadFrom(dllName);
-            //    object obj = asmPlant.CreateInstance(ucName);
-            //    ctlECAdd.TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-
-
-            //    host.Child = ctlECAdd;
-            //    break;
-            //case "ucSOAdd":
-            //    SPAM.MainWork.ucSOAdd ctlSOAdd = new MainWork.ucSOAdd(nIdx, param1);
-            //    host.Child = ctlSOAdd;
-            //    break;
-
-            //}
-            
 
             theTabItem.grd.Children.Add(host);
 
