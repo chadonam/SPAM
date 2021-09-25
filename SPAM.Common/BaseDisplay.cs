@@ -10,35 +10,46 @@ namespace SPAM.Common
         //버튼의 타입별 크기와 색상 설정
         public static void AdminBtn(Button btn, BtnType btnTp)
         {
+            string LanguageString;
             if (btnTp == BtnType.Search)
             {
                 btn.BackColor = Color.MediumSeaGreen;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "조회";
+                LanguageString = Utils.GetLanguage("조회");
+                
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.Save)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "저장";
+                LanguageString = Utils.GetLanguage("저장");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.modify)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "수정";
+                LanguageString = Utils.GetLanguage("수정");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.Delete)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "삭제";
+                LanguageString = Utils.GetLanguage("삭제");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.New)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "신규";
+                LanguageString = Utils.GetLanguage("신규");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.OK)
             {
@@ -279,6 +290,20 @@ namespace SPAM.Common
             lab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(88)))), ((int)(((byte)(92)))));
             lab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lab.Height = 26;
+        }
+
+        public static void ChangeText(Control ctrl)
+        {
+            if (ClientGlobal.Language == "KO")
+            {
+                return;
+            }
+
+            string msg, caption;
+            msg = ctrl.Text;
+            caption = Utils.GetLanguage(msg);
+            ctrl.Text = caption;
+
         }
 
     }

@@ -165,7 +165,7 @@ namespace SPAM.Manage
         #endregion
 
         #region User 저장     
-        public DataSet SetUser(string workingTag, string userSeq, string userID,string password, string groupSeq)
+        public DataSet SetUser(string workingTag, string userSeq, string userID,string password, string groupSeq,string language)
         {
             DataSet dsResult = null;
 
@@ -175,12 +175,13 @@ namespace SPAM.Manage
             {
                 spName = "SUserSave";
 
-                param = new SqlParameter[5];
+                param = new SqlParameter[6];
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
                 param[1] = new SqlParameter("@UserSeq", userSeq);
                 param[2] = new SqlParameter("@UserID", userID);
                 param[3] = new SqlParameter("@Password", password);
                 param[4] = new SqlParameter("@GroupSeq", groupSeq);
+                param[5] = new SqlParameter("@Language", language);
 
 
 
@@ -1692,6 +1693,32 @@ namespace SPAM.Manage
 
 
                 dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Language Combo 조회        
+        public DataSet GetLanguageCombo()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            //SqlParameter[] param = null;
+            try
+            {
+                spName = "SLanguageComboQry";
+
+                dsResult = SqlHelper.Fill(spName);
 
                 return dsResult;
             }
