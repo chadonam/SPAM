@@ -23,7 +23,7 @@ namespace SPAM.Common
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                LanguageString = Utils.GetLanguage("저장");
+               LanguageString = Utils.GetLanguage("저장");
 
                 btn.Text = LanguageString;
             }
@@ -47,7 +47,7 @@ namespace SPAM.Common
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                LanguageString = Utils.GetLanguage("신규");
+               LanguageString = Utils.GetLanguage("신규");
 
                 btn.Text = LanguageString;
             }
@@ -70,6 +70,8 @@ namespace SPAM.Common
                 //btn.BackColor = Color.MediumSeaGreen;
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                LanguageString = Utils.GetLanguage(btn.Text);
+                btn.Text = LanguageString;
             }
 
         }
@@ -305,6 +307,14 @@ namespace SPAM.Common
             ctrl.Text = caption;
 
         }
+
+        public static void ChangeAllControl(Control.ControlCollection conColl)
+        {
+            foreach (Control con in conColl) {
+                ChangeText(con);
+            }
+        }
+
 
     }
 }

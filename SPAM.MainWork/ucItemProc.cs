@@ -31,6 +31,9 @@ namespace SPAM.MainWork
 
             BaseDisplay.AdminTxt(txtItemNoQ, BaseDisplay.TxtType.CodeHelp);
 
+            BaseDisplay.ChangeText(lblItemProcNoQ);
+            BaseDisplay.ChangeText(groupbox2);
+
         }
 
         #region FpSpread 설정

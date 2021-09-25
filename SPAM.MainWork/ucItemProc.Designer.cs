@@ -63,7 +63,7 @@ namespace SPAM.MainWork
             // 
             this.txtItemNoQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemNoQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemNoQ.Location = new System.Drawing.Point(133, 20);
+            this.txtItemNoQ.Location = new System.Drawing.Point(165, 19);
             this.txtItemNoQ.Name = "txtItemNoQ";
             this.txtItemNoQ.Size = new System.Drawing.Size(245, 35);
             this.txtItemNoQ.TabIndex = 25;
@@ -72,13 +72,12 @@ namespace SPAM.MainWork
             // 
             // lblItemProcNoQ
             // 
-            this.lblItemProcNoQ.AutoSize = true;
             this.lblItemProcNoQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblItemProcNoQ.Location = new System.Drawing.Point(35, 21);
+            this.lblItemProcNoQ.Location = new System.Drawing.Point(16, 21);
             this.lblItemProcNoQ.Name = "lblItemProcNoQ";
-            this.lblItemProcNoQ.Size = new System.Drawing.Size(63, 32);
+            this.lblItemProcNoQ.Size = new System.Drawing.Size(144, 32);
             this.lblItemProcNoQ.TabIndex = 24;
-            this.lblItemProcNoQ.Text = "품목";
+            this.lblItemProcNoQ.Text = "품목번호";
             // 
             // groupbox2
             // 
@@ -151,7 +150,7 @@ namespace SPAM.MainWork
             // 
             this.txtItemSeqQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemSeqQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemSeqQ.Location = new System.Drawing.Point(399, 20);
+            this.txtItemSeqQ.Location = new System.Drawing.Point(431, 19);
             this.txtItemSeqQ.Name = "txtItemSeqQ";
             this.txtItemSeqQ.ReadOnly = true;
             this.txtItemSeqQ.Size = new System.Drawing.Size(166, 35);
@@ -162,7 +161,7 @@ namespace SPAM.MainWork
             // 
             this.txtItemNameQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemNameQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemNameQ.Location = new System.Drawing.Point(586, 19);
+            this.txtItemNameQ.Location = new System.Drawing.Point(618, 18);
             this.txtItemNameQ.Name = "txtItemNameQ";
             this.txtItemNameQ.ReadOnly = true;
             this.txtItemNameQ.Size = new System.Drawing.Size(366, 35);
