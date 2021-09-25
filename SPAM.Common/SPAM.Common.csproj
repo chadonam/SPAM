@@ -254,6 +254,22 @@
     <None Include="Resources\deco02.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ad_menu01_new.png" />
+    <Content Include="Resources\ad_menu01_new_vt.png" />
+    <Content Include="Resources\ad_menu01_on_new.png" />
+    <Content Include="Resources\ad_menu01_on_new_vt.png" />
+    <Content Include="Resources\ad_menu02_new.png" />
+    <Content Include="Resources\ad_menu02_new_vt.png" />
+    <Content Include="Resources\ad_menu02_on_new.png" />
+    <Content Include="Resources\ad_menu02_on_new_vt.png" />
+    <Content Include="Resources\ad_menu03_new.png" />
+    <Content Include="Resources\ad_menu03_new_vt.png" />
+    <Content Include="Resources\ad_menu03_on_new.png" />
+    <Content Include="Resources\ad_menu03_on_new_vt.png" />
+    <Content Include="Resources\ad_menu04_new_vt.png" />
+    <Content Include="Resources\ad_menu04_on_new_vt.png" />
+    <Content Include="Resources\ad_menu06_new_vt.png" />
+    <Content Include="Resources\ad_menu06_on_new_vt.png" />
     <Content Include="Resources\cancel.jpg" />
     <Content Include="Resources\NG.jpg" />
     <Content Include="Resources\OK.jpg" />

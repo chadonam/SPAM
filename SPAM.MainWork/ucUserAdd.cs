@@ -32,6 +32,7 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblUserID, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblPassword, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblGroupSeq, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblLanguage, BaseDisplay.LabelType.Item);
 
 
 
@@ -68,6 +69,37 @@ namespace SPAM.MainWork
 
         #endregion
 
+        #region 언어 Combo 처리
+        private void SetCombo_Language()
+        {
+
+            DataSet ds = null;
+            try
+            {
+
+
+                using (CommonService svc = new CommonService())
+                {
+                    ds = svc.GetLanguageCombo();
+                }
+
+                if (ds != null)
+                {
+                    Utils.SetComboBox(cmbLanguage, ds.Tables[0], "ItemNm", "ItemCd", "언어선택");
+                    cmbLanguage.SelectedIndex = 0;
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
+        }
+
+        #endregion
+
         #region FpSpread 설정
         private void SetFpSpread()
         {
@@ -82,6 +114,17 @@ namespace SPAM.MainWork
                 }
             }
 
+            ParamPack language = new ParamPack();
+
+            using (CommonService svc = new CommonService())
+            {
+                DataTable dt1 = svc.GetLanguageCombo().Tables[0];
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    language.Add(dt1.Rows[i]["ItemNm"].ToString(), dt1.Rows[i]["ItemCd"].ToString());
+                }
+            }
+
             ParamPack param = new ParamPack();
 
             
@@ -89,6 +132,7 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("사용자ID", "UserID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("패스워드", "Password", FpSpread.FpCellType.Password, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("그룹", "GroupSeq", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, group));
+            param.Add(FpSpread.SetSheetColumns("언어", "Language", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, language));
 
 
 
@@ -156,6 +200,7 @@ namespace SPAM.MainWork
             txtPassword.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
             cmbGroup.SelectedValue = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
             txtUserID.ReadOnly = true;
+            cmbLanguage.SelectedValue = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
         }
         #endregion
 
@@ -178,16 +223,18 @@ namespace SPAM.MainWork
                 string userSeq;
                 string password;
                 string groupSeq;
+                string language;
 
                 userSeq = txtUserSeq.Text;
                 userID = txtUserID.Text;
                 password = txtPassword.Text;
                 groupSeq = cmbGroup.SelectedValue.ToString();
+                language = cmbLanguage.SelectedValue.ToString();
 
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetUser(WorkingTag,userSeq,userID,password,groupSeq);
+                    ds = svc.SetUser(WorkingTag,userSeq,userID,password,groupSeq,language);
                 }
 
 
@@ -267,6 +314,7 @@ namespace SPAM.MainWork
             txtUserID.ReadOnly = false;
             txtPassword.Text = string.Empty;
             SetCombo_Group();
+            SetCombo_Language();
             //SetSpreadRowColor(fpSpread1);
         }
 

@@ -76,7 +76,7 @@ namespace SPAM.Manage
         #endregion
 
         #region Group 저장     
-        public DataSet SetGroup(string workingTag, string groupSeq, string groupName)
+        public DataSet SetGroup(string workingTag,string groupSeq, string groupName)
         {
             DataSet dsResult = null;
 
@@ -90,7 +90,7 @@ namespace SPAM.Manage
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
                 param[1] = new SqlParameter("@GroupSeq", groupSeq);
                 param[2] = new SqlParameter("@GroupName", groupName);
-
+ 
 
 
 
@@ -165,7 +165,7 @@ namespace SPAM.Manage
         #endregion
 
         #region User 저장     
-        public DataSet SetUser(string workingTag, string userSeq, string userID, string password, string groupSeq)
+        public DataSet SetUser(string workingTag, string userSeq, string userID,string password, string groupSeq,string language)
         {
             DataSet dsResult = null;
 
@@ -175,12 +175,13 @@ namespace SPAM.Manage
             {
                 spName = "SUserSave";
 
-                param = new SqlParameter[5];
+                param = new SqlParameter[6];
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
                 param[1] = new SqlParameter("@UserSeq", userSeq);
                 param[2] = new SqlParameter("@UserID", userID);
                 param[3] = new SqlParameter("@Password", password);
                 param[4] = new SqlParameter("@GroupSeq", groupSeq);
+                param[5] = new SqlParameter("@Language", language);
 
 
 
@@ -233,7 +234,7 @@ namespace SPAM.Manage
         #endregion
 
         #region 계획 코드헬프
-        public DataSet GetPlanCodeHelp(string PlanNo, string StartDate, string EndDate)
+        public DataSet GetPlanCodeHelp( string PlanNo, string StartDate, string EndDate)
         {
             DataSet dsResult = null;
 
@@ -473,8 +474,8 @@ namespace SPAM.Manage
 
                 param = new SqlParameter[1];
                 param[0] = new SqlParameter("@ItemNo", ItemNo);
-
-                dsResult = SqlHelper.Fill(spName, param);
+  
+                dsResult = SqlHelper.Fill(spName,param);
 
                 return dsResult;
             }
@@ -490,7 +491,7 @@ namespace SPAM.Manage
         #endregion
 
         #region MatIn 조회        
-        public DataSet GetMatIn(string ItemNo, string LOTID, string From, string To)
+        public DataSet GetMatIn (string ItemNo, string LOTID, string From, string To)
         {
             DataSet dsResult = null;
 
@@ -665,8 +666,8 @@ namespace SPAM.Manage
         #endregion
 
         #region LOTHISTORY 조회   
-
-        public DataSet GetLOTHISTORY(string ItemSeq, string PlanSeq, string ProcSeq, string WorkDate)
+        
+        public DataSet GetLOTHISTORY(string ItemSeq, string PlanSeq,  string ProcSeq, string WorkDate)
         {
             DataSet dsResult = null;
 
@@ -1136,7 +1137,7 @@ namespace SPAM.Manage
         #endregion
 
         #region GetOrder
-        public DataSet GetOrder(string startDate, string endDate, string itemNo, string proSeq, string wo)
+        public DataSet GetOrder(string startDate, string endDate,string itemNo,string proSeq,string wo)
         {
             DataSet dsResult = null;
 
@@ -1180,7 +1181,7 @@ namespace SPAM.Manage
 
                 param = new SqlParameter[1];
                 param[0] = new SqlParameter("@ProcSeq", procSeq);
-
+                
 
 
                 dsResult = SqlHelper.Fill(spName, param);
@@ -1314,7 +1315,7 @@ namespace SPAM.Manage
                 param = new SqlParameter[2];
                 param[0] = new SqlParameter("@OrderSeq", orderSeq);
                 param[1] = new SqlParameter("@MachSeq", machSeq);
-
+          
 
                 dsResult = SqlHelper.Fill(spName, param);
 
@@ -1692,6 +1693,32 @@ namespace SPAM.Manage
 
 
                 dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Language Combo 조회        
+        public DataSet GetLanguageCombo()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            //SqlParameter[] param = null;
+            try
+            {
+                spName = "SLanguageComboQry";
+
+                dsResult = SqlHelper.Fill(spName);
 
                 return dsResult;
             }

@@ -260,7 +260,7 @@ namespace SPAM.MainWork
         private void InputBarcode(string barcode)
         {
             //ConsumableLot 입력됨
-            if (barcode.IndexOf("MAT") > 0)
+            if (barcode.IndexOf("MAT") == 0)
             {
                 SetConsumableLot(barcode);
             }

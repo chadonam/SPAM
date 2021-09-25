@@ -45,31 +45,27 @@ namespace SPAM.MainWork
             // 
             this.txtItemNoQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemNoQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtItemNoQ.Location = new System.Drawing.Point(188, 19);
-            this.txtItemNoQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtItemNoQ.Location = new System.Drawing.Point(164, 15);
             this.txtItemNoQ.Name = "txtItemNoQ";
-            this.txtItemNoQ.Size = new System.Drawing.Size(239, 35);
+            this.txtItemNoQ.Size = new System.Drawing.Size(209, 35);
             this.txtItemNoQ.TabIndex = 18;
             this.txtItemNoQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblItemNoQ
             // 
-            this.lblItemNoQ.AutoSize = true;
             this.lblItemNoQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblItemNoQ.Location = new System.Drawing.Point(26, 20);
+            this.lblItemNoQ.Location = new System.Drawing.Point(23, 16);
             this.lblItemNoQ.Name = "lblItemNoQ";
-            this.lblItemNoQ.Size = new System.Drawing.Size(63, 32);
+            this.lblItemNoQ.Size = new System.Drawing.Size(125, 34);
             this.lblItemNoQ.TabIndex = 17;
-            this.lblItemNoQ.Text = "품번";
+            this.lblItemNoQ.Text = "품목번호";
             // 
             // groupbox2
             // 
             this.groupbox2.Controls.Add(this.fpSpread1);
-            this.groupbox2.Location = new System.Drawing.Point(24, 97);
-            this.groupbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupbox2.Location = new System.Drawing.Point(21, 78);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupbox2.Size = new System.Drawing.Size(1957, 750);
+            this.groupbox2.Size = new System.Drawing.Size(1712, 600);
             this.groupbox2.TabIndex = 22;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "품목정보";
@@ -79,12 +75,11 @@ namespace SPAM.MainWork
             this.fpSpread1.AccessibleDescription = "";
             this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpSpread1.Location = new System.Drawing.Point(3, 22);
-            this.fpSpread1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fpSpread1.Location = new System.Drawing.Point(3, 17);
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1951, 724);
+            this.fpSpread1.Size = new System.Drawing.Size(1706, 580);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             // 
@@ -92,10 +87,6 @@ namespace SPAM.MainWork
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
-            // Formulas and custom names must be loaded with R1C1 reference style
-            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
-            this.fpSpread1_Sheet1.ColumnFooterSheetCornerStyle.NoteIndicatorColor = System.Drawing.Color.Red;
-            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
             // btnSearch
             // 
@@ -103,10 +94,9 @@ namespace SPAM.MainWork
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(1850, 16);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(1619, 13);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 44);
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
             this.btnSearch.TabIndex = 23;
             this.btnSearch.Text = "조회";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -118,10 +108,9 @@ namespace SPAM.MainWork
             this.btnEtc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEtc.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnEtc.ForeColor = System.Drawing.Color.Black;
-            this.btnEtc.Location = new System.Drawing.Point(1707, 17);
-            this.btnEtc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEtc.Location = new System.Drawing.Point(1494, 14);
             this.btnEtc.Name = "btnEtc";
-            this.btnEtc.Size = new System.Drawing.Size(114, 44);
+            this.btnEtc.Size = new System.Drawing.Size(100, 35);
             this.btnEtc.TabIndex = 24;
             this.btnEtc.Text = "연동";
             this.btnEtc.UseVisualStyleBackColor = false;
@@ -129,15 +118,16 @@ namespace SPAM.MainWork
             // 
             // ucItemSync
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnEtc);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtItemNoQ);
             this.Controls.Add(this.lblItemNoQ);
             this.Controls.Add(this.groupbox2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucItemSync";
-            this.Size = new System.Drawing.Size(2000, 875);
+            this.Size = new System.Drawing.Size(1750, 700);
             this.groupbox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
