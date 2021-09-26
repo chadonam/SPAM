@@ -319,6 +319,7 @@ namespace SPAM.MainWork
                     {
                         Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
                         cmbItemProc.SelectedIndex = 0;
+
                     }
 
 
