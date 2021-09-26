@@ -167,9 +167,6 @@
     <None Include="Resources\warning.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\question.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +268,8 @@
     <Content Include="Resources\ad_menu06_new_vt.png" />
     <Content Include="Resources\ad_menu06_on_new_vt.png" />
     <Content Include="Resources\cancel.jpg" />
+    <Content Include="Resources\login_admin.png" />
+    <Content Include="Resources\logo.png" />
     <Content Include="Resources\NG.jpg" />
     <Content Include="Resources\OK.jpg" />
     <None Include="Resources\st_back2_red.png" />
@@ -285,7 +284,6 @@
     <None Include="Resources\ag_menu02_on.png" />
     <None Include="Resources\ag_menu01.png" />
     <None Include="Resources\menu06.png" />
-    <None Include="Resources\login_admin.png" />
     <Content Include="Resources\icon.ico" />
     <Content Include="Resources\menu06_on.png" />
     <Content Include="Resources\menu07.png" />
