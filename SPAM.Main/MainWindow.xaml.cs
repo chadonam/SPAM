@@ -203,6 +203,7 @@ namespace SPAM.Main
             menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
             menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
             menus.Add("권한등록", "SPAM.MainWork.ucAuthAdd");
+            menus.Add("메세지등록", "SPAM.MainWork.ucMesAdd");
 
             SetLeftMeun(menus);
 

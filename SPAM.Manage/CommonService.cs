@@ -1706,6 +1706,68 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region 메세지 저장     
+        public DataSet SetMes(string workingTag, string KO, string VT)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMesSave";
+
+                param = new SqlParameter[3];
+                param[0] = new SqlParameter("@WorkingTag", workingTag);
+                param[1] = new SqlParameter("@KO", KO);
+                param[2] = new SqlParameter("@VT", VT);
+
+
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Mes 조회        
+        public DataSet GetMes(string ko)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SMesQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@KO", ko);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
 
     }
 }

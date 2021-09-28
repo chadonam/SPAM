@@ -295,7 +295,7 @@ namespace SPAM.MainWork
         private void SetConsumableLot(string barcode)
         {
             
-            barcode = "MAT$ALBL123269010$CONA1234568$100";
+            //barcode = "MAT$ALBL123269010$CONA1234568$100";
 
             string[] s = barcode.Split('$'); // # 기준으로 자른다.
 
