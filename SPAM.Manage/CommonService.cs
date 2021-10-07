@@ -1562,7 +1562,7 @@ namespace SPAM.Manage
         #endregion
 
         #region LOT생산조회
-        public DataSet GetWorkLot(string itemSeq, string workDate, string procSeq, string gubun)
+        public DataSet GetWorkLot(string itemSeq, string workDate, string procSeq,string machSeq, string gubun)
         {
             DataSet dsResult = null;
 
@@ -1572,11 +1572,12 @@ namespace SPAM.Manage
             {
                 spName = "SWorkLotQry";
 
-                param = new SqlParameter[4];
+                param = new SqlParameter[5];
                 param[0] = new SqlParameter("@WorkDate", workDate);
                 param[1] = new SqlParameter("@ItemSeq", itemSeq);
                 param[2] = new SqlParameter("@ProcSeq", procSeq);
-                param[3] = new SqlParameter("@Gubun", gubun);
+                param[3] = new SqlParameter("@MachSeq", machSeq);
+                param[4] = new SqlParameter("@Gubun", gubun);
 
 
                 dsResult = SqlHelper.Fill(spName, param);

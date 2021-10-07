@@ -40,8 +40,8 @@ namespace SPAM.Main
 
             InitImage();
 
-            //imgMenu1_MouseUp(null, null);
-            //imgLogo_MouseUp(null, null);
+            imgMenu1_MouseUp(null, null);
+            imgLogo_MouseUp(null, null);
 
         }
 
