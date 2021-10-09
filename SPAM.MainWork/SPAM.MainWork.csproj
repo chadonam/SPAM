@@ -163,6 +163,12 @@
     <Compile Include="ucMatIn.Designer.cs">
       <DependentUpon>ucMatIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMesAdd.Designer.cs">
+      <DependentUpon>ucMesAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPOL.cs">
       <SubType>UserControl</SubType>
     </Compile>
