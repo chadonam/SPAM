@@ -133,6 +133,7 @@
             this.cmbGroup.Name = "cmbGroup";
             this.cmbGroup.Size = new System.Drawing.Size(345, 32);
             this.cmbGroup.TabIndex = 17;
+            this.cmbGroup.SelectedIndexChanged += new System.EventHandler(this.cmbGroup_SelectedIndexChanged);
             // 
             // txtPassword
             // 

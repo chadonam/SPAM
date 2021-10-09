@@ -7,9 +7,9 @@ using System.Drawing;
 
 namespace SPAM.MainWork
 {
-    public partial class ucScriber : UserControl
+    public partial class ucHybrid : UserControl
     {
-        public ucScriber()
+        public ucHybrid()
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace SPAM.MainWork
         {
 
 
-            workHeader1.SetMachCombo("1");
+            workHeader1.SetMachCombo("6");
             //BaseDisplay.AdminBtn(btnOK, BaseDisplay.BtnType.OK);
             //BaseDisplay.AdminBtn(btnNG, BaseDisplay.BtnType.NG);
 
@@ -128,8 +128,6 @@ namespace SPAM.MainWork
             ChangePic(picWorkStatus, "yellow");
 
             WorkStart();
-            Search2("OK");
-            Search2("NG");
 
 
 
@@ -253,10 +251,10 @@ namespace SPAM.MainWork
                 txtBarcode.Text = "";
             }
 
-            
+
         }
 
-        
+
 
 
         private void InputBarcode(string barcode)
@@ -331,7 +329,7 @@ namespace SPAM.MainWork
 
             }
 
-            
+
 
         }
 
@@ -354,7 +352,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkConsumableLot(MachSeq,workDate,workHeader1.ProcSeq);
+                    ds = svc.GetWorkConsumableLot(MachSeq, workDate, workHeader1.ProcSeq);
                 }
 
                 if (ds != null)
@@ -380,7 +378,7 @@ namespace SPAM.MainWork
         #region LOT 투입 처리
         private void SetWorkLot(string barcode)
         {
-            
+
             string workDate = DateTime.Now.ToString("yyyyMMdd");
             string MachSeq = workHeader1.ValueOfMachSeq;
             DataSet ds = null;
@@ -392,8 +390,8 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetWorkLot("A",workDate,workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
-                        workHeader1.ItemSeq,barcode,"1","OK",ClientGlobal.UserSeq,"");
+                    ds = svc.SetWorkLot("A", workDate, workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
+                        workHeader1.ItemSeq, barcode, "1", "OK", ClientGlobal.UserSeq, "");
                 }
 
 
@@ -436,10 +434,9 @@ namespace SPAM.MainWork
             {
 
 
-
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkLot(workHeader1.ItemSeq,workDate,workHeader1.ProcSeq, MachSeq, gubun);
+                    ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq, gubun);
                 }
 
                 if (ds != null)
@@ -466,11 +463,7 @@ namespace SPAM.MainWork
 
         }
 
-
         #endregion
-
-        #region 삭제처리
-        #region 저장
 
         private void Save(string WorkingTag, int lngRow)
         {
@@ -550,22 +543,28 @@ namespace SPAM.MainWork
         }
 
 
-        #endregion
 
-        private void btnDelNG_Click(object sender, EventArgs e)
+        private void btnDelOK_Click(object sender, EventArgs e)
         {
             int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
             Save("D", lngRow);
             Search2("OK");
             Search2("NG");
         }
-        #endregion
-
-        #endregion
 
         private void btnDel1_Click(object sender, EventArgs e)
         {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search();
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
         }
     }
 }

@@ -336,5 +336,9 @@ namespace SPAM.MainWork
 
         #endregion
 
+        private void cmbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
