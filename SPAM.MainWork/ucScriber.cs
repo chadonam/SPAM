@@ -262,7 +262,7 @@ namespace SPAM.MainWork
         private void InputBarcode(string barcode)
         {
             //ConsumableLot 입력됨
-            if (barcode.IndexOf("MAT") >= 0)
+            if (barcode.IndexOf("MAT") > 0)
             {
                 SetConsumableLot(barcode);
             }
@@ -561,11 +561,8 @@ namespace SPAM.MainWork
         }
         #endregion
 
-
-
         private void btnDel1_Click(object sender, EventArgs e)
         {
 
-        }
     }
 }

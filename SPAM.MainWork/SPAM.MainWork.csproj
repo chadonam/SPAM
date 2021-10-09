@@ -118,12 +118,6 @@
     <Compile Include="ucGroupAdd.Designer.cs">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucHybrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucHybrid.Designer.cs">
-      <DependentUpon>ucHybrid.cs</DependentUpon>
-    </Compile>
     <Compile Include="ucItemProc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,9 +230,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ucHybrid.resx">
-      <DependentUpon>ucHybrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucItemProc.resx">
       <DependentUpon>ucItemProc.cs</DependentUpon>

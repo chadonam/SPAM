@@ -235,7 +235,6 @@
             this.btnDel1.Size = new System.Drawing.Size(63, 32);
             this.btnDel1.TabIndex = 43;
             this.btnDel1.TabStop = false;
-            this.btnDel1.Click += new System.EventHandler(this.btnDel1_Click);
             // 
             // label1
             // 
