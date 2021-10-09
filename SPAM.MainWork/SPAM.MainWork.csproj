@@ -112,6 +112,12 @@
     <Compile Include="ucEQPWOAssign.Designer.cs">
       <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucGrinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGrinder.Designer.cs">
+      <DependentUpon>ucGrinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucEQPWOAssign.resx">
       <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucGrinder.resx">
+      <DependentUpon>ucGrinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>

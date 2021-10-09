@@ -1576,6 +1576,7 @@ namespace SPAM.Manage
                 param[1] = new SqlParameter("@ItemSeq", itemSeq);
                 param[2] = new SqlParameter("@ProcSeq", procSeq);
                 param[3] = new SqlParameter("@Gubun", gubun);
+                
 
 
                 dsResult = SqlHelper.Fill(spName, param);
@@ -1687,10 +1688,7 @@ namespace SPAM.Manage
                 param[8] = new SqlParameter("@WorkDate", workDate);
                 param[9] = new SqlParameter("@UserSeq", userSeq);
                 param[10] = new SqlParameter("@TimeKey", timeKey);
-
-
-
-
+                
                 dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
@@ -1705,6 +1703,8 @@ namespace SPAM.Manage
             }
         }
         #endregion
+
+
 
 
 
