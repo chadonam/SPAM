@@ -121,6 +121,12 @@
     <Compile Include="ucGroupAdd.Designer.cs">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcHybrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcHybrid.Designer.cs">
+      <DependentUpon>UcHybrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucItemProc.cs">
       <SubType>UserControl</SubType>
     </Compile>

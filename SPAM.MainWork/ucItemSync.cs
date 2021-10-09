@@ -28,7 +28,17 @@ namespace SPAM.MainWork
 
             BaseDisplay.SetLabelStyle(lblItemNoQ, BaseDisplay.LabelType.Menu);
 
+            
+            BaseDisplay.ChangeText(btnEtc);
+            BaseDisplay.ChangeText(lblItemNoQ);
+            BaseDisplay.ChangeText(groupbox2);
+            
+
+
         }
+
+
+
         
         #region FpSpread 설정
         private void SetFpSpread()
