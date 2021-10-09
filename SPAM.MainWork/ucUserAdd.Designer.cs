@@ -47,6 +47,8 @@
             this.groupbox2 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.cmbLanguage = new System.Windows.Forms.ComboBox();
+            this.lblLanguage = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupbox2.SuspendLayout();
@@ -106,6 +108,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbLanguage);
+            this.groupBox1.Controls.Add(this.lblLanguage);
             this.groupBox1.Controls.Add(this.cmbGroup);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUserID);
@@ -293,6 +297,27 @@
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
             // 
+            // cmbLanguage
+            // 
+            this.cmbLanguage.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cmbLanguage.FormattingEnabled = true;
+            this.cmbLanguage.Location = new System.Drawing.Point(168, 256);
+            this.cmbLanguage.Name = "cmbLanguage";
+            this.cmbLanguage.Size = new System.Drawing.Size(345, 32);
+            this.cmbLanguage.TabIndex = 19;
+            // 
+            // lblLanguage
+            // 
+            this.lblLanguage.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblLanguage.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblLanguage.ForeColor = System.Drawing.Color.White;
+            this.lblLanguage.Location = new System.Drawing.Point(25, 253);
+            this.lblLanguage.Name = "lblLanguage";
+            this.lblLanguage.Size = new System.Drawing.Size(116, 35);
+            this.lblLanguage.TabIndex = 18;
+            this.lblLanguage.Text = "언어";
+            this.lblLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucUserAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -334,5 +359,7 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.TextBox txtUserSeq;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cmbLanguage;
+        private System.Windows.Forms.Label lblLanguage;
     }
 }

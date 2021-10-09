@@ -445,7 +445,8 @@ namespace SPAM.Common
             , ParamPack list)
         {
             Hashtable ht = new Hashtable();
-            ht.Add("Label", headerNm);
+            string rtnHeader = Utils.GetLanguage(headerNm);
+            ht.Add("Label", rtnHeader);
             ht.Add("DataField", dataField);
             ht.Add("CellType", cellType);
             ht.Add("FontStyle", fontStyle);

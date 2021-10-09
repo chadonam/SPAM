@@ -7,9 +7,9 @@ using System.Drawing;
 
 namespace SPAM.MainWork
 {
-    public partial class ucScriber : UserControl
+    public partial class ucHybrid : UserControl
     {
-        public ucScriber()
+        public ucHybrid()
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace SPAM.MainWork
         {
 
 
-            workHeader1.SetMachCombo("1");
+            workHeader1.SetMachCombo("6");
             //BaseDisplay.AdminBtn(btnOK, BaseDisplay.BtnType.OK);
             //BaseDisplay.AdminBtn(btnNG, BaseDisplay.BtnType.NG);
 
@@ -128,8 +128,6 @@ namespace SPAM.MainWork
             ChangePic(picWorkStatus, "yellow");
 
             WorkStart();
-            Search2("OK");
-            Search2("NG");
 
 
 
@@ -262,7 +260,7 @@ namespace SPAM.MainWork
         private void InputBarcode(string barcode)
         {
             //ConsumableLot 입력됨
-            if (barcode.IndexOf("MAT") > 0)
+            if (barcode.IndexOf("MAT") >= 0)
             {
                 SetConsumableLot(barcode);
             }
@@ -436,7 +434,6 @@ namespace SPAM.MainWork
             {
 
 
-
                 using (CommonService svc = new CommonService())
                 {
                     ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq, MachSeq, gubun);
@@ -466,11 +463,7 @@ namespace SPAM.MainWork
 
         }
 
-
         #endregion
-
-        #region 삭제처리
-        #region 저장
 
         private void Save(string WorkingTag, int lngRow)
         {
@@ -550,20 +543,28 @@ namespace SPAM.MainWork
         }
 
 
-        #endregion
 
-        private void btnDelNG_Click(object sender, EventArgs e)
+        private void btnDelOK_Click(object sender, EventArgs e)
         {
             int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
             Save("D", lngRow);
             Search2("OK");
             Search2("NG");
         }
-        #endregion
 
         private void btnDel1_Click(object sender, EventArgs e)
         {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search();
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
         }
     }
 }

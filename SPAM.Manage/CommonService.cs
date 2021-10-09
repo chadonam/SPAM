@@ -165,7 +165,7 @@ namespace SPAM.Manage
         #endregion
 
         #region User 저장     
-        public DataSet SetUser(string workingTag, string userSeq, string userID, string password, string groupSeq)
+        public DataSet SetUser(string workingTag, string userSeq, string userID, string password, string groupSeq, string language)
         {
             DataSet dsResult = null;
 
@@ -175,12 +175,13 @@ namespace SPAM.Manage
             {
                 spName = "SUserSave";
 
-                param = new SqlParameter[5];
+                param = new SqlParameter[6];
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
                 param[1] = new SqlParameter("@UserSeq", userSeq);
                 param[2] = new SqlParameter("@UserID", userID);
                 param[3] = new SqlParameter("@Password", password);
                 param[4] = new SqlParameter("@GroupSeq", groupSeq);
+                param[5] = new SqlParameter("@Language", language);
 
 
 
@@ -1561,7 +1562,7 @@ namespace SPAM.Manage
         #endregion
 
         #region LOT생산조회
-        public DataSet GetWorkLot(string itemSeq, string workDate, string procSeq, string gubun)
+        public DataSet GetWorkLot(string itemSeq, string workDate, string procSeq, string machSeq, string gubun)
         {
             DataSet dsResult = null;
 
@@ -1571,11 +1572,12 @@ namespace SPAM.Manage
             {
                 spName = "SWorkLotQry";
 
-                param = new SqlParameter[4];
+                param = new SqlParameter[5];
                 param[0] = new SqlParameter("@WorkDate", workDate);
                 param[1] = new SqlParameter("@ItemSeq", itemSeq);
                 param[2] = new SqlParameter("@ProcSeq", procSeq);
-                param[3] = new SqlParameter("@Gubun", gubun);
+                param[3] = new SqlParameter("@MachSeq", machSeq);
+                param[4] = new SqlParameter("@Gubun", gubun);
 
 
                 dsResult = SqlHelper.Fill(spName, param);
@@ -1594,7 +1596,7 @@ namespace SPAM.Manage
         #endregion
 
         #region 원자재투입
-        public DataSet SetConsumableLot(string workingTag, string workDate,string orderSeq,string machSeq,string procSeq,string ItemNo,string consumalbeLotId,
+        public DataSet SetConsumableLot(string workingTag, string workDate, string orderSeq, string machSeq, string procSeq, string ItemNo, string consumalbeLotId,
             string qty)
         {
             DataSet dsResult = null;
@@ -1692,6 +1694,32 @@ namespace SPAM.Manage
 
 
                 dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region Language Combo 조회        
+        public DataSet GetLanguageCombo()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            //SqlParameter[] param = null;
+            try
+            {
+                spName = "SLanguageComboQry";
+
+                dsResult = SqlHelper.Fill(spName);
 
                 return dsResult;
             }
