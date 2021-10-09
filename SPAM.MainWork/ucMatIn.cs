@@ -72,7 +72,11 @@ namespace SPAM.MainWork
             BaseDisplay.AdminBtn(btnDel, BaseDisplay.BtnType.Delete);
             BaseDisplay.AdminBtn(btnNew, BaseDisplay.BtnType.New);
 
-            BaseDisplay.SetLabelStyle(lblCode, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblMatin, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblMatinName, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblMatinLOTID, BaseDisplay.LabelType.Menu);
+
+            BaseDisplay.SetLabelStyle(lblCode, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblMatin1, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblMatinName1, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblDate, BaseDisplay.LabelType.Item);

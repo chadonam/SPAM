@@ -160,14 +160,14 @@ namespace SPAM.Common
                     break;
                 case LabelType.Menu:
                     lbl.AutoSize = false;
-                    lbl.Font = new System.Drawing.Font("맑은 고딕", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
+                    lbl.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
                     lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     lbl.Height = 35;
 
                     break;
                 case LabelType.Item:
                     lbl.AutoSize = false;
-                    lbl.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    lbl.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                     lbl.BackColor = Color.MidnightBlue;
                     lbl.ForeColor = Color.White;
                     lbl.Height = 35;

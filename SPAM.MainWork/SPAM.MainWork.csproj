@@ -154,6 +154,12 @@
     <Compile Include="ucMatIn.Designer.cs">
       <DependentUpon>ucMatIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPOL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPOL.Designer.cs">
+      <DependentUpon>ucPOL.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucWorkReportQry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucMatIn.resx">
       <DependentUpon>ucMatIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPOL.resx">
+      <DependentUpon>ucPOL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucWorkReportQry.resx">
       <DependentUpon>ucWorkReportQry.cs</DependentUpon>
