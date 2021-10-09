@@ -128,6 +128,8 @@ namespace SPAM.MainWork
             ChangePic(picWorkStatus, "yellow");
 
             WorkStart();
+            Search2("OK");
+            Search2("NG");
 
 
 
@@ -437,7 +439,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkLot(workHeader1.ItemSeq,workDate,workHeader1.ProcSeq, gubun);
+                    ds = svc.GetWorkLot(workHeader1.ItemSeq,workDate,workHeader1.ProcSeq, MachSeq, gubun);
                 }
 
                 if (ds != null)
@@ -467,6 +469,106 @@ namespace SPAM.MainWork
 
         #endregion
 
+        #region 삭제처리
+        #region 저장
+
+        private void Save(string WorkingTag, int lngRow)
+        {
+            int status;
+            string result;
+            DataSet ds = null;
+
+
+            try
+            {
+                string LotID;
+                string OrderSeq;
+                string ItemSeq;
+                string ProcSeq;
+                string MachSeq;
+                string Judge;
+                string Qty;
+                string WorkDate;
+                int UserSeq;
+                string TimeKey;
+
+
+                if (fpSpread2.Sheets[0].Cells[lngRow, 0].Value.ToString() == "")
+                {
+                    LotID = fpSpread3.Sheets[0].Cells[lngRow, 0].Value.ToString();
+                    TimeKey = fpSpread3.Sheets[0].Cells[lngRow, 2].Value.ToString();
+                }
+                else
+                {
+                    LotID = fpSpread2.Sheets[0].Cells[lngRow, 0].Value.ToString();
+                    TimeKey = fpSpread2.Sheets[0].Cells[lngRow, 2].Value.ToString();
+                }
+
+                OrderSeq = workHeader1.OrderSeq;
+                ItemSeq = workHeader1.ItemSeq;
+                ProcSeq = workHeader1.ProcSeq;
+                MachSeq = workHeader1.ValueOfMachSeq;
+                WorkDate = DateTime.Now.ToString("yyyyMMdd");
+                UserSeq = ClientGlobal.UserSeq;
+                Judge = "";
+                Qty = "1";
+
+
+
+
+
+
+                using (CommonService svc = new CommonService())
+                {
+                    ds = svc.SetWorkLot(WorkingTag, WorkDate, OrderSeq, MachSeq, ProcSeq, ItemSeq, LotID, Qty, Judge, UserSeq, TimeKey);
+                }
+
+
+                if (ds != null)
+                {
+                    status = Int32.Parse(ds.Tables[0].Rows[0][0].ToString());
+                    result = ds.Tables[0].Rows[0][1].ToString();
+                    if (status == 0)
+                    {
+                        MessageHandler.DisplayMessage(result, Common.Controls.MessageType.Warning);
+                    }
+                    else
+                    {
+                        MessageHandler.DisplayMessage("취소되었습니다.", Common.Controls.MessageType.Warning);
+                    }
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
+
+        }
+
+
+
+
+        #endregion
+        private void btnDelOK_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
+        }
+
+        private void btnDelNG_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
+        }
+        #endregion
 
 
 

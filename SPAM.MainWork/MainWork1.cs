@@ -63,7 +63,9 @@ namespace SPAM.MainWork
             CreateChart1();
             CreateChart2();
             CreateChart3();
-            CreateChart4();
+            //CreateChart4();
+
+            SetFpSpread();
 
 
         }
@@ -80,7 +82,7 @@ namespace SPAM.MainWork
             chart1.Titles.Clear();
             chart1.Titles.Add("생산량");
             chart1.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
-            chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력
+            chart1.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
             string From = "20210101";
@@ -109,7 +111,7 @@ namespace SPAM.MainWork
             chart2.Titles.Clear();
             chart2.Titles.Add("목표생산량");
             chart2.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
-            chart2.Series["Series1"].ChartType = SeriesChartType.Renko; // 그래프를 라인으로 출력
+            chart2.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
             string From = "20210101";
@@ -139,7 +141,7 @@ namespace SPAM.MainWork
             chart3.Titles.Clear();
             chart3.Titles.Add("가동률");
             chart3.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
-            chart3.Series["Series1"].ChartType = SeriesChartType.Pyramid; // 그래프를 라인으로 출력
+            chart3.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
             string From = "20210101";
@@ -161,35 +163,55 @@ namespace SPAM.MainWork
 
         }
 
-        private void CreateChart4()
+        //private void CreateChart4()
+        //{
+
+        //    chart4.Series.Clear();
+        //    chart4.Series.Add("Series1");
+        //    chart4.Titles.Clear();
+        //    chart4.Titles.Add("불량률");
+        //    chart4.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
+        //    chart4.Series["Series1"].ChartType = SeriesChartType.Doughnut; // 그래프를 라인으로 출력
+
+        //    DataSet ds = null;
+        //    string From = "20210101";
+        //    string To = "20210930";
+
+        //    using (CommonService svc = new CommonService())
+        //    {
+        //        ds = svc.GetProcChart(From, To);
+        //    }
+
+        //    if (ds != null)
+        //    {
+
+        //        chart4.DataSource = ds;
+        //        chart4.Series["Series1"].XValueMember = "WorkDate";
+        //        chart4.Series["Series1"].YValueMembers = "ProdQty";
+
+        //    }
+
+        //}
+
+        #region FpSpread 설정
+        private void SetFpSpread()
         {
+            ParamPack Proc = new ParamPack();
 
-            chart4.Series.Clear();
-            chart4.Series.Add("Series1");
-            chart4.Titles.Clear();
-            chart4.Titles.Add("불량률");
-            chart4.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
-            chart4.Series["Series1"].ChartType = SeriesChartType.Doughnut; // 그래프를 라인으로 출력
+            ParamPack param = new ParamPack();
 
-            DataSet ds = null;
-            string From = "20210101";
-            string To = "20210930";
+            param.Add(FpSpread.SetSheetColumns("번호", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
-            using (CommonService svc = new CommonService())
-            {
-                ds = svc.GetProcChart(From, To);
-            }
 
-            if (ds != null)
-            {
+            FpSpread.FpSpreadFrame(this.fpSpread1);
+            FpSpread.SetSheetColumn(this.fpSpread1.Sheets[0], param, 1);
 
-                chart4.DataSource = ds;
-                chart4.Series["Series1"].XValueMember = "WorkDate";
-                chart4.Series["Series1"].YValueMembers = "ProdQty";
-
-            }
+            FpSpread.FpSpreadFrame(this.fpSpread2);
+            FpSpread.SetSheetColumn(this.fpSpread2.Sheets[0], param, 1);
 
         }
+        #endregion
 
         #endregion
 
