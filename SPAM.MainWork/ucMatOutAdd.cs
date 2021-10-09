@@ -32,11 +32,14 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblOutDateQ, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblItemNoQ, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblLOTIDQ, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblBarcode, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblOutSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblOutDate, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblOutClss, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblItemSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);
-
+            BaseDisplay.SetLabelStyle(lblLOTID, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
 
 
         }

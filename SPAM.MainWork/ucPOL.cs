@@ -7,9 +7,9 @@ using System.Drawing;
 
 namespace SPAM.MainWork
 {
-    public partial class ucScriber : UserControl
+    public partial class ucPOL : UserControl
     {
-        public ucScriber()
+        public ucPOL()
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace SPAM.MainWork
         {
 
 
-            workHeader1.SetMachCombo("1");
+            workHeader1.SetMachCombo("3");
             //BaseDisplay.AdminBtn(btnOK, BaseDisplay.BtnType.OK);
             //BaseDisplay.AdminBtn(btnNG, BaseDisplay.BtnType.NG);
 
@@ -128,10 +128,11 @@ namespace SPAM.MainWork
             ChangePic(picWorkStatus, "yellow");
 
             WorkStart();
+            Search();
             Search2("OK");
             Search2("NG");
 
-
+            
 
         }
 
@@ -250,13 +251,14 @@ namespace SPAM.MainWork
             if (e.KeyCode == Keys.Enter)
             {
                 InputBarcode(txtBarcode.Text);
-                txtBarcode.Text = "";
+                
             }
 
 
+            
         }
 
-
+        
 
 
         private void InputBarcode(string barcode)
@@ -276,6 +278,7 @@ namespace SPAM.MainWork
 
                 SetWorkLot(barcode);
                 Search2("OK");
+                Search2("NG");
 
                 ChangePic(picWorkStatus, "yellow");
                 txtBarcode.ReadOnly = false;
@@ -291,7 +294,7 @@ namespace SPAM.MainWork
         #region 원자재 투입 처리
         private void SetConsumableLot(string barcode)
         {
-            barcode = "MAT$ALBL123269010$CONA1234568$100";
+            /*barcode = "MAT$ALBL123269010$CONA1234568$100";*/
 
             string[] s = barcode.Split('$'); // # 기준으로 자른다.
 
@@ -331,7 +334,7 @@ namespace SPAM.MainWork
 
             }
 
-
+            
 
         }
 
@@ -354,7 +357,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkConsumableLot(MachSeq, workDate, workHeader1.ProcSeq);
+                    ds = svc.GetWorkConsumableLot(MachSeq,workDate,workHeader1.ProcSeq);
                 }
 
                 if (ds != null)
@@ -380,7 +383,7 @@ namespace SPAM.MainWork
         #region LOT 투입 처리
         private void SetWorkLot(string barcode)
         {
-
+            
             string workDate = DateTime.Now.ToString("yyyyMMdd");
             string MachSeq = workHeader1.ValueOfMachSeq;
             DataSet ds = null;
@@ -392,8 +395,8 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetWorkLot("A", workDate, workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
-                        workHeader1.ItemSeq, barcode, "1", "OK", ClientGlobal.UserSeq, "");
+                    ds = svc.SetWorkLot("A",workDate,workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
+                        workHeader1.ItemSeq,barcode,"1","OK",ClientGlobal.UserSeq,"");
                 }
 
 
@@ -439,7 +442,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq, MachSeq, gubun);
+                    ds = svc.GetWorkLot(workHeader1.ItemSeq,workDate,workHeader1.ProcSeq,MachSeq, gubun);
                 }
 
                 if (ds != null)
@@ -467,10 +470,19 @@ namespace SPAM.MainWork
         }
 
 
+
+
+
         #endregion
 
-        #region 삭제처리
-        #region 저장
+        private void btnDelOK_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
+
+        }
 
         private void Save(string WorkingTag, int lngRow)
         {
@@ -549,21 +561,5 @@ namespace SPAM.MainWork
 
         }
 
-
-        #endregion
-
-        private void btnDelNG_Click(object sender, EventArgs e)
-        {
-            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
-            Save("D", lngRow);
-            Search2("OK");
-            Search2("NG");
-        }
-        #endregion
-
-        private void btnDel1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

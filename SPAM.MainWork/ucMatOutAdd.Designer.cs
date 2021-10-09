@@ -60,7 +60,7 @@
             this.sheetView1 = new FarPoint.Win.Spread.SheetView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblBarcode = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupbox2.SuspendLayout();
@@ -92,8 +92,8 @@
             this.calendarDouble2.Size = new System.Drawing.Size(240, 25);
             this.calendarDouble2.StartMonthDistinction = 0;
             this.calendarDouble2.TabIndex = 18;
-            this.calendarDouble2.ValueEndDate = "20210828";
-            this.calendarDouble2.ValueStartDate = "20210828";
+            this.calendarDouble2.ValueEndDate = "20210926";
+            this.calendarDouble2.ValueStartDate = "20210926";
             // 
             // lblOutDateQ
             // 
@@ -423,7 +423,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtBarcode);
-            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.lblBarcode);
             this.groupBox3.Location = new System.Drawing.Point(7, 83);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(560, 102);
@@ -442,17 +442,17 @@
             this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
             // 
-            // label6
+            // lblBarcode
             // 
-            this.label6.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label6.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(28, 45);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 35);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "바코드입력";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBarcode.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblBarcode.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblBarcode.ForeColor = System.Drawing.Color.White;
+            this.lblBarcode.Location = new System.Drawing.Point(28, 45);
+            this.lblBarcode.Name = "lblBarcode";
+            this.lblBarcode.Size = new System.Drawing.Size(116, 35);
+            this.lblBarcode.TabIndex = 0;
+            this.lblBarcode.Text = "바코드입력";
+            this.lblBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucMatOutAdd
             // 
@@ -507,7 +507,7 @@
         private System.Windows.Forms.Label lblLOTID;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtBarcode;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblBarcode;
         private System.Windows.Forms.TextBox txtOutSeq;
         private System.Windows.Forms.Label lblOutSeq;
         private Common.Controls.CalendarDouble calendarDouble2;

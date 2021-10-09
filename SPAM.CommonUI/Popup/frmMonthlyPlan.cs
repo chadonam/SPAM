@@ -68,14 +68,14 @@ namespace SPAM.CommonUI.Popup
             ParamPack param = new ParamPack();
 
             //제조 오더별 실적
-            param.Add(FpSpread.SetSheetColumns("계획내부코드", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, true, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("시작일자", "StartDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, false, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("종료일자", "EndDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, true, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("공정순서", "ProcList", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.True, null));
-            param.Add(FpSpread.SetSheetColumns("비고", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.True, null));
+            param.Add(FpSpread.SetSheetColumns("계획내부코드", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("시작일자", "StartDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("종료일자", "EndDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("공정순서", "ProcList", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.False, null));
+            param.Add(FpSpread.SetSheetColumns("비고", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, true, false, FpSpread.FpSort.False, null));
             
 
              

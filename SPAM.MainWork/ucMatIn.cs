@@ -76,7 +76,6 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblMatinName, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblMatinLOTID, BaseDisplay.LabelType.Menu);
 
-
             BaseDisplay.SetLabelStyle(lblCode, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblMatin1, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblMatinName1, BaseDisplay.LabelType.Item);
