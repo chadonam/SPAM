@@ -1708,6 +1708,32 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region Language Combo 조회        
+        public DataSet GetLanguageCombo()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            //SqlParameter[] param = null;
+            try
+            {
+                spName = "SLanguageComboQry";
+
+                dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
         #region 메세지 저장     
         public DataSet SetMes(string workingTag, string KO, string VT)
         {

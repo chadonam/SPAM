@@ -22,7 +22,7 @@ namespace SPAM.Main
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         List<int> lstKey = new List<int>();
         Dictionary<int, int> lstIdx = new Dictionary<int, int>();
         private int nIdx = 0;
@@ -101,7 +101,7 @@ namespace SPAM.Main
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
             theTabItem.Title = title;
 
-            
+
             SPAM.MainWork.MainWork1 ctl = new MainWork.MainWork1();
 
             host.Child = ctl;
@@ -113,7 +113,7 @@ namespace SPAM.Main
 
             lstKey.Add(nIdx);
             lstIdx.Add(nIdx, tabBody.Items.Count - 1);
-            
+
             nIdx++;
         }
 
@@ -147,7 +147,7 @@ namespace SPAM.Main
             menus.Add(caption, "SPAM.MainWork.ucMatIn");
             caption = Utils.GetLanguage("자재출고처리");
             menus.Add(caption, "SPAM.MainWork.ucMatOutAdd");
-            
+
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");
             //if (ClientGlobal.QCYn == "1")
@@ -181,8 +181,14 @@ namespace SPAM.Main
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
 
-            menus.Add("Scriber", "SPAM.MainWork.ucScriber");
-            menus.Add("BLU", "SPAM.MainWork.ucBLU");
+            caption = Utils.GetLanguage("월생산계획등록");
+            menus.Add(caption, "SPAM.MainWork.ucMonthlyPlan");
+            caption = Utils.GetLanguage("WorkOrder등록");
+            menus.Add(caption, "SPAM.MainWork.ucWorkOrder");
+            caption = Utils.GetLanguage("설비WO배정");
+            menus.Add(caption, "SPAM.MainWork.ucEQPWOAssign");
+
+
             //menus.Add("라인관리", "SPAM.MainWork.ucMenu6");
             //menus.Add("공정관리", "SPAM.MainWork.ucMenu3");
             //menus.Add("공정순번관리", "SPAM.MainWork.ucMenu4");
@@ -213,7 +219,9 @@ namespace SPAM.Main
             caption = Utils.GetLanguage("Scriber");
             menus.Add(caption, "SPAM.MainWork.ucScriber");
             caption = Utils.GetLanguage("Hybrid");
-            menus.Add(caption, "SPAM.MainWork.ucScriber");
+            menus.Add(caption, "SPAM.MainWork.ucHybrid");
+            caption = Utils.GetLanguage("BLU");
+            menus.Add(caption, "SPAM.MainWork.ucBLU");
 
             SetLeftMeun(menus);
 
@@ -244,8 +252,8 @@ namespace SPAM.Main
             menus.Add(caption, "SPAM.MainWork.ucMachReportQry");
             caption = Utils.GetLanguage("LOT이력조회");
             menus.Add(caption, "SPAM.MainWork.ucLotHistoryQry");
-            
-            
+
+
             SetLeftMeun(menus);
 
             gdBody.ColumnDefinitions[0].Width = new GridLength(150);
@@ -266,11 +274,14 @@ namespace SPAM.Main
             }
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
-            menus.Add("사용자등록", "SPAM.MainWork.ucUserAdd");
-            menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
-            menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
-            menus.Add("권한등록", "SPAM.MainWork.ucAuthAdd");
-            menus.Add("메세지등록", "SPAM.MainWork.ucMesAdd");
+            caption = Utils.GetLanguage("사용자등록");
+            menus.Add(caption, "SPAM.MainWork.ucUserAdd");
+            caption = Utils.GetLanguage("그룹등록");
+            menus.Add(caption, "SPAM.MainWork.ucGroupAdd");
+            caption = Utils.GetLanguage("프로그램등록");
+            menus.Add(caption, "SPAM.MainWork.ucProgramAdd");
+            caption = Utils.GetLanguage("권한등록");
+            menus.Add(caption, "SPAM.MainWork.ucAuthAdd");
 
             SetLeftMeun(menus);
 
@@ -330,7 +341,7 @@ namespace SPAM.Main
             ClosableTab theTabItem = new ClosableTab();
             theTabItem.nIdx = nIdx;
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
-            
+
             if (title.Length > 19) //베트남어로 너무 길면 줄여줌
             {
                 title = title.Substring(0, 19);
@@ -346,7 +357,7 @@ namespace SPAM.Main
 
             object obj = asmPlant.CreateInstance(ucName);
 
-            host.Child = obj as System.Windows.Forms.Control;           
+            host.Child = obj as System.Windows.Forms.Control;
 
 
             theTabItem.grd.Children.Add(host);
@@ -354,7 +365,7 @@ namespace SPAM.Main
             tabBody.Items.Add(theTabItem);
             theTabItem.Tag = nIdx;
             theTabItem.Focus();
-                    
+
             lstKey.Add(nIdx);
             lstIdx.Add(nIdx, tabBody.Items.Count - 1);
 
@@ -418,7 +429,7 @@ namespace SPAM.Main
             }
         }
 
-        void ctl_TabOpen(string ctlCode,string ctlName,string param1)
+        void ctl_TabOpen(string ctlCode, string ctlName, string param1)
         {
             //InitImage();
             //Login.SetImage(imgMenu1, "menu01_on");
@@ -459,8 +470,8 @@ namespace SPAM.Main
 
             lstKey.Add(nIdx);
             lstIdx.Add(nIdx, tabBody.Items.Count - 1);
-                                      
-            
+
+
             nIdx++;
         }
 

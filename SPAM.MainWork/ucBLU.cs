@@ -443,7 +443,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq, gubun);
+                    ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq,MachSeq, gubun);
                 }
 
                 if (ds != null)
