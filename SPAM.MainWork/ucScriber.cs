@@ -253,10 +253,10 @@ namespace SPAM.MainWork
                 txtBarcode.Text = "";
             }
 
-            
+
         }
 
-        
+
 
 
         private void InputBarcode(string barcode)
@@ -331,7 +331,7 @@ namespace SPAM.MainWork
 
             }
 
-            
+
 
         }
 
@@ -354,7 +354,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkConsumableLot(MachSeq,workDate,workHeader1.ProcSeq);
+                    ds = svc.GetWorkConsumableLot(MachSeq, workDate, workHeader1.ProcSeq);
                 }
 
                 if (ds != null)
@@ -380,7 +380,7 @@ namespace SPAM.MainWork
         #region LOT 투입 처리
         private void SetWorkLot(string barcode)
         {
-            
+
             string workDate = DateTime.Now.ToString("yyyyMMdd");
             string MachSeq = workHeader1.ValueOfMachSeq;
             DataSet ds = null;
@@ -392,8 +392,8 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetWorkLot("A",workDate,workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
-                        workHeader1.ItemSeq,barcode,"1","OK",ClientGlobal.UserSeq,"");
+                    ds = svc.SetWorkLot("A", workDate, workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
+                        workHeader1.ItemSeq, barcode, "1", "OK", ClientGlobal.UserSeq, "");
                 }
 
 
@@ -439,7 +439,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkLot(workHeader1.ItemSeq,workDate,workHeader1.ProcSeq, MachSeq, gubun);
+                    ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq, MachSeq, gubun);
                 }
 
                 if (ds != null)
@@ -564,5 +564,6 @@ namespace SPAM.MainWork
         private void btnDel1_Click(object sender, EventArgs e)
         {
 
+        }
     }
 }
