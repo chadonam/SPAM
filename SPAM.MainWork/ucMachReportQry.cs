@@ -154,7 +154,6 @@ namespace SPAM.MainWork
             chart1.Series.Clear();
             chart1.Titles.Clear();
             chart1.Series.Add("Series1");
-
             chart1.Titles.Add("설비별 가동율");
             chart1.Series["Series1"].LegendText = "가동율";   // 차트 이름을 "수학"으로 설정
             chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력

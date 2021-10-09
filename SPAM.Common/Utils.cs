@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SPAM.Common
 {
@@ -240,6 +241,49 @@ namespace SPAM.Common
                 return DateTime.Now;
             }
         }
+        #endregion
+
+        #region 사전 처리
+        public static string GetLanguage(string msg)
+        {
+            string rtnString = "";
+
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SGetDictionary";
+
+                string language = "KO";
+
+                if (ClientGlobal.Language != null)
+                {
+                    language = ClientGlobal.Language;
+                }
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@Language", language);
+                param[1] = new SqlParameter("@Message", msg);
+
+                dsResult = SqlHelper.Fill(spName, param, "Data Source = 192.168.0.195,14233; Initial Catalog = SPAM; Persist Security Info=True;User ID = spam; Password=spam");
+
+                rtnString = dsResult.Tables[0].Rows[0][0].ToString();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+
+            return rtnString;
+        }
+
         #endregion
     }
 }

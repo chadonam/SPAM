@@ -20,5 +20,6 @@ namespace SPAM.Common
         public static string DB_Cat;
         public static bool FlagEnable;
         public static int UserSeq;
+        public static string Language;
     } 
 }

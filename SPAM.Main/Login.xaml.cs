@@ -28,7 +28,7 @@ namespace SPAM.Main
         {
             txtID.Text = ClientGlobal.UserID;
 
-            SetImage(imgBack, "login_admin");
+            SetImage(imgBack, "login_admin2");
 
             InitButton();
 
@@ -116,6 +116,7 @@ namespace SPAM.Main
                 ClientGlobal.UserID = txtID.Text;
                 string UserSeq = ds.Tables[0].Rows[0]["UserSeq"].ToString();
                 ClientGlobal.UserSeq = Int32.Parse(UserSeq);
+                ClientGlobal.Language = ds.Tables[0].Rows[0]["Language"].ToString();
 
 
                 UpdateUserID();

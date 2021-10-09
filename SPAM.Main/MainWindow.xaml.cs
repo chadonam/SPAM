@@ -16,15 +16,17 @@ namespace SPAM.Main
 {
 
     public delegate void MyTabSerialReceived(int nIdx, string Data);
+
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         List<int> lstKey = new List<int>();
         Dictionary<int, int> lstIdx = new Dictionary<int, int>();
         private int nIdx = 0;
+        string caption;
 
         public MainWindow()
         {
@@ -38,18 +40,30 @@ namespace SPAM.Main
 
             InitImage();
 
-            //imgMenu1_MouseUp(null, null);
-            //imgLogo_MouseUp(null, null);
+            imgMenu1_MouseUp(null, null);
+            imgLogo_MouseUp(null, null);
 
         }
 
         private void InitImage()
         {
-            SetImage(imgMenu1, "ad_menu01");
-            SetImage(imgMenu2, "ad_menu02");
-            SetImage(imgMenu3, "ad_menu03");
-            SetImage(imgMenu4, "ad_menu04");
-            SetImage(imgMenu5, "ad_menu05");            
+
+            if (ClientGlobal.Language == "KO")
+            {
+                SetImage(imgMenu1, "ad_menu01_new");
+                SetImage(imgMenu2, "ad_menu02_new");
+                SetImage(imgMenu3, "ad_menu03_new");
+                SetImage(imgMenu4, "ad_menu04");
+                SetImage(imgMenu5, "ad_menu06");
+            }
+            else
+            {
+                SetImage(imgMenu1, "ad_menu01_new_vt");
+                SetImage(imgMenu2, "ad_menu02_new_vt");
+                SetImage(imgMenu3, "ad_menu03_new_vt");
+                SetImage(imgMenu4, "ad_menu04_new_vt");
+                SetImage(imgMenu5, "ad_menu06_new_vt");
+            }
             //if (ClientGlobal.UserID == "Admin")
             //{
             //    SetImage(imgMenu2, "ad_menu02");
@@ -87,7 +101,7 @@ namespace SPAM.Main
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
             theTabItem.Title = title;
 
-            
+
             SPAM.MainWork.MainWork1 ctl = new MainWork.MainWork1();
 
             host.Child = ctl;
@@ -99,25 +113,41 @@ namespace SPAM.Main
 
             lstKey.Add(nIdx);
             lstIdx.Add(nIdx, tabBody.Items.Count - 1);
-            
+
             nIdx++;
         }
+
 
         private void imgMenu1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             InitImage();
-            Login.SetImage(imgMenu1, "ad_menu01_on");
+            if (ClientGlobal.Language == "KO")
+            {
+                Login.SetImage(imgMenu1, "ad_menu01_on_new");
+            }
+            else
+            {
+                Login.SetImage(imgMenu1, "ad_menu01_on_new_vt");
+            }
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
-            
-            menus.Add("품목마스터 연동", "SPAM.MainWork.ucItemSync");
-            menus.Add("품목별 공정순서", "SPAM.MainWork.ucItemProc");
-            menus.Add("공정등록", "SPAM.MainWork.ucProcAdd");
-            menus.Add("BOM연동", "SPAM.MainWork.ucBOMSync");
-            menus.Add("설비등록", "SPAM.MainWork.ucMachAdd");
-            menus.Add("자재입고처리", "SPAM.MainWork.ucMatIn");
-            menus.Add("자재출고처리", "SPAM.MainWork.ucMatOutAdd");
-            
+
+
+            caption = Utils.GetLanguage("품목마스터 연동");
+            menus.Add(caption, "SPAM.MainWork.ucItemSync");
+            caption = Utils.GetLanguage("품목별 공정순서");
+            menus.Add(caption, "SPAM.MainWork.ucItemProc");
+            caption = Utils.GetLanguage("공정등록");
+            menus.Add(caption, "SPAM.MainWork.ucProcAdd");
+            caption = Utils.GetLanguage("BOM연동");
+            menus.Add(caption, "SPAM.MainWork.ucBOMSync");
+            caption = Utils.GetLanguage("설비등록");
+            menus.Add(caption, "SPAM.MainWork.ucMachAdd");
+            caption = Utils.GetLanguage("자재입고처리");
+            menus.Add(caption, "SPAM.MainWork.ucMatIn");
+            caption = Utils.GetLanguage("자재출고처리");
+            menus.Add(caption, "SPAM.MainWork.ucMatOutAdd");
+
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");
             //if (ClientGlobal.QCYn == "1")
@@ -139,11 +169,26 @@ namespace SPAM.Main
         private void imgMenu2_MouseUp(object sender, MouseButtonEventArgs e)
         {
             InitImage();
-            Login.SetImage(imgMenu2, "ad_menu02_on");
+
+            if (ClientGlobal.Language == "KO")
+            {
+                Login.SetImage(imgMenu2, "ad_menu02_on_new");
+            }
+            else
+            {
+                Login.SetImage(imgMenu2, "ad_menu02_on_new_vt");
+            }
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
 
-            menus.Add("Scriber", "SPAM.MainWork.ucScriber");
+            caption = Utils.GetLanguage("월생산계획등록");
+            menus.Add(caption, "SPAM.MainWork.ucMonthlyPlan");
+            caption = Utils.GetLanguage("WorkOrder등록");
+            menus.Add(caption, "SPAM.MainWork.ucWorkOrder");
+            caption = Utils.GetLanguage("설비WO배정");
+            menus.Add(caption, "SPAM.MainWork.ucEQPWOAssign");
+
+
             //menus.Add("라인관리", "SPAM.MainWork.ucMenu6");
             //menus.Add("공정관리", "SPAM.MainWork.ucMenu3");
             //menus.Add("공정순번관리", "SPAM.MainWork.ucMenu4");
@@ -159,14 +204,26 @@ namespace SPAM.Main
         private void imgMenu3_MouseUp(object sender, MouseButtonEventArgs e)
         {
             InitImage();
-            Login.SetImage(imgMenu3, "ad_menu03_on");
+
+            if (ClientGlobal.Language == "KO")
+            {
+                Login.SetImage(imgMenu3, "ad_menu03_on_new");
+            }
+            else
+            {
+                Login.SetImage(imgMenu3, "ad_menu03_on_new_vt");
+            }
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
-            menus.Add("월생산계획등록", "SPAM.MainWork.ucMonthlyPlan");
-            menus.Add("WorkOrder등록", "SPAM.MainWork.ucWorkOrder");
-            menus.Add("설비WO배정", "SPAM.MainWork.ucEQPWOAssign");
 
-
+            caption = Utils.GetLanguage("Scriber");
+            menus.Add(caption, "SPAM.MainWork.ucScriber");
+            caption = Utils.GetLanguage("POL");
+            menus.Add(caption, "SPAM.MainWork.ucPOL");
+            caption = Utils.GetLanguage("Hybrid");
+            menus.Add(caption, "SPAM.MainWork.ucHybrid");
+            caption = Utils.GetLanguage("BLU");
+            menus.Add(caption, "SPAM.MainWork.ucBLU");
 
             SetLeftMeun(menus);
 
@@ -177,15 +234,28 @@ namespace SPAM.Main
         private void imgMenu4_MouseUp(object sender, MouseButtonEventArgs e)
         {
             InitImage();
-            Login.SetImage(imgMenu4, "ad_menu04_on");
+
+            if (ClientGlobal.Language == "KO")
+            {
+                Login.SetImage(imgMenu4, "ad_menu04_on");
+            }
+            else
+            {
+                Login.SetImage(imgMenu4, "ad_menu04_on_new_vt");
+            }
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
-            menus.Add("일자별생산실적조회", "SPAM.MainWork.ucWorkReportQry");
-            menus.Add("공정별재공조회", "SPAM.MainWork.ucProcStockQry");
-            menus.Add("설비별가동률조회", "SPAM.MainWork.ucMachReportQry");
-            menus.Add("LOT이력조회", "SPAM.MainWork.ucLotHistoryQry");
-            
-            
+
+            caption = Utils.GetLanguage("일자별생산실적조회");
+            menus.Add(caption, "SPAM.MainWork.ucWorkReportQry");
+            caption = Utils.GetLanguage("공정별재공조회");
+            menus.Add(caption, "SPAM.MainWork.ucProcStockQry");
+            caption = Utils.GetLanguage("설비별가동률조회");
+            menus.Add(caption, "SPAM.MainWork.ucMachReportQry");
+            caption = Utils.GetLanguage("LOT이력조회");
+            menus.Add(caption, "SPAM.MainWork.ucLotHistoryQry");
+
+
             SetLeftMeun(menus);
 
             gdBody.ColumnDefinitions[0].Width = new GridLength(150);
@@ -195,13 +265,25 @@ namespace SPAM.Main
         private void imgMenu5_MouseUp(object sender, MouseButtonEventArgs e)
         {
             InitImage();
-            Login.SetImage(imgMenu5, "ad_menu05_on");
+
+            if (ClientGlobal.Language == "KO")
+            {
+                Login.SetImage(imgMenu5, "ad_menu06_on");
+            }
+            else
+            {
+                Login.SetImage(imgMenu5, "ad_menu06_on_new_vt");
+            }
 
             Dictionary<string, string> menus = new Dictionary<string, string>();
-            menus.Add("사용자등록", "SPAM.MainWork.ucUserAdd");
-            menus.Add("그룹등록", "SPAM.MainWork.ucGroupAdd");
-            menus.Add("프로그램등록", "SPAM.MainWork.ucProgramAdd");
-            menus.Add("권한등록", "SPAM.MainWork.ucAuthAdd");
+            caption = Utils.GetLanguage("사용자등록");
+            menus.Add(caption, "SPAM.MainWork.ucUserAdd");
+            caption = Utils.GetLanguage("그룹등록");
+            menus.Add(caption, "SPAM.MainWork.ucGroupAdd");
+            caption = Utils.GetLanguage("프로그램등록");
+            menus.Add(caption, "SPAM.MainWork.ucProgramAdd");
+            caption = Utils.GetLanguage("권한등록");
+            menus.Add(caption, "SPAM.MainWork.ucAuthAdd");
 
             SetLeftMeun(menus);
 
@@ -261,6 +343,12 @@ namespace SPAM.Main
             ClosableTab theTabItem = new ClosableTab();
             theTabItem.nIdx = nIdx;
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
+
+            if (title.Length > 19) //베트남어로 너무 길면 줄여줌
+            {
+                title = title.Substring(0, 19);
+            }
+
             theTabItem.Title = title;
 
             string ucName = (sender as Label).Tag.ToString();
@@ -271,7 +359,7 @@ namespace SPAM.Main
 
             object obj = asmPlant.CreateInstance(ucName);
 
-            host.Child = obj as System.Windows.Forms.Control;           
+            host.Child = obj as System.Windows.Forms.Control;
 
 
             theTabItem.grd.Children.Add(host);
@@ -279,7 +367,7 @@ namespace SPAM.Main
             tabBody.Items.Add(theTabItem);
             theTabItem.Tag = nIdx;
             theTabItem.Focus();
-                    
+
             lstKey.Add(nIdx);
             lstIdx.Add(nIdx, tabBody.Items.Count - 1);
 
@@ -343,7 +431,7 @@ namespace SPAM.Main
             }
         }
 
-        void ctl_TabOpen(string ctlCode,string ctlName,string param1)
+        void ctl_TabOpen(string ctlCode, string ctlName, string param1)
         {
             //InitImage();
             //Login.SetImage(imgMenu1, "menu01_on");
@@ -374,49 +462,6 @@ namespace SPAM.Main
             theTabItem.nIdx = nIdx;
             theTabItem.OnTabDeleted += new TabDeleted(theTabItem_OnTabDeleted);
 
-            //switch (ctlCode)
-            //{
-            //case "ucCustAdd":
-            //    SPAM.MainWork.ucCustAdd ctlCustAdd = new MainWork.ucCustAdd(nIdx, param1);
-            //    host.Child = ctlCustAdd;
-            //    break;
-            //case "ucItemAdd":
-            //    SPAM.MainWork.ucItemAdd ctlItemAdd = new MainWork.ucItemAdd(nIdx, param1);
-            //    host.Child = ctlItemAdd;
-            //    break;
-            //case "ucMatAdd":
-            //    SPAM.MainWork.ucMatAdd ctlMatAdd = new MainWork.ucMatAdd(nIdx, param1);
-            //    host.Child = ctlMatAdd;
-            //    break;
-            //case "ucAfterTreatAdd":
-            //    SPAM.MainWork.ucAfterTreatAdd ctlAfterTreatAdd = new MainWork.ucAfterTreatAdd(nIdx, param1);
-            //    host.Child = ctlAfterTreatAdd;
-            //    break;
-            //case "ucOptionAdd":
-            //    SPAM.MainWork.ucOptionAdd ctlOptionAdd = new MainWork.ucOptionAdd(nIdx, param1);
-            //    host.Child = ctlOptionAdd;
-            //    break;
-            //case "ucECAdd":                    
-            //    SPAM.MainWork.ucECAdd ctlECAdd = new MainWork.ucECAdd(nIdx, param1);
-
-            //    string ucName = "SPAM.MainWork.ucECAdd";
-            //    int idxAssembly = ucName.LastIndexOf(".");
-            //    string dllName = ucName.Substring(0, idxAssembly) + ".dll";
-
-            //    Assembly asmPlant = Assembly.LoadFrom(dllName);
-            //    object obj = asmPlant.CreateInstance(ucName);
-            //    ctlECAdd.TabOpen += new MainWork.ParentTabOpen(ctl_TabOpen);
-
-
-            //    host.Child = ctlECAdd;
-            //    break;
-            //case "ucSOAdd":
-            //    SPAM.MainWork.ucSOAdd ctlSOAdd = new MainWork.ucSOAdd(nIdx, param1);
-            //    host.Child = ctlSOAdd;
-            //    break;
-
-            //}
-            
 
             theTabItem.grd.Children.Add(host);
 
@@ -427,8 +472,8 @@ namespace SPAM.Main
 
             lstKey.Add(nIdx);
             lstIdx.Add(nIdx, tabBody.Items.Count - 1);
-                                      
-            
+
+
             nIdx++;
         }
 

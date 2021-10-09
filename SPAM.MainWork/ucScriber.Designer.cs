@@ -208,8 +208,11 @@
             // 
             // workHeader1
             // 
+            this.workHeader1.ItemSeq = null;
             this.workHeader1.Location = new System.Drawing.Point(0, 0);
             this.workHeader1.Name = "workHeader1";
+            this.workHeader1.OrderSeq = null;
+            this.workHeader1.ProcSeq = null;
             this.workHeader1.Size = new System.Drawing.Size(1727, 90);
             this.workHeader1.TabIndex = 0;
             // 
@@ -226,10 +229,10 @@
             // 
             // btnDel1
             // 
-            this.btnDel1.Image = global::SPAM.MainWork.Properties.Resources.cancel;
-            this.btnDel1.Location = new System.Drawing.Point(551, 384);
+            this.btnDel1.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDel1.Location = new System.Drawing.Point(483, 385);
             this.btnDel1.Name = "btnDel1";
-            this.btnDel1.Size = new System.Drawing.Size(63, 32);
+            this.btnDel1.Size = new System.Drawing.Size(131, 32);
             this.btnDel1.TabIndex = 43;
             this.btnDel1.TabStop = false;
             // 
@@ -246,10 +249,10 @@
             // 
             // btnDelOK
             // 
-            this.btnDelOK.Image = global::SPAM.MainWork.Properties.Resources.cancel;
-            this.btnDelOK.Location = new System.Drawing.Point(1115, 109);
+            this.btnDelOK.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDelOK.Location = new System.Drawing.Point(1047, 110);
             this.btnDelOK.Name = "btnDelOK";
-            this.btnDelOK.Size = new System.Drawing.Size(63, 32);
+            this.btnDelOK.Size = new System.Drawing.Size(131, 32);
             this.btnDelOK.TabIndex = 45;
             this.btnDelOK.TabStop = false;
             // 
@@ -266,10 +269,10 @@
             // 
             // btnDelNG
             // 
-            this.btnDelNG.Image = global::SPAM.MainWork.Properties.Resources.cancel;
-            this.btnDelNG.Location = new System.Drawing.Point(1664, 109);
+            this.btnDelNG.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDelNG.Location = new System.Drawing.Point(1597, 110);
             this.btnDelNG.Name = "btnDelNG";
-            this.btnDelNG.Size = new System.Drawing.Size(63, 32);
+            this.btnDelNG.Size = new System.Drawing.Size(130, 32);
             this.btnDelNG.TabIndex = 47;
             this.btnDelNG.TabStop = false;
             // 

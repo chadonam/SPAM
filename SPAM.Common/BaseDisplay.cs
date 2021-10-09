@@ -10,35 +10,46 @@ namespace SPAM.Common
         //버튼의 타입별 크기와 색상 설정
         public static void AdminBtn(Button btn, BtnType btnTp)
         {
+            string LanguageString;
             if (btnTp == BtnType.Search)
             {
                 btn.BackColor = Color.MediumSeaGreen;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "조회";
+                LanguageString = Utils.GetLanguage("조회");
+                
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.Save)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "저장";
+               LanguageString = Utils.GetLanguage("저장");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.modify)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "수정";
+                LanguageString = Utils.GetLanguage("수정");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.Delete)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "삭제";
+                LanguageString = Utils.GetLanguage("삭제");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.New)
             {
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.Text = "신규";
+               LanguageString = Utils.GetLanguage("신규");
+
+                btn.Text = LanguageString;
             }
             else if (btnTp == BtnType.OK)
             {
@@ -59,6 +70,8 @@ namespace SPAM.Common
                 //btn.BackColor = Color.MediumSeaGreen;
                 btn.BackColor = Color.LightPink;
                 btn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                LanguageString = Utils.GetLanguage(btn.Text);
+                btn.Text = LanguageString;
             }
 
         }
@@ -160,14 +173,14 @@ namespace SPAM.Common
                     break;
                 case LabelType.Menu:
                     lbl.AutoSize = false;
-                    lbl.Font = new System.Drawing.Font("맑은 고딕", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
+                    lbl.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
                     lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     lbl.Height = 35;
 
                     break;
                 case LabelType.Item:
                     lbl.AutoSize = false;
-                    lbl.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    lbl.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                     lbl.BackColor = Color.MidnightBlue;
                     lbl.ForeColor = Color.White;
                     lbl.Height = 35;
@@ -280,6 +293,28 @@ namespace SPAM.Common
             lab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lab.Height = 26;
         }
+
+        public static void ChangeText(Control ctrl)
+        {
+            if (ClientGlobal.Language == "KO")
+            {
+                return;
+            }
+
+            string msg, caption;
+            msg = ctrl.Text;
+            caption = Utils.GetLanguage(msg);
+            ctrl.Text = caption;
+
+        }
+
+        public static void ChangeAllControl(Control.ControlCollection conColl)
+        {
+            foreach (Control con in conColl) {
+                ChangeText(con);
+            }
+        }
+
 
     }
 }

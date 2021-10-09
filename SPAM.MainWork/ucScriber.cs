@@ -128,6 +128,8 @@ namespace SPAM.MainWork
             ChangePic(picWorkStatus, "yellow");
 
             WorkStart();
+            Search2("OK");
+            Search2("NG");
 
 
 
@@ -148,9 +150,9 @@ namespace SPAM.MainWork
                 p.Image = ResourceImage.GetImage("st_back_red");
             }
 
-            if (type.Equals("yello"))
+            if (type.Equals("yellow"))
             {
-                p.Image = ResourceImage.GetImage("st_back_yello");
+                p.Image = ResourceImage.GetImage("st_back_yellow");
             }
         }
 
@@ -248,18 +250,19 @@ namespace SPAM.MainWork
             if (e.KeyCode == Keys.Enter)
             {
                 InputBarcode(txtBarcode.Text);
+                txtBarcode.Text = "";
             }
 
-            txtBarcode.Text = "";
+
         }
 
-        
+
 
 
         private void InputBarcode(string barcode)
         {
             //ConsumableLot 입력됨
-            if (barcode.IndexOf("MAT") != 0)
+            if (barcode.IndexOf("MAT") == 0)
             {
                 SetConsumableLot(barcode);
             }
@@ -267,11 +270,17 @@ namespace SPAM.MainWork
             else
             {
                 txtID.Text = barcode;
-                ChangePic(picWorkStatus, "yello");
+                ChangePic(picWorkStatus, "green");
+                txtBarcode.ReadOnly = true;
                 //애니메이션 시작
 
+                SetWorkLot(barcode);
+                Search2("OK");
 
-                
+                ChangePic(picWorkStatus, "yellow");
+                txtBarcode.ReadOnly = false;
+
+
 
             }
 
@@ -282,7 +291,7 @@ namespace SPAM.MainWork
         #region 원자재 투입 처리
         private void SetConsumableLot(string barcode)
         {
-            barcode = "MAT$ALBL123269010$CONA1234567$100";
+            barcode = "MAT$ALBL123269010$CONA1234568$100";
 
             string[] s = barcode.Split('$'); // # 기준으로 자른다.
 
@@ -322,7 +331,7 @@ namespace SPAM.MainWork
 
             }
 
-            
+
 
         }
 
@@ -345,7 +354,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkConsumableLot(MachSeq,workDate,workHeader1.ProcSeq);
+                    ds = svc.GetWorkConsumableLot(MachSeq, workDate, workHeader1.ProcSeq);
                 }
 
                 if (ds != null)
@@ -371,7 +380,7 @@ namespace SPAM.MainWork
         #region LOT 투입 처리
         private void SetWorkLot(string barcode)
         {
-            
+
             string workDate = DateTime.Now.ToString("yyyyMMdd");
             string MachSeq = workHeader1.ValueOfMachSeq;
             DataSet ds = null;
@@ -383,8 +392,8 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetWorkLot("A",workDate,workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
-                        workHeader1.ItemSeq,barcode,"1","OK",ClientGlobal.UserSeq,"");
+                    ds = svc.SetWorkLot("A", workDate, workHeader1.OrderSeq, MachSeq, workHeader1.ProcSeq,
+                        workHeader1.ItemSeq, barcode, "1", "OK", ClientGlobal.UserSeq, "");
                 }
 
 
@@ -430,7 +439,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWorkLot(workHeader1.ItemSeq,workDate,workHeader1.ProcSeq, gubun);
+                    ds = svc.GetWorkLot(workHeader1.ItemSeq, workDate, workHeader1.ProcSeq, MachSeq, gubun);
                 }
 
                 if (ds != null)
@@ -460,8 +469,101 @@ namespace SPAM.MainWork
 
         #endregion
 
+        #region 삭제처리
+        #region 저장
+
+        private void Save(string WorkingTag, int lngRow)
+        {
+            int status;
+            string result;
+            DataSet ds = null;
+
+
+            try
+            {
+                string LotID;
+                string OrderSeq;
+                string ItemSeq;
+                string ProcSeq;
+                string MachSeq;
+                string Judge;
+                string Qty;
+                string WorkDate;
+                int UserSeq;
+                string TimeKey;
+
+
+                if (fpSpread2.Sheets[0].Cells[lngRow, 0].Value.ToString() == "")
+                {
+                    LotID = fpSpread3.Sheets[0].Cells[lngRow, 0].Value.ToString();
+                    TimeKey = fpSpread3.Sheets[0].Cells[lngRow, 2].Value.ToString();
+                }
+                else
+                {
+                    LotID = fpSpread2.Sheets[0].Cells[lngRow, 0].Value.ToString();
+                    TimeKey = fpSpread2.Sheets[0].Cells[lngRow, 2].Value.ToString();
+                }
+
+                OrderSeq = workHeader1.OrderSeq;
+                ItemSeq = workHeader1.ItemSeq;
+                ProcSeq = workHeader1.ProcSeq;
+                MachSeq = workHeader1.ValueOfMachSeq;
+                WorkDate = DateTime.Now.ToString("yyyyMMdd");
+                UserSeq = ClientGlobal.UserSeq;
+                Judge = "";
+                Qty = "1";
 
 
 
+
+
+
+                using (CommonService svc = new CommonService())
+                {
+                    ds = svc.SetWorkLot(WorkingTag, WorkDate, OrderSeq, MachSeq, ProcSeq, ItemSeq, LotID, Qty, Judge, UserSeq, TimeKey);
+                }
+
+
+                if (ds != null)
+                {
+                    status = Int32.Parse(ds.Tables[0].Rows[0][0].ToString());
+                    result = ds.Tables[0].Rows[0][1].ToString();
+                    if (status == 0)
+                    {
+                        MessageHandler.DisplayMessage(result, Common.Controls.MessageType.Warning);
+                    }
+                    else
+                    {
+                        MessageHandler.DisplayMessage("취소되었습니다.", Common.Controls.MessageType.Warning);
+                    }
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
+            }
+
+        }
+
+
+        #endregion
+
+        private void btnDelNG_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
+        }
+        #endregion
+
+        private void btnDel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
