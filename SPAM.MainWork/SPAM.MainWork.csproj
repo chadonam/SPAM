@@ -163,6 +163,12 @@
     <Compile Include="ucMatIn.Designer.cs">
       <DependentUpon>ucMatIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMesAdd.Designer.cs">
+      <DependentUpon>ucMesAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPOL.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -337,6 +343,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\st_back_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -256,11 +256,18 @@ namespace SPAM.Common
             {
                 spName = "SGetDictionary";
 
+                string language = "KO";
+
+                if (ClientGlobal.Language != null)
+                {
+                    language = ClientGlobal.Language;
+                }
+
                 param = new SqlParameter[2];
-                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+                param[0] = new SqlParameter("@Language", language);
                 param[1] = new SqlParameter("@Message", msg);
 
-                dsResult = SqlHelper.Fill(spName, param);
+                dsResult = SqlHelper.Fill(spName, param, "Data Source = 192.168.0.195,14233; Initial Catalog = SPAM; Persist Security Info=True;User ID = spam; Password=spam");
 
                 rtnString = dsResult.Tables[0].Rows[0][0].ToString();
 
