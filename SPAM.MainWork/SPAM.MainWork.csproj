@@ -50,6 +50,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -117,6 +120,12 @@
     </Compile>
     <Compile Include="ucGroupAdd.Designer.cs">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcHybrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcHybrid.Designer.cs">
+      <DependentUpon>UcHybrid.cs</DependentUpon>
     </Compile>
     <Compile Include="ucItemProc.cs">
       <SubType>UserControl</SubType>
@@ -214,6 +223,12 @@
     <Compile Include="ucWorkOrder.Designer.cs">
       <DependentUpon>ucWorkOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucBLU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBLU.Designer.cs">
+      <DependentUpon>ucBLU.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWork1.resx">
@@ -255,6 +270,9 @@
     <EmbeddedResource Include="ucMatIn.resx">
       <DependentUpon>ucMatIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucMesAdd.resx">
+      <DependentUpon>ucMesAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucPOL.resx">
       <DependentUpon>ucPOL.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucWorkOrder.resx">
       <DependentUpon>ucWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBLU.resx">
+      <DependentUpon>ucBLU.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

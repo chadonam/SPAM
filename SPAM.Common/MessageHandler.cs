@@ -8,11 +8,11 @@ namespace SPAM.Common
     {
         public static DialogResult DisplayMessage(string msg, MessageType msgType)
         {
-    
-                Controls.MessageBoxBig msgbox = new Controls.MessageBoxBig(msg);
-                msgbox.MsgType = msgType;
+            msg = Utils.GetLanguage(msg);
+            Controls.MessageBoxBig msgbox = new Controls.MessageBoxBig(msg);
+            msgbox.MsgType = msgType;
 
-                return msgbox.ShowDialog();
+            return msgbox.ShowDialog();
 
         }
 
