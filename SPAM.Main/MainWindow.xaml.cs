@@ -218,6 +218,8 @@ namespace SPAM.Main
 
             caption = Utils.GetLanguage("Scriber");
             menus.Add(caption, "SPAM.MainWork.ucScriber");
+            caption = Utils.GetLanguage("POL");
+            menus.Add(caption, "SPAM.MainWork.ucPOL");
             caption = Utils.GetLanguage("Hybrid");
             menus.Add(caption, "SPAM.MainWork.ucHybrid");
             caption = Utils.GetLanguage("BLU");
