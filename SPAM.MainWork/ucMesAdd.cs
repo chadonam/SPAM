@@ -5,6 +5,10 @@ using System.Data;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
+using System.Net;
+using System.Text;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace SPAM.MainWork
 {
@@ -133,9 +137,9 @@ namespace SPAM.MainWork
         #endregion
 
         #region 번역버튼클릭
-        private void btnEtc2_Click(object sender, EventArgs e)
+        private void btnEtc2_Click(object sender, EventArgs e) 
         {
-            
+            txtVNL.Text = Translate(txtKoL.Text);
 
 
         }
@@ -217,6 +221,40 @@ namespace SPAM.MainWork
 
         }
 
+        #endregion
+
+        #region 번역
+        public static string Translate(string korea)
+        {
+
+            string url = "https://openapi.naver.com/v1/papago/n2mt";
+
+
+            string clientid = "tjvN7vcWnA6xps7lHvkF";
+            string secret = "zKR0bo2EIU";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Headers.Add("X-Naver-Client-Id", clientid);
+            request.Headers.Add("X-Naver-Client-Secret", secret);
+            request.Method = "POST";
+            byte[] byteDataParams = Encoding.UTF8.GetBytes("source=ko&target=vi&text=" + korea);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteDataParams.Length;
+            Stream st = request.GetRequestStream();
+            st.Write(byteDataParams, 0, byteDataParams.Length);
+            st.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+            string text = reader.ReadToEnd();
+            stream.Close();
+            response.Close();
+            reader.Close();
+
+            JObject jobj = JObject.Parse(text);
+            string result = jobj["message"]["result"]["translatedText"].ToString();
+            return result;
+
+        }
         #endregion
 
         private void fpSpread1_CellClick_1(object sender, FarPoint.Win.Spread.CellClickEventArgs e)

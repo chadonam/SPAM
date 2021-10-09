@@ -255,6 +255,7 @@ namespace SPAM.MainWork
             this.btnEtc2.TabIndex = 15;
             this.btnEtc2.Text = "번역";
             this.btnEtc2.UseVisualStyleBackColor = false;
+            this.btnEtc2.Click += new System.EventHandler(this.btnEtc2_Click);
             // 
             // ucMesAdd
             // 
