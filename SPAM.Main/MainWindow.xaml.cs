@@ -76,7 +76,8 @@ namespace SPAM.Main
 
         private void imgLogo_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            string title = "메인화면";
+            caption = Utils.GetLanguage("메인화면");
+            string title = caption;
 
             for (int i = 0; i < tabBody.Items.Count; i++)
             {
@@ -147,6 +148,8 @@ namespace SPAM.Main
             menus.Add(caption, "SPAM.MainWork.ucMatIn");
             caption = Utils.GetLanguage("자재출고처리");
             menus.Add(caption, "SPAM.MainWork.ucMatOutAdd");
+            caption = Utils.GetLanguage("메세지 등록");
+            menus.Add(caption, "SPAM.MainWork.ucMesAdd");
 
 
             //menus.Add("바코드조회", "SPAM.MainWork.ucMenu2");

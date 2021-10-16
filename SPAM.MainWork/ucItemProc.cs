@@ -33,6 +33,7 @@ namespace SPAM.MainWork
 
             BaseDisplay.ChangeText(lblItemProcNoQ);
             BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(btnSearch);
 
         }
 

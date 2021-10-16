@@ -48,6 +48,13 @@ namespace SPAM.Common.Controls
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lnlWoker, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.ChangeText(lblMach);
+            BaseDisplay.ChangeText(lblItemNo);
+            BaseDisplay.ChangeText(lblProcID);
+            BaseDisplay.ChangeText(lnlWoker);
+            BaseDisplay.ChangeText(btnEnd);
+            BaseDisplay.ChangeText(lblRemark);
+
             btnEnd.Visible = false;
 
         }
@@ -70,7 +77,9 @@ namespace SPAM.Common.Controls
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbMach, ds.Tables[0], "ItemNm", "ItemCd", "설비선택");
+
+                    string MachSelect = Utils.GetLanguage("설비선택");
+                    Utils.SetComboBox(cmbMach, ds.Tables[0], "ItemNm", "ItemCd", MachSelect);
                     cmbMach.SelectedIndex = 0;
 
 

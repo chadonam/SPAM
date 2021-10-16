@@ -34,6 +34,15 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblKoL, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblVNL, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblMesQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(lblKoL);
+            BaseDisplay.ChangeText(lblVNL);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(btnEtc2);
+            BaseDisplay.ChangeText(btnEtc);
+
+
 
 
         }

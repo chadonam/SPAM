@@ -31,7 +31,14 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblGroupNameQ, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblGroupSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblGroupName, BaseDisplay.LabelType.Item);
-    
+
+            BaseDisplay.ChangeText(lblGroupNameQ);
+            BaseDisplay.ChangeText(btnSearch);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(txtUserSeq);
+            BaseDisplay.ChangeText(lblGroupSeq);
+            BaseDisplay.ChangeText(lblGroupName);
+
 
 
 

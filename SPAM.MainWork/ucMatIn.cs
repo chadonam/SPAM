@@ -82,6 +82,19 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblDate, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblLotid1, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblMatinNum, BaseDisplay.LabelType.Item);
+
+            BaseDisplay.ChangeText(lblMatin);
+            BaseDisplay.ChangeText(lblMatinName);
+            BaseDisplay.ChangeText(groupBox3);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(lblCode);
+            BaseDisplay.ChangeText(lblMatin1);
+            BaseDisplay.ChangeText(lblMatinName1);
+            BaseDisplay.ChangeText(lblDate);
+            BaseDisplay.ChangeText(lblLotid1);
+            BaseDisplay.ChangeText(lblMatinNum);
+
         }
         #endregion
 

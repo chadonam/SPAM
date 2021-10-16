@@ -129,8 +129,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-
-                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                        string ProcSelect = Utils.GetLanguage("공정선택");
+                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", ProcSelect);
                         cmbProc.SelectedIndex = 0;
                    }
 
@@ -156,7 +156,10 @@ namespace SPAM.MainWork
         #region Control 초기화
         private void InitControl()
         {
-            BaseDisplay.AdminBtn(btnSearch, BaseDisplay.BtnType.Search);       
+            BaseDisplay.AdminBtn(btnSearch, BaseDisplay.BtnType.Search);
+            BaseDisplay.SetLabelStyle(lblWOID, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblPlanNo, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblWOName, BaseDisplay.LabelType.Item);
 
             /*BaseDisplay.AdminTxt(txtWOID, BaseDisplay.TxtType.CodeHelp);
             BaseDisplay.AdminTxt(txtPlanNo, BaseDisplay.TxtType.CodeHelp);
@@ -168,6 +171,13 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblWorkDate, BaseDisplay.LabelType.Item);*/
+
+            BaseDisplay.ChangeText(lblWOID);
+            BaseDisplay.ChangeText(lblPlanNo);
+            BaseDisplay.ChangeText(lblWOName);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupBox2);
+
         }
         #endregion
 
@@ -228,12 +238,12 @@ namespace SPAM.MainWork
         private void AddSpread2(string LOTID, string Judge, string WorkDate, string ProcSeq, string Qty)
         {
             int rowCnt = fpSpread1.Sheets[0].Rows.Count;
-            fpSpread1.Sheets[0].Rows.Count = rowCnt + 1;
-            fpSpread1.Sheets[0].Cells[rowCnt, 0].Value = LOTID;
-            fpSpread1.Sheets[0].Cells[rowCnt, 1].Value = Judge;
-            fpSpread1.Sheets[0].Cells[rowCnt, 2].Value = WorkDate;
-            fpSpread1.Sheets[0].Cells[rowCnt, 3].Value = ProcSeq;
-            fpSpread1.Sheets[0].Cells[rowCnt, 4].Value = Qty;
+            fpSpread2.Sheets[0].Rows.Count = rowCnt + 1;
+            fpSpread2.Sheets[0].Cells[rowCnt, 0].Value = LOTID;
+            fpSpread2.Sheets[0].Cells[rowCnt, 1].Value = Judge;
+            fpSpread2.Sheets[0].Cells[rowCnt, 2].Value = WorkDate;
+            fpSpread2.Sheets[0].Cells[rowCnt, 3].Value = ProcSeq;
+            fpSpread2.Sheets[0].Cells[rowCnt, 4].Value = Qty;
 
         }
         #endregion

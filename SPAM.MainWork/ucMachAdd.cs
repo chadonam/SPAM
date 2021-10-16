@@ -34,6 +34,15 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblMachName, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblMachIDQ);
+            BaseDisplay.ChangeText(lblMachNameQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(lblMachSeq);
+            BaseDisplay.ChangeText(lblMachID);
+            BaseDisplay.ChangeText(lblMachName);
+            BaseDisplay.ChangeText(lblProcSeq);
+            BaseDisplay.ChangeText(groupbox2);
+
 
 
         }
@@ -54,7 +63,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                    string ProcSelect = Utils.GetLanguage("공정선택");
+                    Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", ProcSelect);
                     cmbProc.SelectedIndex = 0;
 
 

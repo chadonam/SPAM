@@ -33,6 +33,14 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblPgmID, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblPgmName, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblPgmIDQ);
+            BaseDisplay.ChangeText(lblPgmNameQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(lblPgmSeq);
+            BaseDisplay.ChangeText(lblPgmID);
+            BaseDisplay.ChangeText(lblPgmName);
+
 
 
 

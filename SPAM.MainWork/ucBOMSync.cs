@@ -28,6 +28,11 @@ namespace SPAM.MainWork
 
             //BaseDisplay.SetLabelStyle(lblPassword, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblBomNameQ);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(btnSync);
+
+
         }
 
         #region FpSpread 설정

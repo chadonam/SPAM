@@ -31,6 +31,11 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblDateQ, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblProcQ, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.ChangeText(lblDateQ);
+            BaseDisplay.ChangeText(lblProcQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupBox2);
+
         }
         #region FpSpread 설정
         private void SetFpSpread()
@@ -122,7 +127,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                    string ProcSelect = Utils.GetLanguage("공정선택");
+                    Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", ProcSelect);
                     cmbProc.SelectedIndex = 0;
 
 

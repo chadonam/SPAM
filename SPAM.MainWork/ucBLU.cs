@@ -43,6 +43,15 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblWorkStatus, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblQuilStatus, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.ChangeText(lblConsumableLot);
+            BaseDisplay.ChangeText(btnDel1);
+            BaseDisplay.ChangeText(btnDelOK);
+            BaseDisplay.ChangeText(btnDelNG);
+            BaseDisplay.ChangeText(lblMachStatus);
+            BaseDisplay.ChangeText(lblWorkStatus);
+            BaseDisplay.ChangeText(lblQuilStatus);
+            
+
         }
 
 

@@ -115,12 +115,16 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
+
             try
             {
                 spName = "SGroupComboQry";
 
-                dsResult = SqlHelper.Fill(spName);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -438,15 +442,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SProcComboQry";
 
-                //param = new SqlParameter[1];
-                //param[0] = new SqlParameter("@ItemNo", ItemNo);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
 
-                dsResult = SqlHelper.Fill(spName);
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -780,12 +784,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SOutClssComboQry";
 
-                dsResult = SqlHelper.Fill(spName);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -867,12 +874,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SPGMComboQry";
 
-                dsResult = SqlHelper.Fill(spName);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -1714,12 +1724,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SLanguageComboQry";
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
 
-                dsResult = SqlHelper.Fill(spName);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
