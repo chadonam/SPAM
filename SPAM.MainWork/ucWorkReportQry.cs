@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Collections;
 using System.Windows.Forms.DataVisualization.Charting;
 
-
 namespace SPAM.MainWork
 {
     public partial class ucWorkReportQry : UserControl
@@ -300,11 +299,7 @@ namespace SPAM.MainWork
             chart1.Titles.Clear();
             chart1.Titles.Add("일자별 누적 생산수량");
             chart1.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
-            chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력            
-            
-            chart1.Series["Series1"].Color = Color.DarkOliveGreen;
-
-
+            chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력
 
             DataSet ds = null;
             string From = calWorkDate.ValueStartDate.ToString();
@@ -447,6 +442,8 @@ namespace SPAM.MainWork
 
         private void Init_Proc()
         {
+
+
 
         }
     }

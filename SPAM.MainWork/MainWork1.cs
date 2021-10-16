@@ -199,104 +199,19 @@ namespace SPAM.MainWork
             ParamPack Proc = new ParamPack();
 
             ParamPack param = new ParamPack();
-            ParamPack param2 = new ParamPack();
 
-            param.Add(FpSpread.SetSheetColumns("품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("수량합", "QtySum", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, false, FpSpread.FpSort.False, 1, null));
-
-
-            param2.Add(FpSpread.SetSheetColumns("WO번호", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("번호", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
             FpSpread.SetSheetColumn(this.fpSpread1.Sheets[0], param, 1);
 
             FpSpread.FpSpreadFrame(this.fpSpread2);
-            FpSpread.SetSheetColumn(this.fpSpread2.Sheets[0], param2, 1);
-
-            Search();
-            Search2();
-
+            FpSpread.SetSheetColumn(this.fpSpread2.Sheets[0], param, 1);
 
         }
         #endregion
-
-        #endregion
-
-         #region 조회
-
-        private void Search()
-        {
-
-            DataSet ds = null;
-
-
-            fpSpread2.Sheets[0].Rows.Count = 0;
-            try
-            {
-
-                using (CommonService svc = new CommonService())
-                {
-                    ds = svc.GetWoOrder2();
-
-                }
-
-                if (ds != null)
-                {
-                    //fpSpread1.Sheets[0].DataSource = ds;
-                    FpSpread.SetSheetDataBind(this.fpSpread2.Sheets[0], ds.Tables[0]);
-
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
-            }
-
-        }
-
-        private void Search2()
-        {
-
-            DataSet ds = null;
-
-
-            fpSpread1.Sheets[0].Rows.Count = 0;
-            try
-            {
-
-                using (CommonService svc = new CommonService())
-                {
-                    ds = svc.GetProcStockQry2();
-
-                }
-
-                if (ds != null)
-                {
-                    //fpSpread1.Sheets[0].DataSource = ds;
-                    FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
-
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
-            }
-
-        }
-
 
         #endregion
 
