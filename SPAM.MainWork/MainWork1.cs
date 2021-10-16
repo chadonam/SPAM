@@ -85,20 +85,20 @@ namespace SPAM.MainWork
             chart1.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
-            string From = "20210101";
+            string From = "20210901";
             string To = "20210930";
 
             using (CommonService svc = new CommonService())
             {
-                ds = svc.GetProcChart(From, To);
+                ds = svc.GetMainProcQty(From, To);
             }
 
             if (ds != null)
             {
 
                 chart1.DataSource = ds;
-                chart1.Series["Series1"].XValueMember = "WorkDate";
-                chart1.Series["Series1"].YValueMembers = "ProdQty";
+                chart1.Series["Series1"].XValueMember = "ProcID";
+                chart1.Series["Series1"].YValueMembers = "QTY";
 
             }
 
@@ -110,54 +110,65 @@ namespace SPAM.MainWork
             chart2.Series.Add("Series1");
             chart2.Titles.Clear();
             chart2.Titles.Add("목표생산량");
-            chart2.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
+            chart2.Series["Series1"].LegendText = "양품수량";   // 차트 이름을 "수학"으로 설정
             chart2.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
-            string From = "20210101";
-            string To = "20210930";
+            /*string todate = "20211009";
+            string enddate = "20211030";
+            string firstdate = "20211001";*/
+            int row = 0;
 
             using (CommonService svc = new CommonService())
             {
-                ds = svc.GetProcChart(From, To);
+                ds = svc.GetMainProcChart();
             }
 
             if (ds != null)
             {
 
                 chart2.DataSource = ds;
-                chart2.Series["Series1"].XValueMember = "WorkDate";
-                chart2.Series["Series1"].YValueMembers = "ProdQty";
+                chart2.Series["Series1"].XValueMember = "ITEMNAME";
+                chart2.Series["Series1"].YValueMembers = "ITEMVALUE";
+
+                foreach (Series charts in chart2.Series)
+                {
+                    foreach (DataPoint point in charts.Points)
+                    {
+
+                        point.Label = ds.Tables[0].Rows[row]["ITEMNAME"].ToString();
+                        row++;
+
+                    }
+                }
 
             }
+
+
 
         }
 
         private void CreateChart3()
         {
-
             chart3.Series.Clear();
             chart3.Series.Add("Series1");
             chart3.Titles.Clear();
             chart3.Titles.Add("가동률");
-            chart3.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
+            chart3.Series["Series1"].LegendText = "Scriber#1호기";   // 차트 이름을 "수학"으로 설정
             chart3.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
-            string From = "20210101";
-            string To = "20210930";
-
             using (CommonService svc = new CommonService())
             {
-                ds = svc.GetProcChart(From, To);
+                ds = svc.GetMachReprotChart("1", "20210901", "20210930");
             }
 
             if (ds != null)
             {
 
                 chart3.DataSource = ds;
-                chart3.Series["Series1"].XValueMember = "WorkDate";
-                chart3.Series["Series1"].YValueMembers = "ProdQty";
+                chart3.Series["Series1"].XValueMember = "MachName";
+                chart3.Series["Series1"].YValueMembers = "RunRate";
 
             }
 

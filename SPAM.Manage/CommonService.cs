@@ -1797,5 +1797,74 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region MainProcChart
+        public DataSet GetMainProcChart()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "MainProcChart";
+
+                /*param = new SqlParameter[3];
+                param[0] = new SqlParameter("@TODATE", todate);
+                param[1] = new SqlParameter("@ENDDATE", enddate);
+                param[2] = new SqlParameter("@FIRSTDATE", firstdate);*/
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region MainProcQty
+        public DataSet GetMainProcQty(string From, string To)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "MainProcQty";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                //param[2] = new SqlParameter("@FIRSTDATE", firstdate);
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
     }
 }
