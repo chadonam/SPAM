@@ -1634,9 +1634,6 @@ namespace SPAM.Manage
                 param[3] = new SqlParameter("@MachSeq", machSeq);
                 param[4] = new SqlParameter("@Gubun", gubun);
 
-                param[3] = new SqlParameter("@Gubun", gubun);
-
-
 
                 dsResult = SqlHelper.Fill(spName, param);
 

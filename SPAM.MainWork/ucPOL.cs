@@ -566,5 +566,12 @@ namespace SPAM.MainWork
 
         }
 
+        private void btnDelNG_Click(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread3.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
+        }
     }
 }
