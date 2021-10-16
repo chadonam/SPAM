@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Collections;
 using System.Windows.Forms.DataVisualization.Charting;
 
+
 namespace SPAM.MainWork
 {
     public partial class ucWorkReportQry : UserControl
@@ -39,14 +40,6 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblItemSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);*/
 
-            BaseDisplay.ChangeText(lblWorkDateQ);
-            BaseDisplay.ChangeText(lblItemSeqQ);
-            BaseDisplay.ChangeText(lblProcSeqQ);
-            BaseDisplay.ChangeText(lblOrderSeqQ);
-            BaseDisplay.ChangeText(groupbox2);
-            BaseDisplay.ChangeText(groupBox1);
-            
-
 
 
         }
@@ -67,8 +60,7 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    string ProcSelect = Utils.GetLanguage("공정선택");
-                    Utils.SetComboBox(cmbProcSeq, ds.Tables[0], "ItemNm", "ItemCd", ProcSelect);
+                    Utils.SetComboBox(cmbProcSeq, ds.Tables[0], "ItemNm", "ItemCd", "공정");
                     cmbProcSeq.SelectedIndex = 0;
 
 
@@ -308,7 +300,11 @@ namespace SPAM.MainWork
             chart1.Titles.Clear();
             chart1.Titles.Add("일자별 누적 생산수량");
             chart1.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
-            chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력
+            chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력            
+
+            chart1.Series["Series1"].Color = Color.DarkOliveGreen;
+
+
 
             DataSet ds = null;
             string From = calWorkDate.ValueStartDate.ToString();
@@ -451,8 +447,6 @@ namespace SPAM.MainWork
 
         private void Init_Proc()
         {
-
-
 
         }
     }

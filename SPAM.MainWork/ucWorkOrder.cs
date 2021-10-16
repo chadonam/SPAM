@@ -1,11 +1,14 @@
-﻿using SPAM.Common;
+﻿using Newtonsoft.Json.Linq;
+using SPAM.Common;
 using SPAM.Manage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -62,8 +65,6 @@ namespace SPAM.MainWork
         }
         #endregion
 
-        
-
         #endregion
 
         #region Control 초기화
@@ -84,23 +85,6 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblWorkDate, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblWOLength, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblWOID, BaseDisplay.LabelType.Item);
-            BaseDisplay.SetLabelStyle(lblWOName, BaseDisplay.LabelType.Item);
-
-            BaseDisplay.ChangeText(lblWOLength);
-            BaseDisplay.ChangeText(lblWOID);
-            BaseDisplay.ChangeText(lblWOName);
-            BaseDisplay.ChangeText(lblOrderSeq);
-            BaseDisplay.ChangeText(lblPlanSeq);
-            BaseDisplay.ChangeText(lbItemSeq);
-            BaseDisplay.ChangeText(lbOrderNo);
-            BaseDisplay.ChangeText(lblProcSeq);
-            BaseDisplay.ChangeText(lblWorkDate);
-            BaseDisplay.ChangeText(lblQty);
-            BaseDisplay.ChangeText(lblRemark);
-            BaseDisplay.ChangeText(groupBox1);
-            BaseDisplay.ChangeText(groupbox2);
         }
         #endregion
 
@@ -111,47 +95,58 @@ namespace SPAM.MainWork
 
             ParamPack param = new ParamPack();
 
-            
-            param.Add(FpSpread.SetSheetColumns("WO내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("제품내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("WO번호", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("지시사항", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("제품번호", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("공정내부코드", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("지시사항", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
             FpSpread.SetSheetColumn(this.fpSpread1.Sheets[0], param, 1);
 
 
+
+
         }
         #endregion
 
+        #region 스프레드 추가
+        private void AddSpread(string PlanSeq, string OrderSeq, string ItemSeq, string Qty, string WorkDate, string ProcSeq, string Remark)
+        {
+            int rowCnt = fpSpread1.Sheets[0].Rows.Count;
+            fpSpread1.Sheets[0].Rows.Count = rowCnt + 1;
+            fpSpread1.Sheets[0].Cells[rowCnt, 0].Value = PlanSeq;
+            fpSpread1.Sheets[0].Cells[rowCnt, 1].Value = OrderSeq;
+            fpSpread1.Sheets[0].Cells[rowCnt, 2].Value = ItemSeq;
+            fpSpread1.Sheets[0].Cells[rowCnt, 3].Value = Qty;
+            fpSpread1.Sheets[0].Cells[rowCnt, 4].Value = WorkDate;
+            fpSpread1.Sheets[0].Cells[rowCnt, 5].Value = ProcSeq;
+            fpSpread1.Sheets[0].Cells[rowCnt, 6].Value = Remark;
+
+        }
+        #endregion
 
         #region Sheet Cell 클릭
-        private void fpSpread1_CellClick_1(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
+        private void fpSpread1_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {
             if (e.Row < 0)
             {
                 return;
             }
-            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
-            txtOrderNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtPlanSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
-            txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();
-            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
-            txtQty.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
-            dateTimePicker1.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
-            txtRemark.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
-            SetCombo_Proc(1);
-            cmbItemProc.SelectedValue = Int32.Parse(fpSpread1.Sheets[0].Cells[e.Row, 9].Value.ToString());
-
-
-
-
+            //SetSpreadRowColor(fpSpread1);
+            //fpSpread1.Sheets[0].Rows[e.Row].BackColor = Color.FromKnownColor(KnownColor.Pink);
+            txtPlanNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
+            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
+            txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            txtQty.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
+            //txtWorkDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
+            cmbItemProc.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
+            txtRemark.Text = fpSpread1.Sheets[0].Cells[e.Row, 6].Value.ToString();
         }
         #endregion
 
@@ -170,29 +165,28 @@ namespace SPAM.MainWork
             {
                 string OrderSeq;
                 string PlanSeq;
-                string ItemNo;
                 string ItemSeq;
                 string OrderNo;
                 string ProcSeq;
                 string WorkDate;
                 string Qty;
                 string Remark;
+                string remark_vt;
 
                 OrderSeq = txtOrderSeq.Text;
-                
                 PlanSeq = txtPlanSeq.Text;
-                ItemNo = txtPlanNo.Text;
                 ItemSeq = txtItemSeq.Text;
                 OrderNo = txtOrderNo.Text;
                 ProcSeq = cmbItemProc.SelectedValue.ToString();
                 WorkDate = dateTimePicker1.Text.Trim().Replace("-", string.Empty);
                 Qty = txtQty.Text;
                 Remark = txtRemark.Text;
+                remark_vt = Translate(Remark);
 
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetWoOrder(WorkingTag, OrderSeq, PlanSeq, ItemSeq, OrderNo, ProcSeq, WorkDate, Qty, Remark);
+                    ds = svc.SetWoOrder(WorkingTag, OrderSeq, PlanSeq, ItemSeq, OrderNo, ProcSeq, WorkDate, Qty, Remark, remark_vt);
                 }
 
 
@@ -230,7 +224,7 @@ namespace SPAM.MainWork
             string From = calendarDouble1.ValueStartDate.ToString();
             string To = calendarDouble1.ValueEndDate.ToString();
 
-            if (Proc == "" )
+            if (Proc == "")
             {
                 Proc = "0";
             }
@@ -241,7 +235,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWoOrder(From,To,ItemNo, Proc);
+                    ds = svc.GetWoOrder(From, To, ItemNo, Proc);
 
                 }
 
@@ -315,25 +309,23 @@ namespace SPAM.MainWork
 
 
 
-                    using (CommonService svc = new CommonService())
+                using (CommonService svc = new CommonService())
                 {
                     ds = svc.GetItemProcCombo(itemNo);
                 }
 
                 if (ds != null)
                 {
-                    string ProcSelect = Utils.GetLanguage("공정선택");
                     if (flag == 0)
                     {
-                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ProcID", "ProcSeq", ProcSelect);
+                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
                         cmbProc.SelectedIndex = 0;
                     }
+
                     else
                     {
-                        
-                        Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", ProcSelect);
+                        Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
                         cmbItemProc.SelectedIndex = 0;
-
                     }
 
 
@@ -345,8 +337,6 @@ namespace SPAM.MainWork
                 MessageHandler.DisplayMessage(ex.Message, Common.Controls.MessageType.Warning);
             }
         }
-
-       
 
 
 
@@ -406,8 +396,7 @@ namespace SPAM.MainWork
             if (frm.ShowDialog() == DialogResult.Yes)
             {
                 txtItemNo.Text = frm.ItemNo;
-                SetCombo_Proc(0);
-                
+                SetCombo_Proc(1);
                 txtItemSeq.Text = frm.ItemSeq;
             }
 
@@ -455,13 +444,57 @@ namespace SPAM.MainWork
         }
 
 
-
-        private void lbItemSeq_Click(object sender, EventArgs e)
+        #region 번역
+        public static string Translate(string korea)
         {
+
+            string url = "https://openapi.naver.com/v1/papago/n2mt";
+
+
+            string clientid = "tjvN7vcWnA6xps7lHvkF";
+            string secret = "zKR0bo2EIU";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Headers.Add("X-Naver-Client-Id", clientid);
+            request.Headers.Add("X-Naver-Client-Secret", secret);
+            request.Method = "POST";
+            byte[] byteDataParams = Encoding.UTF8.GetBytes("source=ko&target=vi&text=" + korea);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteDataParams.Length;
+            Stream st = request.GetRequestStream();
+            st.Write(byteDataParams, 0, byteDataParams.Length);
+            st.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+            string text = reader.ReadToEnd();
+            stream.Close();
+            response.Close();
+            reader.Close();
+
+            JObject jobj = JObject.Parse(text);
+            string result = jobj["message"]["result"]["translatedText"].ToString();
+            return result;
+
+        }
+        #endregion
+        private void fpSpread1_CellClick_1(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
+        {
+            if (e.Row < 0)
+            {
+                return;
+            }
+
+            txtPlanNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
+            txtOrderNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
+            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
+            txtQty.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
+            dateTimePicker1.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
+            cmbItemProc.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
+            txtRemark.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();
 
         }
     }
 }
 
 #endregion
-

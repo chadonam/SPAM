@@ -338,7 +338,6 @@ namespace SPAM.MainWork
             this.lbItemSeq.TabIndex = 4;
             this.lbItemSeq.Text = "제품품번";
             this.lbItemSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbItemSeq.Click += new System.EventHandler(this.lbItemSeq_Click);
             // 
             // lblPlanSeq
             // 
