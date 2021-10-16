@@ -115,6 +115,12 @@
     <Compile Include="ucEQPWOAssign.Designer.cs">
       <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucGrinder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGrinder.Designer.cs">
+      <DependentUpon>ucGrinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGroupAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     <EmbeddedResource Include="ucEQPWOAssign.resx">
       <DependentUpon>ucEQPWOAssign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucGrinder.resx">
+      <DependentUpon>ucGrinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucGroupAdd.resx">
       <DependentUpon>ucGroupAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\st_back_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

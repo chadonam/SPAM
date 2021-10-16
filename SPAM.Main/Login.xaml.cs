@@ -28,7 +28,7 @@ namespace SPAM.Main
         {
             txtID.Text = ClientGlobal.UserID;
 
-            SetImage(imgBack, "login_admin2");
+            SetImage(imgBack, "login_admin");
 
             InitButton();
 

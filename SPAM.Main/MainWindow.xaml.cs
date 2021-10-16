@@ -136,14 +136,14 @@ namespace SPAM.Main
 
             caption = Utils.GetLanguage("품목마스터 연동");
             menus.Add(caption, "SPAM.MainWork.ucItemSync");
-            caption = Utils.GetLanguage("품목별 공정순서");
-            menus.Add(caption, "SPAM.MainWork.ucItemProc");
             caption = Utils.GetLanguage("공정등록");
             menus.Add(caption, "SPAM.MainWork.ucProcAdd");
             caption = Utils.GetLanguage("BOM연동");
             menus.Add(caption, "SPAM.MainWork.ucBOMSync");
             caption = Utils.GetLanguage("설비등록");
             menus.Add(caption, "SPAM.MainWork.ucMachAdd");
+            caption = Utils.GetLanguage("품목별 공정순서");
+            menus.Add(caption, "SPAM.MainWork.ucItemProc");
             caption = Utils.GetLanguage("자재입고처리");
             menus.Add(caption, "SPAM.MainWork.ucMatIn");
             caption = Utils.GetLanguage("자재출고처리");
@@ -221,6 +221,8 @@ namespace SPAM.Main
 
             caption = Utils.GetLanguage("Scriber");
             menus.Add(caption, "SPAM.MainWork.ucScriber");
+            caption = Utils.GetLanguage("Grinder");
+            menus.Add(caption, "SPAM.MainWork.ucGrinder");
             caption = Utils.GetLanguage("POL");
             menus.Add(caption, "SPAM.MainWork.ucPOL");
             caption = Utils.GetLanguage("Hybrid");

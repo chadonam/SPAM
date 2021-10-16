@@ -38,11 +38,11 @@ namespace SPAM.MainWork
             //chart1.Series["Series1"].LegendText = "가동율";   // 차트 이름을 "수학"으로 설정
             //chart1.Series["Series1"].ChartType = SeriesChartType.Column; // 그래프를 라인으로 출력
 
-            //DataSet ds = null;
-            //using (CommonService svc = new CommonService())
-            //{
-            //    ds = svc.GetTest();
-            //}
+            DataSet ds = null;
+            using (CommonService svc = new CommonService())
+            {
+                //ds = svc.GetTest();
+            }
 
             //if (ds != null)
             //{

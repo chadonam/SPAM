@@ -268,6 +268,7 @@
     <Content Include="Resources\ad_menu06_new_vt.png" />
     <Content Include="Resources\ad_menu06_on_new_vt.png" />
     <Content Include="Resources\cancel.jpg" />
+    <Content Include="Resources\Delete.png" />
     <Content Include="Resources\login_admin.png" />
     <Content Include="Resources\login_admin2.png" />
     <Content Include="Resources\logo.png" />

@@ -256,7 +256,16 @@ namespace SPAM.MainWork
                     }
                     else
                     {
-                        MessageHandler.DisplayMessage("저장되었습니다.", Common.Controls.MessageType.Warning);
+                        if (WorkingTag == "A")
+                        {
+                            MessageHandler.DisplayMessage("저장되었습니다.", Common.Controls.MessageType.Warning);
+                        }
+                        else
+                        {
+                            MessageHandler.DisplayMessage("삭제되었습니다.", Common.Controls.MessageType.Warning);
+
+                        }
+
                     }
                 }
 
