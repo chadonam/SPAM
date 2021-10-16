@@ -252,11 +252,11 @@ namespace SPAM.MainWork
             if (e.KeyCode == Keys.Enter)
             {   
                 InputBarcode(txtBarcode.Text);
+                txtBarcode.Clear();
+                txtID.Clear();
 
-                
             }
-            txtBarcode.Clear();
-            txtID.Clear();
+
 
 
         }

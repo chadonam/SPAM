@@ -216,6 +216,7 @@ namespace SPAM.MainWork
             this.txtPlanNo.TabIndex = 13;
             this.txtPlanNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPlanNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlanSeq_KeyDown);
+            this.txtPlanNo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtPlanNo_MouseDoubleClick);
             // 
             // txtOrderSeq
             // 
@@ -395,8 +396,8 @@ namespace SPAM.MainWork
             this.calendarDouble1.Size = new System.Drawing.Size(240, 25);
             this.calendarDouble1.StartMonthDistinction = 0;
             this.calendarDouble1.TabIndex = 12;
-            this.calendarDouble1.ValueEndDate = "20211012";
-            this.calendarDouble1.ValueStartDate = "20211012";
+            this.calendarDouble1.ValueEndDate = "20211016";
+            this.calendarDouble1.ValueStartDate = "20211016";
             // 
             // btnSearch
             // 

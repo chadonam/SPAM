@@ -25,8 +25,8 @@ namespace SPAM.MainWork
         private void InitControl()
         {
             
-            //BaseDisplay.AdminBtn(btnNew, BaseDisplay.BtnType.Etc);
-            //BaseDisplay.AdminTxt(txtItemNo, BaseDisplay.TxtType.CodeHelp);
+            BaseDisplay.AdminBtn(btnSave, BaseDisplay.BtnType.Etc);
+            BaseDisplay.AdminBtn(btnDel, BaseDisplay.BtnType.Etc);
 
 
 
@@ -88,7 +88,7 @@ namespace SPAM.MainWork
             ParamPack param = new ParamPack();
             ParamPack param2 = new ParamPack();
 
-            param.Add(FpSpread.SetSheetColumns("Wo내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("Wo내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, false, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
@@ -99,10 +99,13 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("지시사항", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
+
             param2.Add(FpSpread.SetSheetColumns("설비ID", "MachID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param2.Add(FpSpread.SetSheetColumns("설비명", "MachName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param2.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param2.Add(FpSpread.SetSheetColumns("설비코드", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("공정내부코드", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("Wo내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, false, true, FpSpread.FpSort.False, 1, null));
 
 
 
@@ -321,9 +324,9 @@ namespace SPAM.MainWork
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            string orderSeq = fpSpread1.Sheets[0].Cells[fpSpread1.Sheets[0].ActiveRow.Index, 0].Value.ToString();
+            string orderSeq = fpSpread2.Sheets[0].Cells[fpSpread2.Sheets[0].ActiveRow.Index, 5].Value.ToString();
             string machSeq = fpSpread2.Sheets[0].Cells[fpSpread2.Sheets[0].ActiveRow.Index, 3].Value.ToString();
-            string procSeq = fpSpread1.Sheets[0].Cells[fpSpread1.Sheets[0].ActiveRow.Index, 6].Value.ToString();
+            string procSeq = fpSpread2.Sheets[0].Cells[fpSpread2.Sheets[0].ActiveRow.Index, 4].Value.ToString();
 
             MachDel(orderSeq, machSeq);
             Search2(procSeq);

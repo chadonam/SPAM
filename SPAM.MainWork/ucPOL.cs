@@ -288,7 +288,8 @@ namespace SPAM.MainWork
                 ChangePic(picWorkStatus, "yellow");
                 txtBarcode.ReadOnly = false;
 
-
+                txtBarcode.Text = "";
+                txtID.Text = "";
 
             }
 

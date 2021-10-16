@@ -737,6 +737,7 @@ namespace SPAM.Manage
                 param[1] = new SqlParameter("@PlanSeq", PlanSeq);
                 param[2] = new SqlParameter("@ProcSeq", ProcSeq);
                 param[3] = new SqlParameter("@WorkDate", WorkDate);
+                
 
 
 
@@ -1201,12 +1202,13 @@ namespace SPAM.Manage
             {
                 spName = "SWoOrder2";
 
-                param = new SqlParameter[5];
+                param = new SqlParameter[6];
                 param[0] = new SqlParameter("@From", startDate);
                 param[1] = new SqlParameter("@To", endDate);
                 param[2] = new SqlParameter("@ItemNo", itemNo);
                 param[3] = new SqlParameter("@ProcSeq", proSeq);
                 param[4] = new SqlParameter("@Wo", wo);
+                param[5] = new SqlParameter("@Language", ClientGlobal.Language);
 
 
                 dsResult = SqlHelper.Fill(spName, param);
