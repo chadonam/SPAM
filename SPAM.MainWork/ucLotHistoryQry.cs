@@ -23,7 +23,7 @@ namespace SPAM.MainWork
         private void InitControl()
         {
             BaseDisplay.AdminBtn(btnSearch, BaseDisplay.BtnType.Search);
-          
+
             BaseDisplay.SetLabelStyle(lblLotIDQ, BaseDisplay.LabelType.Menu);
 
             //BaseDisplay.AdminTxt(txtLotIDQ, BaseDisplay.TxtType.CodeHelp);
@@ -33,14 +33,6 @@ namespace SPAM.MainWork
         #region FpSpread 설정
         private void SetFpSpread()
         {
-
-          
-
-            using (CommonService svc = new CommonService())
-            {
-
-            
-            }
 
             ParamPack param = new ParamPack();
 
@@ -53,7 +45,7 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("등록일시", "RegDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("이벤트", "Event", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("이벤트", "Event", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
@@ -65,6 +57,7 @@ namespace SPAM.MainWork
 
         private void Search()
         {
+
             DataSet ds = null;
             string lotId = txtLotIDQ.Text;
 
@@ -77,8 +70,6 @@ namespace SPAM.MainWork
             fpSpread1.Sheets[0].Rows.Count = 0;
             try
             {
-               
-
 
                 using (CommonService svc = new CommonService())
                 {
@@ -90,8 +81,6 @@ namespace SPAM.MainWork
                     //fpSpread1.Sheets[0].DataSource = ds;
                     FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
                 }
-                
-
 
             }
             catch (Exception ex)

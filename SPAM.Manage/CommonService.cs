@@ -45,7 +45,6 @@ namespace SPAM.Manage
         }
         #endregion
 
-
         #region Group 조회        
         public DataSet GetGroup(string groupName)
         {
@@ -594,8 +593,35 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region WoOrder 조회        
+        public DataSet GetWoOrder2()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SWoOrderA";
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
         #region WoOrder 저장   
-        public DataSet SetWoOrder(string workingTag, string OrderSeq, string PlanSeq, string ItemSeq, string OrderNo, string ProcSeq, string WorkDate, string Qty, string Remark)
+        public DataSet SetWoOrder(string workingTag, string OrderSeq, string PlanSeq, string ItemSeq, string OrderNo, string ProcSeq, string WorkDate, string Qty, string Remark, string remark_vt)
         {
             DataSet dsResult = null;
 
@@ -605,7 +631,7 @@ namespace SPAM.Manage
             {
                 spName = "SWorkOrderSave";
 
-                param = new SqlParameter[9];
+                param = new SqlParameter[10];
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
                 param[1] = new SqlParameter("@OrderSeq", OrderSeq);
                 param[2] = new SqlParameter("@PlanSeq", PlanSeq);
@@ -615,6 +641,7 @@ namespace SPAM.Manage
                 param[6] = new SqlParameter("@WorkDate", WorkDate);
                 param[7] = new SqlParameter("@Qty", Qty);
                 param[8] = new SqlParameter("@Remark", Remark);
+                param[9] = new SqlParameter("@Remark_VT", remark_vt);
 
                 dsResult = SqlHelper.Fill(spName, param);
 
@@ -663,6 +690,33 @@ namespace SPAM.Manage
                 if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
             }
         }
+
+
+
+        public DataSet GetProcStockQry2()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "SProcStockQry2";
+
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
         #endregion
 
         #region LOTHISTORY 조회   
@@ -683,6 +737,7 @@ namespace SPAM.Manage
                 param[1] = new SqlParameter("@PlanSeq", PlanSeq);
                 param[2] = new SqlParameter("@ProcSeq", ProcSeq);
                 param[3] = new SqlParameter("@WorkDate", WorkDate);
+                
 
 
 
@@ -1147,12 +1202,13 @@ namespace SPAM.Manage
             {
                 spName = "SWoOrder2";
 
-                param = new SqlParameter[5];
+                param = new SqlParameter[6];
                 param[0] = new SqlParameter("@From", startDate);
                 param[1] = new SqlParameter("@To", endDate);
                 param[2] = new SqlParameter("@ItemNo", itemNo);
                 param[3] = new SqlParameter("@ProcSeq", proSeq);
                 param[4] = new SqlParameter("@Wo", wo);
+                param[5] = new SqlParameter("@Language", ClientGlobal.Language);
 
 
                 dsResult = SqlHelper.Fill(spName, param);
@@ -1262,7 +1318,7 @@ namespace SPAM.Manage
         #endregion
 
         #region 월간계획 수정
-        public DataSet SetPlan(string workingTag, string planSeq, string planNo, string itemSeq, string qty, string startDate, string endDate, string procSeq, string remark)
+        public DataSet SetPlan(string workingTag, string planSeq, string planNo, string itemSeq, string qty, string startDate, string endDate, string procSeq, string remark, string remark_vt)
         {
             DataSet dsResult = null;
 
@@ -1272,7 +1328,7 @@ namespace SPAM.Manage
             {
                 spName = "SPlanSave";
 
-                param = new SqlParameter[8];
+                param = new SqlParameter[9];
                 param[0] = new SqlParameter("@WorkingTag", workingTag);
                 param[1] = new SqlParameter("@PlanSeq", planSeq);
                 param[2] = new SqlParameter("@PlanNo", planNo);
@@ -1281,6 +1337,7 @@ namespace SPAM.Manage
                 param[5] = new SqlParameter("@StartDate", startDate);
                 param[6] = new SqlParameter("@EndDate", endDate);
                 param[7] = new SqlParameter("@Remark", remark);
+                param[8] = new SqlParameter("@Remark_VT", remark_vt);
 
 
 

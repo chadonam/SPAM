@@ -1,7 +1,7 @@
 ﻿
 namespace SPAM.MainWork
 {
-    partial class ucBLU
+    partial class ucGrinder
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -30,76 +30,61 @@ namespace SPAM.MainWork
         private void InitializeComponent()
         {
             this.workHeader1 = new SPAM.Common.Controls.WorkHeader();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.picQuilStatus = new System.Windows.Forms.PictureBox();
             this.picWorkStatus = new System.Windows.Forms.PictureBox();
             this.picMachStatus = new System.Windows.Forms.PictureBox();
             this.lblQuilStatus = new System.Windows.Forms.Label();
             this.lblWorkStatus = new System.Windows.Forms.Label();
             this.lblMachStatus = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.lblBarcode = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDel1 = new System.Windows.Forms.PictureBox();
             this.lblConsumableLot = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
-            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.btnDel1 = new System.Windows.Forms.PictureBox();
+            this.btnDelNG = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnDelOK = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.fpSpread2 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread2_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.fpSpread3 = new FarPoint.Win.Spread.FpSpread();
-            this.fpSpread3_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDelNG = new System.Windows.Forms.PictureBox();
-            this.btnDelOK = new System.Windows.Forms.PictureBox();
-            this.panel5.SuspendLayout();
+            this.sheetView1 = new FarPoint.Win.Spread.SheetView();
+            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             ((System.ComponentModel.ISupportInitialize)(this.picQuilStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWorkStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMachStatus)).BeginInit();
+            this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDel1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelNG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelOK)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2_Sheet1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread3_Sheet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelNG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelOK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sheetView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             this.SuspendLayout();
             // 
             // workHeader1
             // 
-            this.workHeader1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.workHeader1.ItemSeq = null;
             this.workHeader1.Location = new System.Drawing.Point(0, 0);
-            this.workHeader1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.workHeader1.Name = "workHeader1";
             this.workHeader1.OrderSeq = null;
             this.workHeader1.ProcSeq = null;
             this.workHeader1.Size = new System.Drawing.Size(1727, 90);
-            this.workHeader1.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.picQuilStatus);
-            this.panel5.Controls.Add(this.picWorkStatus);
-            this.panel5.Controls.Add(this.picMachStatus);
-            this.panel5.Controls.Add(this.lblQuilStatus);
-            this.panel5.Controls.Add(this.lblWorkStatus);
-            this.panel5.Controls.Add(this.lblMachStatus);
-            this.panel5.Location = new System.Drawing.Point(2, 92);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(614, 183);
-            this.panel5.TabIndex = 49;
+            this.workHeader1.TabIndex = 0;
             // 
             // picQuilStatus
             // 
@@ -161,16 +146,18 @@ namespace SPAM.MainWork
             this.lblMachStatus.Text = "설비상태";
             this.lblMachStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // panel5
             // 
-            this.panel1.Controls.Add(this.lblBarcode);
-            this.panel1.Controls.Add(this.txtBarcode);
-            this.panel1.Controls.Add(this.lblID);
-            this.panel1.Controls.Add(this.txtID);
-            this.panel1.Location = new System.Drawing.Point(3, 277);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(613, 101);
-            this.panel1.TabIndex = 50;
+            this.panel5.Controls.Add(this.picQuilStatus);
+            this.panel5.Controls.Add(this.picWorkStatus);
+            this.panel5.Controls.Add(this.picMachStatus);
+            this.panel5.Controls.Add(this.lblQuilStatus);
+            this.panel5.Controls.Add(this.lblWorkStatus);
+            this.panel5.Controls.Add(this.lblMachStatus);
+            this.panel5.Location = new System.Drawing.Point(2, 92);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(614, 183);
+            this.panel5.TabIndex = 49;
             // 
             // lblBarcode
             // 
@@ -217,6 +204,26 @@ namespace SPAM.MainWork
             this.txtID.TabIndex = 38;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblBarcode);
+            this.panel1.Controls.Add(this.txtBarcode);
+            this.panel1.Controls.Add(this.lblID);
+            this.panel1.Controls.Add(this.txtID);
+            this.panel1.Location = new System.Drawing.Point(3, 277);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(613, 101);
+            this.panel1.TabIndex = 46;
+            // 
+            // btnDel1
+            // 
+            this.btnDel1.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDel1.Location = new System.Drawing.Point(483, 390);
+            this.btnDel1.Name = "btnDel1";
+            this.btnDel1.Size = new System.Drawing.Size(130, 32);
+            this.btnDel1.TabIndex = 51;
+            this.btnDel1.TabStop = false;
+            // 
             // lblConsumableLot
             // 
             this.lblConsumableLot.AutoSize = true;
@@ -224,7 +231,7 @@ namespace SPAM.MainWork
             this.lblConsumableLot.Location = new System.Drawing.Point(3, 384);
             this.lblConsumableLot.Name = "lblConsumableLot";
             this.lblConsumableLot.Size = new System.Drawing.Size(111, 32);
-            this.lblConsumableLot.TabIndex = 43;
+            this.lblConsumableLot.TabIndex = 50;
             this.lblConsumableLot.Text = "투입자재";
             this.lblConsumableLot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -234,33 +241,48 @@ namespace SPAM.MainWork
             this.panel2.Location = new System.Drawing.Point(1, 419);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(613, 256);
-            this.panel2.TabIndex = 51;
+            this.panel2.TabIndex = 52;
             // 
-            // fpSpread1
+            // btnDelNG
             // 
-            this.fpSpread1.AccessibleDescription = "";
-            this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fpSpread1.Location = new System.Drawing.Point(0, 0);
-            this.fpSpread1.Name = "fpSpread1";
-            this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(613, 256);
-            this.fpSpread1.TabIndex = 0;
+            this.btnDelNG.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDelNG.Location = new System.Drawing.Point(1597, 115);
+            this.btnDelNG.Name = "btnDelNG";
+            this.btnDelNG.Size = new System.Drawing.Size(130, 32);
+            this.btnDelNG.TabIndex = 56;
+            this.btnDelNG.TabStop = false;
             // 
-            // fpSpread1_Sheet1
+            // label2
             // 
-            this.fpSpread1_Sheet1.Reset();
-            this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(1184, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 32);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "NG";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnDel1
+            // btnDelOK
             // 
-            this.btnDel1.Image = global::SPAM.MainWork.Properties.Resources.Delete;
-            this.btnDel1.Location = new System.Drawing.Point(483, 390);
-            this.btnDel1.Name = "btnDel1";
-            this.btnDel1.Size = new System.Drawing.Size(130, 32);
-            this.btnDel1.TabIndex = 44;
-            this.btnDel1.TabStop = false;
-            this.btnDel1.Click += new System.EventHandler(this.btnDel1_Click);
+            this.btnDelOK.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDelOK.Location = new System.Drawing.Point(1047, 115);
+            this.btnDelOK.Name = "btnDelOK";
+            this.btnDelOK.Size = new System.Drawing.Size(130, 32);
+            this.btnDelOK.TabIndex = 54;
+            this.btnDelOK.TabStop = false;
+            this.btnDelOK.Click += new System.EventHandler(this.btnDelOK_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(620, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 32);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "OK";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -268,7 +290,7 @@ namespace SPAM.MainWork
             this.panel3.Location = new System.Drawing.Point(619, 144);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(560, 531);
-            this.panel3.TabIndex = 52;
+            this.panel3.TabIndex = 57;
             // 
             // fpSpread2
             // 
@@ -279,7 +301,7 @@ namespace SPAM.MainWork
             this.fpSpread2.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread2_Sheet1});
             this.fpSpread2.Size = new System.Drawing.Size(560, 531);
-            this.fpSpread2.TabIndex = 0;
+            this.fpSpread2.TabIndex = 59;
             // 
             // fpSpread2_Sheet1
             // 
@@ -292,7 +314,7 @@ namespace SPAM.MainWork
             this.panel4.Location = new System.Drawing.Point(1182, 144);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(545, 531);
-            this.panel4.TabIndex = 5;
+            this.panel4.TabIndex = 60;
             // 
             // fpSpread3
             // 
@@ -301,94 +323,68 @@ namespace SPAM.MainWork
             this.fpSpread3.Location = new System.Drawing.Point(0, 0);
             this.fpSpread3.Name = "fpSpread3";
             this.fpSpread3.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.fpSpread3_Sheet1});
+            this.sheetView1});
             this.fpSpread3.Size = new System.Drawing.Size(545, 531);
-            this.fpSpread3.TabIndex = 0;
+            this.fpSpread3.TabIndex = 60;
             // 
-            // fpSpread3_Sheet1
+            // sheetView1
             // 
-            this.fpSpread3_Sheet1.Reset();
-            this.fpSpread3_Sheet1.SheetName = "Sheet1";
+            this.sheetView1.Reset();
+            this.sheetView1.SheetName = "Sheet1";
             // 
-            // label2
+            // fpSpread1_Sheet1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(1184, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 32);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "NG";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fpSpread1_Sheet1.Reset();
+            this.fpSpread1_Sheet1.SheetName = "Sheet1";
             // 
-            // label1
+            // fpSpread1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(620, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 32);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "OK";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fpSpread1.AccessibleDescription = "fpSpread1, Sheet1, Row 0, Column 0, ";
+            this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpSpread1.Location = new System.Drawing.Point(0, 0);
+            this.fpSpread1.Name = "fpSpread1";
+            this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
+            this.fpSpread1_Sheet1});
+            this.fpSpread1.Size = new System.Drawing.Size(613, 256);
+            this.fpSpread1.TabIndex = 1;
             // 
-            // btnDelNG
-            // 
-            this.btnDelNG.Image = global::SPAM.MainWork.Properties.Resources.Delete;
-            this.btnDelNG.Location = new System.Drawing.Point(1597, 115);
-            this.btnDelNG.Name = "btnDelNG";
-            this.btnDelNG.Size = new System.Drawing.Size(130, 32);
-            this.btnDelNG.TabIndex = 54;
-            this.btnDelNG.TabStop = false;
-            this.btnDelNG.Click += new System.EventHandler(this.btnDelNG_Click);
-            // 
-            // btnDelOK
-            // 
-            this.btnDelOK.Image = global::SPAM.MainWork.Properties.Resources.Delete;
-            this.btnDelOK.Location = new System.Drawing.Point(1047, 115);
-            this.btnDelOK.Name = "btnDelOK";
-            this.btnDelOK.Size = new System.Drawing.Size(130, 32);
-            this.btnDelOK.TabIndex = 53;
-            this.btnDelOK.TabStop = false;
-            this.btnDelOK.Click += new System.EventHandler(this.btnDelOK_Click);
-            // 
-            // ucBLU
+            // ucGrinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.btnDelNG);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnDelOK);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnDel1);
             this.Controls.Add(this.lblConsumableLot);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.workHeader1);
-            this.Controls.Add(this.btnDel1);
-            this.Controls.Add(this.btnDelOK);
-            this.Controls.Add(this.btnDelNG);
-            this.Name = "ucBLU";
+            this.Name = "ucGrinder";
             this.Size = new System.Drawing.Size(1750, 700);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picQuilStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWorkStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMachStatus)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDel1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelNG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelOK)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread2_Sheet1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread3_Sheet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelNG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelOK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sheetView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,32 +393,32 @@ namespace SPAM.MainWork
         #endregion
 
         private Common.Controls.WorkHeader workHeader1;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox picQuilStatus;
         private System.Windows.Forms.PictureBox picWorkStatus;
         private System.Windows.Forms.PictureBox picMachStatus;
         private System.Windows.Forms.Label lblQuilStatus;
         private System.Windows.Forms.Label lblWorkStatus;
         private System.Windows.Forms.Label lblMachStatus;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblBarcode;
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox btnDel1;
         private System.Windows.Forms.Label lblConsumableLot;
         private System.Windows.Forms.Panel panel2;
-        private FarPoint.Win.Spread.FpSpread fpSpread1;
-        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
-        private System.Windows.Forms.PictureBox btnDel1;
+        private System.Windows.Forms.PictureBox btnDelNG;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox btnDelOK;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private FarPoint.Win.Spread.FpSpread fpSpread2;
         private FarPoint.Win.Spread.SheetView fpSpread2_Sheet1;
         private System.Windows.Forms.Panel panel4;
         private FarPoint.Win.Spread.FpSpread fpSpread3;
-        private FarPoint.Win.Spread.SheetView fpSpread3_Sheet1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox btnDelNG;
-        private System.Windows.Forms.PictureBox btnDelOK;
+        private FarPoint.Win.Spread.SheetView sheetView1;
+        private FarPoint.Win.Spread.FpSpread fpSpread1;
+        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
     }
 }

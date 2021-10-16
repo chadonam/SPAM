@@ -1,11 +1,14 @@
-﻿using SPAM.Common;
+﻿using Newtonsoft.Json.Linq;
+using SPAM.Common;
 using SPAM.Manage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -93,8 +96,8 @@ namespace SPAM.MainWork
             ParamPack param = new ParamPack();
 
 
-            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("WO번호", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
@@ -102,9 +105,13 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("지시사항", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("WO내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("계획내부코드", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
             FpSpread.SetSheetColumn(this.fpSpread1.Sheets[0], param, 1);
+
+
 
 
         }
@@ -166,6 +173,7 @@ namespace SPAM.MainWork
                 string WorkDate;
                 string Qty;
                 string Remark;
+                string remark_vt="";
 
                 OrderSeq = txtOrderSeq.Text;
                 PlanSeq = txtPlanSeq.Text;
@@ -176,10 +184,15 @@ namespace SPAM.MainWork
                 Qty = txtQty.Text;
                 Remark = txtRemark.Text;
 
+                if (!String.Empty.Equals(Remark))
+                {
+                    remark_vt = Translate(Remark);
+                }
+
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetWoOrder(WorkingTag, OrderSeq, PlanSeq, ItemSeq, OrderNo, ProcSeq, WorkDate, Qty, Remark);
+                    ds = svc.SetWoOrder(WorkingTag, OrderSeq, PlanSeq, ItemSeq, OrderNo, ProcSeq, WorkDate, Qty, Remark, remark_vt);
                 }
 
 
@@ -217,7 +230,7 @@ namespace SPAM.MainWork
             string From = calendarDouble1.ValueStartDate.ToString();
             string To = calendarDouble1.ValueEndDate.ToString();
 
-            if (Proc == "" )
+            if (Proc == "")
             {
                 Proc = "0";
             }
@@ -228,7 +241,7 @@ namespace SPAM.MainWork
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.GetWoOrder(From,To,ItemNo, Proc);
+                    ds = svc.GetWoOrder(From, To, ItemNo, Proc);
 
                 }
 
@@ -254,13 +267,20 @@ namespace SPAM.MainWork
         #region 기타 메소드
         private void DefaultControl()
         {
-            txtOrderSeq.Text = "0";
+            txtOrderSeq.Text = "";
+            txtPlanSeq.Text = "";
+            txtItemSeq.Text = "";
             txtOrderSeq.ReadOnly = true;
             txtPlanSeq.ReadOnly = true;
             txtItemSeq.ReadOnly = true;
             SetCombo_Proc(0);
+            SetCombo_Proc(1);
             //txtWorkDate.Text = string.Empty;
             txtQty.Text = "0";
+            txtRemark.Text = "";
+            txtPlanNo.Text = "";
+            txtItemNo.Text = "";
+            txtOrderNo.Text = "";
             txtRemark.Text = "";
 
 
@@ -302,7 +322,7 @@ namespace SPAM.MainWork
 
 
 
-                    using (CommonService svc = new CommonService())
+                using (CommonService svc = new CommonService())
                 {
                     ds = svc.GetItemProcCombo(itemNo);
                 }
@@ -436,6 +456,40 @@ namespace SPAM.MainWork
             }
         }
 
+
+        #region 번역
+        public static string Translate(string korea)
+        {
+
+            string url = "https://openapi.naver.com/v1/papago/n2mt";
+
+
+            string clientid = "tjvN7vcWnA6xps7lHvkF";
+            string secret = "zKR0bo2EIU";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Headers.Add("X-Naver-Client-Id", clientid);
+            request.Headers.Add("X-Naver-Client-Secret", secret);
+            request.Method = "POST";
+            byte[] byteDataParams = Encoding.UTF8.GetBytes("source=ko&target=vi&text=" + korea);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteDataParams.Length;
+            Stream st = request.GetRequestStream();
+            st.Write(byteDataParams, 0, byteDataParams.Length);
+            st.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+            string text = reader.ReadToEnd();
+            stream.Close();
+            response.Close();
+            reader.Close();
+
+            JObject jobj = JObject.Parse(text);
+            string result = jobj["message"]["result"]["translatedText"].ToString();
+            return result;
+
+        }
+        #endregion
         private void fpSpread1_CellClick_1(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {
             if (e.Row < 0)
@@ -445,12 +499,28 @@ namespace SPAM.MainWork
 
             txtPlanNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
             txtOrderNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
             txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
             txtQty.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
             dateTimePicker1.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
             cmbItemProc.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
             txtRemark.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();
+            txtPlanSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 10].Value.ToString();
+            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 9].Value.ToString();
+
+        }
+
+        private void txtPlanNo_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SPAM.CommonUI.Popup.frmMonthlyPlan frm = new CommonUI.Popup.frmMonthlyPlan(txtPlanNo.Text);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                txtPlanNo.Text = frm.PlanNo;
+                //SetCombo_Proc();
+                txtPlanSeq.Text = frm.PlanSeq;
+            }
 
         }
     }

@@ -5,10 +5,12 @@ using System.Data;
 using System.Windows.Forms;
 using System.Drawing;
 
+
 namespace SPAM.MainWork
 {
     public partial class ucScriber : UserControl
     {
+
         public ucScriber()
         {
             InitializeComponent();
@@ -40,6 +42,11 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblMachStatus, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblWorkStatus, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblQuilStatus, BaseDisplay.LabelType.Menu);
+
+            BaseDisplay.ChangeText(lblMachStatus);
+            BaseDisplay.ChangeText(lblWorkStatus);
+            BaseDisplay.ChangeText(lblQuilStatus);
+            BaseDisplay.ChangeText(lblConsumableLot);
 
         }
 
@@ -469,7 +476,7 @@ namespace SPAM.MainWork
 
         #endregion
 
-        #region 삭제처리
+        
         #region 저장
 
         private void Save(string WorkingTag, int lngRow)
@@ -552,18 +559,30 @@ namespace SPAM.MainWork
 
         #endregion
 
-        private void btnDelNG_Click(object sender, EventArgs e)
+        #region 삭제처리
+        private void btnDelOK_Click(object sender, EventArgs e)
         {
             int lngRow = fpSpread2.Sheets[0].ActiveRow.Index;
             Save("D", lngRow);
             Search2("OK");
             Search2("NG");
         }
-        #endregion
 
-        private void btnDel1_Click(object sender, EventArgs e)
+        private void btnDel1_Click_1(object sender, EventArgs e)
         {
 
         }
+
+        private void btnDelNG_Click_1(object sender, EventArgs e)
+        {
+            int lngRow = fpSpread3.Sheets[0].ActiveRow.Index;
+            Save("D", lngRow);
+            Search2("OK");
+            Search2("NG");
+        }
+        #endregion
+
+
+
     }
 }

@@ -36,6 +36,14 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblProcName, BaseDisplay.LabelType.Item);
             //BaseDisplay.SetLabelStyle(lblPassword, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblProcIDQ);
+            BaseDisplay.ChangeText(lblProcNameQ);
+            BaseDisplay.ChangeText(lblProcSeq);
+            BaseDisplay.ChangeText(lblProcID);
+            BaseDisplay.ChangeText(lblProcName);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+
         }
         #endregion
 

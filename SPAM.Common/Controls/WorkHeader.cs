@@ -17,6 +17,7 @@ namespace SPAM.Common.Controls
         private string itemSeq;
         private string orderSeq;
         private string procSeq;
+        
 
         public string ItemSeq { get => itemSeq; set => itemSeq = value; }
         public string OrderSeq { get => orderSeq; set => orderSeq = value; }
@@ -48,6 +49,13 @@ namespace SPAM.Common.Controls
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lnlWoker, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.ChangeText(lblMach);
+            BaseDisplay.ChangeText(lblItemNo);
+            BaseDisplay.ChangeText(lblProcID);
+            BaseDisplay.ChangeText(lnlWoker);
+            BaseDisplay.ChangeText(btnEnd);
+            BaseDisplay.ChangeText(lblRemark);
+
             btnEnd.Visible = false;
 
         }
@@ -70,9 +78,11 @@ namespace SPAM.Common.Controls
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbMach, ds.Tables[0], "ItemNm", "ItemCd", "설비선택");
-                    cmbMach.SelectedIndex = 0;
 
+                    string MachSelect = Utils.GetLanguage("설비선택");
+                    Utils.SetComboBox(cmbMach, ds.Tables[0], "ItemNm", "ItemCd", MachSelect);
+                    cmbMach.SelectedIndex = 0;
+                    
 
                 }
 
@@ -122,21 +132,28 @@ namespace SPAM.Common.Controls
             string MachSeq = cmbMach.SelectedValue.ToString();
             if (cmbMach.SelectedIndex > 0)
             {
-                ds = this.GetAssyWo(MachSeq, ClientGlobal.UserSeq.ToString());
+                try {
+                    ds = this.GetAssyWo(MachSeq, ClientGlobal.UserSeq.ToString());
 
-                if (ds != null)
+                    if (ds != null)
+                    {
+                        txtItemNo.Text = ds.Tables[0].Rows[0]["ItemNo"].ToString();
+                        txtProcID.Text = ds.Tables[0].Rows[0]["ProcID"].ToString();
+                        txtWO.Text = ds.Tables[0].Rows[0]["OrderNo"].ToString();
+                        txtWoker.Text = ds.Tables[0].Rows[0]["UserID"].ToString();
+                        txtOK.Text = ds.Tables[0].Rows[0]["OKQty"].ToString();
+                        txtNG.Text = ds.Tables[0].Rows[0]["BadQty"].ToString();
+                        txtRemark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
+
+                        itemSeq = ds.Tables[0].Rows[0]["ItemSeq"].ToString();
+                        orderSeq = ds.Tables[0].Rows[0]["orderSeq"].ToString();
+                        procSeq = ds.Tables[0].Rows[0]["procSeq"].ToString();
+
+                    }
+                 }
+                catch (Exception ex)
                 {
-                    txtItemNo.Text = ds.Tables[0].Rows[0]["ItemNo"].ToString();
-                    txtProcID.Text = ds.Tables[0].Rows[0]["ProcID"].ToString();
-                    txtWO.Text = ds.Tables[0].Rows[0]["OrderNo"].ToString();
-                    txtWoker.Text = ds.Tables[0].Rows[0]["UserID"].ToString();
-                    txtOK.Text = ds.Tables[0].Rows[0]["OKQty"].ToString();
-                    txtNG.Text = ds.Tables[0].Rows[0]["BadQty"].ToString();
-                    txtRemark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
-
-                    itemSeq = ds.Tables[0].Rows[0]["ItemSeq"].ToString();
-                    orderSeq = ds.Tables[0].Rows[0]["orderSeq"].ToString();
-                    procSeq = ds.Tables[0].Rows[0]["procSeq"].ToString();
+                    MessageHandler.DisplayMessage("설비가 배정되지 않았습니다.", Common.Controls.MessageType.Warning);
 
                 }
             }

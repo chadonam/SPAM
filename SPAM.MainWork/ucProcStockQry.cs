@@ -129,8 +129,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-
-                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", "공정선택");
+                        string ProcSelect = Utils.GetLanguage("공정선택");
+                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ItemNm", "ItemCd", ProcSelect);
                         cmbProc.SelectedIndex = 0;
                    }
 
@@ -156,7 +156,10 @@ namespace SPAM.MainWork
         #region Control 초기화
         private void InitControl()
         {
-            BaseDisplay.AdminBtn(btnSearch, BaseDisplay.BtnType.Search);       
+            BaseDisplay.AdminBtn(btnSearch, BaseDisplay.BtnType.Search);
+            BaseDisplay.SetLabelStyle(lblWOID, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblPlanNo, BaseDisplay.LabelType.Item);
+            BaseDisplay.SetLabelStyle(lblWOName, BaseDisplay.LabelType.Item);
 
             /*BaseDisplay.AdminTxt(txtWOID, BaseDisplay.TxtType.CodeHelp);
             BaseDisplay.AdminTxt(txtPlanNo, BaseDisplay.TxtType.CodeHelp);
@@ -168,6 +171,13 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblWorkDate, BaseDisplay.LabelType.Item);*/
+
+            BaseDisplay.ChangeText(lblWOID);
+            BaseDisplay.ChangeText(lblPlanNo);
+            BaseDisplay.ChangeText(lblWOName);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupBox2);
+
         }
         #endregion
 
@@ -179,11 +189,12 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("계획내부번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, false, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("제품내부번호", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, false, FpSpread.FpSort.False, 1, null));
-           
+            param.Add(FpSpread.SetSheetColumns("계획내부번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, false, false, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품내부번호", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, false, false, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("재고수량", "SumQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
+
 
 
 
@@ -192,20 +203,6 @@ namespace SPAM.MainWork
         }
         #endregion
 
-        #region 스프레드 추가
-        //PlanSeq ItemSeq Date Proc Qty
-        private void AddSpread(string PlanNo, string ItemNo, string WorkDate, string ProcSeq, string ProdQty)
-        {
-            int rowCnt = fpSpread1.Sheets[0].Rows.Count;
-            fpSpread1.Sheets[0].Rows.Count = rowCnt + 1;
-            fpSpread1.Sheets[0].Cells[rowCnt, 0].Value = PlanNo;
-            fpSpread1.Sheets[0].Cells[rowCnt, 1].Value = ItemNo;
-            fpSpread1.Sheets[0].Cells[rowCnt, 2].Value = WorkDate;
-            fpSpread1.Sheets[0].Cells[rowCnt, 3].Value = ProcSeq;
-            fpSpread1.Sheets[0].Cells[rowCnt, 4].Value = ProdQty;
-
-        }
-        #endregion
 
         #region FpSpread 설정2
         private void SetFpSpread2()
@@ -213,30 +210,17 @@ namespace SPAM.MainWork
             ParamPack param = new ParamPack();
 
             param.Add(FpSpread.SetSheetColumns("LOTID", "LOTID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("판정", "Judge", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("생산수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+           
 
             FpSpread.FpSpreadFrame(this.fpSpread2);
             FpSpread.SetSheetColumn(this.fpSpread2.Sheets[0], param, 1);
         }
         #endregion
 
-        #region 스프레드 추가2
-        //PlanSeq ItemSeq Date Proc Qty
-        private void AddSpread2(string LOTID, string Judge, string WorkDate, string ProcSeq, string Qty)
-        {
-            int rowCnt = fpSpread1.Sheets[0].Rows.Count;
-            fpSpread1.Sheets[0].Rows.Count = rowCnt + 1;
-            fpSpread1.Sheets[0].Cells[rowCnt, 0].Value = LOTID;
-            fpSpread1.Sheets[0].Cells[rowCnt, 1].Value = Judge;
-            fpSpread1.Sheets[0].Cells[rowCnt, 2].Value = WorkDate;
-            fpSpread1.Sheets[0].Cells[rowCnt, 3].Value = ProcSeq;
-            fpSpread1.Sheets[0].Cells[rowCnt, 4].Value = Qty;
 
-        }
-        #endregion
 
         private void fpSpread1_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {

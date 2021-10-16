@@ -31,12 +31,12 @@ namespace SPAM.MainWork
         {
             this.lblLotIDQ = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.txtLotIDQ = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.ucGroupAdd1 = new SPAM.MainWork.ucGroupAdd();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
             this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.txtLotIDQ = new System.Windows.Forms.TextBox();
             this.pnlHeader.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
@@ -65,6 +65,16 @@ namespace SPAM.MainWork
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1750, 60);
             this.pnlHeader.TabIndex = 13;
+            // 
+            // txtLotIDQ
+            // 
+            this.txtLotIDQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLotIDQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtLotIDQ.Location = new System.Drawing.Point(144, 16);
+            this.txtLotIDQ.Name = "txtLotIDQ";
+            this.txtLotIDQ.Size = new System.Drawing.Size(209, 35);
+            this.txtLotIDQ.TabIndex = 14;
+            this.txtLotIDQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSearch
             // 
@@ -114,16 +124,6 @@ namespace SPAM.MainWork
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
-            // 
-            // txtLotIDQ
-            // 
-            this.txtLotIDQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLotIDQ.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtLotIDQ.Location = new System.Drawing.Point(144, 16);
-            this.txtLotIDQ.Name = "txtLotIDQ";
-            this.txtLotIDQ.Size = new System.Drawing.Size(209, 35);
-            this.txtLotIDQ.TabIndex = 14;
-            this.txtLotIDQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ucLotHistoryQry
             // 
