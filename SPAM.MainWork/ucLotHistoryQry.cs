@@ -28,6 +28,8 @@ namespace SPAM.MainWork
 
             //BaseDisplay.AdminTxt(txtLotIDQ, BaseDisplay.TxtType.CodeHelp);
 
+            BaseDisplay.ChangeText(groupBox1);
+
         }
 
         #region FpSpread 설정

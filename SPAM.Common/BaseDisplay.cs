@@ -173,7 +173,14 @@ namespace SPAM.Common
                     break;
                 case LabelType.Menu:
                     lbl.AutoSize = false;
-                    lbl.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));                    
+                    if (ClientGlobal.Language == "KO")
+                    {
+                        lbl.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    }
+                    else
+                    {
+                        lbl.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    }
                     lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     lbl.Height = 35;
 

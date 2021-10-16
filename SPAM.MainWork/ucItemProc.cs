@@ -33,6 +33,7 @@ namespace SPAM.MainWork
 
             BaseDisplay.ChangeText(lblItemProcNoQ);
             BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(btnSearch);
 
         }
 
@@ -136,14 +137,13 @@ namespace SPAM.MainWork
 
                 try
                 {
-
-                    if (fpSpread1.Sheets[0].Cells[lngRow, 7].Value.ToString().Equals("True"))
-                    {
-                        isLast = "1";
-                    }
-                    else
+                    if(isLast == "")
                     {
                         isLast = "0";
+                    }
+                    else if(isLast.Equals("Ture"))
+                    {
+                        isLast = "1";
                     }
                 }
                 catch(Exception eex)

@@ -34,7 +34,14 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblGroupSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblLanguage, BaseDisplay.LabelType.Item);
 
-
+            BaseDisplay.ChangeText(lblUserIDQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(lblUserSeq);
+            BaseDisplay.ChangeText(lblUserID);
+            BaseDisplay.ChangeText(lblPassword);
+            BaseDisplay.ChangeText(lblGroupSeq);
+            BaseDisplay.ChangeText(lblLanguage);
 
         }
 
@@ -54,7 +61,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbGroup, ds.Tables[0], "ItemNm", "ItemCd", "그룹선택");
+                    string GroupSelect = Utils.GetLanguage("그룹선택");
+                    Utils.SetComboBox(cmbGroup, ds.Tables[0], "ItemNm", "ItemCd", GroupSelect);
                     cmbGroup.SelectedIndex = 0;
 
 
@@ -85,7 +93,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbLanguage, ds.Tables[0], "ItemNm", "ItemCd", "언어선택");
+                    string langSelect = Utils.GetLanguage("언어선택");
+                    Utils.SetComboBox(cmbLanguage, ds.Tables[0], "ItemNm", "ItemCd", langSelect);
                     cmbLanguage.SelectedIndex = 0;
 
 

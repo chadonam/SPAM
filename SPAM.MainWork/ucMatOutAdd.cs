@@ -41,6 +41,19 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblLOTID, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblOutDateQ);
+            BaseDisplay.ChangeText(lblItemNoQ);
+            BaseDisplay.ChangeText(groupBox3);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(lblBarcode);
+            BaseDisplay.ChangeText(lblOutSeq);
+            BaseDisplay.ChangeText(lblOutDate);
+            BaseDisplay.ChangeText(lblOutClss);
+            BaseDisplay.ChangeText(lblItemSeq);
+            BaseDisplay.ChangeText(lblProcSeq);
+            BaseDisplay.ChangeText(lblQty);
+
 
         }
 
@@ -60,7 +73,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbOutClss, ds.Tables[0], "ItemNm", "ItemCd", "출고구분");
+                    string MatOut = Utils.GetLanguage("출고구분");
+                    Utils.SetComboBox(cmbOutClss, ds.Tables[0], "ItemNm", "ItemCd", MatOut);
                     cmbOutClss.SelectedIndex = 0;
 
 

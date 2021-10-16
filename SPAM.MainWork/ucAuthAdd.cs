@@ -37,6 +37,13 @@ namespace SPAM.MainWork
             SetCombo_Group();
             SetCombo_Pgm();
 
+            BaseDisplay.ChangeText(lblAuthGroupQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(txtAuthSeq);
+            BaseDisplay.ChangeText(lblAuthGroup);
+            BaseDisplay.ChangeText(lblAuthProgram);
+            BaseDisplay.ChangeText(btnSearch);
+
 
 
 
@@ -58,7 +65,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbGroup, ds.Tables[0], "ItemNm", "ItemCd", "그룹선택");
+                    string GroupSelect = Utils.GetLanguage("그룹선택");
+                    Utils.SetComboBox(cmbGroup, ds.Tables[0], "ItemNm", "ItemCd", GroupSelect);
                     cmbGroup.SelectedIndex = 0;
 
 
@@ -86,7 +94,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbProgram, ds.Tables[0], "ItemNm", "ItemCd", "프로그램선택");
+                    string ProgramSelect = Utils.GetLanguage("프로그램선택");
+                    Utils.SetComboBox(cmbProgram, ds.Tables[0], "ItemNm", "ItemCd", ProgramSelect);
                     cmbProgram.SelectedIndex = 0;
 
 
