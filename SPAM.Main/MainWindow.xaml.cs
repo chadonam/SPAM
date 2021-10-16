@@ -256,6 +256,8 @@ namespace SPAM.Main
             menus.Add(caption, "SPAM.MainWork.ucMachReportQry");
             caption = Utils.GetLanguage("LOT이력조회");
             menus.Add(caption, "SPAM.MainWork.ucLotHistoryQry");
+            caption = Utils.GetLanguage("메세지");
+            menus.Add(caption, "SPAM.MainWork.ucMesAdd");
 
 
             SetLeftMeun(menus);

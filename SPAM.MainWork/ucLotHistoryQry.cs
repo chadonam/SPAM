@@ -34,14 +34,6 @@ namespace SPAM.MainWork
         private void SetFpSpread()
         {
 
-          
-
-            using (CommonService svc = new CommonService())
-            {
-
-            
-            }
-
             ParamPack param = new ParamPack();
 
             param.Add(FpSpread.SetSheetColumns("LOTID", "LOTID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
@@ -53,7 +45,7 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("등록일시", "RegDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("이벤트", "Event", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("이벤트", "Event", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
@@ -65,6 +57,7 @@ namespace SPAM.MainWork
 
         private void Search()
         {
+            
             DataSet ds = null;
             string lotId = txtLotIDQ.Text;
 
@@ -78,8 +71,6 @@ namespace SPAM.MainWork
             try
             {
                
-
-
                 using (CommonService svc = new CommonService())
                 {
                     ds = svc.GetHistory(lotId);
@@ -90,8 +81,6 @@ namespace SPAM.MainWork
                     //fpSpread1.Sheets[0].DataSource = ds;
                     FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
                 }
-                
-
 
             }
             catch (Exception ex)

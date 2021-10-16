@@ -1,11 +1,14 @@
-﻿using SPAM.Common;
+﻿using Newtonsoft.Json.Linq;
+using SPAM.Common;
 using SPAM.Manage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -216,6 +219,7 @@ namespace SPAM.MainWork
                 string remark;
                 string planSeq;
                 string qty;
+                string remark_vt;
 
                 planSeq = txtPlanSeq.Text;
                 planNo = txtPlanID.Text;
@@ -225,11 +229,13 @@ namespace SPAM.MainWork
                 procSeq = txtProcSeq.Text;
                 remark = txtNote.Text;
                 qty = txtQuan.Text;
+                remark_vt = Translate(remark);
+
 
 
                 using (CommonService svc = new CommonService())
                 {
-                    ds = svc.SetPlan(WorkingTag, planSeq, planNo, itemSeq, qty, startDate, endDate, procSeq, remark);
+                    ds = svc.SetPlan(WorkingTag, planSeq, planNo, itemSeq, qty, startDate, endDate, procSeq, remark,remark_vt);
                 }
 
 
@@ -321,6 +327,40 @@ namespace SPAM.MainWork
         }
         #endregion
 
+
+        #region 번역
+        public static string Translate(string korea)
+        {
+
+            string url = "https://openapi.naver.com/v1/papago/n2mt";
+
+
+            string clientid = "tjvN7vcWnA6xps7lHvkF";
+            string secret = "zKR0bo2EIU";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Headers.Add("X-Naver-Client-Id", clientid);
+            request.Headers.Add("X-Naver-Client-Secret", secret);
+            request.Method = "POST";
+            byte[] byteDataParams = Encoding.UTF8.GetBytes("source=ko&target=vi&text=" + korea);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteDataParams.Length;
+            Stream st = request.GetRequestStream();
+            st.Write(byteDataParams, 0, byteDataParams.Length);
+            st.Close();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+            string text = reader.ReadToEnd();
+            stream.Close();
+            response.Close();
+            reader.Close();
+
+            JObject jobj = JObject.Parse(text);
+            string result = jobj["message"]["result"]["translatedText"].ToString();
+            return result;
+
+        }
+        #endregion
 
     }
 }
