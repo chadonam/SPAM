@@ -352,13 +352,15 @@ namespace SPAM.MainWork
                 {
                     if (flag == 0)
                     {
-                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
+                        string GroupSelect = Utils.GetLanguage("공정선택");
+                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ProcID", "ProcSeq", GroupSelect);
                         cmbProc.SelectedIndex = 0;
                     }
 
                     else
                     {
-                        Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
+                        string GroupSelect = Utils.GetLanguage("공정선택");
+                        Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", GroupSelect);
                         cmbItemProc.SelectedIndex = 0;
                     }
 

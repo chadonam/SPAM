@@ -74,7 +74,7 @@ namespace SPAM.MainWork
             this.cmbProc.FormattingEnabled = true;
             this.cmbProc.Location = new System.Drawing.Point(1168, 13);
             this.cmbProc.Name = "cmbProc";
-            this.cmbProc.Size = new System.Drawing.Size(209, 32);
+            this.cmbProc.Size = new System.Drawing.Size(224, 32);
             this.cmbProc.TabIndex = 2;
             // 
             // btnSearch

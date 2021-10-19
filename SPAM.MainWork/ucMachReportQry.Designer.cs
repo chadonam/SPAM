@@ -59,31 +59,30 @@ namespace SPAM.MainWork
             // 
             this.lblDateQ.AutoSize = true;
             this.lblDateQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblDateQ.Location = new System.Drawing.Point(32, 16);
+            this.lblDateQ.Location = new System.Drawing.Point(28, 13);
             this.lblDateQ.Name = "lblDateQ";
-            this.lblDateQ.Size = new System.Drawing.Size(78, 41);
+            this.lblDateQ.Size = new System.Drawing.Size(63, 32);
             this.lblDateQ.TabIndex = 17;
             this.lblDateQ.Text = "기간";
             this.lblDateQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // calendarDouble1
             // 
-            this.calendarDouble1.Location = new System.Drawing.Point(168, 24);
-            this.calendarDouble1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.calendarDouble1.Location = new System.Drawing.Point(147, 19);
             this.calendarDouble1.Name = "calendarDouble1";
-            this.calendarDouble1.Size = new System.Drawing.Size(274, 31);
+            this.calendarDouble1.Size = new System.Drawing.Size(240, 25);
             this.calendarDouble1.StartMonthDistinction = 0;
             this.calendarDouble1.TabIndex = 16;
-            this.calendarDouble1.ValueEndDate = "20210904";
-            this.calendarDouble1.ValueStartDate = "20210904";
+            this.calendarDouble1.ValueEndDate = "20211019";
+            this.calendarDouble1.ValueStartDate = "20211019";
             // 
             // lblProcQ
             // 
             this.lblProcQ.AutoSize = true;
             this.lblProcQ.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblProcQ.Location = new System.Drawing.Point(488, 16);
+            this.lblProcQ.Location = new System.Drawing.Point(427, 13);
             this.lblProcQ.Name = "lblProcQ";
-            this.lblProcQ.Size = new System.Drawing.Size(78, 41);
+            this.lblProcQ.Size = new System.Drawing.Size(63, 32);
             this.lblProcQ.TabIndex = 12;
             this.lblProcQ.Text = "공정";
             this.lblProcQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -94,10 +93,9 @@ namespace SPAM.MainWork
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(1850, 16);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(1619, 13);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 44);
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "조회";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -113,27 +111,26 @@ namespace SPAM.MainWork
             this.pnlHeader.Controls.Add(this.btnSearch);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(2000, 88);
+            this.pnlHeader.Size = new System.Drawing.Size(1750, 71);
             this.pnlHeader.TabIndex = 13;
             // 
             // cmbProc
             // 
+            this.cmbProc.Font = new System.Drawing.Font("굴림", 18F);
             this.cmbProc.FormattingEnabled = true;
-            this.cmbProc.Location = new System.Drawing.Point(608, 32);
+            this.cmbProc.Location = new System.Drawing.Point(536, 16);
+            this.cmbProc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbProc.Name = "cmbProc";
-            this.cmbProc.Size = new System.Drawing.Size(176, 23);
+            this.cmbProc.Size = new System.Drawing.Size(192, 32);
             this.cmbProc.TabIndex = 18;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(80, 104);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(70, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(984, 750);
+            this.groupBox1.Size = new System.Drawing.Size(861, 600);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "생산실적";
@@ -141,19 +138,21 @@ namespace SPAM.MainWork
             // panel1
             // 
             this.panel1.Controls.Add(this.fpSpread1);
-            this.panel1.Location = new System.Drawing.Point(8, 72);
+            this.panel1.Location = new System.Drawing.Point(7, 58);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(960, 640);
+            this.panel1.Size = new System.Drawing.Size(840, 512);
             this.panel1.TabIndex = 0;
             // 
             // fpSpread1
             // 
             this.fpSpread1.AccessibleDescription = "";
             this.fpSpread1.Location = new System.Drawing.Point(0, 0);
+            this.fpSpread1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(960, 640);
+            this.fpSpread1.Size = new System.Drawing.Size(840, 513);
             this.fpSpread1.TabIndex = 0;
             // 
             // fpSpread1_Sheet1
@@ -164,11 +163,9 @@ namespace SPAM.MainWork
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Location = new System.Drawing.Point(1184, 104);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Location = new System.Drawing.Point(1036, 83);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(736, 750);
+            this.groupBox2.Size = new System.Drawing.Size(644, 600);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "그래프";
@@ -176,9 +173,10 @@ namespace SPAM.MainWork
             // panel2
             // 
             this.panel2.Controls.Add(this.chart1);
-            this.panel2.Location = new System.Drawing.Point(8, 64);
+            this.panel2.Location = new System.Drawing.Point(7, 51);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(720, 640);
+            this.panel2.Size = new System.Drawing.Size(630, 512);
             this.panel2.TabIndex = 0;
             // 
             // chart1
@@ -188,24 +186,26 @@ namespace SPAM.MainWork
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(720, 640);
+            this.chart1.Size = new System.Drawing.Size(630, 512);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // ucMachReportQry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlHeader);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucMachReportQry";
-            this.Size = new System.Drawing.Size(2000, 875);
+            this.Size = new System.Drawing.Size(1750, 700);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.groupBox1.ResumeLayout(false);
