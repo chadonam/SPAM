@@ -93,7 +93,7 @@
             this.panel5.Controls.Add(this.lblQuilStatus);
             this.panel5.Controls.Add(this.lblWorkStatus);
             this.panel5.Controls.Add(this.lblMachStatus);
-            this.panel5.Location = new System.Drawing.Point(0, 88);
+            this.panel5.Location = new System.Drawing.Point(2, 92);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(614, 183);
             this.panel5.TabIndex = 49;
@@ -160,12 +160,11 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblBarcode);
             this.panel1.Controls.Add(this.txtBarcode);
             this.panel1.Controls.Add(this.lblID);
             this.panel1.Controls.Add(this.txtID);
-            this.panel1.Location = new System.Drawing.Point(0, 272);
+            this.panel1.Location = new System.Drawing.Point(3, 277);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(613, 101);
             this.panel1.TabIndex = 50;
@@ -217,9 +216,8 @@
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.fpSpread1);
-            this.panel2.Location = new System.Drawing.Point(0, 416);
+            this.panel2.Location = new System.Drawing.Point(1, 419);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(613, 256);
             this.panel2.TabIndex = 51;
@@ -232,7 +230,7 @@
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(611, 254);
+            this.fpSpread1.Size = new System.Drawing.Size(613, 256);
             this.fpSpread1.TabIndex = 0;
             // 
             // fpSpread1_Sheet1
@@ -244,7 +242,7 @@
             // 
             this.lblConsumableLot.AutoSize = true;
             this.lblConsumableLot.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblConsumableLot.Location = new System.Drawing.Point(0, 384);
+            this.lblConsumableLot.Location = new System.Drawing.Point(3, 384);
             this.lblConsumableLot.Name = "lblConsumableLot";
             this.lblConsumableLot.Size = new System.Drawing.Size(111, 32);
             this.lblConsumableLot.TabIndex = 52;
@@ -253,19 +251,18 @@
             // 
             // btnDel1
             // 
-            this.btnDel1.Image = global::SPAM.MainWork.Properties.Resources.cancel;
-            this.btnDel1.Location = new System.Drawing.Point(552, 384);
+            this.btnDel1.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDel1.Location = new System.Drawing.Point(483, 390);
             this.btnDel1.Name = "btnDel1";
-            this.btnDel1.Size = new System.Drawing.Size(63, 32);
+            this.btnDel1.Size = new System.Drawing.Size(130, 32);
             this.btnDel1.TabIndex = 53;
             this.btnDel1.TabStop = false;
             this.btnDel1.Click += new System.EventHandler(this.btnDel1_Click);
             // 
             // panel3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.fpSpread2);
-            this.panel3.Location = new System.Drawing.Point(616, 144);
+            this.panel3.Location = new System.Drawing.Point(619, 144);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(560, 531);
             this.panel3.TabIndex = 54;
@@ -278,7 +275,7 @@
             this.fpSpread2.Name = "fpSpread2";
             this.fpSpread2.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread2_Sheet1});
-            this.fpSpread2.Size = new System.Drawing.Size(558, 529);
+            this.fpSpread2.Size = new System.Drawing.Size(560, 531);
             this.fpSpread2.TabIndex = 0;
             // 
             // fpSpread2_Sheet1
@@ -290,7 +287,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(616, 104);
+            this.label1.Location = new System.Drawing.Point(620, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 32);
             this.label1.TabIndex = 55;
@@ -300,7 +297,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.fpSpread3);
-            this.panel4.Location = new System.Drawing.Point(1176, 144);
+            this.panel4.Location = new System.Drawing.Point(1182, 144);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(545, 531);
             this.panel4.TabIndex = 56;
@@ -325,7 +322,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(1176, 104);
+            this.label2.Location = new System.Drawing.Point(1184, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 32);
             this.label2.TabIndex = 57;
@@ -334,20 +331,20 @@
             // 
             // btnDelOK
             // 
-            this.btnDelOK.Image = global::SPAM.MainWork.Properties.Resources.cancel;
-            this.btnDelOK.Location = new System.Drawing.Point(1113, 105);
+            this.btnDelOK.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.btnDelOK.Location = new System.Drawing.Point(1048, 115);
             this.btnDelOK.Name = "btnDelOK";
-            this.btnDelOK.Size = new System.Drawing.Size(63, 32);
+            this.btnDelOK.Size = new System.Drawing.Size(130, 32);
             this.btnDelOK.TabIndex = 58;
             this.btnDelOK.TabStop = false;
             this.btnDelOK.Click += new System.EventHandler(this.btnDelOK_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SPAM.MainWork.Properties.Resources.cancel;
-            this.pictureBox1.Location = new System.Drawing.Point(1656, 104);
+            this.pictureBox1.Image = global::SPAM.MainWork.Properties.Resources.Delete;
+            this.pictureBox1.Location = new System.Drawing.Point(1597, 115);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 32);
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -356,18 +353,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnDelOK);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnDel1);
             this.Controls.Add(this.lblConsumableLot);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.workHeader1);
+            this.Controls.Add(this.btnDel1);
+            this.Controls.Add(this.btnDelOK);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "ucHybrid";
             this.Size = new System.Drawing.Size(1750, 700);
             this.panel5.ResumeLayout(false);

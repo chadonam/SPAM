@@ -109,8 +109,8 @@
             this.calWorkDate.Size = new System.Drawing.Size(240, 25);
             this.calWorkDate.StartMonthDistinction = 0;
             this.calWorkDate.TabIndex = 18;
-            this.calWorkDate.ValueEndDate = "20210904";
-            this.calWorkDate.ValueStartDate = "20210904";
+            this.calWorkDate.ValueEndDate = "20211016";
+            this.calWorkDate.ValueStartDate = "20211016";
             // 
             // lblWorkDateQ
             // 
@@ -220,7 +220,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(336, 368);
+            this.chart1.Size = new System.Drawing.Size(544, 512);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 

@@ -45,6 +45,19 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(label4, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(label5, BaseDisplay.LabelType.Item);
 
+            BaseDisplay.ChangeText(lblDateQ);
+            BaseDisplay.ChangeText(lblProNameQ);
+            BaseDisplay.ChangeText(lblPlanSeq);
+            BaseDisplay.ChangeText(lblPlanID);
+            BaseDisplay.ChangeText(lblPgmName);
+            BaseDisplay.ChangeText(lblStartD);
+            BaseDisplay.ChangeText(lblEndD);
+            BaseDisplay.ChangeText(label4);
+            BaseDisplay.ChangeText(label5);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(label2);
+
             txtPlanSeq.Text = "0";
             txtPlanSeq.ReadOnly = true;
 

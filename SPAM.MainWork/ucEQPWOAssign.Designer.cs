@@ -63,8 +63,8 @@ namespace SPAM.MainWork
             this.date.Size = new System.Drawing.Size(240, 25);
             this.date.StartMonthDistinction = 0;
             this.date.TabIndex = 14;
-            this.date.ValueEndDate = "20210904";
-            this.date.ValueStartDate = "20210904";
+            this.date.ValueEndDate = "20211019";
+            this.date.ValueStartDate = "20211019";
             // 
             // txtItemNo
             // 
@@ -130,10 +130,11 @@ namespace SPAM.MainWork
             // 
             // cmbProc
             // 
+            this.cmbProc.Font = new System.Drawing.Font("굴림", 18F);
             this.cmbProc.FormattingEnabled = true;
-            this.cmbProc.Location = new System.Drawing.Point(984, 24);
+            this.cmbProc.Location = new System.Drawing.Point(952, 16);
             this.cmbProc.Name = "cmbProc";
-            this.cmbProc.Size = new System.Drawing.Size(121, 20);
+            this.cmbProc.Size = new System.Drawing.Size(176, 32);
             this.cmbProc.TabIndex = 18;
             // 
             // lblProc

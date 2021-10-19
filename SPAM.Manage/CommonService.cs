@@ -108,7 +108,8 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region Group Combo 조회        
+        #region Group Combo 조회  
+        /*
         public DataSet GetGroupCombo()
         {
             DataSet dsResult = null;
@@ -120,6 +121,37 @@ namespace SPAM.Manage
                 spName = "SGroupComboQry";
 
                 dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        */
+        #endregion
+
+        #region Group Combo 조회        
+        public DataSet GetGroupCombo()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+
+            try
+            {
+                spName = "SGroupComboQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -437,15 +469,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SProcComboQry";
 
-                //param = new SqlParameter[1];
-                //param[0] = new SqlParameter("@ItemNo", ItemNo);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
 
-                dsResult = SqlHelper.Fill(spName);
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -460,7 +492,7 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region Item Proc Combo 조회        
+        #region ItemProc Combo 조회
         public DataSet GetItemProcCombo(string ItemNo)
         {
             DataSet dsResult = null;
@@ -737,6 +769,7 @@ namespace SPAM.Manage
                 param[1] = new SqlParameter("@PlanSeq", PlanSeq);
                 param[2] = new SqlParameter("@ProcSeq", ProcSeq);
                 param[3] = new SqlParameter("@WorkDate", WorkDate);
+                
 
 
 
@@ -834,12 +867,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SOutClssComboQry";
 
-                dsResult = SqlHelper.Fill(spName);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -921,12 +957,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SPGMComboQry";
 
-                dsResult = SqlHelper.Fill(spName);
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -1201,12 +1240,13 @@ namespace SPAM.Manage
             {
                 spName = "SWoOrder2";
 
-                param = new SqlParameter[5];
+                param = new SqlParameter[6];
                 param[0] = new SqlParameter("@From", startDate);
                 param[1] = new SqlParameter("@To", endDate);
                 param[2] = new SqlParameter("@ItemNo", itemNo);
                 param[3] = new SqlParameter("@ProcSeq", proSeq);
                 param[4] = new SqlParameter("@Wo", wo);
+                param[5] = new SqlParameter("@Language", ClientGlobal.Language);
 
 
                 dsResult = SqlHelper.Fill(spName, param);
@@ -1634,9 +1674,6 @@ namespace SPAM.Manage
                 param[3] = new SqlParameter("@MachSeq", machSeq);
                 param[4] = new SqlParameter("@Gubun", gubun);
 
-                param[3] = new SqlParameter("@Gubun", gubun);
-
-
 
                 dsResult = SqlHelper.Fill(spName, param);
 
@@ -1772,12 +1809,15 @@ namespace SPAM.Manage
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            //SqlParameter[] param = null;
+            SqlParameter[] param = null;
             try
             {
                 spName = "SLanguageComboQry";
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
 
-                dsResult = SqlHelper.Fill(spName);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
@@ -1855,7 +1895,74 @@ namespace SPAM.Manage
         }
         #endregion
 
+        #region MainProcChart
+        public DataSet GetMainProcChart()
+        {
+            DataSet dsResult = null;
 
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "MainProcChart";
 
+                /*param = new SqlParameter[3];
+                param[0] = new SqlParameter("@TODATE", todate);
+                param[1] = new SqlParameter("@ENDDATE", enddate);
+                param[2] = new SqlParameter("@FIRSTDATE", firstdate);*/
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
+
+        #region MainProcQty
+        public DataSet GetMainProcQty(string From, string To)
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+            try
+            {
+                spName = "MainProcQty";
+
+                param = new SqlParameter[2];
+                param[0] = new SqlParameter("@From", From);
+                param[1] = new SqlParameter("@To", To);
+                //param[2] = new SqlParameter("@FIRSTDATE", firstdate);
+
+                //param = new SqlParameter[2];
+                // param[0] = new SqlParameter("@MachID", MachID);
+                //param[1] = new SqlParameter("@MachName", MachName);
+
+                dsResult = SqlHelper.Fill(spName, param);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        #endregion
     }
 }

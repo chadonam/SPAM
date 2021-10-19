@@ -26,6 +26,8 @@ namespace SPAM.MainWork
 
             BaseDisplay.SetLabelStyle(lblLotIDQ, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.ChangeText(groupBox1);
+
             //BaseDisplay.AdminTxt(txtLotIDQ, BaseDisplay.TxtType.CodeHelp);
 
         }

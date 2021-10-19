@@ -79,14 +79,35 @@ namespace SPAM.MainWork
             BaseDisplay.AdminTxt(txtPlanNo, BaseDisplay.TxtType.CodeHelp);
             BaseDisplay.AdminTxt(txtItemNo, BaseDisplay.TxtType.CodeHelp);
 
+            BaseDisplay.SetLabelStyle(lblWOLength, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblWOID, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblWOName, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblOrderSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblPlanSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblWorkDate, BaseDisplay.LabelType.Item);
+
+            BaseDisplay.ChangeText(lblWOID);
+            BaseDisplay.ChangeText(lblWOLength);
+            BaseDisplay.ChangeText(lblWOName);
+
+            BaseDisplay.ChangeText(lblOrderSeq);
+            BaseDisplay.ChangeText(lblPlanSeq);
+            BaseDisplay.ChangeText(lblProcSeq);
+            BaseDisplay.ChangeText(lblQty);
+            BaseDisplay.ChangeText(lblRemark);
+            BaseDisplay.ChangeText(lblWorkDate);
+            BaseDisplay.ChangeText(lbItemSeq);
+            BaseDisplay.ChangeText(lbOrderNo);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+
         }
         #endregion
+
+        
 
         #region FpSpread 설정
         private void SetFpSpread()
@@ -96,8 +117,8 @@ namespace SPAM.MainWork
             ParamPack param = new ParamPack();
 
 
-            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("WO번호", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품내부코드", "ItemSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
@@ -105,6 +126,8 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("지시사항", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("WO내부코드", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("계획내부코드", "PlanSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, false, true, FpSpread.FpSort.False, 1, null));
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
             FpSpread.SetSheetColumn(this.fpSpread1.Sheets[0], param, 1);
@@ -171,7 +194,7 @@ namespace SPAM.MainWork
                 string WorkDate;
                 string Qty;
                 string Remark;
-                string remark_vt;
+                string remark_vt="";
 
                 OrderSeq = txtOrderSeq.Text;
                 PlanSeq = txtPlanSeq.Text;
@@ -181,7 +204,11 @@ namespace SPAM.MainWork
                 WorkDate = dateTimePicker1.Text.Trim().Replace("-", string.Empty);
                 Qty = txtQty.Text;
                 Remark = txtRemark.Text;
-                remark_vt = Translate(Remark);
+
+                if (!String.Empty.Equals(Remark))
+                {
+                    remark_vt = Translate(Remark);
+                }
 
 
                 using (CommonService svc = new CommonService())
@@ -261,13 +288,20 @@ namespace SPAM.MainWork
         #region 기타 메소드
         private void DefaultControl()
         {
-            txtOrderSeq.Text = "0";
+            txtOrderSeq.Text = "";
+            txtPlanSeq.Text = "";
+            txtItemSeq.Text = "";
             txtOrderSeq.ReadOnly = true;
             txtPlanSeq.ReadOnly = true;
             txtItemSeq.ReadOnly = true;
             SetCombo_Proc(0);
+            SetCombo_Proc(1);
             //txtWorkDate.Text = string.Empty;
             txtQty.Text = "0";
+            txtRemark.Text = "";
+            txtPlanNo.Text = "";
+            txtItemNo.Text = "";
+            txtOrderNo.Text = "";
             txtRemark.Text = "";
 
 
@@ -318,13 +352,15 @@ namespace SPAM.MainWork
                 {
                     if (flag == 0)
                     {
-                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
+                        string GroupSelect = Utils.GetLanguage("공정선택");
+                        Utils.SetComboBox(cmbProc, ds.Tables[0], "ProcID", "ProcSeq", GroupSelect);
                         cmbProc.SelectedIndex = 0;
                     }
 
                     else
                     {
-                        Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", "공정선택");
+                        string GroupSelect = Utils.GetLanguage("공정선택");
+                        Utils.SetComboBox(cmbItemProc, ds.Tables[0], "ProcID", "ProcSeq", GroupSelect);
                         cmbItemProc.SelectedIndex = 0;
                     }
 
@@ -486,12 +522,28 @@ namespace SPAM.MainWork
 
             txtPlanNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 0].Value.ToString();
             txtOrderNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 1].Value.ToString();
-            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
+            txtItemSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 2].Value.ToString();
             txtItemNo.Text = fpSpread1.Sheets[0].Cells[e.Row, 3].Value.ToString();
             txtQty.Text = fpSpread1.Sheets[0].Cells[e.Row, 4].Value.ToString();
             dateTimePicker1.Text = fpSpread1.Sheets[0].Cells[e.Row, 5].Value.ToString();
             cmbItemProc.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
             txtRemark.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();
+            txtPlanSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 10].Value.ToString();
+            txtOrderSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 9].Value.ToString();
+
+        }
+
+        private void txtPlanNo_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SPAM.CommonUI.Popup.frmMonthlyPlan frm = new CommonUI.Popup.frmMonthlyPlan(txtPlanNo.Text);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                txtPlanNo.Text = frm.PlanNo;
+                //SetCombo_Proc();
+                txtPlanSeq.Text = frm.PlanSeq;
+            }
 
         }
     }

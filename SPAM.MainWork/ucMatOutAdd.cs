@@ -53,6 +53,9 @@ namespace SPAM.MainWork
             BaseDisplay.ChangeText(lblItemSeq);
             BaseDisplay.ChangeText(lblProcSeq);
             BaseDisplay.ChangeText(lblQty);
+            BaseDisplay.ChangeText(groupBox3);
+            BaseDisplay.ChangeText(groupbox2);
+            BaseDisplay.ChangeText(groupBox1);
 
 
         }
