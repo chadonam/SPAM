@@ -67,7 +67,8 @@ namespace SPAM.MainWork
 
                 if (ds != null)
                 {
-                    Utils.SetComboBox(cmbProcSeq, ds.Tables[0], "ItemNm", "ItemCd", "공정");
+                    string ProcSelect = Utils.GetLanguage("공정선택");
+                    Utils.SetComboBox(cmbProcSeq, ds.Tables[0], "ItemNm", "ItemCd", ProcSelect);
                     cmbProcSeq.SelectedIndex = 0;
 
 
