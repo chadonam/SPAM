@@ -31,6 +31,8 @@ namespace SPAM.MainWork
             BaseDisplay.ChangeText(lblBomNameQ);
             BaseDisplay.ChangeText(groupbox2);
             BaseDisplay.ChangeText(btnSync);
+            
+
 
 
         }

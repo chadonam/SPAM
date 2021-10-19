@@ -79,14 +79,35 @@ namespace SPAM.MainWork
             BaseDisplay.AdminTxt(txtPlanNo, BaseDisplay.TxtType.CodeHelp);
             BaseDisplay.AdminTxt(txtItemNo, BaseDisplay.TxtType.CodeHelp);
 
+            BaseDisplay.SetLabelStyle(lblWOLength, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblWOID, BaseDisplay.LabelType.Menu);
+            BaseDisplay.SetLabelStyle(lblWOName, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblOrderSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblPlanSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblQty, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblRemark, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblWorkDate, BaseDisplay.LabelType.Item);
+
+            BaseDisplay.ChangeText(lblWOID);
+            BaseDisplay.ChangeText(lblWOLength);
+            BaseDisplay.ChangeText(lblWOName);
+
+            BaseDisplay.ChangeText(lblOrderSeq);
+            BaseDisplay.ChangeText(lblPlanSeq);
+            BaseDisplay.ChangeText(lblProcSeq);
+            BaseDisplay.ChangeText(lblQty);
+            BaseDisplay.ChangeText(lblRemark);
+            BaseDisplay.ChangeText(lblWorkDate);
+            BaseDisplay.ChangeText(lbItemSeq);
+            BaseDisplay.ChangeText(lbOrderNo);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+
         }
         #endregion
+
+        
 
         #region FpSpread 설정
         private void SetFpSpread()

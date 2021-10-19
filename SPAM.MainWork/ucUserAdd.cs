@@ -43,6 +43,7 @@ namespace SPAM.MainWork
             BaseDisplay.ChangeText(lblGroupSeq);
             BaseDisplay.ChangeText(lblLanguage);
 
+
         }
 
         #region Group Combo 처리

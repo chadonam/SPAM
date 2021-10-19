@@ -40,6 +40,13 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblItemSeq, BaseDisplay.LabelType.Item);
             BaseDisplay.SetLabelStyle(lblProcSeq, BaseDisplay.LabelType.Item);*/
 
+            BaseDisplay.ChangeText(lblWorkDateQ);
+            BaseDisplay.ChangeText(lblItemSeqQ);
+            BaseDisplay.ChangeText(lblProcSeqQ);
+            BaseDisplay.ChangeText(lblOrderSeqQ);
+            BaseDisplay.ChangeText(groupBox1);
+            BaseDisplay.ChangeText(groupbox2);
+
 
 
         }
