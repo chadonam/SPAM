@@ -108,7 +108,8 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region Group Combo 조회        
+        #region Group Combo 조회  
+        /*
         public DataSet GetGroupCombo()
         {
             DataSet dsResult = null;
@@ -120,6 +121,37 @@ namespace SPAM.Manage
                 spName = "SGroupComboQry";
 
                 dsResult = SqlHelper.Fill(spName);
+
+                return dsResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (dsResult != null) { dsResult.Dispose(); dsResult = null; }
+            }
+        }
+        */
+        #endregion
+
+        #region Group Combo 조회        
+        public DataSet GetGroupCombo()
+        {
+            DataSet dsResult = null;
+
+            string spName = string.Empty;
+            SqlParameter[] param = null;
+
+            try
+            {
+                spName = "SGroupComboQry";
+
+                param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Language", ClientGlobal.Language);
+
+                dsResult = SqlHelper.Fill(spName, param);
 
                 return dsResult;
             }
