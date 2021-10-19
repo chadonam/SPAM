@@ -492,7 +492,7 @@ namespace SPAM.Manage
         }
         #endregion
 
-        #region Item Proc Combo 조회        
+        #region ItemProc Combo 조회
         public DataSet GetItemProcCombo(string ItemNo)
         {
             DataSet dsResult = null;
