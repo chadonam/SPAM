@@ -25,8 +25,8 @@ namespace SPAM.MainWork
         private void InitControl()
         {
             
-            //BaseDisplay.AdminBtn(btnNew, BaseDisplay.BtnType.Etc);
-            //BaseDisplay.AdminTxt(txtItemNo, BaseDisplay.TxtType.CodeHelp);
+            BaseDisplay.AdminBtn(btnSave, BaseDisplay.BtnType.Etc);
+            BaseDisplay.AdminBtn(btnDel, BaseDisplay.BtnType.Etc);
 
 
 
