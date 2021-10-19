@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing;
 
 
+
 namespace SPAM.MainWork
 {
     public partial class ucScriber : UserControl
@@ -21,6 +22,7 @@ namespace SPAM.MainWork
 
             workHeader1.StartButtonClick += WorkHeader1_StartButtonClick;
             workHeader1.EndButtonClick += WorkHeader1_EndButtonClick;
+
         }
 
 
@@ -280,6 +282,9 @@ namespace SPAM.MainWork
                 ChangePic(picWorkStatus, "green");
                 txtBarcode.ReadOnly = true;
                 //애니메이션 시작
+                CommonUI.Popup.frmGifPlayer player = new CommonUI.Popup.frmGifPlayer("scriber");
+                player.StartPosition = FormStartPosition.CenterScreen;
+                player.ShowDialog();
 
                 SetWorkLot(barcode);
                 Search2("OK");
