@@ -81,16 +81,14 @@ namespace SPAM.MainWork
             chart1.Series.Add("Series1");
             chart1.Titles.Clear();
             chart1.Titles.Add("생산량");
-            chart1.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
+            //chart1.Series["Series1"].LegendText = "생산수량";   // 차트 이름을 "수학"으로 설정
             chart1.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
-            string From = "20210901";
-            string To = "20210930";
 
             using (CommonService svc = new CommonService())
             {
-                ds = svc.GetMainProcQty(From, To);
+                ds = svc.GetMainProcQty();
             }
 
             if (ds != null)
@@ -110,7 +108,7 @@ namespace SPAM.MainWork
             chart2.Series.Add("Series1");
             chart2.Titles.Clear();
             chart2.Titles.Add("목표생산량");
-            chart2.Series["Series1"].LegendText = "양품수량";   // 차트 이름을 "수학"으로 설정
+            //chart2.Series["Series1"].LegendText = "양품수량";   // 차트 이름을 "수학"으로 설정
             chart2.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
@@ -154,13 +152,13 @@ namespace SPAM.MainWork
             chart3.Series.Add("Series1");
             chart3.Titles.Clear();
             chart3.Titles.Add("가동률");
-            chart3.Series["Series1"].LegendText = "Scriber#1호기";   // 차트 이름을 "수학"으로 설정
+            //chart3.Series["Series1"].LegendText = "Scriber#1호기";   // 차트 이름을 "수학"으로 설정
             chart3.Series["Series1"].ChartType = SeriesChartType.Pie; // 그래프를 라인으로 출력
 
             DataSet ds = null;
             using (CommonService svc = new CommonService())
             {
-                ds = svc.GetMachReprotChart("1", "20210901", "20210930");
+                ds = svc.GetMachReprotChart();
             }
 
             if (ds != null)
@@ -212,17 +210,23 @@ namespace SPAM.MainWork
             ParamPack param = new ParamPack();
             ParamPack param2 = new ParamPack();
 
-            param.Add(FpSpread.SetSheetColumns("품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("제품품명", "ItemName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("계획번호", "PlanNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 160, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("수량합", "QtySum", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, false, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("공정명", "ProcName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 160, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("수량합", "QtySum", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
 
 
-            param2.Add(FpSpread.SetSheetColumns("WO번호", "OrderSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("WO번호", "OrderNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 160, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param2.Add(FpSpread.SetSheetColumns("공정ID", "ProcID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("공정명", "ProcName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 160, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("제품품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("제품품명", "ItemName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 200, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Left, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("WO수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 100, Color.White, true, false, FpSpread.FpSort.False, 1, null));
+            
+            
 
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
