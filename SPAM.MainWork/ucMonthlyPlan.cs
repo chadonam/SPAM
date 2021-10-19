@@ -219,7 +219,7 @@ namespace SPAM.MainWork
                 string remark;
                 string planSeq;
                 string qty;
-                string remark_vt="";
+                string remark_vt;
 
                 planSeq = txtPlanSeq.Text;
                 planNo = txtPlanID.Text;
@@ -229,14 +229,7 @@ namespace SPAM.MainWork
                 procSeq = txtProcSeq.Text;
                 remark = txtNote.Text;
                 qty = txtQuan.Text;
-
-                if (!string.Empty.Equals(remark))
-                {
-                    remark_vt = Translate(remark);
-                }
-                
-
-
+                remark_vt = Translate(remark);
 
 
 
@@ -245,7 +238,7 @@ namespace SPAM.MainWork
                     ds = svc.SetPlan(WorkingTag, planSeq, planNo, itemSeq, qty, startDate, endDate, procSeq, remark, remark_vt);
                 }
 
-                    
+
                 if (ds != null)
                 {
                     status = Int32.Parse(ds.Tables[0].Rows[0][0].ToString());

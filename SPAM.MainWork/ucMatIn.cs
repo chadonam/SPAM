@@ -366,7 +366,6 @@ namespace SPAM.MainWork
         {
             if(e.KeyCode == Keys.Enter)
             {
-
                 string barCode = txtCode.Text;
                 String[] bar = barCode.Split('$');
                 txtDate.Text = bar[1].ToString();
