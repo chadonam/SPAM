@@ -206,11 +206,8 @@ namespace SPAM.MainWork
                 WorkDate = dateTimePicker1.Text.Trim().Replace("-", string.Empty);
                 Qty = txtQty.Text;
                 Remark = txtRemark.Text;
+                remark_vt = Translate(Remark);
 
-                if (!String.Empty.Equals(Remark))
-                {
-                    remark_vt = Translate(Remark);
-                }
 
 
                 using (CommonService svc = new CommonService())
