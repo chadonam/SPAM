@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing;
 
 
+
 namespace SPAM.MainWork
 {
     public partial class ucScriber : UserControl
@@ -21,6 +22,7 @@ namespace SPAM.MainWork
 
             workHeader1.StartButtonClick += WorkHeader1_StartButtonClick;
             workHeader1.EndButtonClick += WorkHeader1_EndButtonClick;
+
         }
 
 
@@ -61,7 +63,7 @@ namespace SPAM.MainWork
 
             param.Add(FpSpread.SetSheetColumns("원자재LOTID", "ConsumableLotID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("품번", "ItemNo", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("투입수량", "QTy", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("투입수량", "Qty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
             FpSpread.SetSheetColumn(this.fpSpread1.Sheets[0], param, 1);
@@ -135,6 +137,7 @@ namespace SPAM.MainWork
             ChangePic(picWorkStatus, "yellow");
 
             WorkStart();
+            Search();
             Search2("OK");
             Search2("NG");
 
@@ -280,6 +283,9 @@ namespace SPAM.MainWork
                 ChangePic(picWorkStatus, "green");
                 txtBarcode.ReadOnly = true;
                 //애니메이션 시작
+                CommonUI.Popup.frmGifPlayer player = new CommonUI.Popup.frmGifPlayer("scriber");
+                player.StartPosition = FormStartPosition.CenterScreen;
+                player.ShowDialog();
 
                 SetWorkLot(barcode);
                 Search2("OK");
@@ -368,6 +374,7 @@ namespace SPAM.MainWork
                 {
                     //fpSpread1.Sheets[0].DataSource = ds;
                     FpSpread.SetSheetDataBind(this.fpSpread1.Sheets[0], ds.Tables[0]);
+                    
 
 
                 }
@@ -438,7 +445,7 @@ namespace SPAM.MainWork
             string MachSeq = workHeader1.ValueOfMachSeq;
             string workDate = DateTime.Now.ToString("yyyyMMdd");
 
-            fpSpread1.Sheets[0].Rows.Count = 0;
+            fpSpread2.Sheets[0].Rows.Count = 0;
             try
             {
 

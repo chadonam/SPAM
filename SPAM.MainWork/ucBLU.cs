@@ -285,6 +285,9 @@ namespace SPAM.MainWork
                 ChangePic(picWorkStatus, "green");
                 txtBarcode.ReadOnly = true;
                 //애니메이션 시작
+                CommonUI.Popup.frmGifPlayer player = new CommonUI.Popup.frmGifPlayer("BLU");
+                player.StartPosition = FormStartPosition.CenterScreen;
+                player.ShowDialog();
 
                 SetWorkLot(barcode);
                 Search2("OK");
