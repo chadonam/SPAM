@@ -55,7 +55,7 @@ namespace SPAM.MainWork
 
             param.Add(FpSpread.SetSheetColumns("프로그램코드", "PgmSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("프로그램ID", "PgmID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("프로그램명", "PgmName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("프로그램명", "PgmName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
 

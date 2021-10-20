@@ -64,7 +64,7 @@ namespace SPAM.MainWork
 
 
             param.Add(FpSpread.SetSheetColumns("한국어", "KO", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("베트남어", "VT", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("베트남어", "VT", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 400, Color.White, true, true, FpSpread.FpSort.False, 1, null));
            
 
 
