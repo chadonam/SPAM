@@ -1556,26 +1556,26 @@ namespace SPAM.Manage
         #endregion
 
         #region MachReprotChart 조회       
-        public DataSet GetMachReprotChart(string procSeq, string from, string to)
+        public DataSet GetMachReprotChart()
         {
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            SqlParameter[] param = null;
+            //SqlParameter[] param = null;
             try
             {
                 spName = "MachReportChart";
 
-                param = new SqlParameter[3];
-                param[0] = new SqlParameter("@ProcSeq", procSeq);
-                param[1] = new SqlParameter("@From", from);
-                param[2] = new SqlParameter("@To", to);
+                //param = new SqlParameter[3];
+                //param[0] = new SqlParameter("@ProcSeq", procSeq);
+                //param[1] = new SqlParameter("@From", from);
+                //param[2] = new SqlParameter("@To", to);
 
                 //param = new SqlParameter[2];
                 // param[0] = new SqlParameter("@MachID", MachID);
                 //param[1] = new SqlParameter("@MachName", MachName);
 
-                dsResult = SqlHelper.Fill(spName, param);
+                dsResult = SqlHelper.Fill(spName);
 
                 return dsResult;
             }
@@ -1931,26 +1931,23 @@ namespace SPAM.Manage
         #endregion
 
         #region MainProcQty
-        public DataSet GetMainProcQty(string From, string To)
+        public DataSet GetMainProcQty()
         {
             DataSet dsResult = null;
 
             string spName = string.Empty;
-            SqlParameter[] param = null;
+            //SqlParameter[] param = null;
             try
             {
                 spName = "MainProcQty";
 
-                param = new SqlParameter[2];
-                param[0] = new SqlParameter("@From", From);
-                param[1] = new SqlParameter("@To", To);
                 //param[2] = new SqlParameter("@FIRSTDATE", firstdate);
 
                 //param = new SqlParameter[2];
                 // param[0] = new SqlParameter("@MachID", MachID);
                 //param[1] = new SqlParameter("@MachName", MachName);
 
-                dsResult = SqlHelper.Fill(spName, param);
+                dsResult = SqlHelper.Fill(spName);
 
                 return dsResult;
             }
