@@ -232,7 +232,9 @@ namespace SPAM.MainWork
                 string remark;
                 string planSeq;
                 string qty;
-                string remark_vt;
+                string remark_vt="";
+
+                
 
                 planSeq = txtPlanSeq.Text;
                 planNo = txtPlanID.Text;
@@ -242,7 +244,11 @@ namespace SPAM.MainWork
                 procSeq = txtProcSeq.Text;
                 remark = txtNote.Text;
                 qty = txtQuan.Text;
-                remark_vt = Translate(remark);
+
+                if (!string.Empty.Equals(""))
+                {
+                    remark_vt = Translate(remark);
+                }
 
 
 
