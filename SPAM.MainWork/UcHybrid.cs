@@ -277,6 +277,10 @@ namespace SPAM.MainWork
                 txtBarcode.ReadOnly = true;
                 //애니메이션 시작
 
+                CommonUI.Popup.frmGifPlayer player = new CommonUI.Popup.frmGifPlayer("Hybrid");
+                player.StartPosition = FormStartPosition.CenterScreen;
+                player.ShowDialog();
+
                 SetWorkLot(barcode);
                 Search2("OK");
 
