@@ -109,13 +109,13 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("작업일자", "WorkDate", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정", "ProcSeq", FpSpread.FpCellType.ComboBox, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, true, false, FpSpread.FpSort.False, 1, Proc));
             param.Add(FpSpread.SetSheetColumns("설비명", "MachName", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("설비ID", "MachID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("설비ID", "MachID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 110, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("설비내부코드", "MachSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Right, 120, Color.White, false, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("생산수량", "ProdQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("양품수량", "OKQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("불량수량", "BadQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("생산수량", "ProdQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 70, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("양품수량", "OKQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 70, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("불량수량", "BadQty", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 70, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("작업자내부코드", "UserSeq", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, false, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("작업자", "ID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("작업자", "ID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 100, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
             FpSpread.FpSpreadFrame(this.fpSpread1);
