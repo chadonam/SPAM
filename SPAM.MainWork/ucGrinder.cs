@@ -41,6 +41,14 @@ namespace SPAM.MainWork
             BaseDisplay.SetLabelStyle(lblWorkStatus, BaseDisplay.LabelType.Menu);
             BaseDisplay.SetLabelStyle(lblQuilStatus, BaseDisplay.LabelType.Menu);
 
+            BaseDisplay.ChangeText(lblID);
+            BaseDisplay.ChangeText(lblBarcode);
+            BaseDisplay.ChangeText(lblConsumableLot);
+            BaseDisplay.ChangeText(lblMachStatus);
+            BaseDisplay.ChangeText(lblWorkStatus);
+            BaseDisplay.ChangeText(lblQuilStatus);
+            BaseDisplay.ChangeText(lblConsumableLot);
+
         }
 
 
@@ -61,14 +69,14 @@ namespace SPAM.MainWork
 
             param1.Add(FpSpread.SetSheetColumns("LOTID", "LotID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param1.Add(FpSpread.SetSheetColumns("판정", "Judge", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param1.Add(FpSpread.SetSheetColumns("TIMEKEY", "Timekey", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param1.Add(FpSpread.SetSheetColumns("TIMEKEY", "Timekey", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 130, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
             FpSpread.FpSpreadFrame(this.fpSpread2);
             FpSpread.SetSheetColumn(this.fpSpread2.Sheets[0], param1, 1);
 
             param2.Add(FpSpread.SetSheetColumns("LOTID", "LotID", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 250, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param2.Add(FpSpread.SetSheetColumns("판정", "Judge", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param2.Add(FpSpread.SetSheetColumns("TIMEKEY", "Timekey", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param2.Add(FpSpread.SetSheetColumns("TIMEKEY", "Timekey", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Left, 130, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
             FpSpread.FpSpreadFrame(this.fpSpread3);
             FpSpread.SetSheetColumn(this.fpSpread3.Sheets[0], param2, 1);
