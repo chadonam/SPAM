@@ -82,8 +82,8 @@ namespace SPAM.MainWork
             param.Add(FpSpread.SetSheetColumns("시작일자", "StartDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("종료일자", "EndDate", FpSpread.FpCellType.DateTime, FontStyle.Regular, FpSpread.FpAlignment.Left, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
             param.Add(FpSpread.SetSheetColumns("공정순서", "ProcList", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 300, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("비고", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 80, Color.White, true, true, FpSpread.FpSort.False, 1, null));
-            param.Add(FpSpread.SetSheetColumns("번역", "Remark_VT", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 120, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("비고", "Remark", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
+            param.Add(FpSpread.SetSheetColumns("번역", "Remark_VT", FpSpread.FpCellType.Text, FontStyle.Regular, FpSpread.FpAlignment.Center, 150, Color.White, true, true, FpSpread.FpSort.False, 1, null));
 
 
 
@@ -307,6 +307,7 @@ namespace SPAM.MainWork
             dtp_EndDate.Text = fpSpread1.Sheets[0].Cells[e.Row, 6].Value.ToString();
             txtProcSeq.Text = fpSpread1.Sheets[0].Cells[e.Row, 7].Value.ToString();
             txtNote.Text = fpSpread1.Sheets[0].Cells[e.Row, 8].Value.ToString();
+            
 
             txtPlanSeq.ReadOnly = true;
             txtProcSeq.ReadOnly = true;

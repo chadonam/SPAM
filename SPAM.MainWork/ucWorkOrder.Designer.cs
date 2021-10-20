@@ -72,9 +72,9 @@ namespace SPAM.MainWork
             // groupbox2
             // 
             this.groupbox2.Controls.Add(this.fpSpread1);
-            this.groupbox2.Location = new System.Drawing.Point(576, 93);
+            this.groupbox2.Location = new System.Drawing.Point(576, 80);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Size = new System.Drawing.Size(1150, 600);
+            this.groupbox2.Size = new System.Drawing.Size(1150, 584);
             this.groupbox2.TabIndex = 25;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "WO목록";
@@ -88,7 +88,7 @@ namespace SPAM.MainWork
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1144, 580);
+            this.fpSpread1.Size = new System.Drawing.Size(1144, 564);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick_1);
@@ -121,7 +121,7 @@ namespace SPAM.MainWork
             this.groupBox1.Controls.Add(this.lbItemSeq);
             this.groupBox1.Controls.Add(this.lblPlanSeq);
             this.groupBox1.Controls.Add(this.lblOrderSeq);
-            this.groupBox1.Location = new System.Drawing.Point(8, 96);
+            this.groupBox1.Location = new System.Drawing.Point(8, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(560, 597);
             this.groupBox1.TabIndex = 24;
@@ -396,8 +396,8 @@ namespace SPAM.MainWork
             this.calendarDouble1.Size = new System.Drawing.Size(240, 25);
             this.calendarDouble1.StartMonthDistinction = 0;
             this.calendarDouble1.TabIndex = 12;
-            this.calendarDouble1.ValueEndDate = "20211016";
-            this.calendarDouble1.ValueStartDate = "20211016";
+            this.calendarDouble1.ValueEndDate = "20211020";
+            this.calendarDouble1.ValueStartDate = "20211020";
             // 
             // btnSearch
             // 
