@@ -46,6 +46,8 @@ namespace SPAM.MainWork
             this.lblPgmName = new System.Windows.Forms.Label();
             this.lblPlanID = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
             this.txtPlanSeq = new System.Windows.Forms.TextBox();
             this.txtItemSeq = new System.Windows.Forms.TextBox();
             this.lblStartD = new System.Windows.Forms.Label();
@@ -57,8 +59,6 @@ namespace SPAM.MainWork
             this.txtProcSeq = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPlanSeq = new System.Windows.Forms.Label();
-            this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
-            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
@@ -142,8 +142,8 @@ namespace SPAM.MainWork
             this.date.Size = new System.Drawing.Size(240, 25);
             this.date.StartMonthDistinction = 0;
             this.date.TabIndex = 14;
-            this.date.ValueEndDate = "20210828";
-            this.date.ValueStartDate = "20210828";
+            this.date.ValueEndDate = "20211020";
+            this.date.ValueStartDate = "20211020";
             // 
             // lblDateQ
             // 
@@ -164,7 +164,7 @@ namespace SPAM.MainWork
             this.fpSpread1.Name = "fpSpread1";
             this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(1144, 580);
+            this.fpSpread1.Size = new System.Drawing.Size(1165, 566);
             this.fpSpread1.TabIndex = 0;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick_1);
@@ -179,7 +179,7 @@ namespace SPAM.MainWork
             this.groupbox2.Controls.Add(this.fpSpread1);
             this.groupbox2.Location = new System.Drawing.Point(573, 86);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Size = new System.Drawing.Size(1150, 600);
+            this.groupbox2.Size = new System.Drawing.Size(1171, 586);
             this.groupbox2.TabIndex = 19;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "조회정보";
@@ -272,10 +272,26 @@ namespace SPAM.MainWork
             this.groupBox1.Controls.Add(this.lblPlanSeq);
             this.groupBox1.Location = new System.Drawing.Point(8, 88);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(560, 600);
+            this.groupBox1.Size = new System.Drawing.Size(560, 576);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "입력정보";
+            // 
+            // dtp_EndDate
+            // 
+            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_EndDate.Location = new System.Drawing.Point(168, 296);
+            this.dtp_EndDate.Name = "dtp_EndDate";
+            this.dtp_EndDate.Size = new System.Drawing.Size(344, 21);
+            this.dtp_EndDate.TabIndex = 30;
+            // 
+            // dtp_StartDate
+            // 
+            this.dtp_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_StartDate.Location = new System.Drawing.Point(168, 256);
+            this.dtp_StartDate.Name = "dtp_StartDate";
+            this.dtp_StartDate.Size = new System.Drawing.Size(344, 21);
+            this.dtp_StartDate.TabIndex = 29;
             // 
             // txtPlanSeq
             // 
@@ -398,22 +414,6 @@ namespace SPAM.MainWork
             this.lblPlanSeq.TabIndex = 0;
             this.lblPlanSeq.Text = "계획내부코드";
             this.lblPlanSeq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dtp_StartDate
-            // 
-            this.dtp_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_StartDate.Location = new System.Drawing.Point(168, 256);
-            this.dtp_StartDate.Name = "dtp_StartDate";
-            this.dtp_StartDate.Size = new System.Drawing.Size(344, 21);
-            this.dtp_StartDate.TabIndex = 29;
-            // 
-            // dtp_EndDate
-            // 
-            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_EndDate.Location = new System.Drawing.Point(168, 296);
-            this.dtp_EndDate.Name = "dtp_EndDate";
-            this.dtp_EndDate.Size = new System.Drawing.Size(344, 21);
-            this.dtp_EndDate.TabIndex = 30;
             // 
             // ucMonthlyPlan
             // 
