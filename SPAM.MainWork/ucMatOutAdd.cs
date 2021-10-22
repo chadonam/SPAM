@@ -349,6 +349,10 @@ namespace SPAM.MainWork
             txtReq.ReadOnly = false;
             txtItemNo.Text = string.Empty;
             SetCombo_OutClss();
+            txtItemSeq.Text = string.Empty;
+            txtLOTID.Text = string.Empty;
+            txtQty.Text = string.Empty;
+
             //SetSpreadRowColor(fpSpread1);
         }
 
