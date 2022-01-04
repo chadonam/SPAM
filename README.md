@@ -2,8 +2,11 @@
 안동대 최종 프로젝트1조
 프로젝트 명: 파파고 API를 이용한 디스플레이 생산 다국어 MES
 사용언어: C#
-
 ![1](https://user-images.githubusercontent.com/56530536/148046966-29ad34f6-5853-4ac7-a550-0cf04710044e.PNG)
+![a](https://user-images.githubusercontent.com/56530536/148047202-38f99b36-7dd4-450d-aa88-c1018a81d120.PNG)
+![b](https://user-images.githubusercontent.com/56530536/148047205-94571ce8-587e-452e-9aac-fafde6ee5926.PNG)
+![c](https://user-images.githubusercontent.com/56530536/148047208-f5cfa071-5e67-47df-bef1-030f02d4771d.PNG)
+![d](https://user-images.githubusercontent.com/56530536/148047212-dad371fd-13ba-45d9-b728-5b3f5ca02560.PNG)
 ![2](https://user-images.githubusercontent.com/56530536/148046974-004b5d8f-75ea-4b8e-8877-6927cb44f0ff.PNG)
 ![3](https://user-images.githubusercontent.com/56530536/148046978-f38ecb1b-fb31-44e3-aa3f-0854c04f101e.PNG)
 ![4](https://user-images.githubusercontent.com/56530536/148046979-8a741fcf-d35b-4c33-ad39-291237ca4ee2.PNG)
