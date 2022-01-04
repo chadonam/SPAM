@@ -1,2 +1,31 @@
 # SPAM
 안동대 최종 프로젝트1조
+프로젝트 명: 파파고 API를 이용한 디스플레이 생산 다국어 MES
+사용언어: C#
+
+![1](https://user-images.githubusercontent.com/56530536/148045774-386f4753-b990-40ac-9ba4-b7259ab7c0c0.PNG)
+![2](https://user-images.githubusercontent.com/56530536/148046578-ef5e6974-503f-4480-95ff-01c7d48d42ba.PNG)
+![3](https://user-images.githubusercontent.com/56530536/148046580-48faf8bc-1c07-453f-82b1-82580c23a76a.PNG)
+![4](https://user-images.githubusercontent.com/56530536/148046585-644e5ebc-8471-4b95-bdbd-0782ee64aa66.PNG)
+![5](https://user-images.githubusercontent.com/56530536/148046590-4d48ddc3-7339-47d0-a318-ef113ec6f664.PNG)
+![6](https://user-images.githubusercontent.com/56530536/148046602-d232b3a3-4e0a-400c-ae72-067a48526666.PNG)
+![7](https://user-images.githubusercontent.com/56530536/148046609-91317ac3-214d-458b-9837-f887a9ee6e52.PNG)
+![8](https://user-images.githubusercontent.com/56530536/148046612-6a524042-d5cb-47ef-8dbe-64beb57ef0dc.PNG)
+![9](https://user-images.githubusercontent.com/56530536/148046616-e68e1d96-8f96-4014-ad22-a59e6a3eb066.PNG)
+![10](https://user-images.githubusercontent.com/56530536/148046620-0843461d-a2d3-4813-861f-58e41195dd22.PNG)
+![11](https://user-images.githubusercontent.com/56530536/148046628-83d13d70-8497-47df-8ff8-3740d9e633a9.PNG)
+![12](https://user-images.githubusercontent.com/56530536/148046634-cb44ccfa-e695-4d7d-832f-dc50fc215a0c.PNG)
+![13](https://user-images.githubusercontent.com/56530536/148046640-1aa79958-b338-41dd-813a-3783358644f5.PNG)
+![17](https://user-images.githubusercontent.com/56530536/148046663-eb743c1e-90fd-4f09-b63a-9ef663600a94.PNG)
+![18](https://user-images.githubusercontent.com/56530536/148046670-cdba678a-3a85-451e-a49a-e2f6ed9f319d.PNG)
+![19](https://user-images.githubusercontent.com/56530536/148046671-2561a0d4-cab3-4051-b38a-bee550e88238.PNG)
+![20](https://user-images.githubusercontent.com/56530536/148046676-c454514d-ab8d-4e3f-81af-957d2136e59f.PNG)
+![21](https://user-images.githubusercontent.com/56530536/148046678-c7d08e2c-a5c8-4d8b-bafb-6deb5c87f91e.PNG)
+![22](https://user-images.githubusercontent.com/56530536/148046680-db5cd6ad-cc5a-4b8d-81c2-03f4730e9c1b.PNG)
+![23](https://user-images.githubusercontent.com/56530536/148046681-4d9b0134-49fc-4b20-a0b3-a5f32d296b08.PNG)
+![24](https://user-images.githubusercontent.com/56530536/148046684-cb74781b-bc52-4f1d-94cf-0f978659df17.PNG)
+![25](https://user-images.githubusercontent.com/56530536/148046686-c37b04ea-aa89-4d1d-87cf-b0ee627ea44a.PNG)
+![26](https://user-images.githubusercontent.com/56530536/148046687-2597db8c-cf49-41b8-b8d2-053a14a816a5.PNG)
+![14](https://user-images.githubusercontent.com/56530536/148046692-b36ea032-1556-461e-ac62-1c4114201e55.PNG)
+![15](https://user-images.githubusercontent.com/56530536/148046694-22e25222-112a-4759-aed4-15d1819c1fc5.PNG)
+![16](https://user-images.githubusercontent.com/56530536/148046696-7f999e82-98fe-48e1-ad1f-ea172380b215.PNG)
